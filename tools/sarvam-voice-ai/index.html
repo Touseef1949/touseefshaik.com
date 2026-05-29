@@ -35,7 +35,7 @@
     .btn-secondary { border: 2px solid var(--border); color: var(--text); }
     .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
 
-    .tools-showcase { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 2.5rem; }
+    .tools-showcase { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-bottom: 2.5rem; }
     .tool-showcase-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; box-shadow: var(--shadow-sm); transition: all 0.2s; }
     .tool-showcase-card:hover { border-color: var(--accent); box-shadow: var(--shadow-md); }
     .tool-showcase-card .icon { font-size: 2.2rem; margin-bottom: 0.75rem; display: block; }
@@ -85,6 +85,7 @@
       .nav-inner { flex-wrap: wrap; }
       .nav-links { gap: 0.75rem; flex-wrap: wrap; }
       .nav-links a { font-size: 0.78rem; min-height: 36px; display: inline-flex; align-items: center; }
+      .deploy-grid { grid-template-columns: 1fr !important; }
       footer { flex-direction: column; text-align: center; }
       footer .footer-links { justify-content: center; }
     }
@@ -120,12 +121,13 @@
       </p>
 
       <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-bottom:2rem;">
-        <a href="https://sarvam-voice-ai.streamlit.app" class="btn btn-primary" target="_blank">🎙️ Launch App →</a>
+        <a href="https://sarvam-voice-ai.streamlit.app" class="btn btn-primary" target="_blank">🎙️ Launch Voice Agent →</a>
+        <a href="https://sarvam-stt-studio.streamlit.app" class="btn btn-primary" target="_blank">📝 Launch STT Studio →</a>
         <a href="https://github.com/Touseef1949/sarvam-voice-ai" class="btn btn-secondary" target="_blank">🐙 View Source</a>
       </div>
 
       <!-- What's inside -->
-      <h2>Two tools in one app</h2>
+      <h2>Three tools, one repo</h2>
       <div class="tools-showcase">
         <div class="tool-showcase-card">
           <span class="icon">🎙️</span>
@@ -134,10 +136,25 @@
           <ul class="features">
             <li>Voice input via browser microphone</li>
             <li>Speech-to-text in 11 Indian languages</li>
-            <li>AI-powered conversation (powered by Sarvam LLM)</li>
+            <li>AI-powered conversation (Sarvam LLM)</li>
             <li>Text-to-speech reply with 7 voice options</li>
             <li>Download conversation audio</li>
           </ul>
+          <a href="https://sarvam-voice-ai.streamlit.app" class="btn btn-primary" style="margin-top:0.75rem;font-size:0.8rem;padding:0.6rem 1.25rem;" target="_blank">Launch →</a>
+        </div>
+        <div class="tool-showcase-card">
+          <span class="icon">📝</span>
+          <h3>STT Studio</h3>
+          <p>Upload WAV audio files and get accurate transcriptions in 11 Indian languages. Preview audio, download transcripts, and inspect raw JSON responses.</p>
+          <ul class="features">
+            <li>Upload WAV files for transcription</li>
+            <li>Audio preview before processing</li>
+            <li>11 Indian languages + English</li>
+            <li>Multiple STT modes (transcribe, translate, verbatim, codemix)</li>
+            <li>Download transcripts as .txt</li>
+            <li>View raw JSON response + event log</li>
+          </ul>
+          <a href="https://sarvam-stt-studio.streamlit.app" class="btn btn-primary" style="margin-top:0.75rem;font-size:0.8rem;padding:0.6rem 1.25rem;" target="_blank">Launch →</a>
         </div>
         <div class="tool-showcase-card">
           <span class="icon">🔊</span>
@@ -182,22 +199,27 @@
       </div>
 
       <!-- Getting started -->
-      <h2>How to use</h2>
+      <h2>How to deploy (Streamlit Cloud)</h2>
       <div class="note-box">
         <strong>🔑 You need a Sarvam AI API key.</strong> Get one free at <a href="https://sarvam.ai" style="color:#92400e;">sarvam.ai</a>. 
-        Paste it in the app sidebar. Your key is never stored on our servers — it stays in your browser session.
+        Your key stays in your browser session — it's never stored on our servers.
       </div>
 
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;">
+      <div class="deploy-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-bottom:2rem;">
         <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;">
-          <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.5rem;">☁️ Use the hosted app</h3>
-          <p style="color:var(--text-secondary);font-size:0.88rem;">Launch the Streamlit Cloud app, enter your API key, and start using it instantly. No installation needed.</p>
-          <a href="https://sarvam-voice-ai.streamlit.app" class="btn btn-primary" style="margin-top:0.75rem;font-size:0.8rem;padding:0.6rem 1.25rem;" target="_blank">Launch App →</a>
+          <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.5rem;">🎙️ Voice Agent</h3>
+          <p style="color:var(--text-secondary);font-size:0.82rem;">Voice-to-voice conversational AI with TTS Studio. Record, transcribe, converse, and generate speech.</p>
+          <a href="https://share.streamlit.io/deploy?repository=Touseef1949/sarvam-voice-ai&branch=main&mainModule=app.py" class="btn btn-primary" style="margin-top:0.75rem;font-size:0.78rem;padding:0.55rem 1rem;" target="_blank">Deploy App →</a>
         </div>
         <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;">
-          <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.5rem;">💻 Run locally</h3>
-          <p style="color:var(--text-secondary);font-size:0.88rem;">Clone the repo, install dependencies, and run on your machine. Full control, no limits.</p>
-          <a href="https://github.com/Touseef1949/sarvam-voice-ai" class="btn btn-secondary" style="margin-top:0.75rem;font-size:0.8rem;padding:0.6rem 1.25rem;" target="_blank">View on GitHub →</a>
+          <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.5rem;">📝 STT Studio</h3>
+          <p style="color:var(--text-secondary);font-size:0.82rem;">Upload WAV files, transcribe, view JSON responses, and download transcripts in 11 languages.</p>
+          <a href="https://share.streamlit.io/deploy?repository=Touseef1949/sarvam-voice-ai&branch=main&mainModule=stt_studio_app.py" class="btn btn-primary" style="margin-top:0.75rem;font-size:0.78rem;padding:0.55rem 1rem;" target="_blank">Deploy App →</a>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;">
+          <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.5rem;">💻 Run Locally</h3>
+          <p style="color:var(--text-secondary);font-size:0.82rem;">Clone the repo, install deps, and run any tool on your machine. Full control, no limits.</p>
+          <a href="https://github.com/Touseef1949/sarvam-voice-ai" class="btn btn-secondary" style="margin-top:0.75rem;font-size:0.78rem;padding:0.55rem 1rem;" target="_blank">View Repo →</a>
         </div>
       </div>
 
