@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Tools for Business Analysts, Product Owners & Product Teams — Touseef Shaik</title>
+  <title>AI Tools for Business Analysts, Product Owners & Product Teams | Touseef Shaik</title>
   <meta name="description" content="AI tools for Business Analysts, Product Owners, PMs, and product teams. Turn messy requirements into structured specs, user stories, architecture, risks, and diagrams — starting with BA Assistant. Built by a fintech Product Owner with 12+ years of experience.">
+  <meta name="keywords" content="AI requirements analysis tool, business analyst AI tool, AI tool for product owners, requirements to user stories AI, AI PRD generator, AI user story generator, Mermaid diagram generator AI">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -188,8 +189,19 @@
       .stat-card { padding: 1rem 0.5rem; }
       .stat-val { font-size: 1.2rem; }
       section { padding: 3rem 1.25rem; }
-      .nav-inner { padding: 0.85rem 1.25rem; }
-      .nav-links { gap: 1rem; }
+      .nav-inner { padding: 0.85rem 1.25rem; flex-wrap: wrap; }
+      .nav-links { gap: 0.75rem; flex-wrap: wrap; font-size: 0.8rem; }
+      .hero .ctas { flex-direction: column; align-items: stretch; }
+      .hero .ctas .btn { width: 100%; text-align: center; justify-content: center; min-height: 44px; }
+      .btn { min-height: 44px; }
+      .nav-links a { font-size: 0.78rem; padding: 0.3rem 0; min-height: 36px; display: inline-flex; align-items: center; }
+      .nav-cta { padding: 0.4rem 0.85rem !important; }
+      .newsletter-form { flex-direction: column; }
+      .newsletter-form input { width: 100%; }
+      .newsletter-form button { width: 100%; min-height: 44px; }
+      footer { flex-direction: column; text-align: center; }
+      footer .footer-links { justify-content: center; }
+      .cred-grid { grid-template-columns: 1fr !important; }
     }
   </style>
 </head>
@@ -201,6 +213,8 @@
       <div class="nav-links">
         <a href="/">Home</a>
         <a href="/tools">Tools</a>
+        <a href="/tools/ba-assistant">BA Assistant</a>
+        <a href="/how-it-works/ba-assistant">How It Works</a>
         <a href="/#story">About</a>
         <a href="/contact">Contact</a>
         <a href="https://businessanalysttools.streamlit.app" class="nav-cta" target="_blank">Try BA Assistant Free</a>
@@ -214,9 +228,8 @@
       <p class="eyebrow">👋 Hey, I'm Touseef — Product Owner & AI Builder</p>
       <h1>AI Tools for Business Analysts, Product Owners & Product Teams</h1>
       <p class="subtitle">
-        Turn messy requirements into structured specs, user stories, architecture notes, 
-        risks, and diagrams in minutes — starting with BA Assistant, a 5-agent workflow 
-        built from real product-delivery experience.
+        Turn messy requirements, product ideas, and analysis tasks into structured outputs 
+        faster — with practical AI tools built from real product-delivery workflows.
       </p>
       <div class="ctas">
         <a href="https://businessanalysttools.streamlit.app" class="btn btn-primary" target="_blank">Try BA Assistant Free →</a>
@@ -265,7 +278,7 @@
   <section id="tools">
     <div class="section-inner">
       <div class="section-label">What I'm building</div>
-      <h2 class="section-title">AI tools for product, requirements, writing, and analysis.</h2>
+      <h2 class="section-title">Practical AI tools for requirements, product workflows, writing, analysis, and evaluation.</h2>
       <p class="section-desc">
         Each tool is built from real product-delivery problems I've faced as a Product Owner: 
         messy requirements, unclear scope, slow documentation, repetitive analysis.
@@ -338,6 +351,43 @@
     </div>
   </section>
 
+  <!-- CREDIBILITY & ROADMAP -->
+  <section class="section-alt">
+    <div class="section-inner">
+      <div class="section-label">Credibility & Roadmap</div>
+      <h2 class="section-title">Built for real product teams, with real workflows.</h2>
+      <p class="section-desc">
+        BA Assistant is used by BAs, Product Owners, and engineering leads to accelerate 
+        requirements analysis and documentation. Here's what's coming next.
+      </p>
+      <div class="cred-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:1.5rem;">
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;">
+          <h3 style="font-size:0.95rem;font-weight:700;margin-bottom:0.5rem;">🚀 Roadmap</h3>
+          <ul style="list-style:none;font-size:0.85rem;color:var(--text-secondary);line-height:2;">
+            <li><span style="color:var(--green);font-weight:600;">✓</span> 5-agent requirements analysis</li>
+            <li><span style="color:var(--green);font-weight:600;">✓</span> Mermaid diagram generation</li>
+            <li><span style="color:var(--green);font-weight:600;">✓</span> PDF export (Pro plan)</li>
+            <li><span style="color:var(--accent);font-weight:600;">→</span> Stripe payments integration</li>
+            <li><span style="color:var(--accent);font-weight:600;">→</span> Team workspaces & sharing</li>
+            <li><span style="color:var(--text-dim);">○</span> API access for CI/CD pipelines</li>
+            <li><span style="color:var(--text-dim);">○</span> Custom agent templates</li>
+          </ul>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;">
+          <h3 style="font-size:0.95rem;font-weight:700;margin-bottom:0.5rem;">🔗 Connect & Verify</h3>
+          <ul style="list-style:none;font-size:0.85rem;color:var(--text-secondary);line-height:2;">
+            <li>🐙 <a href="https://github.com/Touseef1949" style="color:var(--accent);">GitHub — see the code</a></li>
+            <li>💼 <a href="https://linkedin.com/in/ts26" style="color:var(--accent);">LinkedIn — 12+ yrs fintech</a></li>
+            <li>📋 <a href="/tools/ba-assistant" style="color:var(--accent);">BA Assistant — try it live</a></li>
+            <li>⚙️ <a href="/how-it-works/ba-assistant" style="color:var(--accent);">Architecture & stack</a></li>
+            <li>🔒 <a href="/privacy" style="color:var(--accent);">Privacy policy</a></li>
+            <li>📄 <a href="/terms" style="color:var(--accent);">Terms of use</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- NEWSLETTER -->
   <section class="section-alt">
     <div class="section-inner" style="text-align: center;">
@@ -371,6 +421,7 @@
       <a href="/how-it-works/ba-assistant">How it Works</a>
       <a href="/contact">Contact</a>
       <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
       <a href="https://github.com/Touseef1949" target="_blank">GitHub</a>
       <a href="https://linkedin.com/in/ts26" target="_blank">LinkedIn</a>
     </div>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BA Assistant — AI Requirements Analysis Tool for BAs & Product Owners</title>
-  <meta name="description" content="Turn raw business requirements into structured specs, user stories, NFRs, architecture notes, risk assessments, and Mermaid diagrams in under 60 seconds. Free to try.">
+  <meta name="description" content="Turn raw business requirements into structured specs, user stories, NFRs, architecture notes, risk assessments, and Mermaid diagrams in under 60 seconds. AI requirements analysis tool for BAs and Product Owners.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -130,6 +130,14 @@
       .pricing-grid { grid-template-columns: 1fr; }
       section { padding: 2rem 1.25rem 3rem; }
       .page-header h1 { font-size: 1.8rem; }
+      .nav-inner { flex-wrap: wrap; }
+      .nav-links { gap: 0.75rem; flex-wrap: wrap; }
+      .nav-links a { font-size: 0.78rem; min-height: 36px; display: inline-flex; align-items: center; }
+      .btn { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
+      .page-header .desc + div { flex-direction: column; }
+      .page-header .desc + div .btn { width: 100%; text-align: center; }
+      footer { flex-direction: column; text-align: center; }
+      footer .footer-links { justify-content: center; }
     }
   </style>
 </head>
@@ -141,9 +149,11 @@
       <div class="nav-links">
         <a href="/">Home</a>
         <a href="/tools">Tools</a>
+        <a href="/tools/ba-assistant">BA Assistant</a>
+        <a href="/how-it-works/ba-assistant">How It Works</a>
         <a href="/#story">About</a>
         <a href="/contact">Contact</a>
-        <a href="https://businessanalysttools.streamlit.app" class="nav-cta" target="_blank">Try Free</a>
+        <a href="https://businessanalysttools.streamlit.app" class="nav-cta" target="_blank">Try BA Assistant Free</a>
       </div>
     </div>
   </nav>
@@ -160,6 +170,47 @@
           Paste raw requirements and get structured functional requirements, NFRs, 
           user stories, risks, architecture notes, and Mermaid diagrams in under 60 seconds.
         </p>
+        <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:1.25rem;">
+          <a href="https://businessanalysttools.streamlit.app" class="btn btn-primary" target="_blank" style="padding:0.85rem 2rem;font-size:0.9rem;">Start Free Analysis →</a>
+          <a href="#sample" class="btn btn-outline" style="padding:0.85rem 2rem;font-size:0.9rem;">See Example Report ↓</a>
+          <a href="/how-it-works/ba-assistant" class="btn btn-outline" style="padding:0.85rem 2rem;font-size:0.9rem;">How It Works ⚙</a>
+        </div>
+      </div>
+
+      <!-- What BA Assistant Does -->
+      <div style="margin-bottom:2.5rem;">
+        <h2 style="font-size:1.4rem;font-weight:700;margin-bottom:0.75rem;">What BA Assistant Does</h2>
+        <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.7;">
+          BA Assistant is a 5-agent AI workflow that takes raw business requirements — a paragraph, 
+          a user story, meeting notes, or a full PRD excerpt — and generates a comprehensive, 
+          structured BA/PO report. Each of the five agents analyses your input from a different 
+          dimension: requirements structuring, product backlog, solution architecture, risk assessment, 
+          and diagram generation. The result is a delivery-ready document you can paste directly into 
+          Confluence, Notion, or your PRD.
+        </p>
+      </div>
+
+      <!-- Who It's For -->
+      <div style="margin-bottom:2.5rem;">
+        <h2 style="font-size:1.4rem;font-weight:700;margin-bottom:0.75rem;">Who It's For</h2>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+          <div style="background:var(--surface-alt);border-radius:var(--radius);padding:1.25rem;">
+            <p style="font-weight:600;font-size:0.9rem;">📋 Business Analysts</p>
+            <p style="color:var(--text-secondary);font-size:0.85rem;">Turn stakeholder input into structured requirements in minutes instead of hours.</p>
+          </div>
+          <div style="background:var(--surface-alt);border-radius:var(--radius);padding:1.25rem;">
+            <p style="font-weight:600;font-size:0.9rem;">📦 Product Owners</p>
+            <p style="color:var(--text-secondary);font-size:0.85rem;">Generate user stories, acceptance criteria, and backlog-ready features instantly.</p>
+          </div>
+          <div style="background:var(--surface-alt);border-radius:var(--radius);padding:1.25rem;">
+            <p style="font-weight:600;font-size:0.9rem;">🏗 Product Teams</p>
+            <p style="color:var(--text-secondary);font-size:0.85rem;">Align on architecture, risks, and diagrams before design sprints or planning sessions.</p>
+          </div>
+          <div style="background:var(--surface-alt);border-radius:var(--radius);padding:1.25rem;">
+            <p style="font-weight:600;font-size:0.9rem;">🚀 Engineering Leads</p>
+            <p style="color:var(--text-secondary);font-size:0.85rem;">Get implementation-ready specs with tech stack, integration patterns, and data models.</p>
+          </div>
+        </div>
       </div>
 
       <div class="features-grid">
@@ -172,7 +223,7 @@
       </div>
 
       <!-- Sample Input/Output -->
-      <div class="sample-grid">
+      <div id="sample" class="sample-grid">
         <div class="sample-box">
           <div class="label">You paste this…</div>
           <div class="input-text">
@@ -192,6 +243,13 @@
             <li>3 Mermaid diagrams (flow, sequence, state)</li>
           </ul>
         </div>
+      </div>
+
+      <!-- Privacy Note -->
+      <div style="background:#fef3c7;border:1px solid #fcd34d;border-radius:10px;padding:1rem 1.25rem;margin-bottom:2.5rem;font-size:0.85rem;color:#92400e;">
+        <strong>🔒 Privacy note:</strong> Do not paste confidential or sensitive data. 
+        BA Assistant is designed for early-stage analysis and documentation support. 
+        Always review AI-generated outputs before using them in production.
       </div>
 
       <!-- Pricing -->
@@ -271,8 +329,10 @@
     <div class="footer-links">
       <a href="/tools">Tools</a>
       <a href="/tools/ba-assistant">BA Assistant</a>
+      <a href="/how-it-works/ba-assistant">How it Works</a>
       <a href="/contact">Contact</a>
       <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
       <a href="https://github.com/Touseef1949" target="_blank">GitHub</a>
       <a href="https://linkedin.com/in/ts26" target="_blank">LinkedIn</a>
     </div>
