@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sarvam Voice AI — Multilingual Voice Agent & TTS Toolkit | Touseef Shaik</title>
+  <meta name="description" content="Sarvam Voice AI Toolkit — a free Streamlit app for multilingual voice conversations and text-to-speech in 11 Indian languages. Powered by Sarvam AI.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #fdfcf9; --surface: #ffffff; --surface-alt: #f6f4f0; --border: #e8e5df; --text: #1a1a1a; --text-secondary: #555555; --text-dim: #8a8a8a; --accent: #2563eb; --accent-hover: #1d4ed8; --green: #059669; --green-bg: #ecfdf5; --amber: #d97706; --amber-bg: #fffbeb; --radius: 16px; --radius-sm: 10px; --max-width: 960px; --shadow-sm: 0 1px 3px rgba(0,0,0,0.04); --shadow-md: 0 4px 16px rgba(0,0,0,0.06); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(253,252,249,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: var(--max-width); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 2rem; }
+    .logo { font-weight: 700; font-size: 1.05rem; text-decoration: none; color: var(--text); }
+    .logo:hover { color: var(--accent); }
+    .nav-links { display: flex; gap: 1.75rem; align-items: center; }
+    .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.875rem; font-weight: 500; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta { background: var(--accent); color: #fff !important; padding: 0.45rem 1rem; border-radius: 100px; font-size: 0.8rem !important; font-weight: 600 !important; }
+    section { padding: 4rem 2rem; }
+    .section-inner { max-width: var(--max-width); margin: 0 auto; }
+    .back { margin-bottom: 1.5rem; }
+    .back a { color: var(--text-dim); text-decoration: none; font-size: 0.85rem; }
+    .section-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 0.5rem; }
+    h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.75rem; }
+    .subtitle { color: var(--text-secondary); font-size: 1.05rem; margin-bottom: 1.5rem; max-width: 640px; }
+    .tag { display: inline-block; font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; padding: 3px 10px; border-radius: 100px; }
+    .tag-live { background: var(--green-bg); color: var(--green); }
+    .btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.85rem 2rem; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.2s; }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent-hover); }
+    .btn-secondary { border: 2px solid var(--border); color: var(--text); }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+    .tools-showcase { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 2.5rem; }
+    .tool-showcase-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; box-shadow: var(--shadow-sm); transition: all 0.2s; }
+    .tool-showcase-card:hover { border-color: var(--accent); box-shadow: var(--shadow-md); }
+    .tool-showcase-card .icon { font-size: 2.2rem; margin-bottom: 0.75rem; display: block; }
+    .tool-showcase-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .tool-showcase-card p { color: var(--text-secondary); font-size: 0.88rem; line-height: 1.6; }
+    .tool-showcase-card .features { list-style: none; margin-top: 0.75rem; }
+    .tool-showcase-card .features li { font-size: 0.82rem; color: var(--text-secondary); padding: 0.2rem 0; }
+    .tool-showcase-card .features li::before { content: "• "; color: var(--accent); }
+
+    .voices-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin-bottom: 1.5rem; }
+    .voice-chip { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1rem; text-align: center; }
+    .voice-chip .vname { font-weight: 600; font-size: 0.9rem; }
+    .voice-chip .vlang { font-size: 0.72rem; color: var(--text-dim); margin-top: 0.15rem; }
+    .voice-chip .vemoji { font-size: 1.2rem; margin-bottom: 0.35rem; }
+
+    .lang-badges { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .lang-badge { background: var(--surface-alt); border: 1px solid var(--border); border-radius: 100px; padding: 0.35rem 0.85rem; font-size: 0.78rem; font-weight: 500; color: var(--text-secondary); }
+
+    .promo-banner {
+      background: linear-gradient(135deg, #1e3a5f, #2563eb); color: #fff; text-align: center;
+      border-radius: var(--radius); padding: 3rem 2rem; margin-bottom: 2.5rem;
+    }
+    .promo-banner h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .promo-banner p { font-size: 1rem; opacity: 0.9; margin-bottom: 1.5rem; }
+    .promo-banner .btn-white {
+      display: inline-block; background: #fff; color: #1e3a5f; padding: 0.8rem 2rem;
+      border-radius: 100px; text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: all 0.2s;
+    }
+    .promo-banner .btn-white:hover { transform: scale(1.03); box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+
+    .note-box { background: #fef3c7; border: 1px solid #fcd34d; border-radius: 10px; padding: 1rem 1.25rem; margin-bottom: 2rem; font-size: 0.85rem; color: #92400e; }
+    .links-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem; }
+    .link-chip { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.5rem 1rem; border: 1px solid var(--border); border-radius: 100px; text-decoration: none; color: var(--text-secondary); font-size: 0.82rem; font-weight: 500; transition: all 0.2s; }
+    .link-chip:hover { border-color: var(--accent); color: var(--accent); }
+
+    h2 { font-size: 1.3rem; font-weight: 700; margin: 2rem 0 0.75rem; }
+    footer { padding: 2rem; border-top: 1px solid var(--border); max-width: var(--max-width); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; color: var(--text-dim); font-size: 0.85rem; }
+    footer .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    footer a { color: var(--text-dim); text-decoration: none; font-size: 0.85rem; }
+    footer a:hover { color: var(--text-secondary); }
+
+    @media (max-width: 700px) {
+      .tools-showcase { grid-template-columns: 1fr; }
+      .voices-grid { grid-template-columns: 1fr 1fr; }
+      h1 { font-size: 1.8rem; }
+      section { padding: 2rem 1.25rem 3rem; }
+      .nav-inner { flex-wrap: wrap; }
+      .nav-links { gap: 0.75rem; flex-wrap: wrap; }
+      .nav-links a { font-size: 0.78rem; min-height: 36px; display: inline-flex; align-items: center; }
+      footer { flex-direction: column; text-align: center; }
+      footer .footer-links { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">Touseef Shaik</a>
+      <div class="nav-links">
+        <a href="/start-here">Start Here</a>
+        <a href="/tools">Tools</a>
+        <a href="/tools/ba-assistant">BA Assistant</a>
+        <a href="/resources">Resources</a>
+        <a href="/blog">Blog</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="https://businessanalysttools.streamlit.app" class="nav-cta" target="_blank">Try BA Assistant Free</a>
+      </div>
+    </div>
+  </nav>
+
+  <section>
+    <div class="section-inner">
+      <div class="back"><a href="/tools">← Back to all tools</a></div>
+      <div class="section-label">Voice AI</div>
+      <h1>Sarvam Voice AI Toolkit</h1>
+      <p style="font-size:0.9rem;color:var(--text-dim);margin-bottom:1rem;">Multilingual Voice Agent & TTS Studio · <span class="tag tag-live">Live</span></p>
+      <p class="subtitle">
+        A free, open-source Streamlit app that brings Sarvam AI's voice technology to your browser. 
+        Record your voice, converse with AI, generate speech in 11 Indian languages — all from one tool.
+      </p>
+
+      <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-bottom:2rem;">
+        <a href="https://sarvam-voice-ai.streamlit.app" class="btn btn-primary" target="_blank">🎙️ Launch App →</a>
+        <a href="https://github.com/Touseef1949/sarvam-voice-ai" class="btn btn-secondary" target="_blank">🐙 View Source</a>
+      </div>
+
+      <!-- What's inside -->
+      <h2>Two tools in one app</h2>
+      <div class="tools-showcase">
+        <div class="tool-showcase-card">
+          <span class="icon">🎙️</span>
+          <h3>Conversational Voice Agent</h3>
+          <p>Record your voice or type a message. The agent transcribes your speech, generates an AI reply, and speaks it back to you — all in your chosen Indian language.</p>
+          <ul class="features">
+            <li>Voice input via browser microphone</li>
+            <li>Speech-to-text in 11 Indian languages</li>
+            <li>AI-powered conversation (powered by Sarvam LLM)</li>
+            <li>Text-to-speech reply with 7 voice options</li>
+            <li>Download conversation audio</li>
+          </ul>
+        </div>
+        <div class="tool-showcase-card">
+          <span class="icon">🔊</span>
+          <h3>TTS Studio</h3>
+          <p>Convert any text to natural speech with 7 different Indian voices. Compare side-by-side, adjust pace, and download audio files.</p>
+          <ul class="features">
+            <li>7 Indian voices (male + female)</li>
+            <li>11 Indian languages + English</li>
+            <li>Adjustable speech pace</li>
+            <li>Side-by-side voice comparison</li>
+            <li>Download as MP3 or WAV</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Languages -->
+      <h2>11 Indian languages supported</h2>
+      <div class="lang-badges">
+        <span class="lang-badge">🇮🇳 Hindi</span>
+        <span class="lang-badge">🇮🇳 English (India)</span>
+        <span class="lang-badge">🇮🇳 Telugu</span>
+        <span class="lang-badge">🇮🇳 Tamil</span>
+        <span class="lang-badge">🇮🇳 Kannada</span>
+        <span class="lang-badge">🇮🇳 Malayalam</span>
+        <span class="lang-badge">🇮🇳 Bengali</span>
+        <span class="lang-badge">🇮🇳 Marathi</span>
+        <span class="lang-badge">🇮🇳 Gujarati</span>
+        <span class="lang-badge">🇮🇳 Punjabi</span>
+        <span class="lang-badge">🇮🇳 Odia</span>
+      </div>
+
+      <!-- Voices -->
+      <h2>7 voice options</h2>
+      <div class="voices-grid">
+        <div class="voice-chip"><div class="vemoji">🟦</div><div class="vname">Rahul</div><div class="vlang">Composed · Builds trust</div></div>
+        <div class="voice-chip"><div class="vemoji">🟪</div><div class="vname">Kavya</div><div class="vlang">Conversational tone</div></div>
+        <div class="voice-chip"><div class="vemoji">🟦</div><div class="vname">Ratan</div><div class="vlang">Sharp articulation</div></div>
+        <div class="voice-chip"><div class="vemoji">🟪</div><div class="vname">Priya</div><div class="vlang">Upbeat personality</div></div>
+        <div class="voice-chip"><div class="vemoji">🟪</div><div class="vname">Ishita</div><div class="vlang">Polished · Enterprise</div></div>
+        <div class="voice-chip"><div class="vemoji">🟪</div><div class="vname">Shreya</div><div class="vlang">Precise enunciation</div></div>
+        <div class="voice-chip"><div class="vemoji">🟪</div><div class="vname">Shruti</div><div class="vlang">Natural · Expressive</div></div>
+      </div>
+
+      <!-- Getting started -->
+      <h2>How to use</h2>
+      <div class="note-box">
+        <strong>🔑 You need a Sarvam AI API key.</strong> Get one free at <a href="https://sarvam.ai" style="color:#92400e;">sarvam.ai</a>. 
+        Paste it in the app sidebar. Your key is never stored on our servers — it stays in your browser session.
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;">
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;">
+          <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.5rem;">☁️ Use the hosted app</h3>
+          <p style="color:var(--text-secondary);font-size:0.88rem;">Launch the Streamlit Cloud app, enter your API key, and start using it instantly. No installation needed.</p>
+          <a href="https://sarvam-voice-ai.streamlit.app" class="btn btn-primary" style="margin-top:0.75rem;font-size:0.8rem;padding:0.6rem 1.25rem;" target="_blank">Launch App →</a>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;">
+          <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.5rem;">💻 Run locally</h3>
+          <p style="color:var(--text-secondary);font-size:0.88rem;">Clone the repo, install dependencies, and run on your machine. Full control, no limits.</p>
+          <a href="https://github.com/Touseef1949/sarvam-voice-ai" class="btn btn-secondary" style="margin-top:0.75rem;font-size:0.8rem;padding:0.6rem 1.25rem;" target="_blank">View on GitHub →</a>
+        </div>
+      </div>
+
+      <!-- Tech stack -->
+      <h2>Tech stack</h2>
+      <div class="links-row">
+        <span class="link-chip">🐍 Streamlit</span>
+        <span class="link-chip">🎙️ Sarvam AI (saaras:v3)</span>
+        <span class="link-chip">🔊 Sarvam AI (bulbul:v3)</span>
+        <span class="link-chip">🧠 Sarvam LLM</span>
+        <span class="link-chip">🌐 WebRTC</span>
+        <span class="link-chip">🇮🇳 11 Indian languages</span>
+      </div>
+
+      <!-- Links -->
+      <h2>Links</h2>
+      <div class="links-row">
+        <a href="https://github.com/Touseef1949/sarvam-voice-ai" class="link-chip" target="_blank">🐙 GitHub Repo</a>
+        <a href="https://sarvam.ai" class="link-chip" target="_blank">🔗 Sarvam AI</a>
+        <a href="https://docs.sarvam.ai" class="link-chip" target="_blank">📖 Sarvam Docs</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Touseef Shaik &copy; 2026</span>
+    <div class="footer-links">
+      <a href="/start-here">Start Here</a>
+      <a href="/tools">Tools</a>
+      <a href="/tools/ba-assistant">BA Assistant</a>
+      <a href="/resources">Resources</a>
+      <a href="/blog">Blog</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+    </div>
+  </footer>
+
+</body>
+</html>
