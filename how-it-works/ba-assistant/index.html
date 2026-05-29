@@ -3,21 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>How it Works — BA Assistant · Touseef Shaik</title>
-  <meta name="description" content="Architecture, agents, and cost breakdown for BA Assistant — 5 AI agents for requirement analysis.">
+  <title>How BA Assistant Works — 5-Agent AI Workflow · Touseef Shaik</title>
+  <meta name="description" content="A 5-agent workflow analyzes requirements from multiple angles: BA analysis, product backlog, architecture, risks, QA, and diagrams. Powered by DeepSeek.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #fdfcf9; --surface: #ffffff; --surface-alt: #f6f4f0;
-      --border: #e8e5df; --border-hover: #d4d0c8;
+      --border: #e8e5df;
       --text: #1a1a1a; --text-secondary: #555555; --text-dim: #8a8a8a;
       --accent: #2563eb; --accent-hover: #1d4ed8;
       --green: #059669; --green-bg: #ecfdf5;
-      --radius: 16px; --radius-sm: 10px; --max-width: 960px;
+      --radius: 16px; --max-width: 960px;
       --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
-      --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -34,29 +33,31 @@
     .nav-inner {
       max-width: var(--max-width); margin: 0 auto;
       display: flex; justify-content: space-between; align-items: center;
-      padding: 1rem 2rem;
+      padding: 0.85rem 2rem;
     }
     .logo { font-weight: 700; font-size: 1.05rem; text-decoration: none; color: var(--text); }
     .logo:hover { color: var(--accent); }
-    .nav-links { display: flex; gap: 2rem; }
-    .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+    .nav-links { display: flex; gap: 1.75rem; align-items: center; }
+    .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.875rem; font-weight: 500; }
     .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--accent); color: #fff !important;
+      padding: 0.45rem 1rem; border-radius: 100px; font-size: 0.8rem !important; font-weight: 600 !important;
+    }
 
     section { padding: 3rem 2rem 4rem; }
     .section-inner { max-width: var(--max-width); margin: 0 auto; }
     .section-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 0.5rem; }
     .back { margin-bottom: 1.5rem; }
     .back a { color: var(--text-dim); text-decoration: none; font-size: 0.85rem; }
-    .back a:hover { color: var(--text-secondary); }
-    h1 { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
+    h1 { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 1rem; }
+    .subtitle { color: var(--text-secondary); font-size: 1.05rem; margin-bottom: 2rem; max-width: 600px; }
     h2 { font-size: 1.2rem; font-weight: 700; margin: 2.5rem 0 0.75rem; }
-    h3 { font-size: 0.9rem; font-weight: 600; color: var(--accent); margin: 1rem 0 0.4rem; }
 
     .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 1.5rem 0 2.5rem; }
     .stat {
       background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1.25rem; text-align: center;
-      box-shadow: var(--shadow-sm);
+      border-radius: var(--radius); padding: 1.25rem; text-align: center; box-shadow: var(--shadow-sm);
     }
     .stat-val { font-size: 1.5rem; font-weight: 800; color: var(--accent); }
     .stat-lbl { font-size: 0.7rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.25rem; }
@@ -64,8 +65,7 @@
     .agent-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin: 0.75rem 0; }
     .agent-card {
       background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1.25rem 1.5rem;
-      box-shadow: var(--shadow-sm); transition: all 0.2s;
+      border-radius: var(--radius); padding: 1.25rem 1.5rem; box-shadow: var(--shadow-sm);
     }
     .agent-card:hover { border-color: var(--accent); }
     .agent-card.full { grid-column: 1 / -1; }
@@ -83,13 +83,19 @@
     th, td { padding: 0.65rem 0; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.85rem; }
     th { color: var(--text-dim); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
 
+    .note {
+      background: #fef3c7; border: 1px solid #fcd34d; border-radius: 10px;
+      padding: 1rem 1.25rem; margin: 1.5rem 0; font-size: 0.85rem; color: #92400e;
+    }
+    .visitor-counter { text-align: center; padding: 0 0 2rem; }
+
     footer {
       padding: 2rem; border-top: 1px solid var(--border);
       max-width: var(--max-width); margin: 0 auto;
-      display: flex; justify-content: space-between; align-items: center;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
       color: var(--text-dim); font-size: 0.85rem;
     }
-    footer .footer-links { display: flex; gap: 1.5rem; }
+    footer .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
     footer a { color: var(--text-dim); text-decoration: none; font-size: 0.85rem; }
     footer a:hover { color: var(--text-secondary); }
 
@@ -107,60 +113,42 @@
       <a href="/" class="logo">Touseef Shaik</a>
       <div class="nav-links">
         <a href="/">Home</a>
-        <a href="/ideas">Tools</a>
+        <a href="/tools">Tools</a>
         <a href="/#story">About</a>
+        <a href="/contact">Contact</a>
+        <a href="https://businessanalysttools.streamlit.app" class="nav-cta" target="_blank">Try Free</a>
       </div>
     </div>
   </nav>
 
   <section>
     <div class="section-inner">
-      <div class="back"><a href="/ideas/ba-assistant">← Back to BA Assistant</a></div>
+      <div class="back"><a href="/tools/ba-assistant">← Back to BA Assistant</a></div>
 
       <div class="section-label">Under the hood</div>
-      <h1>How it Works — BA Assistant</h1>
+      <h1>How BA Assistant Turns Raw Requirements Into a Complete BA Report</h1>
+      <p class="subtitle">A 5-agent workflow analyzes your input from multiple angles: BA analysis, product backlog, architecture, risks, QA, and diagrams.</p>
 
       <div class="stats">
         <div class="stat"><div class="stat-val">5</div><div class="stat-lbl">AI Agents</div></div>
         <div class="stat"><div class="stat-val">~₹1</div><div class="stat-lbl">Per Analysis</div></div>
-        <div class="stat"><div class="stat-val">&lt;60s</div><div class="stat-lbl">Response Time</div></div>
+        <div class="stat"><div class="stat-val">&lt;60s</div><div class="stat-lbl">Response</div></div>
         <div class="stat"><div class="stat-val">Free</div><div class="stat-lbl">To Start</div></div>
       </div>
 
-      <h2>The Agents</h2>
-      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.75rem;">
-        Five specialized agents collaborate on every analysis. Each handles one dimension of the BA/PO workflow.
-      </p>
+      <h2>1. What BA Assistant Does</h2>
+      <p style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:1.5rem;">You paste raw requirements. Five specialized agents analyze the input and produce a structured, delivery-ready BA/PO report with all the artifacts a Product Owner or Business Analyst needs.</p>
 
+      <h2>2. The 5-Agent Workflow</h2>
       <div class="agent-grid">
-        <div class="agent-card">
-          <h4>1. BA Requirements Analyst</h4>
-          <p>Structures raw business needs into clear functional & non-functional requirements. Extracts entities, rules, constraints.</p>
-          <div class="model">deepseek-v4-flash</div>
-        </div>
-        <div class="agent-card">
-          <h4>2. Product Owner Analyst</h4>
-          <p>Converts requirements into epics, features, and user stories. MoSCoW prioritization and backlog structure.</p>
-          <div class="model">deepseek-v4-flash</div>
-        </div>
-        <div class="agent-card">
-          <h4>3. Solution Architect</h4>
-          <p>Designs technology stack, integration patterns, data models, and NFRs. Architecture recommendations.</p>
-          <div class="model">deepseek-v4-flash</div>
-        </div>
-        <div class="agent-card">
-          <h4>4. Risk & QA Reviewer</h4>
-          <p>Identifies technical, business, and project risks. Validates cross-agent consistency.</p>
-          <div class="model">deepseek-v4-flash</div>
-        </div>
-        <div class="agent-card full">
-          <h4>5. Mermaid Diagram Designer</h4>
-          <p>Generates process flows, sequence diagrams, state charts, and data flow diagrams — paste-ready for any markdown doc.</p>
-          <div class="model">deepseek-v4-flash</div>
-        </div>
+        <div class="agent-card"><h4>1. BA Requirements Analyst</h4><p>Structures raw needs into clear functional & non-functional requirements. Extracts entities, business rules, and constraints.</p><div class="model">deepseek-v4-flash</div></div>
+        <div class="agent-card"><h4>2. Product Owner Analyst</h4><p>Converts requirements into epics, features, and user stories with MoSCoW prioritization and backlog structure.</p><div class="model">deepseek-v4-flash</div></div>
+        <div class="agent-card"><h4>3. Solution Architect</h4><p>Designs technology stack, integration patterns, data models, and NFRs with deployment strategy recommendations.</p><div class="model">deepseek-v4-flash</div></div>
+        <div class="agent-card"><h4>4. Risk & QA Reviewer</h4><p>Identifies technical, business, and project risks. Validates completeness and cross-agent output consistency.</p><div class="model">deepseek-v4-flash</div></div>
+        <div class="agent-card full"><h4>5. Mermaid Diagram Designer</h4><p>Generates process flows, sequence diagrams, state charts, and data flow diagrams — paste-ready for any markdown document.</p><div class="model">deepseek-v4-flash</div></div>
       </div>
 
-      <h2>Request Flow</h2>
+      <h2>3. Request Flow</h2>
       <div class="flow-card">
         <span>1.</span> User pastes raw requirements →<br>
         <span>2.</span> BA Analyst structures & categorizes →<br>
@@ -171,7 +159,23 @@
         <span>7.</span> Consolidated report delivered to user
       </div>
 
-      <h2>Running Costs</h2>
+      <h2>4. What the Report Includes</h2>
+      <ul style="color:var(--text-secondary);font-size:0.9rem;line-height:2;">
+        <li>Functional requirements, categorised and traceable</li>
+        <li>Non-functional requirements (performance, security, scalability)</li>
+        <li>Features with MoSCoW priority, dependencies, and complexity</li>
+        <li>User stories with Given-When-Then acceptance criteria</li>
+        <li>Architecture: stack, patterns, integrations, data model</li>
+        <li>Risk matrix with probability, impact, and mitigations</li>
+        <li>Mermaid diagrams (flowchart, sequence, state)</li>
+        <li>Executive summary and implementation roadmap</li>
+      </ul>
+
+      <div class="note">
+        <strong>⚠️ Important:</strong> BA Assistant is designed for early-stage analysis and documentation support. AI-generated outputs should always be reviewed by a human before use in production delivery. Do not paste confidential or personally identifiable information.
+      </div>
+
+      <h2>5. Running Costs</h2>
       <table>
         <thead><tr><th>Service</th><th>Role</th><th>Plan</th><th>Cost</th></tr></thead>
         <tbody>
@@ -182,7 +186,7 @@
         </tbody>
       </table>
 
-      <h2>Tech Stack</h2>
+      <h2>6. Tech Stack</h2>
       <table>
         <thead><tr><th>Layer</th><th>Technology</th></tr></thead>
         <tbody>
@@ -194,15 +198,22 @@
           <tr><td>Domain & DNS</td><td>Cloudflare</td></tr>
         </tbody>
       </table>
+
+      <div class="visitor-counter">
+        <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Ftouseefshaik.com%2Fhow-it-works%2Fba-assistant&count_bg=%232563EB&title_bg=%23555555&title=visitors&edge_flat=false" alt="visitor counter" style="height: 20px;">
+      </div>
     </div>
   </section>
 
   <footer>
     <span>Touseef Shaik &copy; 2026</span>
     <div class="footer-links">
+      <a href="/tools">Tools</a>
+      <a href="/tools/ba-assistant">BA Assistant</a>
+      <a href="/contact">Contact</a>
+      <a href="/privacy">Privacy</a>
       <a href="https://github.com/Touseef1949" target="_blank">GitHub</a>
       <a href="https://linkedin.com/in/ts26" target="_blank">LinkedIn</a>
-      <a href="mailto:touseef@touseefshaik.com">Contact</a>
     </div>
   </footer>
 
