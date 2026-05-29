@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>touseefshaik.com</title>
+  <meta name="description" content="Touseef Shaik — Product Owner & AI Builder. Tools for business analysts, product managers, and fintech.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --surface: #141414;
+      --border: #2a2a2a;
+      --text: #e0e0e0;
+      --dim: #888;
+      --accent: #ff6b35;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    .banner {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.5rem 2rem; border-bottom: 1px solid var(--border);
+      max-width: 900px; margin: 0 auto;
+    }
+    .logo { font-weight: 700; font-size: 1.1rem; }
+    .logo a { color: var(--text); text-decoration: none; }
+    nav { display: flex; gap: 2rem; }
+    nav a { color: var(--dim); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    nav a:hover, nav a.active { color: var(--text); }
+    main { max-width: 900px; margin: 0 auto; padding: 4rem 2rem; }
+    h1 { font-size: 2rem; font-weight: 600; margin-bottom: 0.5rem; letter-spacing: -0.02em; }
+    .subtitle { color: var(--dim); font-size: 1.05rem; margin-bottom: 3rem; }
+    .ideas-grid { display: flex; flex-direction: column; gap: 1rem; }
+    .idea-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      transition: border-color 0.2s;
+    }
+    .idea-card:hover { border-color: var(--accent); }
+    .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; }
+    .card-title { font-size: 1.2rem; font-weight: 600; }
+    .card-status {
+      font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em;
+      padding: 2px 8px; border-radius: 4px;
+      background: #1a3a1a; color: #4ade80;
+    }
+    .card-status.coming { background: #2a2a1a; color: #e2c04d; }
+    .card-desc { color: var(--dim); font-size: 0.9rem; margin-bottom: 1rem; }
+    .card-links { display: flex; gap: 1.5rem; }
+    .card-links a {
+      color: var(--accent); text-decoration: none; font-size: 0.85rem;
+      font-weight: 500; transition: opacity 0.2s;
+    }
+    .card-links a:hover { opacity: 0.8; }
+    .card-links a.how {
+      color: var(--dim); font-size: 0.75rem; letter-spacing: 0.05em;
+    }
+    .cta {
+      text-align: center; margin-top: 4rem; padding: 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .cta p { color: var(--dim); margin-bottom: 1rem; }
+    .cta a { color: var(--accent); text-decoration: none; font-weight: 500; }
+    footer {
+      max-width: 900px; margin: 0 auto; padding: 2rem;
+      border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between;
+      color: var(--dim); font-size: 0.8rem;
+    }
+    footer a { color: var(--dim); text-decoration: none; margin-left: 1.5rem; }
+    footer a:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+  <div class="banner">
+    <div class="logo"><a href="/">touseefshaik.com</a></div>
+    <nav>
+      <a href="/" class="active">home</a>
+      <a href="/ideas">ideas</a>
+    </nav>
+  </div>
+
+  <main>
+    <h1>Things I'm building, thinking through, and putting to the test.</h1>
+    <p class="subtitle">
+      Product Owner by day, AI builder by night. Tools for business analysts, 
+      product managers, and anyone who turns raw ideas into working software.
+    </p>
+
+    <div class="ideas-grid">
+      <article class="idea-card" id="ba-assistant">
+        <div class="card-header">
+          <h2 class="card-title">BA Assistant</h2>
+          <span class="card-status">live</span>
+        </div>
+        <p class="card-desc">
+          AI-powered requirement analysis. 5 specialized agents turn raw requirements 
+          into structured specs, user stories, architecture, risk assessments, and 
+          Mermaid diagrams — in minutes.
+        </p>
+        <div class="card-links">
+          <a href="/ideas/ba-assistant">explore →</a>
+          <a href="/how-it-works/ba-assistant" class="how">⚙ how it works</a>
+        </div>
+      </article>
+
+      <article class="idea-card" id="writing-tools">
+        <div class="card-header">
+          <h2 class="card-title">Writing Tools</h2>
+          <span class="card-status">live</span>
+        </div>
+        <p class="card-desc">
+          AI-powered writing assistant. Draft, rewrite, summarize, and polish content 
+          with multiple writing modes and styles.
+        </p>
+        <div class="card-links">
+          <a href="/ideas/writing-tools">explore →</a>
+          <a href="/how-it-works/writing-tools" class="how">⚙ how it works</a>
+        </div>
+      </article>
+
+      <article class="idea-card" id="artha">
+        <div class="card-header">
+          <h2 class="card-title">Artha — Indian Stock Screener</h2>
+          <span class="card-status coming">building</span>
+        </div>
+        <p class="card-desc">
+          AI-powered NSE/BSE stock screener and analysis tool. Fundamentals, 
+          technicals, and AI analysis for Indian markets.
+        </p>
+        <div class="card-links">
+          <a>coming soon →</a>
+        </div>
+      </article>
+
+      <article class="idea-card" id="evals">
+        <div class="card-header">
+          <h2 class="card-title">Evals — LLM Evaluation Toolkit</h2>
+          <span class="card-status">live</span>
+        </div>
+        <p class="card-desc">
+          Benchmark and evaluate LLM outputs. Compare models, run test suites, 
+          and measure quality across different providers.
+        </p>
+        <div class="card-links">
+          <a href="/ideas/evals">explore →</a>
+          <a href="/how-it-works/evals" class="how">⚙ how it works</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="cta">
+      <p>If there's an API for it, there's probably a tool to build.</p>
+      <a href="mailto:touseef@touseefshaik.com">Have an idea? Let's build →</a>
+    </div>
+  </main>
+
+  <footer>
+    <span>touseefshaik.com © 2026</span>
+    <div>
+      <a href="https://github.com/Touseef1949">GitHub</a>
+      <a href="https://linkedin.com/in/ts26">LinkedIn</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </footer>
+</body>
+</html>

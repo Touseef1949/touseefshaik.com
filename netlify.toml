@@ -1,0 +1,17 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/ideas/ba-assistant"
+  to = "/ideas/ba-assistant/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/how-it-works/ba-assistant"
+  to = "/how-it-works/ba-assistant/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/ideas"
+  to = "/ideas/index.html"
+  status = 200
