@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Tools for Business Analysts, Product Owners & Product Teams | Touseef Shaik</title>
-  <meta name="description" content="AI tools for Business Analysts, Product Owners, PMs, and product teams. Turn messy requirements into structured specs, user stories, architecture, risks, and diagrams — starting with BA Assistant. Built by a fintech Product Owner with 12+ years of experience.">
+  <title>AI for Business Analysts & Product Owners | Touseef Shaik</title>
+  <meta name="description" content="I'm Touseef Shaik — a fintech Product Owner building practical AI tools and workflows for Business Analysts, Product Owners, and product teams.">
   <meta name="keywords" content="AI requirements analysis tool, business analyst AI tool, AI tool for product owners, requirements to user stories AI, AI PRD generator, AI user story generator, Mermaid diagram generator AI">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -63,20 +63,25 @@
 
     /* Hero */
     .hero { padding: 5rem 2rem 4rem; text-align: center; }
-    .hero .eyebrow { color: var(--accent); font-weight: 600; font-size: 0.9rem; margin-bottom: 1rem; }
+    .hero .eyebrow { color: var(--text-secondary); font-size: 1rem; margin-bottom: 0.5rem; }
     .hero h1 {
       font-size: 2.8rem; font-weight: 800; line-height: 1.15;
-      letter-spacing: -0.03em; margin-bottom: 1rem; max-width: 750px; margin-left: auto; margin-right: auto;
+      letter-spacing: -0.03em; margin-bottom: 1.25rem; max-width: 780px; margin-left: auto; margin-right: auto;
     }
     .hero .subtitle {
-      font-size: 1.15rem; color: var(--text-secondary);
-      max-width: 620px; margin: 0 auto 1.75rem; line-height: 1.6;
+      font-size: 1.1rem; color: var(--text-secondary);
+      max-width: 640px; margin: 0 auto 1.5rem; line-height: 1.6;
     }
+    .hero .trust-line {
+      font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2rem;
+      display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;
+    }
+    .hero .trust-line span { display: inline-flex; align-items: center; gap: 0.3rem; }
     .hero .ctas { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem; }
     .btn {
       display: inline-flex; align-items: center; gap: 0.4rem;
       padding: 0.85rem 2rem; border-radius: 100px; text-decoration: none;
-      font-weight: 600; font-size: 0.9rem; transition: all 0.2s;
+      font-weight: 600; font-size: 0.9rem; transition: all 0.2s; cursor: pointer;
     }
     .btn-primary { background: var(--accent); color: #fff; }
     .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(37,99,235,0.25); }
@@ -92,6 +97,34 @@
     }
     .stat-val { font-size: 1.5rem; font-weight: 800; color: var(--accent); }
     .stat-lbl { font-size: 0.75rem; color: var(--text-dim); margin-top: 0.2rem; }
+
+    /* Newsletter */
+    .newsletter-form { display: flex; gap: 0.75rem; justify-content: center; max-width: 480px; margin: 0 auto; flex-wrap: wrap; }
+    .newsletter-form input {
+      flex: 1; min-width: 240px; padding: 0.85rem 1.25rem; border: 2px solid var(--border);
+      border-radius: 100px; font-size: 0.95rem; font-family: inherit; outline: none; transition: border-color 0.2s;
+    }
+    .newsletter-form input:focus { border-color: var(--accent); }
+    .newsletter-form button {
+      background: var(--accent); color: #fff; border: none;
+      padding: 0.85rem 2rem; border-radius: 100px; font-size: 0.95rem;
+      font-weight: 600; cursor: pointer; font-family: inherit; transition: all 0.2s;
+    }
+    .newsletter-form button:hover { background: var(--accent-hover); }
+
+    /* How I can help */
+    .help-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .help-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2rem;
+      box-shadow: var(--shadow-sm); transition: all 0.25s;
+    }
+    .help-card:hover { border-color: var(--accent); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .help-card .icon { font-size: 2rem; margin-bottom: 0.75rem; display: block; }
+    .help-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .help-card p { color: var(--text-secondary); font-size: 0.88rem; line-height: 1.6; margin-bottom: 1rem; }
+    .help-card .card-cta { color: var(--accent); font-weight: 600; font-size: 0.85rem; text-decoration: none; }
+    .help-card .card-cta:hover { text-decoration: underline; }
 
     /* Tools grid */
     .tools-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
@@ -111,6 +144,18 @@
     }
     .tag-live { background: var(--green-bg); color: var(--green); }
     .tag-building { background: var(--amber-bg); color: var(--amber); }
+
+    /* Featured product */
+    .featured-product {
+      background: var(--surface); border: 2px solid var(--accent);
+      border-radius: var(--radius); padding: 2.5rem;
+      box-shadow: var(--shadow-md);
+    }
+    .featured-product h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .featured-product .fp-desc { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.25rem; max-width: 600px; }
+    .featured-product .fp-features { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 1.5rem; }
+    .featured-product .fp-features li { font-size: 0.85rem; color: var(--text-secondary); list-style: none; }
+    .featured-product .fp-features li::before { content: "✓ "; color: var(--green); font-weight: 700; }
 
     /* CTA banner */
     .cta-banner {
@@ -142,6 +187,29 @@
     .sample-box .output-list li { padding: 0.3rem 0; color: var(--text-secondary); }
     .sample-box .output-list li::before { content: "✓ "; color: var(--green); font-weight: 700; }
 
+    /* Resources teasers */
+    .resources-preview { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+    .resource-item {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); padding: 1.25rem; text-align: center;
+      text-decoration: none; color: var(--text); transition: all 0.2s;
+    }
+    .resource-item:hover { border-color: var(--accent); box-shadow: var(--shadow-sm); }
+    .resource-item .ricon { font-size: 1.5rem; display: block; margin-bottom: 0.5rem; }
+    .resource-item .rname { font-size: 0.8rem; font-weight: 600; }
+
+    /* Blog teaser */
+    .blog-preview { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .blog-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem;
+      text-decoration: none; color: inherit; transition: all 0.2s;
+    }
+    .blog-card:hover { border-color: var(--accent); box-shadow: var(--shadow-sm); }
+    .blog-card .bcat { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 0.5rem; }
+    .blog-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.35rem; }
+    .blog-card p { color: var(--text-secondary); font-size: 0.82rem; line-height: 1.5; }
+
     /* Story */
     .story { display: flex; gap: 3rem; align-items: flex-start; }
     .story-text { flex: 1; }
@@ -151,20 +219,6 @@
       background: var(--accent-light); flex-shrink: 0;
       display: flex; align-items: center; justify-content: center; font-size: 3rem;
     }
-
-    /* Newsletter */
-    .newsletter-form { display: flex; gap: 0.75rem; justify-content: center; max-width: 480px; margin: 0 auto; flex-wrap: wrap; }
-    .newsletter-form input {
-      flex: 1; min-width: 240px; padding: 0.85rem 1.25rem; border: 2px solid var(--border);
-      border-radius: 100px; font-size: 0.95rem; font-family: inherit; outline: none; transition: border-color 0.2s;
-    }
-    .newsletter-form input:focus { border-color: var(--accent); }
-    .newsletter-form button {
-      background: var(--accent); color: #fff; border: none;
-      padding: 0.85rem 2rem; border-radius: 100px; font-size: 0.95rem;
-      font-weight: 600; cursor: pointer; font-family: inherit; transition: all 0.2s;
-    }
-    .newsletter-form button:hover { background: var(--accent-hover); }
 
     /* Visitor counter */
     .visitor-counter { text-align: center; padding: 1.5rem 0 0; font-size: 0.8rem; color: var(--text-dim); }
@@ -181,8 +235,12 @@
 
     @media (max-width: 700px) {
       .hero h1 { font-size: 1.9rem; }
+      .help-grid { grid-template-columns: 1fr; }
       .tools-grid { grid-template-columns: 1fr; }
       .sample-grid { grid-template-columns: 1fr; }
+      .resources-preview { grid-template-columns: 1fr 1fr; }
+      .blog-preview { grid-template-columns: 1fr; }
+      .featured-product .fp-features { grid-template-columns: 1fr; }
       .story { flex-direction: column; text-align: center; }
       .story-avatar { margin: 0 auto; }
       .stats-grid { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
@@ -201,7 +259,6 @@
       .newsletter-form button { width: 100%; min-height: 44px; }
       footer { flex-direction: column; text-align: center; }
       footer .footer-links { justify-content: center; }
-      .cred-grid { grid-template-columns: 1fr !important; }
     }
   </style>
 </head>
@@ -211,11 +268,12 @@
     <div class="nav-inner">
       <a href="/" class="logo">Touseef Shaik</a>
       <div class="nav-links">
-        <a href="/">Home</a>
+        <a href="/start-here">Start Here</a>
         <a href="/tools">Tools</a>
         <a href="/tools/ba-assistant">BA Assistant</a>
-        <a href="/how-it-works/ba-assistant">How It Works</a>
-        <a href="/#story">About</a>
+        <a href="/resources">Resources</a>
+        <a href="/blog">Blog</a>
+        <a href="/about">About</a>
         <a href="/contact">Contact</a>
         <a href="https://businessanalysttools.streamlit.app" class="nav-cta" target="_blank">Try BA Assistant Free</a>
       </div>
@@ -225,15 +283,21 @@
   <!-- HERO -->
   <section class="hero">
     <div class="section-inner">
-      <p class="eyebrow">👋 Hey, I'm Touseef — Product Owner & AI Builder</p>
-      <h1>AI Tools for Business Analysts, Product Owners & Product Teams</h1>
+      <p class="eyebrow">👋 Hey, I'm Touseef Shaik</p>
+      <h1>AI tools and workflows for Business Analysts, Product Owners, and product teams.</h1>
       <p class="subtitle">
-        Turn messy requirements, product ideas, and analysis tasks into structured outputs 
-        faster — with practical AI tools built from real product-delivery workflows.
+        I'm a fintech Product Owner with 12+ years of experience. I build practical AI tools 
+        that turn messy requirements into structured specs, user stories, risks, architecture 
+        notes, and diagrams.
       </p>
+      <div class="trust-line">
+        <span>🧑‍💻 Product Owner</span>
+        <span>🏦 12+ yrs in fintech</span>
+        <span>⚡ Builder of BA Assistant</span>
+      </div>
       <div class="ctas">
         <a href="https://businessanalysttools.streamlit.app" class="btn btn-primary" target="_blank">Try BA Assistant Free →</a>
-        <a href="/tools" class="btn btn-secondary">See All Tools</a>
+        <a href="#newsletter" class="btn btn-secondary">Join the Newsletter</a>
       </div>
       <div class="stats-grid">
         <div class="stat-card"><div class="stat-val">7+</div><div class="stat-lbl">Tools shipped</div></div>
@@ -243,12 +307,92 @@
     </div>
   </section>
 
-  <!-- SAMPLE OUTPUT -->
+  <!-- NEWSLETTER (primary conversion) -->
+  <section class="section-alt" id="newsletter">
+    <div class="section-inner" style="text-align: center;">
+      <div class="section-label">Join 100+ readers</div>
+      <h2 class="section-title">The AI Product Builder Newsletter</h2>
+      <p class="section-desc" style="margin: 0 auto 2rem;">
+        Weekly practical ideas for Business Analysts, Product Owners, and product teams using AI 
+        to write better requirements, analyze faster, and build clearer product documentation.
+      </p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Your email address" required>
+        <button type="submit">Join Free →</button>
+      </form>
+      <p style="font-size:0.75rem;color:var(--text-dim);margin-top:0.75rem;">No spam. One useful email per week. Unsubscribe anytime.</p>
+    </div>
+  </section>
+
+  <!-- HOW I CAN HELP YOU -->
+  <section>
+    <div class="section-inner">
+      <div class="section-label">How I can help you</div>
+      <h2 class="section-title">Practical AI for BA and product workflows.</h2>
+      <p class="section-desc">Whether you're drowning in messy requirements or want to speed up documentation, here's how I can help.</p>
+      <div class="help-grid">
+        <div class="help-card">
+          <span class="icon">📋</span>
+          <h3>Analyze Requirements Faster</h3>
+          <p>Use BA Assistant to convert raw notes and stakeholder input into structured BA/PO deliverables in under 60 seconds.</p>
+          <a href="https://businessanalysttools.streamlit.app" class="card-cta" target="_blank">Try BA Assistant →</a>
+        </div>
+        <div class="help-card">
+          <span class="icon">📝</span>
+          <h3>Write Better User Stories</h3>
+          <p>Learn how to turn vague feature requests into clear, actionable backlog items with acceptance criteria.</p>
+          <a href="/blog" class="card-cta">Read Guides →</a>
+        </div>
+        <div class="help-card">
+          <span class="icon">🤖</span>
+          <h3>Use AI in Product Workflows</h3>
+          <p>Practical AI workflows for BAs, PMs, Product Owners, and delivery teams — not hype, just what works.</p>
+          <a href="/resources" class="card-cta">Explore Resources →</a>
+        </div>
+        <div class="help-card">
+          <span class="icon">📄</span>
+          <h3>Build Better Product Documentation</h3>
+          <p>Templates, examples, and tools for specs, PRDs, risk logs, diagrams, and export-ready reports.</p>
+          <a href="/resources" class="card-cta">Get Templates →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PRODUCT: BA Assistant -->
   <section class="section-alt">
+    <div class="section-inner">
+      <div class="section-label">Flagship product</div>
+      <h2 class="section-title">BA Assistant — Your AI copilot for requirement analysis.</h2>
+      <p class="section-desc">Paste messy requirements. Get a complete BA/PO report with functional specs, user stories, architecture, risks, and Mermaid diagrams — in under 60 seconds.</p>
+      <div class="featured-product">
+        <h3>📋 BA Assistant</h3>
+        <p class="fp-desc">5 AI agents analyse your input from five dimensions: requirements, backlog, architecture, risk, and diagrams. The output is a delivery-ready document you can paste directly into Confluence, Notion, or your PRD.</p>
+        <ul class="fp-features">
+          <li>Functional requirements, categorised</li>
+          <li>Non-functional requirements</li>
+          <li>User stories with acceptance criteria</li>
+          <li>MoSCoW-prioritised features</li>
+          <li>Architecture & integration patterns</li>
+          <li>Risk matrix with mitigations</li>
+          <li>Mermaid diagrams (flow, sequence, state)</li>
+          <li>Export-ready Markdown report</li>
+        </ul>
+        <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+          <a href="https://businessanalysttools.streamlit.app" class="btn btn-primary" target="_blank">Start Free Analysis →</a>
+          <a href="/tools/ba-assistant" class="btn btn-secondary">See Full Details</a>
+          <a href="/how-it-works/ba-assistant" class="btn btn-secondary">How It Works</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAMPLE OUTPUT -->
+  <section>
     <div class="section-inner">
       <div class="section-label">See it in action</div>
       <h2 class="section-title">From messy input to delivery-ready output.</h2>
-      <p class="section-desc">Paste raw requirements. Get a structured BA/PO report with features, user stories, architecture, risks, and Mermaid diagrams — in under 60 seconds.</p>
+      <p class="section-desc">Paste raw requirements. Get a structured report with everything a BA or Product Owner needs — in under 60 seconds.</p>
       <div class="sample-grid">
         <div class="sample-box">
           <div class="label">You paste this…</div>
@@ -274,62 +418,90 @@
     </div>
   </section>
 
-  <!-- TOOLS -->
-  <section id="tools">
+  <!-- FREE RESOURCES -->
+  <section class="section-alt">
     <div class="section-inner">
-      <div class="section-label">What I'm building</div>
-      <h2 class="section-title">Practical AI tools for requirements, product workflows, writing, analysis, and evaluation.</h2>
-      <p class="section-desc">
-        Each tool is built from real product-delivery problems I've faced as a Product Owner: 
-        messy requirements, unclear scope, slow documentation, repetitive analysis.
-      </p>
-      <div class="tools-grid">
-        <a href="/tools/ba-assistant" class="tool-card">
-          <span class="icon">📋</span>
-          <h3>BA Assistant</h3>
-          <p>5 AI agents turn raw requirements into structured specs, user stories, architecture, risk assessments, and Mermaid diagrams.</p>
-          <span class="tag tag-live">Live · Free to try</span>
+      <div class="section-label">Free resources</div>
+      <h2 class="section-title">Download free BA & PO templates.</h2>
+      <p class="section-desc">Practical templates and checklists to speed up your workflow — no signup required for some, newsletter for the full toolkit.</p>
+      <div class="resources-preview">
+        <a href="/resources" class="resource-item">
+          <span class="ricon">📋</span>
+          <span class="rname">BA Requirements Template</span>
         </a>
-        <div class="tool-card" style="cursor: default; opacity: 0.85;" onmouseover="this.style.transform='none';this.style.borderColor='var(--border)';this.style.boxShadow='var(--shadow-sm)'">
-          <span class="icon">✍️</span>
-          <h3>Writing Tools</h3>
-          <p>AI-powered writing assistant. Draft, rewrite, summarize, and polish content with multiple modes and styles.</p>
-          <span class="tag tag-live">Coming to web</span>
-        </div>
-        <div class="tool-card" style="cursor: default; opacity: 0.85;" onmouseover="this.style.transform='none';this.style.borderColor='var(--border)';this.style.boxShadow='var(--shadow-sm)'">
-          <span class="icon">📈</span>
-          <h3>Artha — Stock Screener</h3>
-          <p>AI-powered NSE/BSE stock analysis with fundamentals, technicals, and AI-driven insights for Indian markets.</p>
-          <span class="tag tag-building">Building</span>
-        </div>
-        <div class="tool-card" style="cursor: default; opacity: 0.85;" onmouseover="this.style.transform='none';this.style.borderColor='var(--border)';this.style.boxShadow='var(--shadow-sm)'">
-          <span class="icon">🧪</span>
-          <h3>Evals — LLM Toolkit</h3>
-          <p>Benchmark and evaluate LLM outputs across models. Compare quality, speed, and cost in one dashboard.</p>
-          <span class="tag tag-live">Coming to web</span>
-        </div>
+        <a href="/resources" class="resource-item">
+          <span class="ricon">📝</span>
+          <span class="rname">User Story Template</span>
+        </a>
+        <a href="/resources" class="resource-item">
+          <span class="ricon">📄</span>
+          <span class="rname">PRD Template</span>
+        </a>
+        <a href="/resources" class="resource-item">
+          <span class="ricon">⚠️</span>
+          <span class="rname">Risk Assessment Checklist</span>
+        </a>
+        <a href="/resources" class="resource-item">
+          <span class="ricon">📊</span>
+          <span class="rname">Mermaid Diagram Examples</span>
+        </a>
+        <a href="/resources" class="resource-item">
+          <span class="ricon">🤖</span>
+          <span class="rname">AI Prompts for BAs</span>
+        </a>
+        <a href="/resources" class="resource-item">
+          <span class="ricon">🔍</span>
+          <span class="rname">Functional vs NFR Guide</span>
+        </a>
+        <a href="/resources" class="resource-item">
+          <span class="ricon">✅</span>
+          <span class="rname">PO AI Workflow Checklist</span>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- BA ASSISTANT CTA -->
-  <section class="section-alt">
+  <!-- BLOG TEASER -->
+  <section>
     <div class="section-inner">
-      <div class="cta-banner">
-        <h2>✨ Try BA Assistant — free.</h2>
-        <p>Paste your requirements. Get a full BA/PO report in under 60 seconds. No credit card required.</p>
-        <a href="https://businessanalysttools.streamlit.app" class="btn-white" target="_blank">Start Free Analysis →</a>
+      <div class="section-label">Latest thinking</div>
+      <h2 class="section-title">Read the blog.</h2>
+      <p class="section-desc">Practical articles on AI for BAs, product workflows, requirements engineering, and lessons from 12+ years in fintech product delivery.</p>
+      <div class="blog-preview">
+        <a href="/blog" class="blog-card">
+          <div class="bcat">AI for Business Analysts</div>
+          <h4>How I Use AI as a Product Owner</h4>
+          <p>Real workflows I use daily to turn stakeholder conversations into structured deliverables.</p>
+        </a>
+        <a href="/blog" class="blog-card">
+          <div class="bcat">Requirements Engineering</div>
+          <h4>How to Turn Messy Requirements into User Stories</h4>
+          <p>A practical framework for moving from vague input to clear, actionable backlog items.</p>
+        </a>
+        <a href="/blog" class="blog-card">
+          <div class="bcat">Product Owner Workflows</div>
+          <h4>The Best AI Prompts for Business Analysts</h4>
+          <p>Copy-paste prompts that save hours on documentation, analysis, and diagramming.</p>
+        </a>
+        <a href="/blog" class="blog-card">
+          <div class="bcat">Behind the Build</div>
+          <h4>How BA Assistant Works Behind the Scenes</h4>
+          <p>A deep dive into the 5-agent architecture, tech stack, costs, and design decisions.</p>
+        </a>
+      </div>
+      <div style="text-align:center;margin-top:2rem;">
+        <a href="/blog" class="btn btn-secondary">See All Articles →</a>
       </div>
     </div>
   </section>
 
   <!-- ABOUT -->
-  <section id="story">
+  <section class="section-alt" id="story">
     <div class="section-inner">
       <div class="story">
         <div class="story-avatar">🧑‍💻</div>
         <div class="story-text">
-          <div class="section-label">About me</div>
+          <div class="section-label">About Touseef</div>
           <h2 class="section-title">Product Owner by day, builder by night.</h2>
           <p>
             I'm a Product Owner in fintech with 12+ years of experience turning complex 
@@ -346,61 +518,58 @@
             repeated analysis, and manual handoffs. I believe the best tools come from people 
             who live the problem — and I hope something here makes your work a little easier.
           </p>
+          <a href="/about" class="btn btn-secondary" style="margin-top:0.5rem;">Read Full Story →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CREDIBILITY & ROADMAP -->
+  <!-- MORE TOOLS -->
+  <section id="more-tools">
+    <div class="section-inner">
+      <div class="section-label">More tools</div>
+      <h2 class="section-title">Other AI tools I'm building.</h2>
+      <p class="section-desc">Beyond BA Assistant, I'm working on tools for writing, stock analysis, and LLM evaluation.</p>
+      <div class="tools-grid">
+        <a href="/tools/ba-assistant" class="tool-card">
+          <span class="icon">📋</span>
+          <h3>BA Assistant</h3>
+          <p>5 AI agents turn raw requirements into structured specs, user stories, architecture, risk assessments, and Mermaid diagrams.</p>
+          <span class="tag tag-live">Live · Free to try</span>
+        </a>
+        <div class="tool-card" style="cursor: default; opacity: 0.85;" onmouseover="this.style.transform='none';this.style.borderColor='var(--border)';this.style.boxShadow='var(--shadow-sm)'">
+          <span class="icon">✍️</span>
+          <h3>Writing Tools</h3>
+          <p>AI-powered writing assistant. Draft, rewrite, summarize, and polish content with multiple modes and styles.</p>
+          <span class="tag tag-building">Coming to web</span>
+        </div>
+        <div class="tool-card" style="cursor: default; opacity: 0.85;" onmouseover="this.style.transform='none';this.style.borderColor='var(--border)';this.style.boxShadow='var(--shadow-sm)'">
+          <span class="icon">📈</span>
+          <h3>Artha — Stock Screener</h3>
+          <p>AI-powered NSE/BSE stock analysis with fundamentals, technicals, and AI-driven insights for Indian markets.</p>
+          <span class="tag tag-building">Building</span>
+        </div>
+        <div class="tool-card" style="cursor: default; opacity: 0.85;" onmouseover="this.style.transform='none';this.style.borderColor='var(--border)';this.style.boxShadow='var(--shadow-sm)'">
+          <span class="icon">🧪</span>
+          <h3>Evals — LLM Toolkit</h3>
+          <p>Benchmark and evaluate LLM outputs across models. Compare quality, speed, and cost in one dashboard.</p>
+          <span class="tag tag-building">Building</span>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:2rem;">
+        <a href="/tools" class="btn btn-secondary">See All Tools →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
   <section class="section-alt">
     <div class="section-inner">
-      <div class="section-label">Credibility & Roadmap</div>
-      <h2 class="section-title">Built for real product teams, with real workflows.</h2>
-      <p class="section-desc">
-        BA Assistant is used by BAs, Product Owners, and engineering leads to accelerate 
-        requirements analysis and documentation. Here's what's coming next.
-      </p>
-      <div class="cred-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:1.5rem;">
-        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;">
-          <h3 style="font-size:0.95rem;font-weight:700;margin-bottom:0.5rem;">🚀 Roadmap</h3>
-          <ul style="list-style:none;font-size:0.85rem;color:var(--text-secondary);line-height:2;">
-            <li><span style="color:var(--green);font-weight:600;">✓</span> 5-agent requirements analysis</li>
-            <li><span style="color:var(--green);font-weight:600;">✓</span> Mermaid diagram generation</li>
-            <li><span style="color:var(--green);font-weight:600;">✓</span> PDF export (Pro plan)</li>
-            <li><span style="color:var(--accent);font-weight:600;">→</span> Stripe payments integration</li>
-            <li><span style="color:var(--accent);font-weight:600;">→</span> Team workspaces & sharing</li>
-            <li><span style="color:var(--text-dim);">○</span> API access for CI/CD pipelines</li>
-            <li><span style="color:var(--text-dim);">○</span> Custom agent templates</li>
-          </ul>
-        </div>
-        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;">
-          <h3 style="font-size:0.95rem;font-weight:700;margin-bottom:0.5rem;">🔗 Connect & Verify</h3>
-          <ul style="list-style:none;font-size:0.85rem;color:var(--text-secondary);line-height:2;">
-            <li>🐙 <a href="https://github.com/Touseef1949" style="color:var(--accent);">GitHub — see the code</a></li>
-            <li>💼 <a href="https://linkedin.com/in/ts26" style="color:var(--accent);">LinkedIn — 12+ yrs fintech</a></li>
-            <li>📋 <a href="/tools/ba-assistant" style="color:var(--accent);">BA Assistant — try it live</a></li>
-            <li>⚙️ <a href="/how-it-works/ba-assistant" style="color:var(--accent);">Architecture & stack</a></li>
-            <li>🔒 <a href="/privacy" style="color:var(--accent);">Privacy policy</a></li>
-            <li>📄 <a href="/terms" style="color:var(--accent);">Terms of use</a></li>
-          </ul>
-        </div>
+      <div class="cta-banner">
+        <h2>✨ Ready to turn messy requirements into clear deliverables?</h2>
+        <p>Try BA Assistant free. No credit card. Just paste your requirements and get a full report in under 60 seconds.</p>
+        <a href="https://businessanalysttools.streamlit.app" class="btn-white" target="_blank">Start Free Analysis →</a>
       </div>
-    </div>
-  </section>
-
-  <!-- NEWSLETTER -->
-  <section class="section-alt">
-    <div class="section-inner" style="text-align: center;">
-      <div class="section-label">Stay updated</div>
-      <h2 class="section-title">New tools, straight to your inbox.</h2>
-      <p class="section-desc" style="margin: 0 auto 2rem;">
-        I'll email you when I release new tools for requirements, writing, analysis, 
-        and product workflows. One useful update at a time. No spam.
-      </p>
-      <form class="newsletter-form">
-        <input type="email" placeholder="Your email address" required onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'">
-        <button type="submit">Notify Me →</button>
-      </form>
     </div>
   </section>
 
@@ -416,10 +585,14 @@
   <footer>
     <span>Touseef Shaik &copy; 2026</span>
     <div class="footer-links">
+      <a href="/start-here">Start Here</a>
       <a href="/tools">Tools</a>
       <a href="/tools/ba-assistant">BA Assistant</a>
-      <a href="/how-it-works/ba-assistant">How it Works</a>
+      <a href="/resources">Resources</a>
+      <a href="/blog">Blog</a>
+      <a href="/about">About</a>
       <a href="/contact">Contact</a>
+      <a href="/how-it-works/ba-assistant">How it Works</a>
       <a href="/privacy">Privacy</a>
       <a href="/terms">Terms</a>
       <a href="https://github.com/Touseef1949" target="_blank">GitHub</a>

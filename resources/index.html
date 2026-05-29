@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free BA & PO Resources — Templates, Checklists, Guides | Touseef Shaik</title>
+  <meta name="description" content="Free downloadable templates, checklists, and guides for Business Analysts and Product Owners. BA requirements template, user story template, PRD template, risk checklist, Mermaid diagram examples, and AI prompts.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #fdfcf9; --surface: #ffffff; --surface-alt: #f6f4f0; --border: #e8e5df; --text: #1a1a1a; --text-secondary: #555555; --text-dim: #8a8a8a; --accent: #2563eb; --accent-hover: #1d4ed8; --green: #059669; --radius: 16px; --radius-sm: 10px; --max-width: 960px; --shadow-sm: 0 1px 3px rgba(0,0,0,0.04); --shadow-md: 0 4px 16px rgba(0,0,0,0.06); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(253,252,249,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: var(--max-width); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 2rem; }
+    .logo { font-weight: 700; font-size: 1.05rem; text-decoration: none; color: var(--text); }
+    .logo:hover { color: var(--accent); }
+    .nav-links { display: flex; gap: 1.75rem; align-items: center; }
+    .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.875rem; font-weight: 500; }
+    .nav-links a:hover,.nav-links a.active { color: var(--text); }
+    .nav-cta { background: var(--accent); color: #fff !important; padding: 0.45rem 1rem; border-radius: 100px; font-size: 0.8rem !important; font-weight: 600 !important; }
+    section { padding: 4rem 2rem; }
+    .section-inner { max-width: var(--max-width); margin: 0 auto; }
+    .section-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 0.75rem; }
+    h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.75rem; }
+    .subtitle { color: var(--text-secondary); font-size: 1.05rem; margin-bottom: 2.5rem; max-width: 600px; }
+    .resources-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .resource-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2rem;
+      box-shadow: var(--shadow-sm); transition: all 0.25s;
+    }
+    .resource-card:hover { border-color: var(--accent); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .resource-card .icon { font-size: 2rem; margin-bottom: 0.75rem; display: block; }
+    .resource-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .resource-card p { color: var(--text-secondary); font-size: 0.88rem; line-height: 1.6; margin-bottom: 1rem; }
+    .resource-card .dl-btn {
+      display: inline-block; background: var(--accent); color: #fff;
+      padding: 0.6rem 1.25rem; border-radius: 100px; text-decoration: none;
+      font-weight: 600; font-size: 0.82rem; transition: all 0.2s;
+    }
+    .resource-card .dl-btn:hover { background: var(--accent-hover); }
+    .newsletter-cta {
+      background: var(--surface-alt); border-radius: var(--radius);
+      padding: 2rem; text-align: center; margin-top: 2.5rem;
+    }
+    .newsletter-cta h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .newsletter-cta p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem; }
+    .newsletter-form { display: flex; gap: 0.75rem; justify-content: center; max-width: 480px; margin: 0 auto; flex-wrap: wrap; }
+    .newsletter-form input { flex: 1; min-width: 200px; padding: 0.75rem 1.25rem; border: 2px solid var(--border); border-radius: 100px; font-size: 0.9rem; font-family: inherit; outline: none; }
+    .newsletter-form input:focus { border-color: var(--accent); }
+    .newsletter-form button { background: var(--accent); color: #fff; border: none; padding: 0.75rem 1.5rem; border-radius: 100px; font-size: 0.9rem; font-weight: 600; cursor: pointer; font-family: inherit; }
+    footer { padding: 2rem; border-top: 1px solid var(--border); max-width: var(--max-width); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; color: var(--text-dim); font-size: 0.85rem; }
+    footer .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    footer a { color: var(--text-dim); text-decoration: none; font-size: 0.85rem; }
+    footer a:hover { color: var(--text-secondary); }
+    @media (max-width: 700px) {
+      .resources-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 1.8rem; }
+      section { padding: 3rem 1.25rem; }
+      .nav-inner { flex-wrap: wrap; }
+      .nav-links { gap: 0.75rem; flex-wrap: wrap; }
+      .nav-links a { font-size: 0.78rem; min-height: 36px; display: inline-flex; align-items: center; }
+      footer { flex-direction: column; text-align: center; }
+      footer .footer-links { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">Touseef Shaik</a>
+      <div class="nav-links">
+        <a href="/start-here">Start Here</a>
+        <a href="/tools">Tools</a>
+        <a href="/tools/ba-assistant">BA Assistant</a>
+        <a href="/resources" class="active">Resources</a>
+        <a href="/blog">Blog</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="https://businessanalysttools.streamlit.app" class="nav-cta" target="_blank">Try BA Assistant Free</a>
+      </div>
+    </div>
+  </nav>
+
+  <section>
+    <div class="section-inner">
+      <div class="section-label">Free downloads</div>
+      <h1>BA & PO Resources</h1>
+      <p class="subtitle">Practical templates, checklists, and guides to speed up your BA and product workflows. Download what you need — the full toolkit is free with the newsletter.</p>
+
+      <div class="resources-grid">
+        <div class="resource-card">
+          <span class="icon">📋</span>
+          <h3>BA Requirements Template</h3>
+          <p>A structured template for capturing functional and non-functional requirements with traceability, business rules, and constraints.</p>
+          <a href="#newsletter" class="dl-btn">Get Template →</a>
+        </div>
+        <div class="resource-card">
+          <span class="icon">📝</span>
+          <h3>User Story Template</h3>
+          <p>Standard user story format with Given-When-Then acceptance criteria, MoSCoW prioritization, and story mapping.</p>
+          <a href="#newsletter" class="dl-btn">Get Template →</a>
+        </div>
+        <div class="resource-card">
+          <span class="icon">📄</span>
+          <h3>PRD Template</h3>
+          <p>A complete Product Requirements Document template covering problem statement, scope, features, NFRs, risks, and milestones.</p>
+          <a href="#newsletter" class="dl-btn">Get Template →</a>
+        </div>
+        <div class="resource-card">
+          <span class="icon">⚠️</span>
+          <h3>Risk Assessment Checklist</h3>
+          <p>Technical, business, and project risk categories with probability scoring, impact ratings, and mitigation templates.</p>
+          <a href="#newsletter" class="dl-btn">Get Checklist →</a>
+        </div>
+        <div class="resource-card">
+          <span class="icon">📊</span>
+          <h3>Mermaid Diagram Examples</h3>
+          <p>Ready-to-use Mermaid diagram templates for flowcharts, sequence diagrams, state charts, and data flow — paste into any markdown doc.</p>
+          <a href="#newsletter" class="dl-btn">Get Examples →</a>
+        </div>
+        <div class="resource-card">
+          <span class="icon">🤖</span>
+          <h3>AI Prompts for BAs</h3>
+          <p>A curated collection of copy-paste AI prompts for requirement analysis, user story generation, acceptance criteria, and documentation.</p>
+          <a href="#newsletter" class="dl-btn">Get Prompts →</a>
+        </div>
+        <div class="resource-card">
+          <span class="icon">🔍</span>
+          <h3>Functional vs NFR Guide</h3>
+          <p>A practical guide to distinguishing functional from non-functional requirements with real examples from fintech and enterprise projects.</p>
+          <a href="#newsletter" class="dl-btn">Get Guide →</a>
+        </div>
+        <div class="resource-card">
+          <span class="icon">✅</span>
+          <h3>PO AI Workflow Checklist</h3>
+          <p>Step-by-step checklist for integrating AI into your Product Owner workflow — from intake to backlog to documentation.</p>
+          <a href="#newsletter" class="dl-btn">Get Checklist →</a>
+        </div>
+      </div>
+
+      <div class="newsletter-cta" id="newsletter">
+        <h3>📬 Get the full BA Toolkit</h3>
+        <p>Join the newsletter and get all 8 templates, checklists, and guides in one download. Plus weekly practical AI tips for BAs and POs.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Your email address" required>
+          <button type="submit">Download Free Toolkit →</button>
+        </form>
+        <p style="font-size:0.72rem;color:var(--text-dim);margin-top:0.75rem;">No spam. Unsubscribe anytime.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Touseef Shaik &copy; 2026</span>
+    <div class="footer-links">
+      <a href="/start-here">Start Here</a>
+      <a href="/tools">Tools</a>
+      <a href="/tools/ba-assistant">BA Assistant</a>
+      <a href="/resources">Resources</a>
+      <a href="/blog">Blog</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+    </div>
+  </footer>
+
+</body>
+</html>
