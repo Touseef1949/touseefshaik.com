@@ -3,122 +3,186 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ideas — touseefshaik.com</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <title>BA Assistant — touseefshaik.com</title>
+  <meta name="description" content="AI-powered requirement analysis. 5 specialized agents turn raw requirements into structured BA/PO deliverables with pricing starting at ₹0.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0a0a0a; --surface: #141414; --border: #2a2a2a;
-      --text: #e0e0e0; --dim: #888; --accent: #ff6b35;
+      --bg: #08080a; --surface: #111115; --surface-hover: #18181f;
+      --border: #222228; --border-hover: #333340;
+      --text: #e4e4ec; --text-secondary: #a0a0b0; --dim: #6b6b7b;
+      --accent: #ff6b35; --green: #4ade80;
+      --radius: 12px; --max-width: 880px;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh;
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.7;
+      min-height: 100vh; -webkit-font-smoothing: antialiased;
     }
-    .banner {
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      background: rgba(8, 8, 10, 0.8); border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: var(--max-width); margin: 0 auto;
       display: flex; justify-content: space-between; align-items: center;
-      padding: 1.5rem 2rem; border-bottom: 1px solid var(--border);
-      max-width: 900px; margin: 0 auto;
+      padding: 1rem 2rem;
     }
-    .logo a { color: var(--text); text-decoration: none; font-weight: 700; font-size: 1.1rem; }
-    nav { display: flex; gap: 2rem; }
-    nav a { color: var(--dim); text-decoration: none; font-size: 0.9rem; }
-    nav a:hover, nav a.active { color: var(--text); }
-    main { max-width: 900px; margin: 0 auto; padding: 4rem 2rem; }
-    h1 { font-size: 2rem; font-weight: 600; margin-bottom: 1rem; }
-    .back { color: var(--dim); font-size: 0.8rem; margin-bottom: 2rem; }
-    .back a { color: var(--dim); text-decoration: none; }
-    h2 { font-size: 1.8rem; margin-bottom: 0.5rem; }
-    .meta { color: var(--dim); font-size: 0.85rem; margin-bottom: 2rem; }
-    .desc { font-size: 1.1rem; margin-bottom: 2rem; color: #ccc; }
-    .features { margin-bottom: 3rem; }
-    .features h3 { font-size: 1rem; margin-bottom: 1rem; color: var(--accent); letter-spacing: 0.05em; }
-    .features ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
-    .features li { padding: 0.5rem; color: var(--dim); font-size: 0.9rem; }
-    .features li::before { content: "✦ "; color: var(--accent); }
-    .actions { display: flex; gap: 1rem; margin-bottom: 4rem; }
-    .btn {
-      display: inline-block; padding: 0.75rem 1.5rem; border-radius: 6px;
-      text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: all 0.2s;
+    .logo { font-weight: 700; font-size: 1.05rem; text-decoration: none; color: var(--text); }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { color: var(--dim); text-decoration: none; font-size: 0.875rem; font-weight: 500; }
+    .nav-links a:hover { color: var(--text); }
+    main { max-width: var(--max-width); margin: 0 auto; padding: 3rem 2rem 4rem; }
+    .back { margin-bottom: 2rem; }
+    .back a { color: var(--dim); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+    .back a:hover { color: var(--text); }
+    h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+    .meta {
+      color: var(--dim); font-size: 0.85rem; margin-bottom: 1.5rem;
+      display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;
     }
-    .btn-primary { background: var(--accent); color: white; }
-    .btn-primary:hover { opacity: 0.9; }
-    .btn-secondary { border: 1px solid var(--border); color: var(--text); }
-    .btn-secondary:hover { border-color: var(--accent); }
-    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-bottom: 3rem; }
-    .feature-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; }
-    .feature-card h4 { font-size: 1rem; margin-bottom: 0.5rem; }
-    .feature-card p { color: var(--dim); font-size: 0.85rem; }
-    .pricing { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 2rem; margin-bottom: 3rem; }
-    .pricing h3 { margin-bottom: 1.5rem; }
+    .badge {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      padding: 3px 10px; border-radius: 100px;
+      background: rgba(74, 222, 128, 0.08); color: var(--green);
+    }
+    .desc { color: var(--text-secondary); font-size: 1.05rem; margin-bottom: 3rem; max-width: 650px; line-height: 1.7; }
+
+    .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 3rem; }
+    .feature-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.25rem 1.5rem;
+      transition: all 0.2s;
+    }
+    .feature-card:hover { border-color: var(--border-hover); background: var(--surface-hover); }
+    .feature-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.35rem; }
+    .feature-card p { color: var(--text-secondary); font-size: 0.83rem; line-height: 1.6; }
+    .feature-icon { font-size: 1.2rem; margin-bottom: 0.5rem; }
+
+    .pricing {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2rem; margin-bottom: 2rem;
+    }
+    .pricing h2 { font-size: 1.3rem; font-weight: 600; margin-bottom: 1.25rem; }
     .pricing-table { width: 100%; border-collapse: collapse; }
-    .pricing-table th, .pricing-table td { padding: 0.75rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
-    .pricing-table th { color: var(--dim); font-weight: 500; }
+    .pricing-table th, .pricing-table td { padding: 0.8rem 0; text-align: left; border-bottom: 1px solid var(--border); }
+    .pricing-table th { color: var(--dim); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 500; }
+    .pricing-table td { font-size: 0.9rem; }
+    .pricing-table .price { font-family: 'JetBrains Mono', monospace; color: var(--accent); font-weight: 500; }
+    .pricing-table .tier { font-weight: 600; }
+
+    .actions { display: flex; gap: 0.75rem; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none;
+      font-weight: 600; font-size: 0.875rem; transition: all 0.2s;
+    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: #ff7c4d; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(255,107,53,0.25); }
+    .btn-secondary { border: 1px solid var(--border); color: var(--text); }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
     footer {
-      max-width: 900px; margin: 0 auto; padding: 2rem;
+      max-width: var(--max-width); margin: 0 auto; padding: 1.5rem 2rem 3rem;
       border-top: 1px solid var(--border); display: flex; justify-content: space-between;
       color: var(--dim); font-size: 0.8rem;
     }
-    footer a { color: var(--dim); text-decoration: none; margin-left: 1.5rem; }
+    footer .footer-links { display: flex; gap: 1.5rem; }
+    footer a { color: var(--dim); text-decoration: none; }
+    footer a:hover { color: var(--text-secondary); }
+
+    @media (max-width: 600px) {
+      .features-grid { grid-template-columns: 1fr; }
+      main { padding: 2rem 1.25rem 3rem; }
+      .actions { flex-direction: column; }
+    }
   </style>
 </head>
 <body>
-  <div class="banner">
-    <div class="logo"><a href="/">touseefshaik.com</a></div>
-    <nav>
-      <a href="/">home</a>
-      <a href="/ideas" class="active">ideas</a>
-    </nav>
-  </div>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">touseefshaik.com</a>
+      <div class="nav-links">
+        <a href="/">home</a>
+        <a href="/ideas">ideas</a>
+      </div>
+    </div>
+  </nav>
 
   <main>
     <div class="back"><a href="/">← back</a></div>
-    <h2>BA Assistant</h2>
-    <p class="meta">AI-Powered Requirement Analysis · 5 Specialized Agents · Live</p>
+    <h1>BA Assistant</h1>
+    <div class="meta">
+      <span>AI-Powered Requirement Analysis</span>
+      <span class="badge">live</span>
+    </div>
     <p class="desc">
       Turn raw, messy requirements into structured BA/PO deliverables. Five AI agents 
       work together — parsing, extracting features, designing architecture, assessing 
-      risks, and generating Mermaid diagrams — so you get a complete analysis in minutes, 
-      not days.
+      risks, and generating diagrams — so you get complete analysis in minutes, not days.
     </p>
 
     <div class="features-grid">
       <div class="feature-card">
-        <h4>📋 Requirements Structuring</h4>
-        <p>Natural language input → structured functional & non-functional requirements with traceability.</p>
+        <div class="feature-icon">📋</div>
+        <h3>Requirements Structuring</h3>
+        <p>Natural language input → structured functional & non-functional requirements with traceability and categorization.</p>
       </div>
       <div class="feature-card">
-        <h4>📦 Feature Extraction</h4>
-        <p>Automatic feature breakdown with MoSCoW prioritization, dependencies, and complexity scoring.</p>
+        <div class="feature-icon">📦</div>
+        <h3>Feature Extraction</h3>
+        <p>Automatic breakdown with MoSCoW prioritization, dependency mapping, and complexity scoring.</p>
       </div>
       <div class="feature-card">
-        <h4>🏗 Architecture Recommendations</h4>
-        <p>Technology stack, integration patterns, data models, and NFR considerations for your solution.</p>
+        <div class="feature-icon">🏗</div>
+        <h3>Architecture Design</h3>
+        <p>Technology stack, integration patterns, data models, and NFR considerations tailored to your requirements.</p>
       </div>
       <div class="feature-card">
-        <h4>⚠️ Risk Assessment</h4>
-        <p>Technical, business, and project risk identification with mitigation strategies and impact scoring.</p>
+        <div class="feature-icon">⚠️</div>
+        <h3>Risk Assessment</h3>
+        <p>Technical, business, and project risks identified with probability scoring and actionable mitigation strategies.</p>
       </div>
       <div class="feature-card">
-        <h4>📊 Mermaid Diagrams</h4>
-        <p>Auto-generated process flows, sequence diagrams, and state charts — ready to embed in your docs.</p>
+        <div class="feature-icon">📊</div>
+        <h3>Mermaid Diagrams</h3>
+        <p>Auto-generated process flows, sequence diagrams, and state charts — ready to embed in your documentation.</p>
       </div>
       <div class="feature-card">
-        <h4>📄 Export-Ready Reports</h4>
-        <p>Professional BA/PO reports in Markdown. Paste into Confluence, Notion, or your PRD template.</p>
+        <div class="feature-icon">📄</div>
+        <h3>Export-Ready Reports</h3>
+        <p>Professional BA/PO reports in Markdown. Paste directly into Confluence, Notion, or your PRD template.</p>
       </div>
     </div>
 
     <div class="pricing">
-      <h3>Pricing</h3>
+      <h2>Pricing</h2>
       <table class="pricing-table">
         <thead>
           <tr><th>Tier</th><th>Price</th><th>What You Get</th></tr>
         </thead>
         <tbody>
-          <tr><td>Free</td><td>₹0</td><td>2 analyses/month, basic report</td></tr>
-          <tr><td>Pro</td><td>₹499/month</td><td>Unlimited analyses, all 5 agents, PDF export, priority queue</td></tr>
-          <tr><td>Team</td><td>₹1,999/month</td><td>5 seats, shared workspace, team dashboard</td></tr>
+          <tr>
+            <td class="tier">Free</td>
+            <td class="price">₹0</td>
+            <td>2 analyses per month, basic report output</td>
+          </tr>
+          <tr>
+            <td class="tier">Pro</td>
+            <td class="price">₹499/mo</td>
+            <td>Unlimited analyses, all 5 agents, PDF export, priority queue</td>
+          </tr>
+          <tr>
+            <td class="tier">Team</td>
+            <td class="price">₹1,999/mo</td>
+            <td>5 seats, shared workspace, team dashboard, admin controls</td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -130,11 +194,11 @@
   </main>
 
   <footer>
-    <span>touseefshaik.com © 2026</span>
-    <div>
-      <a href="https://github.com/Touseef1949">GitHub</a>
-      <a href="https://linkedin.com/in/ts26">LinkedIn</a>
-      <a href="/contact">Contact</a>
+    <span>touseefshaik.com &copy; 2026</span>
+    <div class="footer-links">
+      <a href="https://github.com/Touseef1949" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/ts26" target="_blank">LinkedIn</a>
+      <a href="mailto:touseef@touseefshaik.com">Contact</a>
     </div>
   </footer>
 </body>

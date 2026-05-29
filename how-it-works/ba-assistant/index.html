@@ -4,170 +4,201 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>How it Works — BA Assistant · touseefshaik.com</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <meta name="description" content="Architecture, agents, and cost breakdown for BA Assistant — 5 AI agents powered by DeepSeek for requirement analysis.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0a0a0a; --surface: #141414; --border: #2a2a2a;
-      --text: #e0e0e0; --dim: #888; --accent: #ff6b35; --code-bg: #1a1a1a;
+      --bg: #08080a; --surface: #111115; --surface-hover: #18181f;
+      --border: #222228; --border-hover: #333340;
+      --text: #e4e4ec; --text-secondary: #a0a0b0; --dim: #6b6b7b;
+      --accent: #ff6b35; --green: #4ade80;
+      --radius: 12px; --max-width: 880px;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: var(--bg); color: var(--text); line-height: 1.7; min-height: 100vh;
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.7;
+      min-height: 100vh; -webkit-font-smoothing: antialiased;
     }
-    .banner {
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      background: rgba(8, 8, 10, 0.8); border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: var(--max-width); margin: 0 auto;
       display: flex; justify-content: space-between; align-items: center;
-      padding: 1.5rem 2rem; border-bottom: 1px solid var(--border);
-      max-width: 900px; margin: 0 auto;
+      padding: 1rem 2rem;
     }
-    .logo a { color: var(--text); text-decoration: none; font-weight: 700; font-size: 1.1rem; }
-    nav { display: flex; gap: 2rem; }
-    nav a { color: var(--dim); text-decoration: none; font-size: 0.9rem; }
-    nav a:hover { color: var(--text); }
-    main { max-width: 900px; margin: 0 auto; padding: 4rem 2rem; }
-    .back { color: var(--dim); font-size: 0.8rem; margin-bottom: 2rem; }
-    .back a { color: var(--dim); text-decoration: none; }
-    h1 { font-size: 2rem; font-weight: 600; margin-bottom: 1rem; }
-    h2 { font-size: 1.3rem; margin: 2.5rem 0 1rem; }
-    h3 { font-size: 1rem; margin: 1.5rem 0 0.5rem; color: var(--accent); }
-    .cost-badge { display: inline-block; background: #1a3a1a; color: #4ade80; padding: 4px 10px; border-radius: 4px; font-size: 0.8rem; margin-right: 0.5rem; }
-    .status-badge { display: inline-block; background: var(--surface); border: 1px solid var(--border); padding: 4px 10px; border-radius: 4px; font-size: 0.8rem; }
-    .stats { display: flex; gap: 2rem; margin: 2rem 0; }
-    .stat { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.5rem; text-align: center; }
-    .stat-value { font-size: 1.5rem; font-weight: 600; color: var(--accent); }
-    .stat-label { font-size: 0.75rem; color: var(--dim); text-transform: uppercase; letter-spacing: 0.1em; }
+    .logo { font-weight: 700; font-size: 1.05rem; text-decoration: none; color: var(--text); }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { color: var(--dim); text-decoration: none; font-size: 0.875rem; font-weight: 500; }
+    .nav-links a:hover { color: var(--text); }
+    main { max-width: var(--max-width); margin: 0 auto; padding: 3rem 2rem 4rem; }
+    .back { margin-bottom: 2rem; }
+    .back a { color: var(--dim); text-decoration: none; font-size: 0.85rem; }
+    .back a:hover { color: var(--text); }
+    h1 { font-size: 1.8rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
+    h2 { font-size: 1.15rem; font-weight: 600; margin: 2.5rem 0 0.75rem; }
+    h3 { font-size: 0.9rem; font-weight: 600; margin: 0.75rem 0 0.5rem; color: var(--accent); }
+
+    .stats {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem;
+      margin: 1.5rem 0 2.5rem;
+    }
+    .stat {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.25rem; text-align: center;
+    }
+    .stat-val { font-size: 1.6rem; font-weight: 700; color: var(--accent); font-family: 'JetBrains Mono', monospace; }
+    .stat-lbl { font-size: 0.7rem; color: var(--dim); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.25rem; }
+
     .agent-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin: 1rem 0; }
     .agent-card {
       background: var(--surface); border: 1px solid var(--border);
-      border-radius: 8px; padding: 1.2rem;
+      border-radius: var(--radius); padding: 1.25rem 1.5rem;
+      transition: all 0.2s;
     }
-    .agent-card h4 { font-size: 0.95rem; margin-bottom: 0.3rem; }
-    .agent-card p { font-size: 0.8rem; color: var(--dim); }
-    .agent-card .model { font-size: 0.7rem; color: #555; margin-top: 0.5rem; font-family: monospace; }
-    table { width: 100%; border-collapse: collapse; margin: 1rem 0 2rem; }
-    th, td { padding: 0.6rem 0.8rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.85rem; }
-    th { color: var(--dim); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
-    .flow { background: var(--code-bg); border-radius: 8px; padding: 1.5rem; margin: 1rem 0; font-family: monospace; font-size: 0.8rem; line-height: 2; color: var(--dim); }
+    .agent-card:hover { border-color: var(--border-hover); background: var(--surface-hover); }
+    .agent-card.full { grid-column: 1 / -1; }
+    .agent-card h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem; }
+    .agent-card p { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.6; }
+    .agent-card .model {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+      color: var(--dim); margin-top: 0.75rem;
+    }
+
+    .flow {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem;
+      font-family: 'JetBrains Mono', monospace; font-size: 0.8rem;
+      line-height: 2.2; color: var(--text-secondary);
+    }
     .flow span { color: var(--accent); }
+
+    table { width: 100%; border-collapse: collapse; margin: 0.75rem 0 1.5rem; }
+    th, td {
+      padding: 0.7rem 0; text-align: left; border-bottom: 1px solid var(--border);
+      font-size: 0.83rem;
+    }
+    th { color: var(--dim); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 500; }
+
     footer {
-      max-width: 900px; margin: 0 auto; padding: 2rem;
+      max-width: var(--max-width); margin: 0 auto; padding: 1.5rem 2rem 3rem;
       border-top: 1px solid var(--border); display: flex; justify-content: space-between;
       color: var(--dim); font-size: 0.8rem;
     }
-    footer a { color: var(--dim); text-decoration: none; margin-left: 1.5rem; }
+    footer .footer-links { display: flex; gap: 1.5rem; }
+    footer a { color: var(--dim); text-decoration: none; }
+    footer a:hover { color: var(--text-secondary); }
+
+    @media (max-width: 600px) {
+      .stats { grid-template-columns: 1fr 1fr; }
+      .agent-grid { grid-template-columns: 1fr; }
+      main { padding: 2rem 1.25rem 3rem; }
+    }
   </style>
 </head>
 <body>
-  <div class="banner">
-    <div class="logo"><a href="/">touseefshaik.com</a></div>
-    <nav>
-      <a href="/">home</a>
-      <a href="/ideas">ideas</a>
-    </nav>
-  </div>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">touseefshaik.com</a>
+      <div class="nav-links">
+        <a href="/">home</a>
+        <a href="/ideas">ideas</a>
+      </div>
+    </div>
+  </nav>
 
   <main>
     <div class="back"><a href="/ideas/ba-assistant">← back to BA Assistant</a></div>
     <h1>How it Works — BA Assistant</h1>
 
     <div class="stats">
-      <div class="stat">
-        <div class="stat-value">5</div>
-        <div class="stat-label">AI Agents</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value">~₹1</div>
-        <div class="stat-label">Per Analysis</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value">&lt;60s</div>
-        <div class="stat-label">Response Time</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value">Free</div>
-        <div class="stat-label">To Start</div>
-      </div>
+      <div class="stat"><div class="stat-val">5</div><div class="stat-lbl">AI Agents</div></div>
+      <div class="stat"><div class="stat-val">~₹1</div><div class="stat-lbl">Per Analysis</div></div>
+      <div class="stat"><div class="stat-val">&lt;60s</div><div class="stat-lbl">Response</div></div>
+      <div class="stat"><div class="stat-val">Free</div><div class="stat-lbl">To Start</div></div>
     </div>
 
-    <p>
-      <span class="cost-badge">Status: Live</span>
-      <span class="status-badge">AI: DeepSeek V4 Flash (soon)</span>
-    </p>
-
     <h2>The Agents</h2>
-    <p>Five specialized agents collaborate on every analysis. Each handles one dimension of the BA/PO workflow:</p>
+    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.5rem;">
+      Five specialized agents collaborate on every analysis. Each handles one dimension of the BA/PO workflow.
+    </p>
 
     <div class="agent-grid">
       <div class="agent-card">
         <h4>1. BA Requirements Analyst</h4>
-        <p>Structures raw business needs into clear, categorized functional & non-functional requirements. Extracts entities, business rules, and constraints.</p>
-        <div class="model">DeepSeek V4 Flash</div>
+        <p>Structures raw business needs into clear functional & non-functional requirements. Extracts entities, business rules, and constraints.</p>
+        <div class="model">deepseek-v4-flash</div>
       </div>
       <div class="agent-card">
         <h4>2. Product Owner Analyst</h4>
-        <p>Converts requirements into epics, features, and user stories. Applies MoSCoW prioritization and creates backlog structure.</p>
-        <div class="model">DeepSeek V4 Flash</div>
+        <p>Converts requirements into epics, features, and user stories. MoSCoW prioritization and backlog structure creation.</p>
+        <div class="model">deepseek-v4-flash</div>
       </div>
       <div class="agent-card">
         <h4>3. Solution Architect</h4>
-        <p>Designs technology stack, integration patterns, data models, and NFRs. Recommends architecture patterns and deployment strategies.</p>
-        <div class="model">DeepSeek V4 Flash</div>
+        <p>Designs technology stack, integration patterns, data models, and NFRs. Recommends architecture and deployment strategies.</p>
+        <div class="model">deepseek-v4-flash</div>
       </div>
       <div class="agent-card">
         <h4>4. Risk & QA Reviewer</h4>
-        <p>Identifies technical, business, and project risks. Validates completeness and consistency across all agent outputs.</p>
-        <div class="model">DeepSeek V4 Flash</div>
+        <p>Identifies technical, business, and project risks. Validates completeness and cross-agent consistency.</p>
+        <div class="model">deepseek-v4-flash</div>
       </div>
-      <div class="agent-card" style="grid-column: 1 / -1;">
+      <div class="agent-card full">
         <h4>5. Mermaid Diagram Designer</h4>
-        <p>Generates process flows, sequence diagrams, state charts, and data flow diagrams directly from requirements — ready to paste into any markdown document.</p>
-        <div class="model">DeepSeek V4 Flash</div>
+        <p>Generates process flows, sequence diagrams, state charts, and data flow diagrams — ready to paste into any markdown document.</p>
+        <div class="model">deepseek-v4-flash</div>
       </div>
     </div>
 
-    <h2>How a Request Flows</h2>
+    <h2>Request Flow</h2>
     <div class="flow">
-      <span>1.</span> User pastes requirements → <br>
-      <span>2.</span> BA Analyst structures them → <br>
-      <span>3.</span> PO Analyst extracts features & stories → <br>
-      <span>4.</span> Architect designs the system → <br>
-      <span>5.</span> Risk & QA reviews everything → <br>
-      <span>6.</span> Diagram Designer generates Mermaid charts → <br>
+      <span>1.</span> User pastes raw requirements →<br>
+      <span>2.</span> BA Analyst structures & categorizes →<br>
+      <span>3.</span> PO Analyst extracts features & stories →<br>
+      <span>4.</span> Architect designs system & integrations →<br>
+      <span>5.</span> Risk & QA reviews all outputs →<br>
+      <span>6.</span> Diagram Designer generates Mermaid charts →<br>
       <span>7.</span> Consolidated report delivered to user
     </div>
 
-    <h2>Cost Breakdown</h2>
+    <h2>Running Costs</h2>
     <table>
-      <thead><tr><th>Service</th><th>What It Does</th><th>Plan</th><th>Cost</th></tr></thead>
+      <thead><tr><th>Service</th><th>Role</th><th>Plan</th><th>Cost</th></tr></thead>
       <tbody>
-        <tr><td>Domain</td><td>touseefshaik.com — Cloudflare</td><td>Registrar</td><td>~$10 / year</td></tr>
-        <tr><td>Netlify</td><td>Landing page hosting, SSL, CDN</td><td>Free tier</td><td>$0</td></tr>
-        <tr><td>Streamlit Cloud</td><td>App hosting, serverless</td><td>Free tier</td><td>$0</td></tr>
-        <tr><td>DeepSeek API</td><td>5-agent AI analysis engine</td><td>Pay per use</td><td>~$0.01-0.03 / analysis</td></tr>
-        <tr><td><strong>Total Monthly</strong></td><td>— 500 analyses/month</td><td>—</td><td><strong>~$6-16</strong></td></tr>
+        <tr><td>Cloudflare</td><td>Domain + DNS</td><td>Registrar</td><td style="font-family: monospace;">~$10/yr</td></tr>
+        <tr><td>GitHub Pages</td><td>Landing page hosting</td><td>Free</td><td style="font-family: monospace;">$0</td></tr>
+        <tr><td>Streamlit Cloud</td><td>App hosting</td><td>Free</td><td style="font-family: monospace;">$0</td></tr>
+        <tr><td>DeepSeek API</td><td>5-agent AI engine</td><td>Pay-per-use</td><td style="font-family: monospace;">~$0.01/analysis</td></tr>
       </tbody>
     </table>
 
     <h2>Tech Stack</h2>
     <table>
-      <thead><tr><th>Component</th><th>Technology</th></tr></thead>
+      <thead><tr><th>Layer</th><th>Technology</th></tr></thead>
       <tbody>
         <tr><td>Agent Framework</td><td>Agno (Python)</td></tr>
-        <tr><td>LLM Provider</td><td>Groq → DeepSeek V4 Flash (migrating)</td></tr>
-        <tr><td>UI Framework</td><td>Streamlit</td></tr>
-        <tr><td>Hosting</td><td>Streamlit Cloud</td></tr>
-        <tr><td>Landing Page</td><td>Netlify (static HTML/CSS)</td></tr>
+        <tr><td>LLM Provider</td><td>DeepSeek V4 Flash</td></tr>
+        <tr><td>App UI</td><td>Streamlit</td></tr>
+        <tr><td>App Hosting</td><td>Streamlit Cloud</td></tr>
+        <tr><td>Landing Page</td><td>Static HTML/CSS on GitHub Pages</td></tr>
         <tr><td>Domain & DNS</td><td>Cloudflare</td></tr>
       </tbody>
     </table>
   </main>
 
   <footer>
-    <span>touseefshaik.com © 2026</span>
-    <div>
-      <a href="https://github.com/Touseef1949">GitHub</a>
-      <a href="https://linkedin.com/in/ts26">LinkedIn</a>
-      <a href="/contact">Contact</a>
+    <span>touseefshaik.com &copy; 2026</span>
+    <div class="footer-links">
+      <a href="https://github.com/Touseef1949" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/ts26" target="_blank">LinkedIn</a>
+      <a href="mailto:touseef@touseefshaik.com">Contact</a>
     </div>
   </footer>
 </body>
