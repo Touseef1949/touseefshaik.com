@@ -62,19 +62,30 @@
     .section-desc { font-size: 1.05rem; color: var(--text-secondary); max-width: 600px; margin-bottom: 2.5rem; line-height: 1.6; }
 
     /* Hero */
-    .hero { padding: 5rem 2rem 4rem; text-align: center; }
+    .hero { padding: 5rem 2rem 4rem; }
+    .hero-grid {
+      display: flex; align-items: center; gap: 3rem;
+      max-width: var(--max-width); margin: 0 auto;
+    }
+    .hero-left { flex: 1; text-align: left; }
+    .hero-right { flex-shrink: 0; }
+    .hero-photo {
+      width: 220px; height: 220px; border-radius: 50%;
+      object-fit: cover; border: 4px solid var(--border);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+    }
     .hero .eyebrow { color: var(--text-secondary); font-size: 1rem; margin-bottom: 0.5rem; }
     .hero h1 {
       font-size: 2.8rem; font-weight: 800; line-height: 1.15;
-      letter-spacing: -0.03em; margin-bottom: 1.25rem; max-width: 780px; margin-left: auto; margin-right: auto;
+      letter-spacing: -0.03em; margin-bottom: 1.25rem; max-width: 780px;
     }
     .hero .subtitle {
       font-size: 1.1rem; color: var(--text-secondary);
-      max-width: 640px; margin: 0 auto 1.5rem; line-height: 1.6;
+      max-width: 640px; margin-bottom: 1.5rem; line-height: 1.6;
     }
     .hero .trust-line {
       font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2rem;
-      display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;
+      display: flex; gap: 1.5rem; flex-wrap: wrap;
     }
     .hero .trust-line span { display: inline-flex; align-items: center; gap: 0.3rem; }
     .hero .ctas { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem; }
@@ -235,8 +246,11 @@
 
     @media (max-width: 700px) {
       .hero h1 { font-size: 1.9rem; }
-      .help-grid { grid-template-columns: 1fr; }
-      .tools-grid { grid-template-columns: 1fr; }
+      .hero-grid { flex-direction: column-reverse; gap: 1.5rem; text-align: center; }
+      .hero-left { text-align: center; }
+      .hero-photo { width: 160px; height: 160px; }
+      .hero .ctas { justify-content: center !important; flex-direction: column; align-items: stretch; }
+      .hero .ctas .btn { width: 100%; text-align: center; justify-content: center; min-height: 44px; }
       .sample-grid { grid-template-columns: 1fr; }
       .resources-preview { grid-template-columns: 1fr 1fr; }
       .blog-preview { grid-template-columns: 1fr; }
@@ -249,8 +263,6 @@
       section { padding: 3rem 1.25rem; }
       .nav-inner { padding: 0.85rem 1.25rem; flex-wrap: wrap; }
       .nav-links { gap: 0.75rem; flex-wrap: wrap; font-size: 0.8rem; }
-      .hero .ctas { flex-direction: column; align-items: stretch; }
-      .hero .ctas .btn { width: 100%; text-align: center; justify-content: center; min-height: 44px; }
       .btn { min-height: 44px; }
       .nav-links a { font-size: 0.78rem; padding: 0.3rem 0; min-height: 36px; display: inline-flex; align-items: center; }
       .nav-cta { padding: 0.4rem 0.85rem !important; }
@@ -282,28 +294,33 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="section-inner">
-      <p class="eyebrow">👋 Hey, I'm Touseef Shaik</p>
-      <h1>AI tools and workflows for Business Analysts, Product Owners, and product teams.</h1>
-      <p class="subtitle">
-        I'm a fintech Product Owner with 12+ years of experience. I build practical AI tools 
-        that turn messy requirements into structured specs, user stories, risks, architecture 
-        notes, and diagrams.
-      </p>
-      <div class="trust-line">
-        <span>🧑‍💻 Product Owner</span>
-        <span>🏦 12+ yrs in fintech</span>
-        <span>⚡ Builder of BA Assistant</span>
+    <div class="hero-grid">
+      <div class="hero-left">
+        <p class="eyebrow">👋 Hey, I'm Touseef Shaik</p>
+        <h1>AI tools and workflows for Business Analysts, Product Owners, and product teams.</h1>
+        <p class="subtitle">
+          I'm a fintech Product Owner with 12+ years of experience. I build practical AI tools 
+          that turn messy requirements into structured specs, user stories, risks, architecture 
+          notes, and diagrams.
+        </p>
+        <div class="trust-line">
+          <span>🧑‍💻 Product Owner</span>
+          <span>🏦 12+ yrs in fintech</span>
+          <span>⚡ Builder of BA Assistant</span>
+        </div>
+        <div class="ctas" style="justify-content:flex-start;">
+          <a href="https://businessanalysttools.streamlit.app" class="btn btn-primary" target="_blank">Try BA Assistant Free →</a>
+          <a href="#newsletter" class="btn btn-secondary">Join the Newsletter</a>
+        </div>
       </div>
-      <div class="ctas">
-        <a href="https://businessanalysttools.streamlit.app" class="btn btn-primary" target="_blank">Try BA Assistant Free →</a>
-        <a href="#newsletter" class="btn btn-secondary">Join the Newsletter</a>
+      <div class="hero-right">
+        <img class="hero-photo" src="https://media.licdn.com/dms/image/v2/D5603AQHnzBSNw5-XDw/profile-displayphoto-scale_400_400/B56Z4BYv7eH8AY-/0/1778139726743?e=1781740800&v=beta&t=hv-3t_V1cZHa8MC33Xxslo18fNuQxOa8A4ETvIg30" alt="Touseef Shaik">
       </div>
-      <div class="stats-grid">
-        <div class="stat-card"><div class="stat-val">7+</div><div class="stat-lbl">Tools shipped</div></div>
-        <div class="stat-card"><div class="stat-val">5</div><div class="stat-lbl">AI agents in production</div></div>
-        <div class="stat-card"><div class="stat-val">12+ yrs</div><div class="stat-lbl">Fintech experience</div></div>
-      </div>
+    </div>
+    <div class="stats-grid" style="margin-top: 2.5rem;">
+      <div class="stat-card"><div class="stat-val">7+</div><div class="stat-lbl">Tools shipped</div></div>
+      <div class="stat-card"><div class="stat-val">5</div><div class="stat-lbl">AI agents in production</div></div>
+      <div class="stat-card"><div class="stat-val">12+ yrs</div><div class="stat-lbl">Fintech experience</div></div>
     </div>
   </section>
 
