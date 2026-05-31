@@ -118,6 +118,19 @@
       text-decoration: none;
     }
 
+    .video-section {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 0; overflow: hidden;
+      box-shadow: var(--shadow-md); max-width: 800px; margin: 2rem auto 0;
+    }
+    .video-section video {
+      width: 100%; display: block; border-radius: var(--radius) var(--radius) 0 0;
+    }
+    .video-caption {
+      padding: 1rem 1.5rem; font-size: 0.85rem; color: var(--text-secondary);
+      background: var(--surface-alt); border-top: 1px solid var(--border);
+    }
+
     @media (max-width: 700px) {
       .how-works { grid-template-columns: 1fr 1fr; }
       .feature-grid { grid-template-columns: 1fr; }
@@ -149,6 +162,20 @@
       <p class="desc">Upload a whiteboard sketch, process flow, or system diagram. AI asks clarifying questions, then generates structured BA artifacts — user stories, functional requirements, Mermaid diagrams, and gap analysis.</p>
       <div class="cta-hero">
         <a href="https://writingboardtorequirements.streamlit.app" target="_blank">Try it Free →</a>
+      </div>
+
+      <!-- Demo Video -->
+      <div class="video-section">
+        <a href="https://www.linkedin.com/posts/ts26_ai-businessanalysis-requirementsengineering-activity-7466769149403512832-TfIF" target="_blank" rel="noopener" style="text-decoration:none;display:block;">
+          <div style="background:linear-gradient(135deg,#1a1a2e,#16213e);padding:3rem 2rem;text-align:center;border-radius:var(--radius) var(--radius) 0 0;">
+            <div style="font-size:3rem;margin-bottom:0.75rem;">▶️</div>
+            <div style="color:#fff;font-size:1.1rem;font-weight:700;">Watch the Demo</div>
+            <div style="color:#94a3b8;font-size:0.85rem;margin-top:0.25rem;">See how Whiteboard to Requirements works in 60 seconds</div>
+          </div>
+          <div class="video-caption">
+            🎬 Click to watch on LinkedIn — upload a whiteboard sketch, answer clarifying questions, get structured BA artifacts.
+          </div>
+        </a>
       </div>
     </div>
   </div>
