@@ -164,12 +164,13 @@
       <div class="back"><a href="/tools">← Back to all tools</a></div>
 
       <div class="page-header">
-        <div class="section-label">Flagship Product</div>
-        <h1>BA Assistant — Your AI copilot for requirement analysis</h1>
-        <p style="color:var(--text-secondary);font-size:0.9rem;">5-agent AI workflow for Business Analysts & Product Owners · <span class="tag">Live</span></p>
+        <div class="section-label">Flagship Product — v2</div>
+        <h1>BA Assistant — AI-powered requirement analysis for fintech BAs & Product Owners</h1>
+        <p style="color:var(--text-secondary);font-size:0.9rem;">5-agent Agno Team · 6 analysis modes · Document upload · Interactive Q&A · PDF export · <span class="tag">Live</span></p>
         <p class="desc">
-          Paste raw requirements and get structured functional requirements, NFRs, 
-          user stories, risks, architecture notes, and Mermaid diagrams in under 60 seconds.
+          Paste raw requirements or upload a PRD, whiteboard photo, or PDF. BA Assistant analyses it,
+          asks clarifying questions, and generates a 14-section BA/PO report with Mermaid diagrams — 
+          all tuned for Indian fintech compliance (RBI, SEBI, KYC, NPCI).
         </p>
         <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:1.25rem;">
           <a href="https://businessanalysttools.streamlit.app" class="btn btn-primary" target="_blank" style="padding:0.85rem 2rem;font-size:0.9rem;">Start Free Analysis →</a>
@@ -180,14 +181,16 @@
 
       <!-- What BA Assistant Does -->
       <div style="margin-bottom:2.5rem;">
-        <h2 style="font-size:1.4rem;font-weight:700;margin-bottom:0.75rem;">What BA Assistant Does</h2>
+        <h2 style="font-size:1.4rem;font-weight:700;margin-bottom:0.75rem;">What BA Assistant Does (v2)</h2>
         <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.7;">
-          BA Assistant is a 5-agent AI workflow that takes raw business requirements — a paragraph, 
-          a user story, meeting notes, or a full PRD excerpt — and generates a comprehensive, 
-          structured BA/PO report. Each of the five agents analyses your input from a different 
-          dimension: requirements structuring, product backlog, solution architecture, risk assessment, 
-          and diagram generation. The result is a delivery-ready document you can paste directly into 
-          Confluence, Notion, or your PRD.
+          BA Assistant v2 is a 5-agent Agno Team that takes raw requirements — a paragraph, 
+          meeting notes, a PRD PDF, or even a whiteboard photo — and generates a comprehensive 
+          14-section BA/PO report. The Comprehensive mode runs in 30-90 seconds using a single 
+          high-performance agent. Enterprise mode deploys all 5 agents in parallel for 
+          compliance-heavy fintech projects. Six analysis types are available: Comprehensive, 
+          Interactive Q&amp;A, Enterprise, Quick Feature Extraction, User Stories, Tech Architecture, 
+          and Gap Analysis. Every report includes Mermaid diagrams and is exportable as Markdown, 
+          plain text, or branded PDF.
         </p>
       </div>
 
@@ -215,33 +218,39 @@
       </div>
 
       <div class="features-grid">
-        <div class="feature-card"><span class="icon">📋</span><h3>Requirements Structuring</h3><p>Natural language → structured functional & non-functional requirements with traceability.</p></div>
-        <div class="feature-card"><span class="icon">📦</span><h3>Feature Extraction</h3><p>MoSCoW prioritization, dependency mapping, and complexity scoring.</p></div>
-        <div class="feature-card"><span class="icon">🏗</span><h3>Architecture Design</h3><p>Technology stack, integration patterns, data models, and NFR considerations.</p></div>
-        <div class="feature-card"><span class="icon">⚠️</span><h3>Risk Assessment</h3><p>Technical, business, and project risks with probability scoring and mitigations.</p></div>
-        <div class="feature-card"><span class="icon">📊</span><h3>Mermaid Diagrams</h3><p>Auto-generated process flows, sequence diagrams, and state charts.</p></div>
-        <div class="feature-card"><span class="icon">📄</span><h3>Export-Ready Reports</h3><p>Professional Markdown reports. Paste into Confluence, Notion, or your PRD.</p></div>
+        <div class="feature-card"><span class="icon">📎</span><h3>Document Upload</h3><p>Upload PRD PDFs, whiteboard photos, or screenshots. Gemini Vision extracts requirements automatically.</p></div>
+        <div class="feature-card"><span class="icon">💬</span><h3>Interactive Q&A</h3><p>BA Assistant asks clarifying questions, you answer, then generates an enriched report with full context.</p></div>
+        <div class="feature-card"><span class="icon">📄</span><h3>PDF Export</h3><p>Download branded PDF reports alongside Markdown and plain text. Professional, client-ready.</p></div>
+        <div class="feature-card"><span class="icon">🏦</span><h3>Fintech Templates</h3><p>Pre-built templates for loan origination, KYC/AML, payment gateways, and trading platforms — tuned for RBI/SEBI compliance.</p></div>
+        <div class="feature-card"><span class="icon">⚡</span><h3>Fast &amp; Deep Modes</h3><p>Comprehensive mode: 30-90s with a single agent. Enterprise mode: full 5-agent Team for complex projects.</p></div>
+        <div class="feature-card"><span class="icon">📊</span><h3>Mermaid Diagrams</h3><p>Auto-generated process flows, sequence diagrams, and architecture charts with syntax validation.</p></div>
       </div>
 
       <!-- Sample Input/Output -->
       <div id="sample" class="sample-grid">
         <div class="sample-box">
-          <div class="label">You paste this…</div>
+          <div class="label">You paste this (or upload a PDF / photo)…</div>
           <div class="input-text">
-            "We need a loan onboarding portal for our bank. Customers should apply online 
-            with KYC verification, upload documents, and track application status. 
-            System needs admin approval workflow and notifications at each stage."
+            "Build a digital loan origination system for a fintech lender. Users should be able to 
+            apply for personal loans, upload KYC documents (Aadhaar, PAN), undergo automated 
+            credit assessment, and receive in-principle approval. Integrate with CKYC, credit 
+            bureaus (CIBIL, Experian), account aggregators, and NBFC core systems. Must comply 
+            with RBI digital lending guidelines and data localization requirements."
           </div>
         </div>
         <div class="sample-box">
-          <div class="label">BA Assistant generates…</div>
+          <div class="label">BA Assistant generates (14-section report)…</div>
           <ul class="output-list">
-            <li>12 functional requirements, categorised</li>
-            <li>5 non-functional requirements (security, scale, perf)</li>
-            <li>8 user stories with acceptance criteria</li>
-            <li>Architecture recommendations</li>
-            <li>7 risks with mitigation strategies</li>
-            <li>3 Mermaid diagrams (flow, sequence, state)</li>
+            <li>Executive Summary + Business Context</li>
+            <li>Stakeholders, Personas &amp; User Goals</li>
+            <li>14 functional requirements with traceability</li>
+            <li>Non-functional: security, scale, RBI compliance, data localization</li>
+            <li>10 INVEST user stories with Given-When-Then acceptance criteria</li>
+            <li>Architecture: CKYC, bureau, aggregator, NBFC integrations</li>
+            <li>Risk matrix with mitigations + compliance review</li>
+            <li>Mermaid diagrams: process flow + sequence + architecture</li>
+            <li>MVP roadmap: Phase 1-3 with effort estimates</li>
+            <li>Export as Markdown, plain text, or branded PDF</li>
           </ul>
         </div>
       </div>
@@ -310,8 +319,12 @@
           <p>Reports are generated in Markdown — paste directly into Confluence, Notion, Google Docs, or any Markdown-compatible tool. PDF export is available on the Pro plan.</p>
         </div>
         <div class="faq-item">
-          <h3>Which AI models power this tool?</h3>
-          <p>BA Assistant uses a 5-agent workflow powered by DeepSeek. Each agent handles one dimension of analysis — see <a href="/how-it-works/ba-assistant" style="color:var(--accent);">How it Works</a> for the full architecture.</p>
+          <h3>Which AI models power BA Assistant v2?</h3>
+          <p>Three models: <strong>DeepSeek V4 Flash</strong> for the 5 specialist agents (fast, cheap), <strong>DeepSeek V4 Pro</strong> for the Team coordinator and Comprehensive mode, and <strong>Gemini 3.5 Flash</strong> for document/image extraction. See <a href="/how-it-works/ba-assistant" style="color:var(--accent);">How it Works</a> for the full architecture.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What's new in v2?</h3>
+          <p>Document upload (PDFs + images via Gemini Vision), Interactive Q&amp;A mode (the tool asks clarifying questions before generating), branded PDF export, pre-built fintech templates (loan origination, KYC/AML, payments, trading), and 6 analysis types including a fast 30-90s Comprehensive mode.</p>
         </div>
       </div>
 
