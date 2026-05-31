@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>India Streaming Finder — Find Movies Across OTT Platforms | Touseef Shaik</title>
+  <meta name="description" content="Find which streaming platform has any movie in India — Netflix, Prime Video, Hotstar, JioCinema, and more. Powered by TMDb API. Fast, free, no signup.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fdfcf9; --surface: #ffffff; --surface-alt: #f6f4f0;
+      --border: #e8e5df;
+      --text: #1a1a1a; --text-secondary: #555555; --text-dim: #8a8a8a;
+      --accent: #2563eb; --accent-hover: #1d4ed8; --accent-light: #eff6ff;
+      --green: #059669; --green-bg: #ecfdf5;
+      --orange: #ea580c; --orange-bg: #fff7ed;
+      --radius: 16px; --radius-sm: 10px; --max-width: 960px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(253,252,249,0.85); backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: var(--max-width); margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0.85rem 2rem;
+    }
+    .logo { font-weight: 700; font-size: 1.05rem; text-decoration: none; color: var(--text); }
+    .logo:hover { color: var(--accent); }
+    .nav-links { display: flex; gap: 1.75rem; align-items: center; }
+    .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.875rem; font-weight: 500; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--accent); color: #fff !important;
+      padding: 0.45rem 1rem; border-radius: 100px; font-size: 0.8rem !important; font-weight: 600 !important;
+    }
+
+    section { padding: 3rem 2rem 4rem; }
+    .container { max-width: var(--max-width); margin: 0 auto; }
+    .hero { padding-top: 4rem; padding-bottom: 3rem; text-align: center; }
+    .icon-hero { font-size: 3.5rem; margin-bottom: 1rem; }
+    h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 0.75rem; }
+    .subtitle { font-size: 1.15rem; color: var(--text-secondary); max-width: 640px; margin: 0 auto 2rem; }
+    .btn { display: inline-block; padding: 0.75rem 1.75rem; border-radius: 100px; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: all 0.2s; }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+    .btn-secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); margin-left: 0.75rem; }
+    .btn-secondary:hover { border-color: var(--text-dim); }
+    .btn-group { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem; }
+
+    .features { background: var(--surface-alt); }
+    .section-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 2rem; }
+    .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+    .feature-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem;
+    }
+    .feature-card .fi { font-size: 1.75rem; margin-bottom: 0.75rem; display: block; }
+    .feature-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .feature-card p { font-size: 0.9rem; color: var(--text-secondary); }
+
+    .tech { padding-bottom: 5rem; }
+    .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+    .tech-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); padding: 1.25rem; text-align: center;
+    }
+    .tech-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .tech-card p { font-size: 0.82rem; color: var(--text-dim); }
+
+    .links-section { background: var(--surface-alt); padding-bottom: 5rem; }
+    .link-chips { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1rem; }
+    .link-chip {
+      display: inline-block; padding: 0.4rem 0.9rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 100px; font-size: 0.8rem; font-weight: 500;
+      color: var(--text-secondary); text-decoration: none;
+    }
+    .link-chip:hover { border-color: var(--accent); color: var(--accent); }
+
+    .note { background: var(--orange-bg); border: 1px solid #fbbf24; border-radius: var(--radius-sm); padding: 1.5rem; margin-top: 1rem; }
+    .note strong { color: #92400e; }
+    .note a { color: #92400e; }
+
+    footer { text-align: center; padding: 2rem; color: var(--text-dim); font-size: 0.85rem; border-top: 1px solid var(--border); }
+    footer a { color: var(--accent); text-decoration: none; }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 1.75rem; }
+      .btn-group { flex-direction: column; align-items: center; }
+      .btn-secondary { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">Touseef Shaik</a>
+      <div class="nav-links">
+        <a href="/#tools">Tools</a>
+        <a href="/#about">About</a>
+        <a href="https://github.com/Touseef1949" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/ts26" target="_blank" class="nav-cta">LinkedIn</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <div class="icon-hero">🎬</div>
+      <h1>India Streaming Finder</h1>
+      <p class="subtitle">
+        Type any movie name and instantly see which Indian streaming platform has it — Netflix, Prime Video, Hotstar, JioCinema, ZEE5, Sony LIV, and more. Powered by the TMDb API with provider logo grids, monetization badges, and search history.
+      </p>
+      <div class="btn-group">
+        <a href="https://indiastreamingfinder.streamlit.app" class="btn btn-primary" target="_blank">🎬 Find a Movie →</a>
+        <a href="https://github.com/Touseef1949/india-streaming-finder" class="btn btn-secondary" target="_blank">🐙 View Source</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="container">
+      <h2 class="section-title">What it does</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <span class="fi">🔍</span>
+          <h3>Smart Search</h3>
+          <p>Type a movie name with optional year — "Inception 2010". The app does exact-match lookup first, then falls back to TMDb popularity ranking.</p>
+        </div>
+        <div class="feature-card">
+          <span class="fi">🏷️</span>
+          <h3>Provider Logo Grid</h3>
+          <p>See which platforms have the movie with official provider logos — Netflix, Prime, Hotstar, JioCinema, ZEE5, Sony LIV, Apple TV+, and more.</p>
+        </div>
+        <div class="feature-card">
+          <span class="fi">💳</span>
+          <h3>Monetization Badges</h3>
+          <p>Each result shows how you can watch: Flatrate (included in subscription), Ads (free with ads), Rent, or Buy. No guessing.</p>
+        </div>
+        <div class="feature-card">
+          <span class="fi">📋</span>
+          <h3>Search History</h3>
+          <p>Your recent searches are saved locally. Quickly go back to a previous result without re-typing.</p>
+        </div>
+        <div class="feature-card">
+          <span class="fi">📥</span>
+          <h3>Download Results</h3>
+          <p>Export your search results as JSON for further analysis or integration with other tools.</p>
+        </div>
+        <div class="feature-card">
+          <span class="fi">🆓</span>
+          <h3>Free & Open Source</h3>
+          <p>No signup, no paywall. Uses your own TMDb API key (free tier available). Deploy your own copy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tech">
+    <div class="container">
+      <h2 class="section-title">Tech stack</h2>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <h4>🎨 Streamlit</h4>
+          <p>UI framework for the web app</p>
+        </div>
+        <div class="tech-card">
+          <h4>🎬 TMDb API</h4>
+          <p>Movie metadata and streaming availability data</p>
+        </div>
+        <div class="tech-card">
+          <h4>🐍 Python</h4>
+          <p>API calls, caching, data processing</p>
+        </div>
+        <div class="tech-card">
+          <h4>☁️ Streamlit Cloud</h4>
+          <p>Free hosting with automatic deploy from GitHub</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="links-section">
+    <div class="container">
+      <h2 class="section-title">Links & resources</h2>
+      <div class="link-chips">
+        <a href="https://indiastreamingfinder.streamlit.app" class="link-chip" target="_blank">🎬 Live App</a>
+        <a href="https://github.com/Touseef1949/india-streaming-finder" class="link-chip" target="_blank">🐙 GitHub Repo</a>
+        <a href="https://www.themoviedb.org" class="link-chip" target="_blank">🎬 TMDb</a>
+        <a href="https://developer.themoviedb.org" class="link-chip" target="_blank">📖 TMDb API Docs</a>
+        <a href="/tools" class="link-chip">← All Tools</a>
+      </div>
+
+      <div class="note">
+        <strong>🔑 You need a TMDb API key.</strong> Get one free at <a href="https://www.themoviedb.org/settings/api" target="_blank">themoviedb.org/settings/api</a>. 
+        Paste it in the app sidebar to start searching. TMDb offers a free tier with rate limits.
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Built by <a href="https://touseefshaik.com">Touseef Shaik</a> · Product Owner & AI Builder</p>
+  </footer>
+</body>
+</html>
