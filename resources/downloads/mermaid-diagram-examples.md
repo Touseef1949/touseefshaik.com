@@ -232,4 +232,4 @@ mindmap
 
 ---
 
-*This resource is part of the free BA/PO Toolkit from touseefshaik.com/resources. For AI-powered Mermaid diagram generation, try BA Assistant at businessanalysttools.streamlit.app.*
+*This resource is part of the free BA/PO Toolkit from touseefshaik.com/resources. For AI-powered Mermaid diagram generation, try BA Assistant at tshaik1990-ba-assistant.hf.space.*

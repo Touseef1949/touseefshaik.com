@@ -120,7 +120,7 @@ I use the same flow for backlog refinement, diagramming, and spec writing.
 
 BA Assistant automates this entire flow in one click — requirements, user stories, diagrams, risk assessment, and export-ready report.
 
-Try it free: https://businessanalysttools.streamlit.app
+Try it free: https://tshaik1990-ba-assistant.hf.space
 
 Next week: how I built this tool in 2 weekends. No coding required.
 

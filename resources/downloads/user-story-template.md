@@ -86,4 +86,4 @@ Before moving this story to a sprint, confirm:
 
 ---
 
-*This template is part of the free BA/PO Toolkit from touseefshaik.com/resources. For AI-powered user story generation, try BA Assistant at businessanalysttools.streamlit.app.*
+*This template is part of the free BA/PO Toolkit from touseefshaik.com/resources. For AI-powered user story generation, try BA Assistant at tshaik1990-ba-assistant.hf.space.*

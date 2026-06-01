@@ -108,4 +108,4 @@ Impact
 
 ---
 
-*This template is part of the free BA/PO Toolkit from touseefshaik.com/resources. For AI-powered risk analysis, try BA Assistant at businessanalysttools.streamlit.app.*
+*This template is part of the free BA/PO Toolkit from touseefshaik.com/resources. For AI-powered risk analysis, try BA Assistant at tshaik1990-ba-assistant.hf.space.*
