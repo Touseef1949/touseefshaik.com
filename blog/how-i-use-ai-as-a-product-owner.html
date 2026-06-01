@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How I Use AI as a Product Owner — Touseef Shaik</title>
+  <meta name="description" content="Real daily AI workflows for BAs and Product Owners — from messy stakeholder input to structured deliverables, user stories, and Mermaid diagrams.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #fdfcf9; --surface: #ffffff; --border: #e8e5df; --text: #1a1a1a; --text-secondary: #555; --text-dim: #8a8a8a; --accent: #2563eb; --radius: 16px; --max-width: 800px; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; -webkit-font-smoothing: antialiased; }
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(253,252,249,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: var(--max-width); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 2rem; }
+    .logo { font-weight: 700; font-size: 1.05rem; text-decoration: none; color: var(--text); }
+    .logo:hover { color: var(--accent); }
+    .nav-links { display: flex; gap: 1.75rem; align-items: center; }
+    .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.875rem; font-weight: 500; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta { background: var(--accent); color: #fff !important; padding: 0.45rem 1rem; border-radius: 100px; font-size: 0.8rem !important; font-weight: 600 !important; }
+    article { padding: 3rem 2rem; max-width: var(--max-width); margin: 0 auto; }
+    .cat { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 0.5rem; }
+    h1 { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1.25; margin-bottom: 1rem; }
+    .byline { color: var(--text-dim); font-size: 0.85rem; margin-bottom: 2rem; }
+    article h2 { font-size: 1.4rem; font-weight: 700; margin: 2.5rem 0 0.75rem; }
+    article h3 { font-size: 1.1rem; font-weight: 600; margin: 1.5rem 0 0.5rem; }
+    article p { font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 1.25rem; }
+    article ul, article ol { color: var(--text-secondary); font-size: 1.05rem; margin-bottom: 1.25rem; padding-left: 1.5rem; }
+    article li { margin-bottom: 0.5rem; }
+    article strong { color: var(--text); }
+    .cta-box { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: var(--radius); padding: 2rem; margin: 2.5rem 0; text-align: center; }
+    .cta-box h3 { margin-top: 0; }
+    .btn { display: inline-block; background: var(--accent); color: #fff; padding: 0.85rem 2rem; border-radius: 100px; text-decoration: none; font-weight: 600; }
+    footer { padding: 2rem; border-top: 1px solid var(--border); max-width: var(--max-width); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; color: var(--text-dim); font-size: 0.85rem; }
+    footer .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    footer a { color: var(--text-dim); text-decoration: none; font-size: 0.85rem; }
+    @media (max-width: 700px) { h1 { font-size: 1.6rem; } article { padding: 2rem 1.25rem; } }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">Touseef Shaik</a>
+      <div class="nav-links">
+        <a href="/start-here">Start Here</a>
+        <a href="/tools">Tools</a>
+        <a href="/tools/ba-assistant">BA Assistant</a>
+        <a href="/resources">Resources</a>
+        <a href="/blog">Blog</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="https://businessanalysttools.streamlit.app" class="nav-cta" target="_blank">Try BA Assistant Free</a>
+      </div>
+    </div>
+  </nav>
+
+  <article>
+    <div class="cat">AI for Business Analysts</div>
+    <h1>How I Use AI as a Product Owner: Real Workflows That Save Me Hours Every Week</h1>
+    <p class="byline">By Touseef Shaik · 12+ years in fintech product delivery</p>
+
+    <p>I've spent over a decade in product delivery — oil & gas, life sciences regulatory, and fintech at Broadridge. The one constant across all three industries? Requirements are always messy. Stakeholders speak in paragraphs. Engineers want bullet points. Somewhere in between, the Product Owner has to translate chaos into clarity.</p>
+
+    <p>AI changed my workflow completely. Not in a "robots will replace us" way — in a "I can now do 4 hours of documentation in 20 minutes" way. Here's exactly how I use AI daily as a Product Owner.</p>
+
+    <h2>1. From Stakeholder Notes to Structured Requirements</h2>
+    <p>My most common workflow: I walk out of a stakeholder meeting with 3 pages of rambling notes. Before AI, I'd spend an hour organising them into functional requirements, non-functional requirements, and user stories. Now I paste those notes into <strong>BA Assistant</strong> and get a structured BA/PO report in under 60 seconds.</p>
+    <p>The output includes categorised functional requirements, NFRs (security, performance, scalability), user stories with Given-When-Then acceptance criteria, MoSCoW prioritisation, a risk matrix, and Mermaid diagrams. I review the output (AI is an assistant, not a replacement), tweak what needs tweaking, and paste it into Confluence or a PRD. Done.</p>
+
+    <h2>2. Backlog Refinement in Minutes, Not Hours</h2>
+    <p>Backlog refinement used to be my least favourite part of sprint planning. Taking a feature idea and breaking it down into 5-10 well-written user stories with acceptance criteria is genuinely hard work.</p>
+    <p>Now I write a one-paragraph feature description, run it through BA Assistant, and get a draft set of user stories with acceptance criteria. I then review, reprioritise, and load them into Jira. What used to take an afternoon now takes 30 minutes.</p>
+
+    <h2>3. Architecture Diagrams Without Drawing Tools</h2>
+    <p>I can't draw. Never could. Before AI, I'd sketch boxes on a whiteboard and hope someone else would make it look professional. Now I describe the system in plain English — "microservices architecture with a message queue, document database, and API gateway" — and BA Assistant generates Mermaid diagrams: flowcharts, sequence diagrams, state diagrams. These render natively in GitHub, Notion, and Confluence. No drawing tool needed.</p>
+
+    <h2>4. Risk Analysis That Doesn't Miss Things</h2>
+    <p>Every project has risks. The problem is remembering all of them. AI is great at this because it doesn't have cognitive blind spots. When I feed a feature spec into BA Assistant, the risk analysis module systematically checks for technical risks (integration, scalability, data integrity), business risks (regulatory, market, dependency), and project risks (timeline, resourcing, scope creep). I've caught risks I would have missed at least a dozen times.</p>
+
+    <h2>5. The PRD That Writes Itself</h2>
+    <p>Product Requirement Documents are tedious but necessary. I use a combination of my PRD template (available on the Resources page) and BA Assistant's output to assemble a complete PRD in under an hour. The AI handles the structured output; I add context, strategy, and business justification that only a human can provide.</p>
+
+    <h2>My AI Toolkit (What I Actually Use)</h2>
+    <ul>
+      <li><strong>BA Assistant</strong> — requirements analysis, user stories, risk matrix, Mermaid diagrams</li>
+      <li><strong>Whiteboard to Requirements</strong> — for when someone sketches an idea and I need it turned into a spec</li>
+      <li><strong>ChatGPT / DeepSeek</strong> — for quick ad-hoc questions, brainstorming, and writing assistance</li>
+      <li><strong>Cursor / Copilot</strong> — for when I need to quickly prototype or understand code</li>
+    </ul>
+
+    <h2>The Rule I Never Break</h2>
+    <p>AI output is a <strong>first draft, never a final deliverable</strong>. I review everything. I add context the AI doesn't have. I remove anything that doesn't apply. The AI saves me the grunt work of structuring, formatting, and covering the basics. The judgment, strategy, and stakeholder nuance still come from me.</p>
+
+    <p>If you're a BA or PO who hasn't tried AI in your daily workflow yet, start with one thing: paste your next set of meeting notes into BA Assistant and see what comes out. You might be surprised how much time you get back.</p>
+
+    <div class="cta-box">
+      <h3>Try BA Assistant — Free, No Signup</h3>
+      <p style="color:var(--text-secondary);margin-bottom:1rem;">Paste messy requirements. Get a structured BA/PO report in under 60 seconds.</p>
+      <a href="https://businessanalysttools.streamlit.app" target="_blank" class="btn">Try BA Assistant Free →</a>
+    </div>
+  </article>
+
+  <footer>
+    <span>Touseef Shaik &copy; 2026</span>
+    <div class="footer-links">
+      <a href="/blog">← Back to Blog</a>
+      <a href="/">Home</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+    </div>
+  </footer>
+</body>
+</html>

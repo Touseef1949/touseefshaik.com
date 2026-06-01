@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Turn Messy Requirements into User Stories — Touseef Shaik</title>
+  <meta name="description" content="A practical step-by-step framework for taking vague stakeholder input and turning it into clear, actionable user stories with acceptance criteria.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #fdfcf9; --surface: #ffffff; --border: #e8e5df; --text: #1a1a1a; --text-secondary: #555; --text-dim: #8a8a8a; --accent: #2563eb; --radius: 16px; --max-width: 800px; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; -webkit-font-smoothing: antialiased; }
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(253,252,249,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: var(--max-width); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 2rem; }
+    .logo { font-weight: 700; font-size: 1.05rem; text-decoration: none; color: var(--text); }
+    .logo:hover { color: var(--accent); }
+    .nav-links { display: flex; gap: 1.75rem; align-items: center; }
+    .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.875rem; font-weight: 500; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta { background: var(--accent); color: #fff !important; padding: 0.45rem 1rem; border-radius: 100px; font-size: 0.8rem !important; font-weight: 600 !important; }
+    article { padding: 3rem 2rem; max-width: var(--max-width); margin: 0 auto; }
+    .cat { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 0.5rem; }
+    h1 { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1.25; margin-bottom: 1rem; }
+    .byline { color: var(--text-dim); font-size: 0.85rem; margin-bottom: 2rem; }
+    article h2 { font-size: 1.4rem; font-weight: 700; margin: 2.5rem 0 0.75rem; }
+    article h3 { font-size: 1.1rem; font-weight: 600; margin: 1.5rem 0 0.5rem; }
+    article p { font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 1.25rem; }
+    article ul, article ol { color: var(--text-secondary); font-size: 1.05rem; margin-bottom: 1.25rem; padding-left: 1.5rem; }
+    article li { margin-bottom: 0.5rem; }
+    article strong { color: var(--text); }
+    .example-box { background: #f6f4f0; border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin: 1.5rem 0; }
+    .example-box .label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); margin-bottom: 0.75rem; }
+    .example-box p, .example-box ul { font-size: 0.95rem; margin-bottom: 0.5rem; }
+    .cta-box { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: var(--radius); padding: 2rem; margin: 2.5rem 0; text-align: center; }
+    .cta-box h3 { margin-top: 0; }
+    .btn { display: inline-block; background: var(--accent); color: #fff; padding: 0.85rem 2rem; border-radius: 100px; text-decoration: none; font-weight: 600; }
+    footer { padding: 2rem; border-top: 1px solid var(--border); max-width: var(--max-width); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; color: var(--text-dim); font-size: 0.85rem; }
+    footer .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    footer a { color: var(--text-dim); text-decoration: none; font-size: 0.85rem; }
+    @media (max-width: 700px) { h1 { font-size: 1.6rem; } article { padding: 2rem 1.25rem; } }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">Touseef Shaik</a>
+      <div class="nav-links">
+        <a href="/start-here">Start Here</a>
+        <a href="/tools">Tools</a>
+        <a href="/tools/ba-assistant">BA Assistant</a>
+        <a href="/resources">Resources</a>
+        <a href="/blog">Blog</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="https://businessanalysttools.streamlit.app" class="nav-cta" target="_blank">Try BA Assistant Free</a>
+      </div>
+    </div>
+  </nav>
+
+  <article>
+    <div class="cat">Requirements Engineering</div>
+    <h1>How to Turn Messy Requirements into User Stories: A Practical Framework</h1>
+    <p class="byline">By Touseef Shaik · 12+ years in fintech product delivery</p>
+
+    <p>Every Product Owner and Business Analyst knows the feeling. You leave a stakeholder meeting with a notepad full of half-sentences, contradictory wishes, and at least one person who said "just make it work like [competitor X]." Now you need to turn all of that into actual user stories the engineering team can build.</p>
+
+    <p>Here's the framework I've developed over 12 years of doing exactly this — across oil & gas, life sciences regulatory, and fintech.</p>
+
+    <h2>Step 1: Separate the What from the How</h2>
+    <p>Stakeholders almost always describe solutions, not problems. "We need a dashboard with 5 charts and a CSV export button" is a solution. The underlying need might be "I want to understand weekly trends and share data with my manager."</p>
+    <p>Before writing a single user story, extract the underlying <strong>job to be done</strong>. Ask: what problem is this solving? Who has this problem? What does success look like?</p>
+
+    <h2>Step 2: Identify the Actors</h2>
+    <p>Every user story needs a clear actor. List every person or system that interacts with this feature. Common actors in enterprise software:</p>
+    <ul>
+      <li>End customer (the person using your product)</li>
+      <li>Admin / operations team</li>
+      <li>Approver / manager</li>
+      <li>External system (API consumer, third-party integration)</li>
+      <li>Support / helpdesk</li>
+    </ul>
+
+    <h2>Step 3: The "As a — I Want — So That" Template</h2>
+    <p>The classic user story format works because it forces clarity:</p>
+    <p><strong>As a</strong> [specific actor]<br>
+    <strong>I want</strong> [specific action or capability]<br>
+    <strong>So that</strong> [measurable outcome or value]</p>
+
+    <p>If you can't complete the "so that" part, you haven't understood the requirement well enough yet. Go back to Step 1.</p>
+
+    <div class="example-box">
+      <div class="label">Example: Before and After</div>
+      <p><strong>Messy input:</strong> "We need customers to be able to see their loan application status. Maybe send them an email too? And the admin should be able to approve or reject."</p>
+      <p style="margin-top:1rem;"><strong>Clean user stories:</strong></p>
+      <ul>
+        <li><strong>As a</strong> loan applicant, <strong>I want to</strong> view my application status online <strong>so that</strong> I don't have to call customer support for updates.</li>
+        <li><strong>As a</strong> loan applicant, <strong>I want to</strong> receive email notifications when my application status changes <strong>so that</strong> I'm informed without checking the portal.</li>
+        <li><strong>As a</strong> loan officer, <strong>I want to</strong> review submitted applications and approve or reject them <strong>so that</strong> I can process loans efficiently.</li>
+      </ul>
+    </div>
+
+    <h2>Step 4: Add Acceptance Criteria (Given-When-Then)</h2>
+    <p>A user story without acceptance criteria is a wish, not a requirement. Use the Given-When-Then format:</p>
+    <ul>
+      <li><strong>Given</strong> [precondition / initial state]</li>
+      <li><strong>When</strong> [action taken by the user]</li>
+      <li><strong>Then</strong> [expected outcome]</li>
+    </ul>
+
+    <div class="example-box">
+      <div class="label">Acceptance Criteria Example</div>
+      <p><strong>User Story:</strong> As a loan applicant, I want to view my application status online.</p>
+      <p style="margin-top:1rem;"><strong>Acceptance Criteria:</strong></p>
+      <ul>
+        <li>Given I have a valid application ID, when I enter it on the status page, then I see my current status (Submitted, Under Review, Approved, Rejected).</li>
+        <li>Given my application is in "Under Review," when I check the status, then I also see the estimated decision date.</li>
+        <li>Given I enter an invalid application ID, when I submit the form, then I see an error message: "Application not found. Check your ID and try again."</li>
+      </ul>
+    </div>
+
+    <h2>Step 5: Prioritise with MoSCoW</h2>
+    <p>Not every story is equally important. Use MoSCoW to separate:</p>
+    <ul>
+      <li><strong>Must have:</strong> The feature is useless without this. Ship-stopper.</li>
+      <li><strong>Should have:</strong> Important but not critical. Can wait for v1.1.</li>
+      <li><strong>Could have:</strong> Nice to have. Include if time permits.</li>
+      <li><strong>Won't have:</strong> Explicitly excluded from this release. Prevents scope creep.</li>
+    </ul>
+
+    <h2>Step 6: Use AI to Accelerate Steps 1-5</h2>
+    <p>This entire process — messy input to structured user stories with acceptance criteria and MoSCoW priorities — is exactly what BA Assistant automates. You paste raw stakeholder notes, and it returns:</p>
+    <ul>
+      <li>Categorised functional and non-functional requirements</li>
+      <li>User stories with Given-When-Then acceptance criteria</li>
+      <li>MoSCoW prioritisation</li>
+      <li>Risk matrix with mitigations</li>
+      <li>Mermaid diagrams for process flows</li>
+    </ul>
+    <p>The AI gives you a 80% complete first draft. You add the 20% that requires human judgment: business context, stakeholder nuance, strategic priorities. What used to take hours now takes minutes.</p>
+
+    <div class="cta-box">
+      <h3>Try Turning Messy Requirements into User Stories — Free</h3>
+      <p style="color:var(--text-secondary);margin-bottom:1rem;">Paste your stakeholder notes into BA Assistant and get structured user stories in under 60 seconds.</p>
+      <a href="https://businessanalysttools.streamlit.app" target="_blank" class="btn">Try BA Assistant Free →</a>
+    </div>
+  </article>
+
+  <footer>
+    <span>Touseef Shaik &copy; 2026</span>
+    <div class="footer-links">
+      <a href="/blog">← Back to Blog</a>
+      <a href="/">Home</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+    </div>
+  </footer>
+</body>
+</html>

@@ -80,6 +80,13 @@
     .tool-card .links a { color: var(--accent); text-decoration: none; font-size: 0.8rem; font-weight: 500; }
     .tool-card .links a:hover { text-decoration: underline; }
     .tool-card .links .how { color: var(--text-dim); }
+    .section-divider { display: flex; align-items: center; gap: 0.75rem; margin: 2.5rem 0 1rem; }
+    .section-divider h2 { font-size: 1.3rem; font-weight: 700; white-space: nowrap; }
+    .section-divider .line { flex: 1; height: 1px; background: var(--border); }
+    .section-divider .badge { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 4px 10px; border-radius: 100px; }
+    .badge-flagship { background: #2563eb; color: #fff; }
+    .badge-workflow { background: var(--surface-alt); color: var(--text-secondary); }
+    .badge-labs { background: var(--amber-bg); color: var(--amber); }
     .visitor-counter { text-align: center; padding: 0 0 2rem; font-size: 0.8rem; color: var(--text-dim); }
 
     footer {
@@ -132,6 +139,13 @@
       </p>
 
       <div class="tools-list">
+
+        <!-- FLAGSHIP -->
+        <div class="section-divider">
+          <span class="badge badge-flagship">Flagship</span>
+          <div class="line"></div>
+        </div>
+
         <a href="/tools/ba-assistant" class="tool-card">
           <div class="left">
             <span class="icon">📋</span>
@@ -146,6 +160,12 @@
           <div class="right"><span class="tag tag-live">Live · Free</span></div>
         </a>
 
+        <!-- BA/PO WORKFLOW TOOLS -->
+        <div class="section-divider">
+          <span class="badge badge-workflow">BA/PO Workflow</span>
+          <div class="line"></div>
+        </div>
+
         <a href="/tools/whiteboard-to-requirements" class="tool-card">
           <div class="left">
             <span class="icon">🧩</span>
@@ -159,6 +179,12 @@
           </div>
           <div class="right"><span class="tag tag-live">Live · Free</span></div>
         </a>
+
+        <!-- LABS -->
+        <div class="section-divider">
+          <span class="badge badge-labs">Labs · Experimental</span>
+          <div class="line"></div>
+        </div>
 
         <a href="/tools/sarvam-tts" class="tool-card">
           <div class="left">
