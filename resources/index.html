@@ -41,6 +41,19 @@
       font-weight: 600; font-size: 0.82rem; transition: all 0.2s;
     }
     .resource-card .dl-btn:hover { background: var(--accent-hover); }
+    .featured-guide {
+      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+      border-radius: var(--radius); padding: 2rem; margin-bottom: 2.5rem;
+      color: #e2e8f0; box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+      border: 1px solid #475569;
+    }
+    .featured-guide .fg-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #fbbf24; margin-bottom: 0.5rem; }
+    .featured-guide h2 { font-size: 1.4rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+    .featured-guide .fg-desc { color: #cbd5e1; font-size: 0.9rem; line-height: 1.6; margin-bottom: 1rem; }
+    .featured-guide .fg-chapters { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+    .featured-guide .fg-chapter { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); padding: 0.35rem 0.75rem; border-radius: 100px; font-size: 0.72rem; color: #e2e8f0; }
+    .featured-guide .fg-cta { display: inline-block; background: #fbbf24; color: #1a1a1a; padding: 0.75rem 1.75rem; border-radius: 100px; text-decoration: none; font-weight: 700; font-size: 0.88rem; transition: all 0.2s; }
+    .featured-guide .fg-cta:hover { background: #f59e0b; transform: translateY(-1px); }
     .newsletter-cta {
       background: var(--surface-alt); border-radius: var(--radius);
       padding: 2rem; text-align: center; margin-top: 2.5rem;
@@ -90,6 +103,21 @@
       <div class="section-label">Free downloads</div>
       <h1>BA & PO Resources</h1>
       <p class="subtitle">Practical templates, checklists, and guides to speed up your BA and product workflows. Download what you need — the full toolkit is free with the newsletter.</p>
+
+      <!-- FEATURED: Complete Prompt Guide -->
+      <div class="featured-guide">
+        <div class="fg-label">⭐ Featured Resource</div>
+        <h2>Complete BA Prompt Guide (18-Page PDF)</h2>
+        <p class="fg-desc">A comprehensive collection of ready-to-use master prompts for LLM-assisted Business Analysis. 5 chapters covering requirements, user stories, process modeling, data analysis, and stakeholder communication.</p>
+        <div class="fg-chapters">
+          <span class="fg-chapter">📋 Requirements Elicitation</span>
+          <span class="fg-chapter">📝 Use Cases & User Stories</span>
+          <span class="fg-chapter">🔄 Process Modeling</span>
+          <span class="fg-chapter">📊 Data Analysis</span>
+          <span class="fg-chapter">💬 Stakeholder Comms</span>
+        </div>
+        <a href="#newsletter" class="fg-cta">📬 Get the Free PDF →</a>
+      </div>
 
       <div class="resources-grid">
         <div class="resource-card">
