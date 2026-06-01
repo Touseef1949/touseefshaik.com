@@ -616,18 +616,17 @@
     btn.disabled = true;
     btn.textContent = 'Joining...';
     try {
-      var r = await fetch('/.netlify/functions/newsletter-signup', {
+      var r = await fetch('https://formsubmit.co/ajax/tshaik1990@gmail.com', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email })
+        body: JSON.stringify({ email: email, _subject: 'New Newsletter Signup' })
       });
       if (r.ok) {
         document.getElementById('newsletter-form').innerHTML =
           '<p style="color:#22c55e;font-weight:600;font-size:1.1rem;">✓ You\'re in! Welcome aboard.</p>';
         msg.textContent = 'One useful email per week. No spam.';
       } else {
-        var err = await r.json().catch(function(){ return {}; });
-        msg.textContent = err.error || 'Something went wrong. Please try again.';
+        msg.textContent = 'Something went wrong. Please try again.';
         msg.style.color = '#ef4444';
       }
     } catch (err) {
