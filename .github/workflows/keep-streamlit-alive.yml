@@ -1,0 +1,59 @@
+name: Keep Streamlit Apps Alive
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'  # Every 5 minutes
+  workflow_dispatch:  # Manual test trigger
+
+jobs:
+  keep-alive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Playwright
+        run: |
+          npm init -y 2>/dev/null
+          npm install playwright 2>/dev/null
+          npx playwright install chromium --with-deps 2>/dev/null
+
+      - name: Wake up all 5 apps with real browser
+        run: |
+          node -e "
+          const { chromium } = require('playwright');
+          const apps = [
+            'businessanalysttools',
+            'writingboardtorequirements',
+            'sarvamtts',
+            'castrelationship',
+            'indiastreamingfinder',
+          ];
+
+          (async () => {
+            const browser = await chromium.launch({ headless: true });
+            const page = await browser.newPage();
+
+            for (const app of apps) {
+              const url = 'https://' + app + '.streamlit.app';
+              try {
+                await page.goto(url, { timeout: 60000, waitUntil: 'networkidle' });
+                // Wait for Streamlit content to actually render
+                await page.waitForFunction(() => {
+                  return document.body.innerText.length > 500 || !!document.querySelector('[data-testid]');
+                }, { timeout: 30000 }).catch(() => {});
+                const len = await page.evaluate('document.body.innerText.length');
+                const awake = len > 500 ? 'AWAKE' : 'SHELL';
+                console.log(app + ': ' + awake + ' (' + len + ' chars)');
+              } catch (e) {
+                console.log(app + ': ERROR — ' + e.message.substring(0, 60));
+              }
+              // Short gap between apps
+              await new Promise(r => setTimeout(r, 5000));
+            }
+            await browser.close();
+            console.log('Done. All apps pinged.');
+          })();
+          "
