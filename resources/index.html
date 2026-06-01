@@ -173,11 +173,9 @@
       <div class="newsletter-cta" id="newsletter">
         <h3>📬 Get the full BA Toolkit</h3>
         <p>Join the newsletter and get all 8 templates, checklists, and guides in one download. Plus weekly practical AI tips for BAs and POs.</p>
-        <form class="newsletter-form" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="newsletter">
-          <p style="display:none"><input name="bot-field"></p>
-          <input type="email" name="email" placeholder="Your email address" required>
-          <button type="submit">Download Free Toolkit →</button>
+        <form class="newsletter-form" onsubmit="return submitNewsletter(event)">
+          <input type="email" id="newsletter-email" placeholder="Your email address" required>
+          <button type="submit" id="newsletter-btn">Download Free Toolkit →</button>
         </form>
         <p style="font-size:0.72rem;color:var(--text-dim);margin-top:0.75rem;">No spam. Unsubscribe anytime.</p>
       </div>
@@ -198,6 +196,36 @@
       <a href="/terms">Terms</a>
     </div>
   </footer>
+
+  <script>
+  async function submitNewsletter(e) {
+    e.preventDefault();
+    var email = document.getElementById('newsletter-email').value.trim();
+    var btn = document.getElementById('newsletter-btn');
+    if (!email) return false;
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    try {
+      var r = await fetch('/.netlify/functions/newsletter-signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email })
+      });
+      if (r.ok) {
+        var form = document.querySelector('.newsletter-form');
+        if (form) form.innerHTML = '<p style="color:#22c55e;font-weight:600;font-size:1.1rem;">✓ You\'re in! Welcome aboard.</p>';
+      } else {
+        var err = await r.json().catch(function(){ return {}; });
+        alert(err.error || 'Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      alert('Network error. Please try again.');
+    }
+    btn.disabled = false;
+    btn.textContent = 'Download Free Toolkit →';
+    return false;
+  }
+  </script>
 
 </body>
 </html>

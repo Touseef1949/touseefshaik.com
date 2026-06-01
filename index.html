@@ -333,11 +333,9 @@
         Weekly practical ideas for Business Analysts, Product Owners, and product teams using AI 
         to write better requirements, analyze faster, and build clearer product documentation.
       </p>
-      <form class="newsletter-form" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="newsletter">
-        <p style="display:none"><input name="bot-field"></p>
-        <input type="email" name="email" placeholder="Your email address" required>
-        <button type="submit">Join Free →</button>
+      <form class="newsletter-form" id="newsletter-form" onsubmit="return submitNewsletter(event)">
+        <input type="email" id="newsletter-email" placeholder="Your email address" required>
+        <button type="submit" id="newsletter-btn">Join Free →</button>
       </form>
       <p id="newsletter-msg" style="font-size:0.75rem;color:var(--text-dim);margin-top:0.75rem;">No spam. One useful email per week. Unsubscribe anytime.</p>
     </div>
@@ -607,6 +605,40 @@
       <a href="https://linkedin.com/in/ts26" target="_blank">LinkedIn</a>
     </div>
   </footer>
+
+  <script>
+  async function submitNewsletter(e) {
+    e.preventDefault();
+    var email = document.getElementById('newsletter-email').value.trim();
+    var btn = document.getElementById('newsletter-btn');
+    var msg = document.getElementById('newsletter-msg');
+    if (!email) return false;
+    btn.disabled = true;
+    btn.textContent = 'Joining...';
+    try {
+      var r = await fetch('/.netlify/functions/newsletter-signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email })
+      });
+      if (r.ok) {
+        document.getElementById('newsletter-form').innerHTML =
+          '<p style="color:#22c55e;font-weight:600;font-size:1.1rem;">✓ You\'re in! Welcome aboard.</p>';
+        msg.textContent = 'One useful email per week. No spam.';
+      } else {
+        var err = await r.json().catch(function(){ return {}; });
+        msg.textContent = err.error || 'Something went wrong. Please try again.';
+        msg.style.color = '#ef4444';
+      }
+    } catch (err) {
+      msg.textContent = 'Network error. Please try again.';
+      msg.style.color = '#ef4444';
+    }
+    btn.disabled = false;
+    btn.textContent = 'Join Free →';
+    return false;
+  }
+  </script>
 
 </body>
 </html>
