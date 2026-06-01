@@ -171,8 +171,10 @@
       <div class="newsletter-inline">
         <h3>📬 Get new articles by email</h3>
         <p>Weekly practical ideas for BAs, Product Owners, and product teams. Join the newsletter.</p>
-        <form class="newsletter-form">
-          <input type="email" placeholder="Your email address" required>
+        <form class="newsletter-form" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="newsletter">
+          <p style="display:none"><input name="bot-field"></p>
+          <input type="email" name="email" placeholder="Your email address" required>
           <button type="submit">Join Free →</button>
         </form>
       </div>
