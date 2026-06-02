@@ -203,10 +203,13 @@
     btn.disabled = true;
     btn.textContent = 'Joining...';
     try {
-      var r = await fetch('https://formsubmit.co/ajax/tshaik1990@gmail.com', {
+      var r = await fetch('https://api.buttondown.email/v1/subscribers', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email, _subject: 'New Newsletter Signup' })
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Token 4318bdce-37b8-4331-bfb4-1f835d5a2fe3'
+        },
+        body: JSON.stringify({ email: email })
       });
       if (r.ok) {
         var form = document.querySelector('.newsletter-form');
