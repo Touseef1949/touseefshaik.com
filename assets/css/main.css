@@ -1162,3 +1162,256 @@ section {
 /* Visitor counter badge — appears in every page footer */
 .visitor-counter { text-align: center; padding: 1rem 0 0.5rem; font-size: 0.8rem; color: var(--text-secondary); }
 .visitor-counter img { height: 20px; vertical-align: middle; opacity: 0.85; }
+
+
+/* ========================================
+   HAMBURGER / MOBILE NAV
+   ======================================== */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    color: var(--fg-primary);
+    border-radius: var(--radius-sm);
+    transition: background var(--transition);
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-toggle:hover {
+    background: var(--bg-secondary);
+}
+
+.nav-toggle .hamburger-icon {
+    display: block;
+    width: 22px;
+    height: 16px;
+    position: relative;
+}
+
+.nav-toggle .hamburger-icon::before,
+.nav-toggle .hamburger-icon::after,
+.nav-toggle .hamburger-icon span {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    border-radius: 1px;
+    transition: transform 200ms ease, opacity 200ms ease, top 200ms ease;
+}
+
+.nav-toggle .hamburger-icon::before { top: 0; }
+.nav-toggle .hamburger-icon span { top: 7px; }
+.nav-toggle .hamburger-icon::after { top: 14px; }
+
+/* When open, X animation */
+.nav-open .nav-toggle .hamburger-icon::before {
+    top: 7px;
+    transform: rotate(45deg);
+}
+.nav-open .nav-toggle .hamburger-icon span {
+    opacity: 0;
+}
+.nav-open .nav-toggle .hamburger-icon::after {
+    top: 7px;
+    transform: rotate(-45deg);
+}
+
+/* ========================================
+   MOBILE BREAKPOINT (max-width: 768px)
+   ======================================== */
+@media (max-width: 768px) {
+
+    /* === NAV === */
+    .nav {
+        height: 56px;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 56px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: var(--bg-primary);
+        padding: 16px;
+        margin: 0;
+        list-style: none;
+        z-index: 99;
+        overflow-y: auto;
+        transform: translateX(100%);
+        transition: transform 250ms ease;
+        border-top: 1px solid var(--border);
+    }
+
+    .nav-open .nav-links {
+        transform: translateX(0);
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 14px 16px;
+        font-size: 1rem;
+        border-radius: var(--radius-md);
+        width: 100%;
+    }
+
+    .nav-links a.nav-cta {
+        margin-top: 12px;
+        text-align: center;
+    }
+
+    /* Lock body scroll when menu is open */
+    body.nav-open {
+        overflow: hidden;
+    }
+
+    /* === CONTAINER PADDING === */
+    .container {
+        padding: 0 16px;
+    }
+
+    /* === HERO === */
+    .hero-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        text-align: center;
+    }
+
+    .hero-image {
+        order: -1; /* Image first on mobile */
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
+    .hero-image img {
+        width: 100%;
+        height: auto;
+    }
+
+    .hero h1 {
+        font-size: clamp(1.75rem, 8vw, 2.25rem) !important;
+        line-height: 1.2 !important;
+    }
+
+    .hero p {
+        font-size: 1rem !important;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .hero-cta .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* === STATS BLOCK === */
+    .stats,
+    [class*="stat-"] {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 12px !important;
+    }
+
+    /* === PAGE INTRO === */
+    .page-intro {
+        padding: 2.5rem 0 1.5rem;
+    }
+
+    .page-intro h1 {
+        font-size: clamp(1.75rem, 7vw, 2.25rem) !important;
+    }
+
+    /* === GRIDS: collapse to single column === */
+    .app-grid,
+    .pattern-grid,
+    .next-grid,
+    .philosophy-grid,
+    .stack-grid,
+    .footer-grid,
+    .next-preview-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+    }
+
+    /* === APP DETAIL === */
+    .app-detail {
+        grid-template-columns: 1fr !important;
+        padding: 1.5rem 1rem !important;
+    }
+
+    .app-detail-sidebar {
+        position: static !important;
+    }
+
+    /* === BLOG POSTS / LEGAL === */
+    .blog-post,
+    .legal-content {
+        padding: 2rem 1rem !important;
+    }
+
+    /* === CONTACT FORM === */
+    .contact-form {
+        padding: 0 0.5rem;
+    }
+
+    /* === BUTTONS: easier tap targets === */
+    .btn {
+        padding: 12px 20px;
+        min-height: 44px;
+    }
+
+    /* === FOOTER === */
+    .site-footer {
+        padding: 40px 0 16px !important;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 32px !important;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    /* === HEADINGS === */
+    h1 { font-size: clamp(1.75rem, 8vw, 2.25rem) !important; }
+    h2 { font-size: clamp(1.5rem, 6vw, 1.875rem) !important; }
+
+    /* === VISITOR COUNTER === */
+    .visitor-counter {
+        padding: 0.75rem 0 0.5rem;
+    }
+}
+
+/* === VERY SMALL SCREENS (≤400px) === */
+@media (max-width: 400px) {
+    .hero-stats,
+    [class*="stat"] {
+        grid-template-columns: 1fr !important;
+    }
+
+    .hero h1 {
+        font-size: 1.5rem !important;
+    }
+}

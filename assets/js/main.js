@@ -122,6 +122,51 @@ if (!prefersReducedMotion) {
     document.head.appendChild(style);
 }
 
+
+// ============================================
+// Mobile nav toggle
+// ============================================
+(function setupMobileNav() {
+    const toggle = document.querySelector('.nav-toggle');
+    if (!toggle) return;
+    
+    function setOpen(open) {
+        document.body.classList.toggle('nav-open', open);
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    }
+    
+    toggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const isOpen = document.body.classList.contains('nav-open');
+        setOpen(!isOpen);
+    });
+    
+    // Close menu when a nav link is clicked
+    document.querySelectorAll('.nav-links a').forEach(function(link) {
+        link.addEventListener('click', function() {
+            setOpen(false);
+        });
+    });
+    
+    // Close menu on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && document.body.classList.contains('nav-open')) {
+            setOpen(false);
+        }
+    });
+    
+    // Close menu on resize past mobile breakpoint
+    let lastWidth = window.innerWidth;
+    window.addEventListener('resize', function() {
+        if (lastWidth <= 768 && window.innerWidth > 768) {
+            setOpen(false);
+        }
+        lastWidth = window.innerWidth;
+    });
+})();
+
 // ============================================
 // Console welcome
 // ============================================
