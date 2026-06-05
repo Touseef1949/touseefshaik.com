@@ -360,7 +360,7 @@ a:hover {
 }
 
 .hero-image {
-    display: none;
+    display: block;
 }
 
 /* Hero Layout - Two column */
