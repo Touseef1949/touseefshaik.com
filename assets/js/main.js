@@ -1,7 +1,82 @@
 /**
- * touseefshaik.com - Minimal JS for interactions
- * No frameworks. Vanilla ES6. Progressive enhancement.
+ * touseefshaik.com - Vanilla ES6 interactions
+ * No frameworks. Progressive enhancement.
  */
+
+// ============================================
+// Newsletter form (global function — wired via inline onsubmit in HTML)
+// ============================================
+const NEWSLETTER_API_KEY = '4318bdce-37b8-4331-bfb4-1f835d5a2fe3';
+const NEWSLETTER_API_URL = 'https://api.buttondown.email/v1/subscribers';
+
+async function submitNewsletter(event) {
+    event.preventDefault();
+    const form = event.target;
+    const emailInput = document.getElementById('newsletter-email');
+    const submitBtn = document.getElementById('newsletter-btn');
+    const msgEl = document.getElementById('newsletter-msg');
+    
+    if (!emailInput) return false;
+    const email = emailInput.value.trim();
+    if (!email) return false;
+    
+    const originalBtnText = submitBtn ? submitBtn.textContent : '';
+    if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Joining...';
+    }
+    if (msgEl) {
+        msgEl.style.color = 'var(--fg-muted)';
+        msgEl.textContent = 'Submitting...';
+    }
+    
+    try {
+        const response = await fetch(NEWSLETTER_API_URL, {
+            method: 'POST',
+            headers: {
+                'Authorization': 'Token ' + NEWSLETTER_API_KEY,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email_address: email })
+        });
+        
+        if (response.ok || response.status === 201) {
+            if (form) {
+                form.innerHTML = '<p style="color: var(--accent); font-weight: 600; padding: 16px 0;">✓ Subscribed! Check your email to confirm.</p>';
+            }
+            return false;
+        }
+        
+        let errMsg = 'Subscription failed. Please try again.';
+        try {
+            const data = await response.json();
+            if (data) {
+                if (Array.isArray(data.email_address) && data.email_address[0]) errMsg = data.email_address[0];
+                else if (data.detail) errMsg = data.detail;
+            }
+        } catch (_) {}
+        
+        if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalBtnText;
+        }
+        if (msgEl) {
+            msgEl.style.color = '#dc2626';
+            msgEl.textContent = errMsg;
+        }
+        return false;
+    } catch (err) {
+        if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalBtnText;
+        }
+        if (msgEl) {
+            msgEl.style.color = '#dc2626';
+            msgEl.textContent = 'Network error. Please try again.';
+        }
+        return false;
+    }
+}
 
 // ============================================
 // Smooth scroll for anchor links
@@ -18,23 +93,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ============================================
-// Card hover effects (enhanced)
-// ============================================
-const cards = document.querySelectorAll('.app-card, .pattern-card, .stack-category');
-
-cards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        card.style.transform = 'translateY(-6px)';
-    });
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = 'translateY(0)';
-    });
-});
-
-// ============================================
 // Reveal on scroll (Intersection Observer)
 // ============================================
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const prefersReducedMotion = window.matchMedia('(prefers-reduced motion: reduce)').matches;
 
 if (!prefersReducedMotion) {
     const revealObserver = new IntersectionObserver((entries) => {
@@ -49,108 +110,20 @@ if (!prefersReducedMotion) {
         rootMargin: '0px 0px -50px 0px'
     });
 
-    document.querySelectorAll('.app-card, .pattern-card, .stack-category, .next-phase, .next-apps, .monetization-philosophy, .stat').forEach(el => {
+    document.querySelectorAll('.app-card, .pattern-card, .blog-card, .resource-card, .stat').forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(20px)';
         el.style.transition = 'opacity 600ms ease, transform 600ms ease';
         revealObserver.observe(el);
     });
 
-    // Add revealed class styles
     const style = document.createElement('style');
-    style.textContent = `
-        .revealed {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-        }
-    `;
+    style.textContent = '.revealed { opacity: 1 !important; transform: translateY(0) !important; }';
     document.head.appendChild(style);
 }
 
 // ============================================
-// Copy code blocks
-// ============================================
-document.querySelectorAll('code').forEach(code => {
-    if (code.parentElement.tagName === 'PRE') return; // Skip pre blocks
-    
-    code.style.cursor = 'pointer';
-    code.title = 'Click to copy';
-    
-    code.addEventListener('click', async () => {
-        try {
-            await navigator.clipboard.writeText(code.textContent);
-            const original = code.textContent;
-            code.textContent = 'Copied!';
-            code.style.color = 'var(--accent)';
-            setTimeout(() => {
-                code.textContent = original;
-                code.style.color = '';
-            }, 1500);
-        } catch (e) {
-            console.warn('Copy failed:', e);
-        }
-    });
-});
-
-// ============================================
-// Table keyboard navigation
-// ============================================
-document.querySelectorAll('.apps-table').forEach(table => {
-    const cells = table.querySelectorAll('td, th');
-    cells.forEach((cell, i) => {
-        cell.tabIndex = 0;
-        cell.addEventListener('keydown', (e) => {
-            const cols = table.querySelectorAll('tr:first-child th, tr:first-child td').length;
-            let target = null;
-            
-            switch (e.key) {
-                case 'ArrowRight':
-                    target = cells[i + 1];
-                    break;
-                case 'ArrowLeft':
-                    target = cells[i - 1];
-                    break;
-                case 'ArrowDown':
-                    target = cells[i + cols];
-                    break;
-                case 'ArrowUp':
-                    target = cells[i - cols];
-                    break;
-            }
-            
-            if (target) {
-                e.preventDefault();
-                target.focus();
-            }
-        });
-    });
-});
-
-// ============================================
-// External link indicator
-// ============================================
-document.querySelectorAll('a[target="_blank"]').forEach(link => {
-    if (!link.querySelector('.external-icon')) {
-        const icon = document.createElement('span');
-        icon.className = 'external-icon';
-        icon.innerHTML = ' ↗';
-        icon.style.fontSize = '0.7em';
-        icon.style.opacity = '0.6';
-        link.appendChild(icon);
-    }
-});
-
-// ============================================
 // Console welcome
 // ============================================
-console.log(`
-%ctouseefshaik.com Lab
-%cAI App Factory for Product Workflows
-%c5 Live Apps • 5 Patterns • 12+ Yrs Fintech
-%cBuilt with vanilla HTML/CSS/JS — no frameworks
-`, 
-'font-size: 14px; font-weight: bold; color: #00d4aa;',
-'font-size: 12px; color: #e8e8ed;',
-'font-size: 11px; color: #7a7a8a;',
-'font-size: 10px; color: #7a7a8a; font-style: italic;'
-);
+console.log('%ctouseefshaik.com Lab', 'font-size: 14px; font-weight: bold; color: #1863dc;');
+console.log('%cAI tools and workflows for BAs, POs, and product teams. 5 live apps.', 'font-size: 11px; color: #6b6b7a;');
