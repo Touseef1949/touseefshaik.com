@@ -1,233 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog — AI for BAs, Product Owners & Product Teams | Touseef Shaik</title>
-  <meta name="description" content="Practical articles on AI for Business Analysts, Product Owner workflows, requirements engineering, user stories, PRDs, and fintech product lessons — by Touseef Shaik.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root { --bg: #fdfcf9; --surface: #ffffff; --surface-alt: #f6f4f0; --border: #e8e5df; --text: #1a1a1a; --text-secondary: #555555; --text-dim: #8a8a8a; --accent: #2563eb; --accent-hover: #1d4ed8; --radius: 16px; --max-width: 960px; --shadow-sm: 0 1px 3px rgba(0,0,0,0.04); }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
-    .nav { position: sticky; top: 0; z-index: 100; background: rgba(253,252,249,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
-    .nav-inner { max-width: var(--max-width); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 2rem; }
-    .logo { font-weight: 700; font-size: 1.05rem; text-decoration: none; color: var(--text); }
-    .logo:hover { color: var(--accent); }
-    .nav-links { display: flex; gap: 1.75rem; align-items: center; }
-    .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.875rem; font-weight: 500; }
-    .nav-links a:hover,.nav-links a.active { color: var(--text); }
-    .nav-cta { background: var(--accent); color: #fff !important; padding: 0.45rem 1rem; border-radius: 100px; font-size: 0.8rem !important; font-weight: 600 !important; }
-    section { padding: 4rem 2rem; }
-    .section-inner { max-width: var(--max-width); margin: 0 auto; }
-    .section-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 0.75rem; }
-    h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.75rem; }
-    .subtitle { color: var(--text-secondary); font-size: 1.05rem; margin-bottom: 2.5rem; max-width: 600px; }
-
-    .categories { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
-    .cat-tag {
-      padding: 0.5rem 1rem; border-radius: 100px; font-size: 0.8rem; font-weight: 600;
-      border: 1.5px solid var(--border); color: var(--text-secondary);
-      text-decoration: none; transition: all 0.2s; cursor: pointer;
-    }
-    .cat-tag:hover,.cat-tag.active { border-color: var(--accent); color: var(--accent); background: #eff6ff; }
-
-    .articles { display: flex; flex-direction: column; gap: 1rem; }
-    .article-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1.5rem 2rem;
-      text-decoration: none; color: inherit; transition: all 0.2s;
-      box-shadow: var(--shadow-sm);
-    }
-    .article-card:hover { border-color: var(--accent); box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
-    .article-card .cat { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 0.35rem; }
-    .article-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.35rem; }
-    .article-card p { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6; }
-    .article-card .status { font-size: 0.7rem; color: var(--text-dim); margin-top: 0.5rem; }
-    .article-card .status span { background: var(--surface-alt); padding: 2px 8px; border-radius: 4px; }
-
-    .newsletter-inline {
-      background: var(--surface-alt); border-radius: var(--radius); padding: 2rem;
-      text-align: center; margin: 2.5rem 0 1rem;
-    }
-    .newsletter-inline h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; }
-    .newsletter-inline p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem; }
-    .newsletter-form { display: flex; gap: 0.75rem; justify-content: center; max-width: 460px; margin: 0 auto; flex-wrap: wrap; }
-    .newsletter-form input { flex: 1; min-width: 200px; padding: 0.75rem 1.25rem; border: 2px solid var(--border); border-radius: 100px; font-size: 0.9rem; font-family: inherit; outline: none; }
-    .newsletter-form input:focus { border-color: var(--accent); }
-    .newsletter-form button { background: var(--accent); color: #fff; border: none; padding: 0.75rem 1.5rem; border-radius: 100px; font-size: 0.9rem; font-weight: 600; cursor: pointer; font-family: inherit; }
-    footer { padding: 2rem; border-top: 1px solid var(--border); max-width: var(--max-width); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; color: var(--text-dim); font-size: 0.85rem; }
-    footer .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-    footer a { color: var(--text-dim); text-decoration: none; font-size: 0.85rem; }
-    footer a:hover { color: var(--text-secondary); }
-    @media (max-width: 700px) {
-      h1 { font-size: 1.8rem; }
-      section { padding: 3rem 1.25rem; }
-      .nav-inner { flex-wrap: wrap; }
-      .nav-links { gap: 0.75rem; flex-wrap: wrap; }
-      .nav-links a { font-size: 0.78rem; min-height: 36px; display: inline-flex; align-items: center; }
-      footer { flex-direction: column; text-align: center; }
-      footer .footer-links { justify-content: center; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Practical articles on AI for Business Analysts, Product Owner workflows, requirements engineering, user stories, PRDs, and fintech product lessons — by Touseef Shaik.">
+    <meta property="og:title" content="Blog — AI for BAs, Product Owners &amp; Product Teams | Touseef Shaik">
+    <meta property="og:description" content="Practical articles on AI for BAs, Product Owner workflows, requirements engineering, user stories, and lessons from 12+ years in fintech product delivery.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://touseefshaik.com/blog/">
+    <title>Blog — AI for BAs, Product Owners &amp; Product Teams | Touseef Shaik</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- ============================================================
+         HYBRID NAV — 8 items. Active on /blog/.
+         ============================================================ -->
+    <header class="site-header">
+        <nav class="nav container">
+            <a href="/" class="nav-brand" aria-label="Home">
+                <span class="brand-text">touseefshaik.com</span>
+                <span class="brand-badge">Lab</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/start-here/">Start Here</a></li>
+                <li><a href="/apps/">Lab</a></li>
+                <li><a href="/apps/ba-assistant.html">BA Assistant</a></li>
+                <li><a href="/resources/">Resources</a></li>
+                <li><a href="/blog/" class="active">Blog</a></li>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/contact/" class="nav-cta">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <nav class="nav">
-    <div class="nav-inner">
-      <a href="/" class="logo">Touseef Shaik</a>
-      <div class="nav-links">
-        <a href="/start-here">Start Here</a>
-        <a href="/tools">Labs</a>
-        <a href="/tools/ba-assistant">BA Assistant</a>
-        <a href="/resources">Resources</a>
-        <a href="/blog" class="active">Blog</a>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
-        <a href="https://tshaik1990-ba-assistant.hf.space" class="nav-cta" target="_blank">Try BA Assistant Free</a>
-      </div>
+    <main>
+
+        <!-- ============================================================
+             PAGE INTRO
+             ============================================================ -->
+        <section class="page-intro">
+            <div class="container">
+                <p class="eyebrow">Articles &amp; Guides</p>
+                <h1>The Blog</h1>
+                <p>Practical articles on AI for BAs, Product Owner workflows, requirements engineering, user stories, and lessons from 12+ years in fintech product delivery.</p>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             CATEGORY FILTERS
+             ============================================================ -->
+        <section style="padding:1.5rem 0 0.5rem;">
+            <div class="container">
+                <div style="display:flex; gap:0.5rem; flex-wrap:wrap; justify-content:center;">
+                    <span style="padding:0.5rem 1rem; border-radius:100px; font-size:0.8rem; font-weight:600; border:1.5px solid var(--accent, #2563eb); color:var(--accent, #2563eb); background:rgba(37,99,235,0.06);">All</span>
+                    <span style="padding:0.5rem 1rem; border-radius:100px; font-size:0.8rem; font-weight:600; border:1.5px solid var(--border); color:var(--text-secondary);">AI for BAs</span>
+                    <span style="padding:0.5rem 1rem; border-radius:100px; font-size:0.8rem; font-weight:600; border:1.5px solid var(--border); color:var(--text-secondary);">Product Owner Workflows</span>
+                    <span style="padding:0.5rem 1rem; border-radius:100px; font-size:0.8rem; font-weight:600; border:1.5px solid var(--border); color:var(--text-secondary);">Requirements Engineering</span>
+                    <span style="padding:0.5rem 1rem; border-radius:100px; font-size:0.8rem; font-weight:600; border:1.5px solid var(--border); color:var(--text-secondary);">User Stories &amp; PRDs</span>
+                    <span style="padding:0.5rem 1rem; border-radius:100px; font-size:0.8rem; font-weight:600; border:1.5px solid var(--border); color:var(--text-secondary);">AI Tools I'm Building</span>
+                    <span style="padding:0.5rem 1rem; border-radius:100px; font-size:0.8rem; font-weight:600; border:1.5px solid var(--border); color:var(--text-secondary);">Fintech Product Lessons</span>
+                    <span style="padding:0.5rem 1rem; border-radius:100px; font-size:0.8rem; font-weight:600; border:1.5px solid var(--border); color:var(--text-secondary);">Behind the Build</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             BLOG POST LIST
+             ============================================================ -->
+        <section style="padding:2rem 0 3rem;">
+            <div class="container" style="display:flex; flex-direction:column; gap:1rem; max-width:800px;">
+
+                <!-- Post 1: Best AI Prompts for Business Analysts -->
+                <a href="/blog/best-ai-prompts.html" class="blog-card">
+                    <p class="blog-card-meta">AI for Business Analysts · 📝 Coming soon</p>
+                    <h3>The Best AI Prompts for Business Analysts</h3>
+                    <p>Copy-paste prompts that save hours on documentation, analysis, diagramming, and stakeholder communication.</p>
+                </a>
+
+                <!-- Post 2: How I Use AI as a Product Owner -->
+                <a href="/blog/how-i-use-ai.html" class="blog-card">
+                    <p class="blog-card-meta">AI for Business Analysts · 📝 Coming soon</p>
+                    <h3>How I Use AI as a Product Owner</h3>
+                    <p>Real workflows I use daily to turn stakeholder conversations into structured deliverables — from intake to documentation to diagrams.</p>
+                </a>
+
+                <!-- Post 3: Turn Messy Requirements into User Stories -->
+                <a href="/blog/turn-messy-requirements.html" class="blog-card">
+                    <p class="blog-card-meta">Requirements Engineering · 📝 Coming soon</p>
+                    <h3>How to Turn Messy Requirements into User Stories</h3>
+                    <p>A practical framework for moving from vague, unstructured input to clear, actionable backlog items with acceptance criteria.</p>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- ============================================================
+             NEWSLETTER CTA
+             ============================================================ -->
+        <section>
+            <div class="container">
+                <div style="background:var(--surface-alt, #f6f4f0); border-radius:var(--radius, 16px); padding:2rem; text-align:center; max-width:640px; margin:0 auto 2rem;">
+                    <h3 style="margin-top:0;">📬 Get new articles by email</h3>
+                    <p style="color:var(--text-secondary); font-size:0.9rem; margin-bottom:1rem;">Weekly practical ideas for BAs, Product Owners, and product teams. Join the newsletter.</p>
+                    <form id="newsletter-form" onsubmit="return submitNewsletter(event)" style="display:flex; gap:0.75rem; justify-content:center; max-width:460px; margin:0 auto; flex-wrap:wrap;">
+                        <input type="email" id="newsletter-email" placeholder="Your email address" required style="flex:1; min-width:200px; padding:0.75rem 1.25rem; border:2px solid var(--border); border-radius:100px; font-size:0.9rem; font-family:inherit; outline:none;">
+                        <button type="submit" id="newsletter-btn" class="btn btn-primary">Join Free →</button>
+                    </form>
+                    <p id="newsletter-msg" style="font-size:0.75rem; color:var(--fg-muted); margin-top:0.75rem;">No spam. One useful email per week. Unsubscribe anytime.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             CTA STRIP
+             ============================================================ -->
+        <section class="cta-strip">
+            <div class="container">
+                <h2>✨ Ready to turn messy requirements into clear deliverables?</h2>
+                <p>Try BA Assistant free. No credit card. Just paste your requirements and get a full report in under 60 seconds.</p>
+                <a href="https://tshaik1990-ba-assistant.hf.space" class="btn btn-primary" target="_blank" rel="noopener">Start Free Analysis →</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================================
+         FOOTER — copied from home page (index.html)
+         Verified: NO /stack/ or /next/ links.
+         ============================================================ -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="brand-text">touseefshaik.com</span>
+                    <span class="brand-badge">Lab</span>
+                    <p>AI tools and workflows for Business Analysts, Product Owners, and product teams.</p>
+                </div>
+                <nav class="footer-nav">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="/apps/">Lab</a></li>
+                        <li><a href="/apps/ba-assistant.html">BA Assistant</a></li>
+                        <li><a href="/resources/">Resources</a></li>
+                        <li><a href="/blog/">Blog</a></li>
+                    </ul>
+                </nav>
+                <nav class="footer-nav">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="https://linkedin.com/in/ts26" target="_blank" rel="noopener">LinkedIn</a></li>
+                        <li><a href="https://huggingface.co/tshaik1990" target="_blank" rel="noopener">Hugging Face</a></li>
+                        <li><a href="https://github.com/Touseef1949" target="_blank" rel="noopener">GitHub</a></li>
+                        <li><a href="/contact/">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="footer-cta">
+                    <h4>Try BA Assistant</h4>
+                    <p>Turn messy requirements into structured specs, user stories, and diagrams in under 60 seconds.</p>
+                    <a href="https://tshaik1990-ba-assistant.hf.space" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Start Free →</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Touseef Shaik. All tools free. Building in public.</p>
+            </div>
+        </div>
+        <div class="visitor-counter">
+        <img src="https://visitor-badge.laobi.icu/badge?page_id=touseefshaik.blog&left_color=555555&right_color=2563eb&left_text=visitors" alt="visitor counter">
     </div>
-  </nav>
+</footer>
 
-  <section>
-    <div class="section-inner">
-      <div class="section-label">Articles & Guides</div>
-      <h1>The Blog</h1>
-      <p class="subtitle">Practical articles on AI for BAs, Product Owner workflows, requirements engineering, user stories, and lessons from 12+ years in fintech product delivery.</p>
-
-      <div class="categories">
-        <span class="cat-tag active">All</span>
-        <span class="cat-tag">AI for BAs</span>
-        <span class="cat-tag">Product Owner Workflows</span>
-        <span class="cat-tag">Requirements Engineering</span>
-        <span class="cat-tag">User Stories & PRDs</span>
-        <span class="cat-tag">AI Tools I'm Building</span>
-        <span class="cat-tag">Fintech Product Lessons</span>
-        <span class="cat-tag">Behind the Build</span>
-      </div>
-
-      <div class="articles">
-        <a href="#" class="article-card">
-          <div class="cat">AI for Business Analysts</div>
-          <h3>How I Use AI as a Product Owner</h3>
-          <p>Real workflows I use daily to turn stakeholder conversations into structured deliverables — from intake to documentation to diagrams.</p>
-          <div class="status"><span>📝 Coming soon</span></div>
-        </a>
-        <a href="#" class="article-card">
-          <div class="cat">Requirements Engineering</div>
-          <h3>How to Turn Messy Requirements into User Stories</h3>
-          <p>A practical framework for moving from vague, unstructured input to clear, actionable backlog items with acceptance criteria.</p>
-          <div class="status"><span>📝 Coming soon</span></div>
-        </a>
-        <a href="#" class="article-card">
-          <div class="cat">AI for Business Analysts</div>
-          <h3>The Best AI Prompts for Business Analysts</h3>
-          <p>Copy-paste prompts that save hours on documentation, analysis, diagramming, and stakeholder communication.</p>
-          <div class="status"><span>📝 Coming soon</span></div>
-        </a>
-        <a href="#" class="article-card">
-          <div class="cat">Requirements Engineering</div>
-          <h3>Functional vs Non-Functional Requirements: Practical Examples</h3>
-          <p>Stop confusing the two. Real examples from fintech and enterprise projects that make the distinction crystal clear.</p>
-          <div class="status"><span>📝 Coming soon</span></div>
-        </a>
-        <a href="#" class="article-card">
-          <div class="cat">Behind the Build</div>
-          <h3>How BA Assistant Works Behind the Scenes</h3>
-          <p>A deep dive into the 5-agent architecture, tech stack, running costs, and design decisions behind the tool.</p>
-          <div class="status"><span>📝 Coming soon</span></div>
-        </a>
-        <a href="#" class="article-card">
-          <div class="cat">AI Tools I'm Building</div>
-          <h3>How to Generate Mermaid Diagrams from Requirements</h3>
-          <p>Stop drawing diagrams manually. Auto-generate flowcharts, sequence diagrams, and state charts from natural language.</p>
-          <div class="status"><span>📝 Coming soon</span></div>
-        </a>
-        <a href="#" class="article-card">
-          <div class="cat">Product Owner Workflows</div>
-          <h3>Why Most Requirement Documents Fail</h3>
-          <p>The common pitfalls that turn requirements docs into shelf-ware — and how to fix them with structure, process, and AI.</p>
-          <div class="status"><span>📝 Coming soon</span></div>
-        </a>
-        <a href="#" class="article-card">
-          <div class="cat">Product Owner Workflows</div>
-          <h3>A Product Owner's Guide to AI-Assisted Documentation</h3>
-          <p>Practical AI workflows for specs, PRDs, acceptance criteria, risk logs, stakeholder updates, and diagramming.</p>
-          <div class="status"><span>📝 Coming soon</span></div>
-        </a>
-        <a href="#" class="article-card">
-          <div class="cat">User Stories & PRDs</div>
-          <h3>How to Write Better Acceptance Criteria with AI</h3>
-          <p>Move from vague "should work" criteria to precise, testable Given-When-Then scenarios — assisted by AI.</p>
-          <div class="status"><span>📝 Coming soon</span></div>
-        </a>
-        <a href="#" class="article-card">
-          <div class="cat">Fintech Product Lessons</div>
-          <h3>My 12-Year Journey from Product Delivery to AI Tools</h3>
-          <p>What a decade-plus in fintech product delivery taught me about requirements, documentation, and building practical AI tools.</p>
-          <div class="status"><span>📝 Coming soon</span></div>
-        </a>
-      </div>
-
-      <div class="newsletter-inline">
-        <h3>📬 Get new articles by email</h3>
-        <p>Weekly practical ideas for BAs, Product Owners, and product teams. Join the newsletter.</p>
-        <form class="newsletter-form" onsubmit="return submitNewsletter(event)">
-          <input type="email" id="newsletter-email" placeholder="Your email address" required>
-          <button type="submit" id="newsletter-btn">Join Free →</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <span>Touseef Shaik &copy; 2026</span>
-    <div class="footer-links">
-      <a href="/start-here">Start Here</a>
-      <a href="/tools">Labs</a>
-      <a href="/tools/ba-assistant">BA Assistant</a>
-      <a href="/resources">Resources</a>
-      <a href="/blog">Blog</a>
-      <a href="/about">About</a>
-      <a href="/contact">Contact</a>
-      <a href="/privacy">Privacy</a>
-      <a href="/terms">Terms</a>
-    </div>
-  </footer>
-
-  <script>
-  async function submitNewsletter(e) {
-    e.preventDefault();
-    var email = document.getElementById('newsletter-email').value.trim();
-    var btn = document.getElementById('newsletter-btn');
-    if (!email) return false;
-    btn.disabled = true;
-    btn.textContent = 'Joining...';
-    try {
-      var r = await fetch('https://api.buttondown.email/v1/subscribers', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Token 4318bdce-37b8-4331-bfb4-1f835d5a2fe3'
-        },
-        body: JSON.stringify({ email_address: email })
-      });
-      if (r.ok) {
-        var form = document.querySelector('.newsletter-form');
-        if (form) form.innerHTML = '<p style="color:#22c55e;font-weight:600;font-size:1.1rem;">✓ You\'re in! Welcome aboard.</p>';
-      } else {
-        alert('Something went wrong. Please try again.');
-      }
-    } catch (err) {
-      alert('Network error. Please try again.');
+    <script src="/assets/js/main.js"></script>
+    <script>
+    async function submitNewsletter(e) {
+        e.preventDefault();
+        var email = document.getElementById('newsletter-email').value.trim();
+        var btn = document.getElementById('newsletter-btn');
+        var msg = document.getElementById('newsletter-msg');
+        if (!email) return false;
+        btn.disabled = true;
+        btn.textContent = 'Joining...';
+        try {
+            var r = await fetch('https://api.buttondown.email/v1/subscribers', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Token 4318bdce-37b8-4331-bfb4-1f835d5a2fe3'
+                },
+                body: JSON.stringify({ email_address: email })
+            });
+            if (r.ok) {
+                document.getElementById('newsletter-form').innerHTML =
+                    '<p style=\"color:#22c55e;font-weight:600;font-size:1.1rem;text-align:center;\">✓ You\'re in! Welcome aboard.</p>';
+                msg.textContent = 'One useful email per week. No spam.';
+            } else {
+                msg.textContent = 'Something went wrong. Please try again.';
+                msg.style.color = '#ef4444';
+            }
+        } catch (err) {
+            msg.textContent = 'Network error. Please try again.';
+            msg.style.color = '#ef4444';
+        }
+        btn.disabled = false;
+        btn.textContent = 'Join Free →';
+        return false;
     }
-    btn.disabled = false;
-    btn.textContent = 'Join Free →';
-    return false;
-  }
-  </script>
-
+    </script>
 </body>
 </html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="India Streaming Finder — Find which streaming platform has any movie in India. Netflix, Prime Video, Hotstar, JioCinema, ZEE5, Sony LIV, and more. Powered by TMDb API. Fast, free, no signup.">
+    <meta property="og:title" content="India Streaming Finder — Find Movies Across OTT Platforms | touseefshaik.com">
+    <meta property="og:description" content="Type any movie name and instantly see which Indian streaming platform has it — Netflix, Prime, Hotstar, JioCinema, and more. Powered by TMDb API.">
+    <title>India Streaming Finder — Find Movies Across OTT Platforms | touseefshaik.com</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav container">
+            <a href="/" class="nav-brand" aria-label="Home">
+                <span class="brand-text">touseefshaik.com</span>
+                <span class="brand-badge">Lab</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/start-here/">Start Here</a></li>
+                <li><a href="/apps/" class="active">Lab</a></li>
+                <li><a href="/apps/ba-assistant.html">BA Assistant</a></li>
+                <li><a href="/resources/">Resources</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/contact/" class="nav-cta">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- PAGE INTRO -->
+        <section class="page-intro">
+            <div class="container">
+                <p class="eyebrow">AI Tool &mdash; Live</p>
+                <h1>India Streaming Finder</h1>
+                <p>Type any movie name and instantly see which Indian streaming platform has it — Netflix, Prime Video, Hotstar, JioCinema, ZEE5, Sony LIV, and more. Powered by the TMDb API with provider logo grids, monetization badges, and search history.</p>
+                <p style="max-width:640px;margin:1rem auto;color:var(--text-secondary);">Find where to watch any movie in India across 15+ OTT platforms. Smart search with exact-match lookup, provider logos, and monetization badges. Free, no signup, open source.</p>
+                <a href="https://huggingface.co/spaces/tshaik1990/india-streaming-finder" target="_blank" rel="noopener" class="btn btn-primary">🎬 Find a Movie &rarr;</a>
+            </div>
+        </section>
+
+        <!-- DEMO VIDEO -->
+        <section>
+            <div class="container">
+                <a href="https://www.linkedin.com/posts/ts26_streamlit-python-groq-activity-7383145592161492992-GiP7" target="_blank" rel="noopener" style="text-decoration:none;display:block;">
+                    <div style="background:linear-gradient(135deg,#1a1a2e,#16213e);padding:3rem 2rem;text-align:center;border-radius:var(--radius) var(--radius) 0 0;">
+                        <div style="font-size:3rem;margin-bottom:0.75rem;">▶️</div>
+                        <div style="color:#fff;font-size:1.1rem;font-weight:700;">Watch the Demo</div>
+                        <div style="color:#94a3b8;font-size:0.85rem;margin-top:0.25rem;">See how India Streaming Finder works across 15+ OTT platforms</div>
+                    </div>
+                    <div style="padding:1rem 1.5rem;font-size:0.85rem;color:var(--text-secondary);background:var(--surface-alt);border-top:1px solid var(--border);border-radius:0 0 var(--radius) var(--radius);">
+                        🎬 Click to watch on LinkedIn — type any movie name, find which streaming platform has it in India.
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- APP DETAIL: Two-column layout -->
+        <section>
+            <div class="container">
+                <div class="app-detail">
+
+                    <!-- MAIN CONTENT -->
+                    <div class="app-detail-main">
+
+                        <h2>What it does</h2>
+                        <p class="app-desc-large">India Streaming Finder uses the TMDb API to search for any movie and show you exactly which Indian streaming platforms have it available — with official provider logos, monetization badges, and local search history.</p>
+
+                        <h3>🔍 Smart Search</h3>
+                        <p>Type a movie name with optional year — "Inception 2010". The app does exact-match lookup first, then falls back to TMDb popularity ranking.</p>
+
+                        <h3>🏷️ Provider Logo Grid</h3>
+                        <p>See which platforms have the movie with official provider logos — Netflix, Prime, Hotstar, JioCinema, ZEE5, Sony LIV, Apple TV+, and more.</p>
+
+                        <h3>💳 Monetization Badges</h3>
+                        <p>Each result shows how you can watch: Flatrate (included in subscription), Ads (free with ads), Rent, or Buy. No guessing.</p>
+
+                        <h3>📋 Search History</h3>
+                        <p>Your recent searches are saved locally. Quickly go back to a previous result without re-typing.</p>
+
+                        <h3>📥 Download Results</h3>
+                        <p>Export your search results as JSON for further analysis or integration with other tools.</p>
+
+                        <h3>🆓 Free &amp; Open Source</h3>
+                        <p>No signup, no paywall. Uses your own TMDb API key (free tier available). Deploy your own copy.</p>
+
+                        <h2>Tech stack</h2>
+                        <table>
+                            <thead>
+                                <tr><th>Layer</th><th>Technology</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>UI Framework</td><td>🎨 Streamlit</td></tr>
+                                <tr><td>Movie Data</td><td>🎬 TMDb API — metadata and streaming availability</td></tr>
+                                <tr><td>Backend</td><td>🐍 Python — API calls, caching, data processing</td></tr>
+                                <tr><td>Hosting</td><td>☁️ Hugging Face Spaces — free hosting with auto-deploy from GitHub</td></tr>
+                            </tbody>
+                        </table>
+
+                        <h2>Links &amp; resources</h2>
+                        <p style="display:flex;flex-wrap:wrap;gap:0.6rem;">
+                            <a href="https://huggingface.co/spaces/tshaik1990/india-streaming-finder" target="_blank" rel="noopener" class="btn btn-outline btn-sm">🎬 Live App</a>
+                            <a href="https://github.com/Touseef1949/india-streaming-finder" target="_blank" rel="noopener" class="btn btn-outline btn-sm">🐙 GitHub Repo</a>
+                            <a href="https://www.themoviedb.org" target="_blank" rel="noopener" class="btn btn-outline btn-sm">🎬 TMDb</a>
+                            <a href="https://developer.themoviedb.org" target="_blank" rel="noopener" class="btn btn-outline btn-sm">📖 TMDb API Docs</a>
+                            <a href="/apps/" class="btn btn-outline btn-sm">&larr; All Tools</a>
+                        </p>
+
+                        <div class="highlight" style="margin-top:1.5rem;">
+                            <strong>🔑 You need a TMDb API key.</strong> Get one free at <a href="https://www.themoviedb.org/settings/api" target="_blank" rel="noopener">themoviedb.org/settings/api</a>. Paste it in the app sidebar to start searching. TMDb offers a free tier with rate limits.
+                        </div>
+
+                    </div>
+
+                    <!-- SIDEBAR -->
+                    <aside class="app-detail-sidebar">
+
+                        <div class="app-meta">
+                            <span class="meta-tag">Free</span>
+                            <span class="meta-tag">Live</span>
+                            <span class="meta-tag">TMDb API</span>
+                            <span class="meta-tag">Streamlit</span>
+                            <span class="meta-tag">Open Source</span>
+                            <span class="meta-tag">India OTT</span>
+                        </div>
+
+                        <a href="https://huggingface.co/spaces/tshaik1990/india-streaming-finder" target="_blank" rel="noopener" class="btn btn-primary btn-block">🎬 Find a Movie &rarr;</a>
+
+                        <h3 style="margin-top:1.5rem;">Who It's For</h3>
+                        <ul style="list-style:none;padding:0;">
+                            <li style="margin-bottom:0.75rem;"><strong>🎬 Movie Watchers</strong><br><span style="color:var(--text-secondary);font-size:0.9rem;">Instantly find which platform has the movie you want to watch — no more hopping between apps.</span></li>
+                            <li style="margin-bottom:0.75rem;"><strong>📺 Cord-Cutters</strong><br><span style="color:var(--text-secondary);font-size:0.9rem;">Manage multiple OTT subscriptions and always know where your next watch is streaming.</span></li>
+                            <li style="margin-bottom:0.75rem;"><strong>🇮🇳 Indian OTT Users</strong><br><span style="color:var(--text-secondary);font-size:0.9rem;">Tailored for Indian platforms — Hotstar, JioCinema, ZEE5, Sony LIV — not just global ones.</span></li>
+                            <li style="margin-bottom:0.75rem;"><strong>🤖 AI Builders</strong><br><span style="color:var(--text-secondary);font-size:0.9rem;">Study a clean Streamlit + TMDb integration. Fork it, deploy your own, or extend with new features.</span></li>
+                        </ul>
+
+                        <h3>Links &amp; Resources</h3>
+                        <ul style="list-style:none;padding:0;">
+                            <li style="margin-bottom:0.5rem;"><a href="https://huggingface.co/spaces/tshaik1990/india-streaming-finder" target="_blank" rel="noopener">🎬 Live App</a></li>
+                            <li style="margin-bottom:0.5rem;"><a href="https://github.com/Touseef1949/india-streaming-finder" target="_blank" rel="noopener">🐙 GitHub Repo</a></li>
+                            <li style="margin-bottom:0.5rem;"><a href="https://www.themoviedb.org" target="_blank" rel="noopener">🎬 TMDb</a></li>
+                            <li style="margin-bottom:0.5rem;"><a href="https://developer.themoviedb.org" target="_blank" rel="noopener">📖 TMDb API Docs</a></li>
+                            <li style="margin-bottom:0.5rem;"><a href="/apps/">&larr; All Tools</a></li>
+                        </ul>
+
+                        <h3 style="margin-top:1.5rem;">Future Apps</h3>
+                        <div class="future-cards">
+                            <div class="future-card">
+                                <h4>Stock Research Agent</h4>
+                                <p>AI-powered equity research with multi-source analysis and investment thesis generation.</p>
+                            </div>
+                            <div class="future-card">
+                                <h4>Compliance Audit Generator</h4>
+                                <p>Automated RBI/SEBI compliance audits for fintech products and NBFC operations.</p>
+                            </div>
+                            <div class="future-card">
+                                <h4>Sprint Retrospective Synthesizer</h4>
+                                <p>Aggregate sprint data and team feedback into actionable retrospectives with trend analysis.</p>
+                            </div>
+                        </div>
+
+                    </aside>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- BOTTOM CTA STRIP -->
+        <section class="cta-strip">
+            <div class="container">
+                <h2>Ready to find where to watch your next movie?</h2>
+                <p>Start free. No sign-up. Type any movie name. Instant results across 15+ Indian OTT platforms.</p>
+                <a href="https://huggingface.co/spaces/tshaik1990/india-streaming-finder" target="_blank" rel="noopener" class="btn btn-primary">🎬 Launch India Streaming Finder &rarr;</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="brand-text">touseefshaik.com</span>
+                    <span class="brand-badge">Lab</span>
+                    <p>AI tools and workflows for Business Analysts, Product Owners, and product teams.</p>
+                </div>
+                <nav class="footer-nav">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="/apps/">Lab</a></li>
+                        <li><a href="/apps/ba-assistant.html">BA Assistant</a></li>
+                        <li><a href="/resources/">Resources</a></li>
+                        <li><a href="/blog/">Blog</a></li>
+                    </ul>
+                </nav>
+                <nav class="footer-nav">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="https://linkedin.com/in/ts26" target="_blank" rel="noopener">LinkedIn</a></li>
+                        <li><a href="https://huggingface.co/tshaik1990" target="_blank" rel="noopener">Hugging Face</a></li>
+                        <li><a href="https://github.com/Touseef1949" target="_blank" rel="noopener">GitHub</a></li>
+                        <li><a href="/contact/">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="footer-cta">
+                    <h4>Try BA Assistant</h4>
+                    <p>Turn messy requirements into structured specs, user stories, and diagrams in under 60 seconds.</p>
+                    <a href="https://tshaik1990-ba-assistant.hf.space" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Start Free →</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Touseef Shaik. All tools free. Building in public.</p>
+            </div>
+        </div>
+        <div class="visitor-counter">
+        <img src="https://visitor-badge.laobi.icu/badge?page_id=touseefshaik.apps.india-streaming-finder&left_color=555555&right_color=2563eb&left_text=visitors" alt="visitor counter">
+    </div>
+</footer>
+
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>

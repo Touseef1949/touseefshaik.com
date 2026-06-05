@@ -1,233 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Free BA & PO Resources — Templates, Checklists, Guides | Touseef Shaik</title>
-  <meta name="description" content="Free downloadable templates, checklists, and guides for Business Analysts and Product Owners. BA requirements template, user story template, PRD template, risk checklist, Mermaid diagram examples, and AI prompts.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root { --bg: #fdfcf9; --surface: #ffffff; --surface-alt: #f6f4f0; --border: #e8e5df; --text: #1a1a1a; --text-secondary: #555555; --text-dim: #8a8a8a; --accent: #2563eb; --accent-hover: #1d4ed8; --green: #059669; --radius: 16px; --radius-sm: 10px; --max-width: 960px; --shadow-sm: 0 1px 3px rgba(0,0,0,0.04); --shadow-md: 0 4px 16px rgba(0,0,0,0.06); }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
-    .nav { position: sticky; top: 0; z-index: 100; background: rgba(253,252,249,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
-    .nav-inner { max-width: var(--max-width); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 2rem; }
-    .logo { font-weight: 700; font-size: 1.05rem; text-decoration: none; color: var(--text); }
-    .logo:hover { color: var(--accent); }
-    .nav-links { display: flex; gap: 1.75rem; align-items: center; }
-    .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.875rem; font-weight: 500; }
-    .nav-links a:hover,.nav-links a.active { color: var(--text); }
-    .nav-cta { background: var(--accent); color: #fff !important; padding: 0.45rem 1rem; border-radius: 100px; font-size: 0.8rem !important; font-weight: 600 !important; }
-    section { padding: 4rem 2rem; }
-    .section-inner { max-width: var(--max-width); margin: 0 auto; }
-    .section-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 0.75rem; }
-    h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.75rem; }
-    .subtitle { color: var(--text-secondary); font-size: 1.05rem; margin-bottom: 2.5rem; max-width: 600px; }
-    .resources-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-    .resource-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 2rem;
-      box-shadow: var(--shadow-sm); transition: all 0.25s;
-    }
-    .resource-card:hover { border-color: var(--accent); box-shadow: var(--shadow-md); transform: translateY(-2px); }
-    .resource-card .icon { font-size: 2rem; margin-bottom: 0.75rem; display: block; }
-    .resource-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
-    .resource-card p { color: var(--text-secondary); font-size: 0.88rem; line-height: 1.6; margin-bottom: 1rem; }
-    .resource-card .dl-btn {
-      display: inline-block; background: var(--accent); color: #fff;
-      padding: 0.6rem 1.25rem; border-radius: 100px; text-decoration: none;
-      font-weight: 600; font-size: 0.82rem; transition: all 0.2s;
-    }
-    .resource-card .dl-btn:hover { background: var(--accent-hover); }
-    .featured-guide {
-      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-      border-radius: var(--radius); padding: 2rem; margin-bottom: 2.5rem;
-      color: #e2e8f0; box-shadow: 0 4px 24px rgba(0,0,0,0.12);
-      border: 1px solid #475569;
-    }
-    .featured-guide .fg-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #fbbf24; margin-bottom: 0.5rem; }
-    .featured-guide h2 { font-size: 1.4rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
-    .featured-guide .fg-desc { color: #cbd5e1; font-size: 0.9rem; line-height: 1.6; margin-bottom: 1rem; }
-    .featured-guide .fg-chapters { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
-    .featured-guide .fg-chapter { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); padding: 0.35rem 0.75rem; border-radius: 100px; font-size: 0.72rem; color: #e2e8f0; }
-    .featured-guide .fg-cta { display: inline-block; background: #fbbf24; color: #1a1a1a; padding: 0.75rem 1.75rem; border-radius: 100px; text-decoration: none; font-weight: 700; font-size: 0.88rem; transition: all 0.2s; }
-    .featured-guide .fg-cta:hover { background: #f59e0b; transform: translateY(-1px); }
-    .newsletter-cta {
-      background: var(--surface-alt); border-radius: var(--radius);
-      padding: 2rem; text-align: center; margin-top: 2.5rem;
-    }
-    .newsletter-cta h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; }
-    .newsletter-cta p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem; }
-    .newsletter-form { display: flex; gap: 0.75rem; justify-content: center; max-width: 480px; margin: 0 auto; flex-wrap: wrap; }
-    .newsletter-form input { flex: 1; min-width: 200px; padding: 0.75rem 1.25rem; border: 2px solid var(--border); border-radius: 100px; font-size: 0.9rem; font-family: inherit; outline: none; }
-    .newsletter-form input:focus { border-color: var(--accent); }
-    .newsletter-form button { background: var(--accent); color: #fff; border: none; padding: 0.75rem 1.5rem; border-radius: 100px; font-size: 0.9rem; font-weight: 600; cursor: pointer; font-family: inherit; }
-    footer { padding: 2rem; border-top: 1px solid var(--border); max-width: var(--max-width); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; color: var(--text-dim); font-size: 0.85rem; }
-    footer .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-    footer a { color: var(--text-dim); text-decoration: none; font-size: 0.85rem; }
-    footer a:hover { color: var(--text-secondary); }
-    @media (max-width: 700px) {
-      .resources-grid { grid-template-columns: 1fr; }
-      h1 { font-size: 1.8rem; }
-      section { padding: 3rem 1.25rem; }
-      .nav-inner { flex-wrap: wrap; }
-      .nav-links { gap: 0.75rem; flex-wrap: wrap; }
-      .nav-links a { font-size: 0.78rem; min-height: 36px; display: inline-flex; align-items: center; }
-      footer { flex-direction: column; text-align: center; }
-      footer .footer-links { justify-content: center; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free downloadable templates, checklists, and guides for Business Analysts and Product Owners. BA requirements template, user story template, PRD template, risk checklist, Mermaid diagram examples, and BA prompt guide.">
+    <meta property="og:title" content="Free BA & PO Resources — Templates, Checklists, Guides | Touseef Shaik">
+    <meta property="og:description" content="Practical templates, checklists, and guides to speed up your BA and product workflows. Download what you need — the full toolkit is free with the newsletter.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://touseefshaik.com/resources/">
+    <title>Free BA & PO Resources — Templates, Checklists, Guides | Touseef Shaik</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- ============================================================
+         HYBRID NAV — 8 items. Active on /resources/.
+         ============================================================ -->
+    <header class="site-header">
+        <nav class="nav container">
+            <a href="/" class="nav-brand" aria-label="Home">
+                <span class="brand-text">touseefshaik.com</span>
+                <span class="brand-badge">Lab</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/start-here/">Start Here</a></li>
+                <li><a href="/apps/">Lab</a></li>
+                <li><a href="/apps/ba-assistant.html">BA Assistant</a></li>
+                <li><a href="/resources/" class="active">Resources</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/contact/" class="nav-cta">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <nav class="nav">
-    <div class="nav-inner">
-      <a href="/" class="logo">Touseef Shaik</a>
-      <div class="nav-links">
-        <a href="/start-here">Start Here</a>
-        <a href="/tools">Labs</a>
-        <a href="/tools/ba-assistant">BA Assistant</a>
-        <a href="/resources" class="active">Resources</a>
-        <a href="/blog">Blog</a>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
-        <a href="https://tshaik1990-ba-assistant.hf.space" class="nav-cta" target="_blank">Try BA Assistant Free</a>
-      </div>
+    <main>
+
+        <!-- ============================================================
+             PAGE INTRO
+             ============================================================ -->
+        <section class="page-intro">
+            <div class="container">
+                <p class="eyebrow">Free downloads</p>
+                <h1>BA & PO Resources</h1>
+                <p>Practical templates, checklists, and guides to speed up your BA and product workflows. Download what you need — the full toolkit is free with the newsletter.</p>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             FEATURED RESOURCE — BA Prompt Guide PDF
+             ============================================================ -->
+        <section>
+            <div class="container">
+                <article class="blog-post">
+                    <h2>⭐ Featured Resource: Complete BA Prompt Guide (18-Page PDF)</h2>
+                    <p>A comprehensive collection of ready-to-use master prompts for LLM-assisted Business Analysis. 5 chapters covering requirements, user stories, process modeling, data analysis, and stakeholder communication.</p>
+                    <ul class="checklist" style="list-style:none; padding:0; margin:1rem 0;">
+                        <li>📋 Requirements Elicitation</li>
+                        <li>📝 Use Cases & User Stories</li>
+                        <li>🔄 Process Modeling</li>
+                        <li>📊 Data Analysis</li>
+                        <li>💬 Stakeholder Comms</li>
+                    </ul>
+                    <a href="/resources/downloads/ba-prompt-guide.pdf" class="btn btn-primary">📬 Download Free PDF →</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             DOWNLOAD LIST — 5 .md templates + 1 PDF
+             ============================================================ -->
+        <section>
+            <div class="container">
+                <h2 style="margin-bottom:1.5rem;">All Templates &amp; Downloads</h2>
+                <ul class="download-list">
+                    <li>
+                        <div class="download-info">
+                            <h4>BA Requirements Template</h4>
+                            <p>A structured template for capturing functional and non-functional requirements with traceability, business rules, and constraints.</p>
+                        </div>
+                        <a href="/resources/downloads/ba-requirements-template.md" class="btn btn-outline">Download .md</a>
+                    </li>
+                    <li>
+                        <div class="download-info">
+                            <h4>User Story Template</h4>
+                            <p>Standard user story format with Given-When-Then acceptance criteria, MoSCoW prioritization, and story mapping.</p>
+                        </div>
+                        <a href="/resources/downloads/user-story-template.md" class="btn btn-outline">Download .md</a>
+                    </li>
+                    <li>
+                        <div class="download-info">
+                            <h4>PRD Template</h4>
+                            <p>A complete Product Requirements Document template covering problem statement, scope, features, NFRs, risks, and milestones.</p>
+                        </div>
+                        <a href="/resources/downloads/prd-template.md" class="btn btn-outline">Download .md</a>
+                    </li>
+                    <li>
+                        <div class="download-info">
+                            <h4>Risk Assessment Checklist</h4>
+                            <p>Technical, business, and project risk categories with probability scoring, impact ratings, and mitigation templates.</p>
+                        </div>
+                        <a href="/resources/downloads/risk-assessment-checklist.md" class="btn btn-outline">Download .md</a>
+                    </li>
+                    <li>
+                        <div class="download-info">
+                            <h4>Mermaid Diagram Examples</h4>
+                            <p>Ready-to-use Mermaid diagram templates for flowcharts, sequence diagrams, state charts, and data flow — paste into any markdown doc.</p>
+                        </div>
+                        <a href="/resources/downloads/mermaid-diagram-examples.md" class="btn btn-outline">Download .md</a>
+                    </li>
+                    <li>
+                        <div class="download-info">
+                            <h4>Complete BA Prompt Guide (18-Page PDF)</h4>
+                            <p>A comprehensive collection of ready-to-use master prompts for LLM-assisted Business Analysis. 5 chapters covering requirements, user stories, process modeling, data analysis, and stakeholder communication.</p>
+                        </div>
+                        <a href="/resources/downloads/ba-prompt-guide.pdf" class="btn btn-primary">Download PDF</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             NEWSLETTER CTA (from prod)
+             ============================================================ -->
+        <section>
+            <div class="container">
+                <header class="section-header">
+                    <p class="hero-label">📬 Get the full BA Toolkit</p>
+                    <h2>Join the newsletter and get all templates in one download.</h2>
+                    <p>Plus weekly practical AI tips for BAs and POs. No spam. Unsubscribe anytime.</p>
+                </header>
+                <form id="newsletter-form" onsubmit="return submitNewsletter(event)" style="display:flex; gap:0.75rem; justify-content:center; max-width:480px; margin:0 auto; flex-wrap:wrap;">
+                    <input type="email" id="newsletter-email" placeholder="Your email address" required style="flex:1; min-width:200px; padding:0.75rem 1.25rem; border:2px solid var(--border); border-radius:100px; font-size:0.9rem; font-family:inherit; outline:none;">
+                    <button type="submit" id="newsletter-btn" class="btn btn-primary">Download Free Toolkit →</button>
+                </form>
+                <p id="newsletter-msg" style="font-size:0.75rem; color:var(--fg-muted); margin-top:0.75rem; text-align:center;">No spam. Unsubscribe anytime.</p>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             CTA STRIP
+             ============================================================ -->
+        <section class="cta-strip">
+            <div class="container">
+                <h2>✨ Ready to turn messy requirements into clear deliverables?</h2>
+                <p>Try BA Assistant free. No credit card. Just paste your requirements and get a full report in under 60 seconds.</p>
+                <a href="https://tshaik1990-ba-assistant.hf.space" class="btn btn-primary" target="_blank" rel="noopener">Start Free Analysis →</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================================
+         FOOTER — copied from home page (index.html)
+         Verified: NO /stack/ or /next/ links.
+         ============================================================ -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="brand-text">touseefshaik.com</span>
+                    <span class="brand-badge">Lab</span>
+                    <p>AI tools and workflows for Business Analysts, Product Owners, and product teams.</p>
+                </div>
+                <nav class="footer-nav">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="/apps/">Lab</a></li>
+                        <li><a href="/apps/ba-assistant.html">BA Assistant</a></li>
+                        <li><a href="/resources/">Resources</a></li>
+                        <li><a href="/blog/">Blog</a></li>
+                    </ul>
+                </nav>
+                <nav class="footer-nav">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="https://linkedin.com/in/ts26" target="_blank" rel="noopener">LinkedIn</a></li>
+                        <li><a href="https://huggingface.co/tshaik1990" target="_blank" rel="noopener">Hugging Face</a></li>
+                        <li><a href="https://github.com/Touseef1949" target="_blank" rel="noopener">GitHub</a></li>
+                        <li><a href="/contact/">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="footer-cta">
+                    <h4>Try BA Assistant</h4>
+                    <p>Turn messy requirements into structured specs, user stories, and diagrams in under 60 seconds.</p>
+                    <a href="https://tshaik1990-ba-assistant.hf.space" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Start Free →</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Touseef Shaik. All tools free. Building in public.</p>
+            </div>
+        </div>
+        <div class="visitor-counter">
+        <img src="https://visitor-badge.laobi.icu/badge?page_id=touseefshaik.resources&left_color=555555&right_color=2563eb&left_text=visitors" alt="visitor counter">
     </div>
-  </nav>
+</footer>
 
-  <section>
-    <div class="section-inner">
-      <div class="section-label">Free downloads</div>
-      <h1>BA & PO Resources</h1>
-      <p class="subtitle">Practical templates, checklists, and guides to speed up your BA and product workflows. Download what you need — the full toolkit is free with the newsletter.</p>
-
-      <!-- FEATURED: Complete Prompt Guide -->
-      <div class="featured-guide">
-        <div class="fg-label">⭐ Featured Resource</div>
-        <h2>Complete BA Prompt Guide (18-Page PDF)</h2>
-        <p class="fg-desc">A comprehensive collection of ready-to-use master prompts for LLM-assisted Business Analysis. 5 chapters covering requirements, user stories, process modeling, data analysis, and stakeholder communication.</p>
-        <div class="fg-chapters">
-          <span class="fg-chapter">📋 Requirements Elicitation</span>
-          <span class="fg-chapter">📝 Use Cases & User Stories</span>
-          <span class="fg-chapter">🔄 Process Modeling</span>
-          <span class="fg-chapter">📊 Data Analysis</span>
-          <span class="fg-chapter">💬 Stakeholder Comms</span>
-        </div>
-        <a href="#newsletter" class="fg-cta">📬 Get the Free PDF →</a>
-      </div>
-
-      <div class="resources-grid">
-        <div class="resource-card">
-          <span class="icon">📋</span>
-          <h3>BA Requirements Template</h3>
-          <p>A structured template for capturing functional and non-functional requirements with traceability, business rules, and constraints.</p>
-          <a href="/resources/downloads/ba-requirements-template.md" class="dl-btn" download>Get Template →</a>
-        </div>
-        <div class="resource-card">
-          <span class="icon">📝</span>
-          <h3>User Story Template</h3>
-          <p>Standard user story format with Given-When-Then acceptance criteria, MoSCoW prioritization, and story mapping.</p>
-          <a href="/resources/downloads/user-story-template.md" class="dl-btn" download>Get Template →</a>
-        </div>
-        <div class="resource-card">
-          <span class="icon">📄</span>
-          <h3>PRD Template</h3>
-          <p>A complete Product Requirements Document template covering problem statement, scope, features, NFRs, risks, and milestones.</p>
-          <a href="/resources/downloads/prd-template.md" class="dl-btn" download>Get Template →</a>
-        </div>
-        <div class="resource-card">
-          <span class="icon">⚠️</span>
-          <h3>Risk Assessment Checklist</h3>
-          <p>Technical, business, and project risk categories with probability scoring, impact ratings, and mitigation templates.</p>
-          <a href="/resources/downloads/risk-assessment-checklist.md" class="dl-btn" download>Get Checklist →</a>
-        </div>
-        <div class="resource-card">
-          <span class="icon">📊</span>
-          <h3>Mermaid Diagram Examples</h3>
-          <p>Ready-to-use Mermaid diagram templates for flowcharts, sequence diagrams, state charts, and data flow — paste into any markdown doc.</p>
-          <a href="/resources/downloads/mermaid-diagram-examples.md" class="dl-btn" download>Get Examples →</a>
-        </div>
-        <div class="resource-card">
-          <span class="icon">🤖</span>
-          <h3>AI Prompts for BAs</h3>
-          <p>A curated collection of copy-paste AI prompts for requirement analysis, user story generation, acceptance criteria, and documentation.</p>
-          <a href="/blog/best-ai-prompts-for-business-analysts" class="dl-btn">Get Prompts →</a>
-        </div>
-        <div class="resource-card">
-          <span class="icon">🔍</span>
-          <h3>Functional vs NFR Guide</h3>
-          <p>A practical guide to distinguishing functional from non-functional requirements with real examples from fintech and enterprise projects.</p>
-          <a href="#newsletter" class="dl-btn">Get Guide →</a>
-        </div>
-        <div class="resource-card">
-          <span class="icon">✅</span>
-          <h3>PO AI Workflow Checklist</h3>
-          <p>Step-by-step checklist for integrating AI into your Product Owner workflow — from intake to backlog to documentation.</p>
-          <a href="#newsletter" class="dl-btn">Get Checklist →</a>
-        </div>
-      </div>
-
-      <div class="newsletter-cta" id="newsletter">
-        <h3>📬 Get the full BA Toolkit</h3>
-        <p>Join the newsletter and get all 8 templates, checklists, and guides in one download. Plus weekly practical AI tips for BAs and POs.</p>
-        <form class="newsletter-form" onsubmit="return submitNewsletter(event)">
-          <input type="email" id="newsletter-email" placeholder="Your email address" required>
-          <button type="submit" id="newsletter-btn">Download Free Toolkit →</button>
-        </form>
-        <p style="font-size:0.72rem;color:var(--text-dim);margin-top:0.75rem;">No spam. Unsubscribe anytime.</p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <span>Touseef Shaik &copy; 2026</span>
-    <div class="footer-links">
-      <a href="/start-here">Start Here</a>
-      <a href="/tools">Labs</a>
-      <a href="/tools/ba-assistant">BA Assistant</a>
-      <a href="/resources">Resources</a>
-      <a href="/blog">Blog</a>
-      <a href="/about">About</a>
-      <a href="/contact">Contact</a>
-      <a href="/privacy">Privacy</a>
-      <a href="/terms">Terms</a>
-    </div>
-  </footer>
-
-  <script>
-  async function submitNewsletter(e) {
-    e.preventDefault();
-    var email = document.getElementById('newsletter-email').value.trim();
-    var btn = document.getElementById('newsletter-btn');
-    if (!email) return false;
-    btn.disabled = true;
-    btn.textContent = 'Sending...';
-    try {
-      var r = await fetch('https://api.buttondown.email/v1/subscribers', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Token 4318bdce-37b8-4331-bfb4-1f835d5a2fe3'
-        },
-        body: JSON.stringify({ email_address: email })
-      });
-      if (r.ok) {
-        var form = document.querySelector('.newsletter-form');
-        if (form) form.innerHTML = '<p style="color:#22c55e;font-weight:600;font-size:1.1rem;">✓ You\'re in! Welcome aboard.</p>';
-      } else {
-        alert('Something went wrong. Please try again.');
-      }
-    } catch (err) {
-      alert('Network error. Please try again.');
+    <script src="/assets/js/main.js"></script>
+    <script>
+    async function submitNewsletter(e) {
+        e.preventDefault();
+        var email = document.getElementById('newsletter-email').value.trim();
+        var btn = document.getElementById('newsletter-btn');
+        var msg = document.getElementById('newsletter-msg');
+        if (!email) return false;
+        btn.disabled = true;
+        btn.textContent = 'Joining...';
+        try {
+            var r = await fetch('https://api.buttondown.email/v1/subscribers', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Token 4318bdce-37b8-4331-bfb4-1f835d5a2fe3'
+                },
+                body: JSON.stringify({ email_address: email })
+            });
+            if (r.ok) {
+                document.getElementById('newsletter-form').innerHTML =
+                    '<p style="color:#22c55e;font-weight:600;font-size:1.1rem;text-align:center;">✓ You\'re in! Welcome aboard.</p>';
+                msg.textContent = 'One useful email per week. No spam.';
+            } else {
+                msg.textContent = 'Something went wrong. Please try again.';
+                msg.style.color = '#ef4444';
+            }
+        } catch (err) {
+            msg.textContent = 'Network error. Please try again.';
+            msg.style.color = '#ef4444';
+        }
+        btn.disabled = false;
+        btn.textContent = 'Download Free Toolkit →';
+        return false;
     }
-    btn.disabled = false;
-    btn.textContent = 'Download Free Toolkit →';
-    return false;
-  }
-  </script>
-
+    </script>
 </body>
 </html>

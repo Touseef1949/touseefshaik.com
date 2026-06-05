@@ -1,56 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy — Touseef Shaik</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root { --bg: #fdfcf9; --text: #1a1a1a; --text-secondary: #555; --accent: #2563eb; --border: #e8e5df; --radius: 16px; --max-width: 800px; }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; padding: 3rem 2rem; }
-    .card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 3rem 2rem; max-width: var(--max-width); margin: 0 auto; }
-    h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 2rem; }
-    h2 { font-size: 1.1rem; font-weight: 600; margin: 1.5rem 0 0.5rem; }
-    p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem; }
-    .back { margin-top: 2rem; }
-    .back a { color: var(--accent); text-decoration: none; }
-    footer { text-align: center; padding: 2rem 0 0; color: #8a8a8a; font-size: 0.85rem; }
-    footer a { color: #8a8a8a; text-decoration: none; margin: 0 0.5rem; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Privacy Policy for Touseef Shaik — how we handle your data and privacy.">
+    <meta property="og:title" content="Privacy Policy — Touseef Shaik">
+    <meta property="og:description" content="How we handle your data and privacy. No cookies, no tracking, no personal data collection.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://touseefshaik.com/privacy/">
+    <title>Privacy Policy — Touseef Shaik</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="card">
-    <h1>Privacy Policy</h1>
-    <p><strong>Last updated: May 2026</strong></p>
+    <!-- ============================================================
+         HYBRID NAV — 8 items. No active state (privacy not in nav).
+         ============================================================ -->
+    <header class="site-header">
+        <nav class="nav container">
+            <a href="/" class="nav-brand" aria-label="Home">
+                <span class="brand-text">touseefshaik.com</span>
+                <span class="brand-badge">Lab</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/start-here/">Start Here</a></li>
+                <li><a href="/apps/">Lab</a></li>
+                <li><a href="/apps/ba-assistant.html">BA Assistant</a></li>
+                <li><a href="/resources/">Resources</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/contact/" class="nav-cta">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <h2>What data we collect</h2>
-    <p>This website (touseefshaik.com) is a static site. We do not use cookies, tracking scripts, or analytics beyond a simple anonymous page-view counter. When you visit:</p>
-    <p>• We do not collect your name, email, IP address, or any personal information.<br>
-    • A visitor counter badge (visitor-badge.laobi.icu) increments anonymously — no personal data is stored.<br>
-    • The newsletter form (if provided) collects only the email you voluntarily submit.</p>
+    <main>
 
-    <h2>BA Assistant & AI tools</h2>
-    <p>When you use BA Assistant or other AI tools hosted on Streamlit Cloud:</p>
-    <p>• The requirements or text you paste are sent to the AI model provider (DeepSeek) for processing.<br>
-    • <strong>Free users:</strong> We do not store, log, or retain your input or output on our servers. Each session is stateless.<br>
-    • <strong>Pro users:</strong> Report history is stored only when you create an account and explicitly save a report. You can view, export, or delete your saved reports at any time from your account dashboard.<br>
-    • Do not paste confidential, proprietary, or personally identifiable information (PII).<br>
-    • AI-generated outputs should be reviewed by a human before use in production.</p>
+        <!-- ============================================================
+             PAGE INTRO
+             ============================================================ -->
+        <section class="page-intro">
+            <div class="container">
+                <p class="eyebrow">📜 Legal</p>
+                <h1>Privacy Policy</h1>
+                <p>How we handle your data and privacy</p>
+            </div>
+        </section>
 
-    <h2>Third-party services</h2>
-    <p>This site links to external platforms (GitHub, LinkedIn, Streamlit Cloud). Their privacy policies apply when you visit those sites.</p>
+        <!-- ============================================================
+             LEGAL CONTENT — 1:1 copy from prod
+             ============================================================ -->
+        <div class="legal-content">
+            <p class="legal-updated"><strong>Last updated: May 2026</strong></p>
 
-    <h2>Contact</h2>
-    <p>Questions about privacy? Email <a href="mailto:tshaik1990@gmail.com" style="color:var(--accent);">tshaik1990@gmail.com</a>.</p>
+            <h2>What data we collect</h2>
+            <p>This website (touseefshaik.com) is a static site. We do not use cookies, tracking scripts, or analytics beyond a simple anonymous page-view counter. When you visit:</p>
+            <ul>
+                <li>We do not collect your name, email, IP address, or any personal information.</li>
+                <li>A visitor counter badge (visitor-badge.laobi.icu) increments anonymously — no personal data is stored.</li>
+                <li>The newsletter form (if provided) collects only the email you voluntarily submit.</li>
+            </ul>
 
-    <div class="back"><a href="/">← Back to home</a></div>
-  </div>
-  <footer>
-    <span>Touseef Shaik &copy; 2026</span>
-    <a href="/tools">Labs</a> · <a href="/tools/ba-assistant">BA Assistant</a> · <a href="/how-it-works/ba-assistant">How it Works</a> · <a href="/contact">Contact</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  </footer>
+            <h2>BA Assistant &amp; AI tools</h2>
+            <p>When you use BA Assistant or other AI tools hosted on Streamlit Cloud:</p>
+            <ul>
+                <li>The requirements or text you paste are sent to the AI model provider (DeepSeek) for processing.</li>
+                <li><strong>Free users:</strong> We do not store, log, or retain your input or output on our servers. Each session is stateless.</li>
+                <li><strong>Pro users:</strong> Report history is stored only when you create an account and explicitly save a report. You can view, export, or delete your saved reports at any time from your account dashboard.</li>
+                <li>Do not paste confidential, proprietary, or personally identifiable information (PII).</li>
+                <li>AI-generated outputs should be reviewed by a human before use in production.</li>
+            </ul>
+
+            <h2>Third-party services</h2>
+            <p>This site links to external platforms (GitHub, LinkedIn, Streamlit Cloud). Their privacy policies apply when you visit those sites.</p>
+
+            <h2>Contact</h2>
+            <p>Questions about privacy? Email <a href="mailto:tshaik1990@gmail.com">tshaik1990@gmail.com</a>.</p>
+        </div>
+
+        <!-- ============================================================
+             CTA STRIP
+             ============================================================ -->
+        <section class="cta-strip">
+            <div class="container">
+                <h2>🔬 Explore the Lab</h2>
+                <p>Check out the AI tools and experiments I'm building for product workflows — all free to try.</p>
+                <a href="/apps/" class="btn btn-primary">Explore the Lab →</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================================
+         STANDARD FOOTER — copied from home page (no /stack/ or /next/)
+         ============================================================ -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="brand-text">touseefshaik.com</span>
+                    <span class="brand-badge">Lab</span>
+                    <p>AI tools and workflows for Business Analysts, Product Owners, and product teams.</p>
+                </div>
+                <nav class="footer-nav">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="/apps/">Lab</a></li>
+                        <li><a href="/apps/ba-assistant.html">BA Assistant</a></li>
+                        <li><a href="/resources/">Resources</a></li>
+                        <li><a href="/blog/">Blog</a></li>
+                    </ul>
+                </nav>
+                <nav class="footer-nav">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="https://linkedin.com/in/ts26" target="_blank" rel="noopener">LinkedIn</a></li>
+                        <li><a href="https://huggingface.co/tshaik1990" target="_blank" rel="noopener">Hugging Face</a></li>
+                        <li><a href="https://github.com/Touseef1949" target="_blank" rel="noopener">GitHub</a></li>
+                        <li><a href="/contact/">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="footer-cta">
+                    <h4>Try BA Assistant</h4>
+                    <p>Turn messy requirements into structured specs, user stories, and diagrams in under 60 seconds.</p>
+                    <a href="https://tshaik1990-ba-assistant.hf.space" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Start Free →</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Touseef Shaik. All tools free. Building in public.</p>
+            </div>
+        </div>
+        <div class="visitor-counter">
+        <img src="https://visitor-badge.laobi.icu/badge?page_id=touseefshaik.privacy&left_color=555555&right_color=2563eb&left_text=visitors" alt="visitor counter">
+    </div>
+</footer>
+
+    <script src="/assets/js/main.js"></script>
 </body>
 </html>

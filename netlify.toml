@@ -1,18 +1,32 @@
 [build]
   publish = "."
-  functions = "netlify/functions"
 
 [[redirects]]
-  from = "/ideas/ba-assistant"
-  to = "/ideas/ba-assistant/index.html"
+  from = "/apps"
+  to = "/apps/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/apps/ba-assistant"
+  to = "/apps/ba-assistant.html"
   status = 200
 
 [[redirects]]
   from = "/how-it-works/ba-assistant"
-  to = "/how-it-works/ba-assistant/index.html"
+  to = "/how-it-works/ba-assistant.html"
   status = 200
 
 [[redirects]]
-  from = "/ideas"
-  to = "/ideas/index.html"
+  from = "/blog/best-ai-prompts"
+  to = "/blog/best-ai-prompts.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/how-i-use-ai"
+  to = "/blog/how-i-use-ai.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/turn-messy-requirements"
+  to = "/blog/turn-messy-requirements.html"
   status = 200

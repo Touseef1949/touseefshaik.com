@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Whiteboard to Requirements — Upload a whiteboard sketch or process flow. AI asks clarifying questions, then generates structured BA artifacts: user stories, functional requirements, Mermaid diagrams, and gap analysis. Powered by Gemini 3.5 Flash + DeepSeek. Free, open-source.">
+    <meta property="og:title" content="Whiteboard to Requirements — Turn Sketches into Structured BA Artifacts | touseefshaik.com">
+    <meta property="og:description" content="Upload a whiteboard sketch, process flow, or system diagram. AI asks clarifying questions, then generates structured BA artifacts — user stories, functional requirements, Mermaid diagrams, and gap analysis.">
+    <title>Whiteboard to Requirements — Turn Sketches into Structured BA Artifacts | touseefshaik.com</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav container">
+            <a href="/" class="nav-brand" aria-label="Home">
+                <span class="brand-text">touseefshaik.com</span>
+                <span class="brand-badge">Lab</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/start-here/">Start Here</a></li>
+                <li><a href="/apps/" class="active">Lab</a></li>
+                <li><a href="/apps/ba-assistant.html">BA Assistant</a></li>
+                <li><a href="/resources/">Resources</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/contact/" class="nav-cta">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- PAGE INTRO -->
+        <section class="page-intro">
+            <div class="container">
+                <p class="eyebrow">AI Tool &mdash; New</p>
+                <h1>Whiteboard to Requirements</h1>
+                <p>Upload a whiteboard sketch, process flow, or system diagram. AI asks clarifying questions, then generates structured BA artifacts — user stories, functional requirements, Mermaid diagrams, and gap analysis.</p>
+                <p style="max-width:640px;margin:1rem auto;color:var(--text-secondary);">Two-model architecture: Gemini 3.5 Flash handles vision and asks clarifying questions, DeepSeek V4 Flash generates structured outputs — keeping it fast and cost-efficient. Free, no signup, open source.</p>
+                <a href="https://huggingface.co/spaces/tshaik1990/whiteboard-to-requirements" target="_blank" rel="noopener" class="btn btn-primary">📋 Try it Free &rarr;</a>
+            </div>
+        </section>
+
+        <!-- DEMO VIDEO -->
+        <section>
+            <div class="container">
+                <a href="https://www.linkedin.com/posts/ts26_ai-businessanalysis-requirementsengineering-activity-7466769149403512832-TfIF" target="_blank" rel="noopener" style="text-decoration:none;display:block;">
+                    <div style="background:linear-gradient(135deg,#1a1a2e,#16213e);padding:3rem 2rem;text-align:center;border-radius:var(--radius) var(--radius) 0 0;">
+                        <div style="font-size:3rem;margin-bottom:0.75rem;">▶️</div>
+                        <div style="color:#fff;font-size:1.1rem;font-weight:700;">Watch the Demo</div>
+                        <div style="color:#94a3b8;font-size:0.85rem;margin-top:0.25rem;">See how Whiteboard to Requirements works in 60 seconds</div>
+                    </div>
+                    <div style="padding:1rem 1.5rem;font-size:0.85rem;color:var(--text-secondary);background:var(--surface-alt);border-top:1px solid var(--border);border-radius:0 0 var(--radius) var(--radius);">
+                        🎬 Click to watch on LinkedIn — upload a whiteboard sketch, answer clarifying questions, get structured BA artifacts.
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- APP DETAIL: Two-column layout -->
+        <section>
+            <div class="container">
+                <div class="app-detail">
+
+                    <!-- MAIN CONTENT -->
+                    <div class="app-detail-main">
+
+                        <h2>How It Works</h2>
+                        <p class="app-desc-large">Upload a photo of your whiteboard, hand-drawn process flow, or system diagram. The AI reads the sketch using vision models, asks 3-5 clarifying questions about actors, triggers, and system boundaries, then generates a complete set of structured BA artifacts — all in under 60 seconds.</p>
+
+                        <h3>1. Upload Sketch</h3>
+                        <p>Photo of your whiteboard, hand-drawn flow, or system diagram. The app accepts common image formats — just drag and drop.</p>
+
+                        <h3>2. AI Analyzes</h3>
+                        <p>Gemini 3.5 Flash reads the sketch using vision capabilities and generates 3-5 clarifying questions to better understand the process, actors, and intent behind the drawing.</p>
+
+                        <h3>3. You Clarify</h3>
+                        <p>Answer the questions about actors, triggers, and system boundaries. Your answers give the AI the context it needs to produce accurate, relevant artifacts.</p>
+
+                        <h3>4. Get Artifacts</h3>
+                        <p>In under 60 seconds, you get INVEST user stories, functional requirements with FR-XXX IDs, Mermaid sequence and flowchart diagrams, and a gap analysis — all rendered live in the browser.</p>
+
+                        <h2>What You Get</h2>
+
+                        <h3>📋 Epic Summary</h3>
+                        <p>2-3 sentence product capability overview for stakeholders. Distills the whiteboard sketch into a clear, concise summary anyone can understand.</p>
+
+                        <h3>🔧 Functional Requirements</h3>
+                        <p>FR-XXX IDs grouped by module with testable requirement statements. Each requirement is traceable and ready for your specification document.</p>
+
+                        <h3>✅ INVEST User Stories</h3>
+                        <p>Proper format with acceptance criteria — ready for sprint planning. Stories follow the INVEST framework: Independent, Negotiable, Valuable, Estimable, Small, Testable.</p>
+
+                        <h3>🔄 Mermaid Diagrams</h3>
+                        <p>Sequence diagram and flowchart rendered live in the browser. Copy the Mermaid code directly into your documentation or export as SVG.</p>
+
+                        <h3>🔍 Gap Analysis</h3>
+                        <p>Ambiguities, missing context, and assumptions flagged for clarification. Helps you identify what's still unclear before you commit to implementation.</p>
+
+                        <h3>📥 Download as Markdown</h3>
+                        <p>Export everything as a .md file for your repo or documentation tool. Drop it into Confluence, Notion, or your PRD with zero reformatting.</p>
+
+                        <h2>Tech stack</h2>
+                        <table>
+                            <thead>
+                                <tr><th>Layer</th><th>Technology</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>UI Framework</td><td>🎨 Streamlit</td></tr>
+                                <tr><td>Agent Framework</td><td>🧠 Agno — multi-agent orchestration</td></tr>
+                                <tr><td>Vision Model</td><td>👁️ Gemini 3.5 Flash — reads whiteboard sketches, generates clarifying questions</td></tr>
+                                <tr><td>Generation Model</td><td>⚡ DeepSeek V4 Flash — structured output generation (user stories, FRs, diagrams)</td></tr>
+                                <tr><td>Diagrams</td><td>📊 Mermaid.js — sequence diagrams and flowcharts rendered client-side</td></tr>
+                                <tr><td>Backend</td><td>🐍 Python — orchestration and artifact generation</td></tr>
+                                <tr><td>Hosting</td><td>☁️ Hugging Face Spaces — free hosting with auto-deploy from GitHub</td></tr>
+                            </tbody>
+                        </table>
+
+                        <p style="margin-top:1rem;">Open source on <a href="https://github.com/Touseef1949/whiteboard-to-requirements" target="_blank" rel="noopener">GitHub</a>. Two-model architecture: Gemini handles vision and questions, DeepSeek generates structured outputs — keeping it fast and cost-efficient.</p>
+
+                    </div>
+
+                    <!-- SIDEBAR -->
+                    <aside class="app-detail-sidebar">
+
+                        <div class="app-meta">
+                            <span class="meta-tag">Free</span>
+                            <span class="meta-tag">New</span>
+                            <span class="meta-tag">Live</span>
+                            <span class="meta-tag">Vision LLM</span>
+                            <span class="meta-tag">Agno</span>
+                            <span class="meta-tag">Open Source</span>
+                            <span class="meta-tag">Streamlit</span>
+                        </div>
+
+                        <a href="https://huggingface.co/spaces/tshaik1990/whiteboard-to-requirements" target="_blank" rel="noopener" class="btn btn-primary btn-block">📋 Launch App &rarr;</a>
+
+                        <h3 style="margin-top:1.5rem;">Who It's For</h3>
+                        <ul style="list-style:none;padding:0;">
+                            <li style="margin-bottom:0.75rem;"><strong>📋 Business Analysts</strong><br><span style="color:var(--text-secondary);font-size:0.9rem;">Turn whiteboard sessions and stakeholder sketches into structured requirements without manual transcription.</span></li>
+                            <li style="margin-bottom:0.75rem;"><strong>📝 Product Owners</strong><br><span style="color:var(--text-secondary);font-size:0.9rem;">Go from whiteboard to sprint-ready user stories in under 60 seconds. No more lost context between meetings.</span></li>
+                            <li style="margin-bottom:0.75rem;"><strong>🏗️ Solution Architects</strong><br><span style="color:var(--text-secondary);font-size:0.9rem;">Upload system diagrams and get structured FRs, sequence diagrams, and gap analysis automatically.</span></li>
+                            <li style="margin-bottom:0.75rem;"><strong>🤖 AI Builders</strong><br><span style="color:var(--text-secondary);font-size:0.9rem;">Study a two-model architecture: Gemini for vision + DeepSeek for structured outputs. Fork it and extend.</span></li>
+                        </ul>
+
+                        <h3>Links &amp; Resources</h3>
+                        <ul style="list-style:none;padding:0;">
+                            <li style="margin-bottom:0.5rem;"><a href="https://huggingface.co/spaces/tshaik1990/whiteboard-to-requirements" target="_blank" rel="noopener">📋 Live App</a></li>
+                            <li style="margin-bottom:0.5rem;"><a href="https://github.com/Touseef1949/whiteboard-to-requirements" target="_blank" rel="noopener">🐙 GitHub Repo</a></li>
+                            <li style="margin-bottom:0.5rem;"><a href="https://mermaid.js.org" target="_blank" rel="noopener">📊 Mermaid.js</a></li>
+                            <li style="margin-bottom:0.5rem;"><a href="https://www.linkedin.com/posts/ts26_ai-businessanalysis-requirementsengineering-activity-7466769149403512832-TfIF" target="_blank" rel="noopener">▶️ Watch Demo</a></li>
+                            <li style="margin-bottom:0.5rem;"><a href="/apps/">&larr; All Tools</a></li>
+                        </ul>
+
+                        <h3 style="margin-top:1.5rem;">Future Apps</h3>
+                        <div class="future-cards">
+                            <div class="future-card">
+                                <h4>Stock Research Agent</h4>
+                                <p>AI-powered equity research with multi-source analysis and investment thesis generation.</p>
+                            </div>
+                            <div class="future-card">
+                                <h4>Compliance Audit Generator</h4>
+                                <p>Automated RBI/SEBI compliance audits for fintech products and NBFC operations.</p>
+                            </div>
+                            <div class="future-card">
+                                <h4>Sprint Retrospective Synthesizer</h4>
+                                <p>Aggregate sprint data and team feedback into actionable retrospectives with trend analysis.</p>
+                            </div>
+                        </div>
+
+                    </aside>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- BOTTOM CTA STRIP -->
+        <section class="cta-strip">
+            <div class="container">
+                <h2>Ready to turn whiteboard sketches into structured requirements?</h2>
+                <p>Start free. No sign-up. Upload a whiteboard photo and get structured BA artifacts in under 60 seconds.</p>
+                <a href="https://huggingface.co/spaces/tshaik1990/whiteboard-to-requirements" target="_blank" rel="noopener" class="btn btn-primary">📋 Launch Whiteboard to Requirements &rarr;</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="brand-text">touseefshaik.com</span>
+                    <span class="brand-badge">Lab</span>
+                    <p>AI tools and workflows for Business Analysts, Product Owners, and product teams.</p>
+                </div>
+                <nav class="footer-nav">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="/apps/">Lab</a></li>
+                        <li><a href="/apps/ba-assistant.html">BA Assistant</a></li>
+                        <li><a href="/resources/">Resources</a></li>
+                        <li><a href="/blog/">Blog</a></li>
+                    </ul>
+                </nav>
+                <nav class="footer-nav">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="https://linkedin.com/in/ts26" target="_blank" rel="noopener">LinkedIn</a></li>
+                        <li><a href="https://huggingface.co/tshaik1990" target="_blank" rel="noopener">Hugging Face</a></li>
+                        <li><a href="https://github.com/Touseef1949" target="_blank" rel="noopener">GitHub</a></li>
+                        <li><a href="/contact/">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="footer-cta">
+                    <h4>Try BA Assistant</h4>
+                    <p>Turn messy requirements into structured specs, user stories, and diagrams in under 60 seconds.</p>
+                    <a href="https://tshaik1990-ba-assistant.hf.space" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Start Free →</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Touseef Shaik. All tools free. Building in public.</p>
+            </div>
+        </div>
+        <div class="visitor-counter">
+        <img src="https://visitor-badge.laobi.icu/badge?page_id=touseefshaik.apps.whiteboard-to-requirements&left_color=555555&right_color=2563eb&left_text=visitors" alt="visitor counter">
+    </div>
+</footer>
+
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>

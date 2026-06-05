@@ -1,147 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Touseef Shaik — Product Owner & AI Builder</title>
-  <meta name="description" content="Touseef Shaik is a fintech Product Owner with 12+ years of experience and the builder of BA Assistant — practical AI tools for Business Analysts, Product Owners, and product teams.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root { --bg: #fdfcf9; --surface: #ffffff; --surface-alt: #f6f4f0; --border: #e8e5df; --text: #1a1a1a; --text-secondary: #555555; --text-dim: #8a8a8a; --accent: #2563eb; --accent-hover: #1d4ed8; --accent-light: #eff6ff; --radius: 16px; --max-width: 960px; --shadow-sm: 0 1px 3px rgba(0,0,0,0.04); }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
-    .nav { position: sticky; top: 0; z-index: 100; background: rgba(253,252,249,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
-    .nav-inner { max-width: var(--max-width); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 2rem; }
-    .logo { font-weight: 700; font-size: 1.05rem; text-decoration: none; color: var(--text); }
-    .logo:hover { color: var(--accent); }
-    .nav-links { display: flex; gap: 1.75rem; align-items: center; }
-    .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.875rem; font-weight: 500; }
-    .nav-links a:hover,.nav-links a.active { color: var(--text); }
-    .nav-cta { background: var(--accent); color: #fff !important; padding: 0.45rem 1rem; border-radius: 100px; font-size: 0.8rem !important; font-weight: 600 !important; }
-    section { padding: 4rem 2rem; }
-    .section-inner { max-width: var(--max-width); margin: 0 auto; }
-    .section-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 0.75rem; }
-    h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 1rem; }
-    .story { display: flex; gap: 3rem; align-items: flex-start; margin-bottom: 2.5rem; }
-    .story-text { flex: 1; }
-    .story-text p { color: var(--text-secondary); font-size: 1rem; line-height: 1.8; margin-bottom: 1.25rem; }
-    .story-avatar { width: 140px; height: 140px; border-radius: 50%; background: var(--accent-light); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; }
-    h2 { font-size: 1.3rem; font-weight: 700; margin: 2rem 0 0.75rem; }
-    .links-row { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1.5rem 0; }
-    .link-card { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; border: 1px solid var(--border); border-radius: 100px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.9rem; transition: all 0.2s; }
-    .link-card:hover { border-color: var(--accent); color: var(--accent); }
-    .btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.85rem 2rem; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.2s; }
-    .btn-primary { background: var(--accent); color: #fff; }
-    .btn-primary:hover { background: var(--accent-hover); }
-    .btn-secondary { border: 2px solid var(--border); color: var(--text); }
-    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
-    footer { padding: 2rem; border-top: 1px solid var(--border); max-width: var(--max-width); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; color: var(--text-dim); font-size: 0.85rem; }
-    footer .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-    footer a { color: var(--text-dim); text-decoration: none; font-size: 0.85rem; }
-    footer a:hover { color: var(--text-secondary); }
-    @media (max-width: 700px) {
-      .story { flex-direction: column; align-items: center; text-align: center; }
-      h1 { font-size: 1.8rem; }
-      section { padding: 3rem 1.25rem; }
-      .nav-inner { flex-wrap: wrap; }
-      .nav-links { gap: 0.75rem; flex-wrap: wrap; }
-      .nav-links a { font-size: 0.78rem; min-height: 36px; display: inline-flex; align-items: center; }
-      footer { flex-direction: column; text-align: center; }
-      footer .footer-links { justify-content: center; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Touseef Shaik — Product Owner &amp; AI Builder with 12+ years in fintech. Building practical AI tools for BAs, Product Owners, and product teams.">
+    <meta property="og:title" content="About Touseef Shaik — Product Owner &amp; AI Builder">
+    <meta property="og:description" content="Product Owner at Broadridge. 12+ years in fintech. Builder of BA Assistant and practical AI tools for product workflows.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://touseefshaik.com/about/">
+    <title>About Touseef Shaik — Product Owner &amp; AI Builder</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- ============================================================
+         HYBRID NAV — 8 items. Active on /about/.
+         ============================================================ -->
+    <header class="site-header">
+        <nav class="nav container">
+            <a href="/" class="nav-brand" aria-label="Home">
+                <span class="brand-text">touseefshaik.com</span>
+                <span class="brand-badge">Lab</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/start-here/">Start Here</a></li>
+                <li><a href="/apps/">Lab</a></li>
+                <li><a href="/apps/ba-assistant.html">BA Assistant</a></li>
+                <li><a href="/resources/">Resources</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/about/" class="active">About</a></li>
+                <li><a href="/contact/" class="nav-cta">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <nav class="nav">
-    <div class="nav-inner">
-      <a href="/" class="logo">Touseef Shaik</a>
-      <div class="nav-links">
-        <a href="/start-here">Start Here</a>
-        <a href="/tools">Labs</a>
-        <a href="/tools/ba-assistant">BA Assistant</a>
-        <a href="/resources">Resources</a>
-        <a href="/blog">Blog</a>
-        <a href="/about" class="active">About</a>
-        <a href="/contact">Contact</a>
-        <a href="https://tshaik1990-ba-assistant.hf.space" class="nav-cta" target="_blank">Try BA Assistant Free</a>
-      </div>
-    </div>
-  </nav>
+    <main>
 
-  <section>
-    <div class="section-inner">
-      <div class="section-label">About</div>
-      <div class="story">
-        <div class="story-avatar">🧑‍💻</div>
-        <div class="story-text">
-          <h1>Touseef Shaik</h1>
-          <p style="font-size:1.05rem;color:var(--text-dim);margin-bottom:1.5rem;">Product Owner · AI Builder · 12+ years in fintech</p>
-          <p>
-            I'm a Product Owner at Broadridge, where I spend my days translating complex 
-            stakeholder requirements into clear, delivery-ready specs for engineering teams. 
-            Over 12+ years in fintech product delivery, I've seen every kind of requirements 
-            mess — vague emails, contradictory stakeholder notes, thousand-line PRDs with 
-            no structure, and slide decks pretending to be specs.
-          </p>
-          <p>
-            I started building BA Assistant because I was tired of spending hours structuring 
-            requirements manually. What began as a personal productivity tool evolved into a 
-            5-agent AI workflow that Business Analysts, Product Owners, and engineering leads 
-            now use to turn raw input into structured deliverables in under 60 seconds.
-          </p>
-          <p>
-            Every tool on this site comes from a real workflow pain I've lived — not from 
-            theoretical product-market-fit exercises. I believe the best tools are built by 
-            people who understand the problem deeply and use their own product daily.
-          </p>
+        <!-- ============================================================
+             PAGE INTRO
+             ============================================================ -->
+        <section class="page-intro">
+            <div class="container">
+                <p class="eyebrow">🧑‍💻 About</p>
+                <h1>Touseef Shaik</h1>
+                <p>Product Owner · AI Builder · 12+ years in fintech</p>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             BIOGRAPHY
+             ============================================================ -->
+        <article class="blog-post">
+            <p>
+                I'm a Product Owner at Broadridge, where I spend my days translating complex
+                stakeholder requirements into clear, delivery-ready specs for engineering teams.
+                Over 12+ years in fintech product delivery, I've seen every kind of requirements
+                mess — vague emails, contradictory stakeholder notes, thousand-line PRDs with
+                no structure, and slide decks pretending to be specs.
+            </p>
+
+            <p>
+                I started building BA Assistant because I was tired of spending hours structuring
+                requirements manually. What began as a personal productivity tool evolved into a
+                5-agent AI workflow that Business Analysts, Product Owners, and engineering leads
+                now use to turn raw input into structured deliverables in under 60 seconds.
+            </p>
+
+            <p>
+                Every tool on this site comes from a real workflow pain I've lived — not from
+                theoretical product-market-fit exercises. I believe the best tools are built by
+                people who understand the problem deeply and use their own product daily.
+            </p>
+
+            <!-- ============================================================
+                 WHAT I BELIEVE
+                 ============================================================ -->
+            <h2>What I believe</h2>
+
+            <p>
+                AI should make product people faster, not replace them. The best AI tool for a BA
+                or Product Owner is one that takes the repetitive, structural work off their plate —
+                structuring, categorising, diagramming — so they can focus on judgment, strategy,
+                and stakeholder conversations.
+            </p>
+
+            <p>
+                I'm building practical, focused tools for a specific audience — not chasing AGI
+                or building a platform for everyone. If you're a BA, PO, PM, or product team member
+                who wants to move faster from messy input to clear output, I'm building for you.
+            </p>
+
+            <!-- ============================================================
+                 CONNECT WITH ME
+                 ============================================================ -->
+            <h2>Connect with me</h2>
+
+            <div class="hero-ctas" style="justify-content:flex-start; flex-wrap:wrap; gap:0.75rem;">
+                <a href="https://linkedin.com/in/ts26" class="btn btn-outline" target="_blank" rel="noopener">💼 LinkedIn</a>
+                <a href="https://github.com/Touseef1949" class="btn btn-outline" target="_blank" rel="noopener">🐙 GitHub</a>
+                <a href="mailto:tshaik1990@gmail.com" class="btn btn-outline">📧 Email</a>
+                <a href="/apps/ba-assistant.html" class="btn btn-primary">📋 BA Assistant</a>
+            </div>
+        </article>
+
+        <!-- ============================================================
+             CTA STRIP
+             ============================================================ -->
+        <section class="cta-strip">
+            <div class="container">
+                <h2>🔬 Explore the Lab</h2>
+                <p>Check out the AI tools and experiments I'm building for product workflows — all free to try.</p>
+                <a href="/apps/" class="btn btn-primary">Explore the Lab →</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================================
+         STANDARD FOOTER
+         ============================================================ -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="brand-text">touseefshaik.com</span>
+                    <span class="brand-badge">Lab</span>
+                    <p>AI tools and workflows for Business Analysts, Product Owners, and product teams.</p>
+                </div>
+                <nav class="footer-nav">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="/apps/">Lab</a></li>
+                        <li><a href="/apps/ba-assistant.html">BA Assistant</a></li>
+                        <li><a href="/resources/">Resources</a></li>
+                        <li><a href="/blog/">Blog</a></li>
+                    </ul>
+                </nav>
+                <nav class="footer-nav">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="https://linkedin.com/in/ts26" target="_blank" rel="noopener">LinkedIn</a></li>
+                        <li><a href="https://huggingface.co/tshaik1990" target="_blank" rel="noopener">Hugging Face</a></li>
+                        <li><a href="https://github.com/Touseef1949" target="_blank" rel="noopener">GitHub</a></li>
+                        <li><a href="/contact/">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="footer-cta">
+                    <h4>Try BA Assistant</h4>
+                    <p>Turn messy requirements into structured specs, user stories, and diagrams in under 60 seconds.</p>
+                    <a href="https://tshaik1990-ba-assistant.hf.space" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Start Free →</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Touseef Shaik. All tools free. Building in public.</p>
+            </div>
         </div>
-      </div>
-
-      <h2>What I believe</h2>
-      <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.8;margin-bottom:1rem;">
-        AI should make product people faster, not replace them. The best AI tool for a BA 
-        or Product Owner is one that takes the repetitive, structural work off their plate — 
-        structuring, categorising, diagramming — so they can focus on judgment, strategy, 
-        and stakeholder conversations.
-      </p>
-      <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.8;margin-bottom:2rem;">
-        I'm building practical, focused tools for a specific audience — not chasing AGI 
-        or building a platform for everyone. If you're a BA, PO, PM, or product team member 
-        who wants to move faster from messy input to clear output, I'm building for you.
-      </p>
-
-      <h2>Connect with me</h2>
-      <div class="links-row">
-        <a href="https://linkedin.com/in/ts26" target="_blank" class="link-card">💼 LinkedIn</a>
-        <a href="https://github.com/Touseef1949" target="_blank" class="link-card">🐙 GitHub</a>
-        <a href="mailto:tshaik1990@gmail.com" class="link-card">📧 Email</a>
-        <a href="https://tshaik1990-ba-assistant.hf.space" target="_blank" class="link-card">📋 BA Assistant</a>
-      </div>
-
-      <div style="margin-top:1rem;">
-        <a href="/start-here" class="btn btn-primary" style="margin-right:0.75rem;">Start Here</a>
-        <a href="/contact" class="btn btn-secondary">Get in Touch</a>
-      </div>
+        <div class="visitor-counter">
+        <img src="https://visitor-badge.laobi.icu/badge?page_id=touseefshaik.abou&left_color=555555&right_color=2563eb&left_text=visitors" alt="visitor counter">
     </div>
-  </section>
+</footer>
 
-  <footer>
-    <span>Touseef Shaik &copy; 2026</span>
-    <div class="footer-links">
-      <a href="/start-here">Start Here</a>
-      <a href="/tools">Labs</a>
-      <a href="/tools/ba-assistant">BA Assistant</a>
-      <a href="/resources">Resources</a>
-      <a href="/blog">Blog</a>
-      <a href="/about">About</a>
-      <a href="/contact">Contact</a>
-      <a href="/privacy">Privacy</a>
-      <a href="/terms">Terms</a>
-    </div>
-  </footer>
-
+    <script src="/assets/js/main.js"></script>
 </body>
 </html>

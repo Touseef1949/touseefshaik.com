@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Reusable Architectural Patterns from 5 Live AI Apps. Multi-Agent Pipeline, Vision→Structured, Streaming Wrapper, Graph Viz, API Aggregation. Templates for your next AI app.">
+    <meta property="og:title" content="Patterns — Reusable AI App Architectures | touseefshaik.com">
+    <meta property="og:description" content="5 patterns extracted from production apps. Each with template, validated-by, and future-use cases. Open for you to steal.">
+    <title>Patterns — Reusable AI App Architectures | touseefshaik.com</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav container">
+            <a href="/" class="nav-brand" aria-label="Home">
+                <span class="brand-text">touseefshaik.com</span>
+                <span class="brand-badge">Lab</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/start-here/">Start Here</a></li>
+                <li><a href="/apps/">Lab</a></li>
+                <li><a href="/apps/ba-assistant.html">BA Assistant</a></li>
+                <li><a href="/resources/">Resources</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/contact/" class="nav-cta">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" style="padding: 60px 0 40px;">
+            <div class="container">
+                <div class="hero-content">
+                    <p class="hero-label">Reusable Architectural Patterns</p>
+                    <h1 class="hero-title">5 Patterns. <span class="highlight">Infinite Apps.</span></h1>
+                    <p class="hero-subtitle">Extracted from 5 production apps. Each pattern includes: validated-by app, template code, and 3+ future use cases. <strong>Steal them. Build yours.</strong></p>
+                    <div class="hero-ctas">
+                        <a href="/apps/" class="btn btn-secondary">See the Apps →</a>
+                        <a href="/apps/" class="btn btn-ghost">Explore the Lab →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="patterns-detail">
+            <div class="container">
+                <!-- PATTERN 1: MULTI-AGENT PIPELINE -->
+                <article class="pattern-detail" id="multi-agent">
+                    <header class="pattern-header">
+                        <div class="pattern-number-large">01</div>
+                        <div>
+                            <h2>Multi-Agent Pipeline → Structured Output</h2>
+                            <p class="pattern-validated-large">Validated by: <strong>BA Assistant</strong> | <a href="/apps/ba-assistant.html">View App</a></p>
+                        </div>
+                    </header>
+
+                    <div class="pattern-section">
+                        <h3>Template</h3>
+                        <pre><code># Multi-Agent Pipeline Template
+
+class MultiAgentPipeline:
+    def __init__(self, agents: List[Agent], orchestrator: Orchestrator):
+        self.agents = agents
+        self.orchestrator = orchestrator
+    
+    def run(self, input: RawInput) -> StructuredOutput:
+        context = Context(input=input)
+        
+        for agent in self.agents:
+            result = agent.execute(context)
+            context.add_result(agent.name, result)
+            
+        return self.orchestrator.format(context)
+
+# Agent Definition
+class Agent:
+    name: str
+    prompt_template: str
+    output_schema: Schema
+    tools: List[Tool]
+    
+    def execute(self, context: Context) -> Result:
+        # 1. Build prompt from template + context
+        # 2. Call LLM with structured output enforcement
+        # 3. Validate against schema
+        # 4. Return typed result
+        pass
+
+# Orchestrator
+class Orchestrator:
+    def format(self, context: Context) -> StructuredOutput:
+        # Combine all agent outputs into final format
+        # Generate Mermaid diagrams
+        # Export: Markdown, Confluence, Notion, JSON
+        pass</code></pre>
+                    </div>
+
+                    <div class="pattern-section">
+                        <h3>BA Assistant Agent Config</h3>
+                        <table class="pattern-table">
+                            <thead>
+                                <tr><th>Agent</th><th>Role</th><th>Output</th><th>Tools</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>01 Requirements</td><td>Extract & categorise</td><td>Func/Non-func/Tech constraints</td><td>LLM + Schema validation</td></tr>
+                                <tr><td>02 Backlog</td><td>User stories + AC</td><td>Prioritised, estimated stories</td><td>LLM + Estimation heuristics</td></tr>
+                                <tr><td>03 Architecture</td><td>System design</td><td>Services, DB, Queue, APIs</td><td>LLM + Architecture patterns KB</td></tr>
+                                <tr><td>04 Risk</td><td>Risk assessment</td><td>Tech/Business/Compliance risks</td><td>LLM + Risk framework</td></tr>
+                                <tr><td>05 Diagram</td><td>Mermaid generation</td><td>5 diagram types</td><td>LLM + Mermaid validator</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="pattern-section">
+                        <h3>Key Implementation Details</h3>
+                        <ul class="detail-list">
+                            <li><strong>Context passing:</strong> Each agent receives full context from previous agents</li>
+                            <li><strong>Structured output:</strong> Pydantic/JSON Schema enforcement on every agent</li>
+                            <li><strong>Mermaid validation:</strong> Syntax check + render test before output</li>
+                            <li><strong>Human-in-loop:</strong> Checkpoint after Agent 1 & 3 for review</li>
+                            <li><strong>Streaming:</strong> Token-by-token UI updates via Streamlit callbacks</li>
+                        </ul>
+                    </div>
+
+                    <div class="pattern-section future-use">
+                        <h3>Future Apps Using This Pattern</h3>
+                        <div class="future-cards">
+                            <div class="future-card">
+                                <h4>📈 Stock Research Agent</h4>
+                                <p>Agents: Thesis Builder → Financial Analyst → Risk Assessor → Valuation → Diagram (charts) → Research Report</p>
+                            </div>
+                            <div class="future-card">
+                                <h4>📋 Compliance Audit Generator</h4>
+                                <p>Agents: Regulation Parser → Control Mapper → Gap Analyzer → Evidence Collector → Diagram (control matrix) → Audit Report</p>
+                            </div>
+                            <div class="future-card">
+                                <h4>🔄 Sprint Retrospective Synthesizer</h4>
+                                <p>Agents: Feedback Clusterer → Theme Extractor → Action Planner → Owner Assigner → Diagram (flow) → Retro Doc</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- PATTERN 2: VISION + LLM -->
+                <article class="pattern-detail" id="vision-llm">
+                    <header class="pattern-header">
+                        <div class="pattern-number-large">02</div>
+                        <div>
+                            <h2>Vision + LLM → Structured Specs</h2>
+                            <p class="pattern-validated-large">Validated by: <strong>Whiteboard → Requirements</strong> | <a href="/apps/whiteboard-to-requirements.html">View App</a></p>
+                        </div>
+                    </header>
+
+                    <div class="pattern-section">
+                        <h3>Template</h3>
+                        <pre><code># Vision-to-Structured Template
+
+class VisionToStructured:
+    def __init__(self, vision_model: VisionLLM, parser: StructuredParser):
+        self.vision = vision_model
+        self.parser = parser
+    
+    def process(self, image: Image) -> StructuredSpecs:
+        # 1. Vision analysis
+        analysis = self.vision.analyze(image, prompt=VISION_PROMPT)
+        
+        # 2. Structured extraction
+        specs = self.parser.extract(analysis)
+        
+        # 3. Diagram generation
+        diagrams = self.generate_diagrams(specs)
+        
+        return SpecsOutput(requirements=specs, diagrams=diagrams)
+
+VISION_PROMPT = """
+Analyze this image (whiteboard/sketch/diagram/screenshot) and extract:
+1. TEXT: All readable text (OCR)
+2. SHAPES: Boxes, arrows, circles, lines, connections
+3. LAYOUT: Hierarchy, grouping, flow direction
+4. INTENT: What type of diagram? (process flow, architecture, UI, data model)
+
+Return structured JSON with: elements[], relationships[], metadata{}
+"""</code></pre>
+                    </div>
+
+                    <div class="pattern-section">
+                        <h3>Supported Input Types</h3>
+                        <ul class="detail-list">
+                            <li>Whiteboard photos (messy handwriting, shadows, angles)</li>
+                            <li>Process flow diagrams (BPMN-ish, flowcharts)</li>
+                            <li>Architecture sketches (boxes + arrows)</li>
+                            <li>UI wireframes / mockups</li>
+                            <li>Data model diagrams (ER-ish)</li>
+                        </ul>
+                    </div>
+
+                    <div class="pattern-section future-use">
+                        <h3>Future Apps Using This Pattern</h3>
+                        <div class="future-cards">
+                            <div class="future-card">
+                                <h4>📊 Chart → Trade Thesis</h4>
+                                <p>Technical chart screenshot → structured thesis: setup, entry, stop, target, R:R, catalysts, invalidation</p>
+                            </div>
+                            <div class="future-card">
+                                <h4>☁️ Architecture Diagram → Infra Code</h4>
+                                <p>System diagram → Terraform modules, K8s manifests, Docker Compose, CI/CD pipeline</p>
+                            </div>
+                            <div class="future-card">
+                                <h4>🎨 UI Mockup → Component Specs</h4>
+                                <p>Figma/sketch → React/Vue component tree, props interface, state machine, a11y notes, test cases</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- PATTERN 3: STREAMING WRAPPER -->
+                <article class="pattern-detail" id="streaming-wrapper">
+                    <header class="pattern-header">
+                        <div class="pattern-number-large">03</div>
+                        <div>
+                            <h2>Streaming API Wrapper + i18n</h2>
+                            <p class="pattern-validated-large">Validated by: <strong>Sarvam TTS</strong> | <a href="/apps/sarvam-tts.html">View App</a></p>
+                        </div>
+                    </header>
+
+                    <div class="pattern-section">
+                        <h3>Template</h3>
+                        <pre><code># Streaming Wrapper Template
+
+class StreamingAPIWrapper:
+    def __init__(self, client: APIClient, config: StreamingConfig):
+        self.client = client
+        self.config = config
+        self.buffer = ByteBuffer()
+    
+    async def stream(self, request: Request) -> AsyncGenerator[Chunk, None]:
+        async for chunk in self.client.stream(request):
+            # Transform / validate / enrich
+            processed = self.process_chunk(chunk)
+            yield processed
+            
+            # Update UI in real-time
+            self.update_ui(processed)
+    
+    def process_chunk(self, chunk: Chunk) -> Chunk:
+        # Add metadata, check errors, transform format
+        return chunk
+
+# Streamlit Integration
+def streamlit_streaming_ui(wrapper: StreamingAPIWrapper, request: Request):
+    placeholder = st.empty()
+    audio_buffer = BytesIO()
+    
+    async for chunk in wrapper.stream(request):
+        audio_buffer.write(chunk.data)
+        # Play progressively
+        placeholder.audio(audio_buffer.getvalue(), format='audio/wav')
+    
+    # Final: offer download
+    st.download_button("Download", audio_buffer.getvalue(), "output.wav")</code></pre>
+                    </div>
+
+                    <div class="pattern-section">
+                        <h3>Sarvam TTS Config</h3>
+                        <table class="pattern-table">
+                            <thead><tr><th>Parameter</th><th>Values</th></tr></thead>
+                            <tbody>
+                                <tr><td>Languages</td><td>11 (hi, ta, te, bn, mr, gu, kn, ml, pa, or, en)</td></tr>
+                                <tr><td>Voices</td><td>7 (3 male, 4 female, varied ages/styles)</td></tr>
+                                <tr><td>Streaming</td><td>Token-by-token, ~50ms latency</td></tr>
+                                <tr><td>Formats</td><td>WAV (stream), MP3 (download)</td></tr>
+                                <tr><td>SSML</td><td>Partial support (prosody, emphasis)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="pattern-section future-use">
+                        <h3>Future Apps Using This Pattern</h3>
+                        <div class="future-cards">
+                            <div class="future-card">
+                                <h4>📢 Real-Time Market Commentary</h4>
+                                <p>Price spike → instant voice alert in user's language: "NIFTY broke 22,500, next resistance 22,650"</p>
+                            </div>
+                            <div class="future-card">
+                                <h4>🌐 Multi-Lingual Trade Alerts</h4>
+                                <p>Signal triggered → streaming TTS in Hindi/Tamil/Telugu for retail traders who prefer native language</p>
+                            </div>
+                            <div class="future-card">
+                                <h4>📰 Live Earnings Narration</h4>
+                                <p>Transcript streaming → real-time voice summary in preferred language, key metrics highlighted</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- PATTERN 4: GRAPH VIZ -->
+                <article class="pattern-detail" id="graph-viz">
+                    <header class="pattern-header">
+                        <div class="pattern-number-large">04</div>
+                        <div>
+                            <h2>Knowledge Graph → Mermaid Viz</h2>
+                            <p class="pattern-validated-large">Validated by: <strong>Cast Relationship Graph</strong> | <a href="/apps/cast-relationship-graph.html">View App</a></p>
+                        </div>
+                    </header>
+
+                    <div class="pattern-section">
+                        <h3>Template</h3>
+                        <pre><code># Graph-to-Mermaid Template
+
+class GraphToMermaid:
+    def __init__(self, extractor: EntityExtractor, mapper: RelationshipMapper):
+        self.extractor = extractor
+        self.mapper = mapper
+    
+    def build(self, source: Source) -> MermaidGraph:
+        # 1. Extract entities
+        entities = self.extractor.extract(source)
+        
+        # 2. Map relationships
+        relationships = self.mapper.map(entities, source)
+        
+        # 3. Build graph
+        graph = nx.DiGraph()
+        graph.add_nodes_from((e.id, e) for e in entities)
+        graph.add_edges_from((r.source, r.target, r) for r in relationships)
+        
+        # 4. Generate Mermaid
+        mermaid = self.to_mermaid(graph)
+        return MermaidGraph(graph=graph, mermaid=mermaid, entities=entities)
+    
+    def to_mermaid(self, graph: nx.DiGraph) -> str:
+        lines = ["graph TD"]
+        for node, data in graph.nodes(data=True):
+            label = data['label'].replace('"', '\\"')
+            lines.append(f'  {node}["{label}"]')
+        for u, v, data in graph.edges(data=True):
+            rel = data.get('type', 'relates_to')
+            lines.append(f'  {u} -->|{rel}| {v}')
+        return '\n'.join(lines)</code></pre>
+                    </div>
+
+                    <div class="pattern-section">
+                        <h3>Relationship Types Supported</h3>
+                        <ul class="detail-list">
+                            <li><strong>Family:</strong> parent, child, sibling, spouse</li>
+                            <li><strong>Romance:</strong> dating, married, ex, unrequited</li>
+                            <li><strong>Conflict:</strong> rivalry, enemy, betrayal</li>
+                            <li><strong>Alliance:</strong> friend, ally, mentor, teammate</li>
+                            <li><strong>Professional:</strong> boss, subordinate, colleague, partner</li>
+                        </ul>
+                    </div>
+
+                    <div class="pattern-section future-use">
+                        <h3>Future Apps Using This Pattern</h3>
+                        <div class="future-cards">
+                            <div class="future-card">
+                                <h4>📊 Portfolio Correlation Graph</h4>
+                                <p>Holdings = nodes; correlation >0.7 = edges; clusters = risk concentration; highlight sector/geography</p>
+                            </div>
+                            <div class="future-card">
+                                <h4>🏭 Sector Relationship Map</h4>
+                                <p>Industries = nodes; supply chain deps = edges; shock propagation simulation; critical path highlighting</p>
+                            </div>
+                            <div class="future-card">
+                                <h4>🔗 Supply Chain Visualization</h4>
+                                <p>Vendors = nodes; dependencies = edges; single-source risks = red; geographic concentration = heat map</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- PATTERN 5: API AGGREGATION -->
+                <article class="pattern-detail" id="api-aggregation">
+                    <header class="pattern-header">
+                        <div class="pattern-number-large">05</div>
+                        <div>
+                            <h2>Multi-API Aggregation + Search</h2>
+                            <p class="pattern-validated-large">Validated by: <strong>India Streaming Finder</strong> | <a href="/apps/india-streaming-finder.html">View App</a></p>
+                        </div>
+                    </header>
+
+                    <div class="pattern-section">
+                        <h3>Template</h3>
+                        <pre><code># Multi-API Aggregation Template
+
+class APIAggregator:
+    def __init__(self, apis: List[APIClient], normalizer: Normalizer, cache: Cache):
+        self.apis = apis
+        self.normalizer = normalizer
+        self.cache = cache
+    
+    async def search(self, query: SearchQuery) -> AggregatedResults:
+        # 1. Check cache
+        cached = await self.cache.get(query.key)
+        if cached: return cached
+        
+        # 2. Parallel fetch
+        tasks = [api.search(query) for api in self.apis]
+        raw_results = await asyncio.gather(*tasks, return_exceptions=True)
+        
+        # 3. Normalize
+        normalized = []
+        for api, results in zip(self.apis, raw_results):
+            if isinstance(results, Exception): continue
+            normalized.extend(self.normalizer.normalize(api.name, results))
+        
+        # 4. Rank & dedupe
+        ranked = self.rank(normalized, query)
+        deduped = self.dedupe(ranked)
+        
+        # 5. Cache & return
+        await self.cache.set(query.key, deduped)
+        return deduped
+    
+    def rank(self, results: List[Result], query: SearchQuery) -> List[Result]:
+        # Score: relevance * freshness * source_reliability * user_preference
+        return sorted(results, key=lambda r: r.score, reverse=True)</code></pre>
+                    </div>
+
+                    <div class="pattern-section">
+                        <h3>Streaming Finder Sources</h3>
+                        <table class="pattern-table">
+                            <thead><tr><th>API</th><th>Data</th><th>Auth</th><th>Rate Limit</th></tr></thead>
+                            <tbody>
+                                <tr><td>TMDb</td><td>Movies, providers, watch providers (IN)</td><td>Bearer</td><td>40 req/10s</td></tr>
+                                <tr><td>JustWatch</td><td>Pricing, quality, deep links</td><td>None</td><td>Respectful</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="pattern-section future-use">
+                        <h3>Future Apps Using This Pattern</h3>
+                        <div class="future-cards">
+                            <div class="future-card">
+                                <h4>🏦 Broker API Aggregator</h4>
+                                <p>Zerodha, Upstox, Angel One, ICICI, Groww → unified orders, portfolio, holdings, margins</p>
+                            </div>
+                            <div class="future-card">
+                                <h4>📊 Data Vendor Comparison</h4>
+                                <p>NSE, BSE, Alpha Vantage, Twelve Data, Polygon, Yahoo → price/quality/latency/cost matrix</p>
+                            </div>
+                            <div class="future-card">
+                                <h4>📰 News + Price Unified Feed</h4>
+                                <p>NewsAPI, GNews, Finnhub + price feeds → correlated events, sentiment + price impact</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="brand-text">touseefshaik.com</span>
+                    <span class="brand-badge">Lab</span>
+                    <p>AI tools and workflows for Business Analysts, Product Owners, and product teams.</p>
+                </div>
+                <nav class="footer-nav">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="/apps/">Lab</a></li>
+                        <li><a href="/apps/ba-assistant.html">BA Assistant</a></li>
+                        <li><a href="/resources/">Resources</a></li>
+                        <li><a href="/blog/">Blog</a></li>
+                    </ul>
+                </nav>
+                <nav class="footer-nav">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="https://linkedin.com/in/ts26" target="_blank" rel="noopener">LinkedIn</a></li>
+                        <li><a href="https://huggingface.co/tshaik1990" target="_blank" rel="noopener">Hugging Face</a></li>
+                        <li><a href="https://github.com/Touseef1949" target="_blank" rel="noopener">GitHub</a></li>
+                        <li><a href="/contact/">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="footer-cta">
+                    <h4>Try BA Assistant</h4>
+                    <p>Turn messy requirements into structured specs, user stories, and diagrams in under 60 seconds.</p>
+                    <a href="https://tshaik1990-ba-assistant.hf.space" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Start Free →</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Touseef Shaik. All tools free. Building in public.</p>
+            </div>
+        </div>
+        <div class="visitor-counter">
+        <img src="https://visitor-badge.laobi.icu/badge?page_id=touseefshaik.patterns&left_color=555555&right_color=2563eb&left_text=visitors" alt="visitor counter">
+    </div>
+</footer>
+
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>

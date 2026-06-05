@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Live AI Apps → Reusable Patterns. BA Assistant, Whiteboard→Requirements, Sarvam TTS, Cast Graph, Streaming Finder. All free. All on Hugging Face.">
+    <meta property="og:title" content="Lab — 5 Live AI Apps & Patterns | touseefshaik.com">
+    <meta property="og:description" content="5 Live Apps. 5 Reusable Patterns. Each app validates a pattern for fintech, stock market, and custom AI apps.">
+    <title>Lab — 5 Live AI Apps & Patterns | touseefshaik.com</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav container">
+            <a href="/" class="nav-brand" aria-label="Home">
+                <span class="brand-text">touseefshaik.com</span>
+                <span class="brand-badge">Lab</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/start-here/">Start Here</a></li>
+                <li><a href="/apps/" class="active">Lab</a></li>
+                <li><a href="/apps/ba-assistant.html">BA Assistant</a></li>
+                <li><a href="/resources/">Resources</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/contact/" class="nav-cta">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- PAGE INTRO -->
+        <section class="page-intro">
+            <div class="container">
+                <p class="eyebrow">Touseef Shaik Labs</p>
+                <h1>AI Labs — Products &amp; Experiments</h1>
+                <p>Flagship products, BA/PO workflow tools, and experimental AI utilities. Some are production-ready; others are experiments. All are free to try.</p>
+            </div>
+        </section>
+
+        <!-- FLAGSHIP -->
+        <section>
+            <div class="container">
+                <div class="section-header">
+                    <h2>Flagship</h2>
+                </div>
+                <div class="app-grid">
+                    <div class="app-card flagship">
+                        <span class="app-badge">Flagship</span>
+                        <span class="app-icon">📋</span>
+                        <h3>BA Assistant v2 <span style="font-size:0.7rem;font-weight:600;color:var(--accent);background:var(--bg-card);padding:2px 8px;border-radius:100px;margin-left:6px;">Live &middot; Free</span></h3>
+                        <p class="app-desc">5-agent Agno Team &middot; 6 modes &middot; Document upload &middot; Interactive Q&A &middot; PDF export &middot; Fintech templates. Five specialised AI agents work in a pipeline: requirements extraction → backlog structuring → architecture design → risk assessment → diagram generation. The output is Confluence/Notion-ready documentation with Mermaid.js diagrams. Powered by Streamlit on Hugging Face Spaces.</p>
+                        <p class="app-pattern"><strong>Pattern:</strong> Multi-Agent Pipeline → Structured Output</p>
+                        <p class="app-future">Future: Stock Research Agent, Compliance Audit Generator, Sprint Retrospective Synthesizer</p>
+                        <a href="https://huggingface.co/spaces/tshaik1990/ba-assistant" target="_blank" rel="noopener" class="btn btn-primary">Try on HF →</a>
+                        <a href="/apps/ba-assistant.html" class="app-link">Explore details →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BA/PO WORKFLOW -->
+        <section>
+            <div class="container">
+                <div class="section-header">
+                    <h2>BA/PO Workflow</h2>
+                </div>
+                <div class="app-grid">
+                    <div class="app-card">
+                        <span class="app-icon">🧩</span>
+                        <h3>Whiteboard to Requirements <span style="font-size:0.7rem;font-weight:600;color:var(--accent);background:var(--bg-card);padding:2px 8px;border-radius:100px;margin-left:6px;">Live &middot; Free</span></h3>
+                        <p class="app-desc">Upload a whiteboard sketch — AI asks clarifying questions, then generates user stories, functional requirements, and Mermaid diagrams. The pipeline: Vision model extracts text and shapes from the image → LLM structures the findings into requirements → Mermaid.js renders the architecture. Built with Streamlit on Hugging Face Spaces.</p>
+                        <p class="app-pattern"><strong>Pattern:</strong> Vision + LLM → Structured Specs</p>
+                        <p class="app-future">Future: Chart Analysis → Trade Thesis, Architecture Diagram → Infra Code, UI Mockup → Component Specs</p>
+                        <a href="https://huggingface.co/spaces/tshaik1990/whiteboard-to-requirements" target="_blank" rel="noopener" class="btn btn-primary">Try on HF →</a>
+                        <a href="/apps/whiteboard-to-requirements.html" class="app-link">Explore details →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LABS · EXPERIMENTAL -->
+        <section>
+            <div class="container">
+                <div class="section-header">
+                    <h2>Labs &middot; Experimental</h2>
+                </div>
+                <div class="app-grid">
+                    <!-- Sarvam Text to Speech -->
+                    <div class="app-card">
+                        <span class="app-icon">🔊</span>
+                        <h3>Sarvam Text to Speech <span style="font-size:0.7rem;font-weight:600;color:var(--accent);background:var(--bg-card);padding:2px 8px;border-radius:100px;margin-left:6px;">Live &middot; Free</span></h3>
+                        <p class="app-desc">Generate natural speech in 11 Indian languages with 7 voices. Type text, get streaming audio — simple and fast. Real-time token-by-token streaming: text is sent to the Sarvam AI API, and audio chunks stream back immediately — hear output as it generates, with MP3/WAV download options. Built with Streamlit on Hugging Face Spaces.</p>
+                        <p class="app-pattern"><strong>Pattern:</strong> Streaming API Wrapper + i18n</p>
+                        <p class="app-future">Future: Real-Time Market Commentary, Multi-Lingual Trade Alerts, Live Earnings Call Narration</p>
+                        <a href="https://huggingface.co/spaces/tshaik1990/sarvam-tts" target="_blank" rel="noopener" class="btn btn-primary">Try on HF →</a>
+                        <a href="/apps/sarvam-tts.html" class="app-link">Explore details →</a>
+                    </div>
+
+                    <!-- India Streaming Finder -->
+                    <div class="app-card">
+                        <span class="app-icon">🎬</span>
+                        <h3>India Streaming Finder <span style="font-size:0.7rem;font-weight:600;color:var(--accent);background:var(--bg-card);padding:2px 8px;border-radius:100px;margin-left:6px;">Live &middot; Free</span></h3>
+                        <p class="app-desc">Find which streaming platform has any movie in India — Netflix, Prime, Hotstar, JioCinema, SonyLIV, Zee5, and more. Enter any movie name and the app queries TMDb to identify the title, then cross-references 7+ Indian streaming platforms for availability with filters for free vs paid, quality (4K/HD), and subscription type. Built with Streamlit on Hugging Face Spaces.</p>
+                        <p class="app-pattern"><strong>Pattern:</strong> Multi-API Aggregation + Search</p>
+                        <p class="app-future">Future: Broker API Aggregator, Data Vendor Comparison, News + Price Unified Feed</p>
+                        <a href="https://huggingface.co/spaces/tshaik1990/india-streaming-finder" target="_blank" rel="noopener" class="btn btn-primary">Try on HF →</a>
+                        <a href="/apps/india-streaming-finder.html" class="app-link">Explore details →</a>
+                    </div>
+
+                    <!-- Cast Relationship Graph -->
+                    <div class="app-card">
+                        <span class="app-icon">🕸️</span>
+                        <h3>Cast Relationship Graph <span style="font-size:0.7rem;font-weight:600;color:var(--accent);background:var(--bg-card);padding:2px 8px;border-radius:100px;margin-left:6px;">Live &middot; Free</span></h3>
+                        <p class="app-desc">AI-powered Mermaid graphs showing cast connections for any movie or TV show. 5 DeepSeek agents discover, analyze, and visualize relationships. Enter any title and the agents build an interactive graph: character nodes with role/actor details, relationship edges (family, romance, rivalry, alliance, mentorship), and story arc timelines. Built with Streamlit on Hugging Face Spaces.</p>
+                        <p class="app-pattern"><strong>Pattern:</strong> Knowledge Graph → Mermaid Viz</p>
+                        <p class="app-future">Future: Portfolio Correlation Graph, Sector Relationship Map, Supply Chain Visualization</p>
+                        <a href="https://huggingface.co/spaces/tshaik1990/cast-relationship-graph" target="_blank" rel="noopener" class="btn btn-primary">Try on HF →</a>
+                        <a href="/apps/cast-relationship-graph.html" class="app-link">Explore details →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BOTTOM CTA -->
+        <section>
+            <div class="container">
+                <div class="apps-cta">
+                    <h2>Want a custom AI app for your workflow?</h2>
+                    <p class="app-desc" style="max-width: 500px; margin: 16px auto;">I ship production AI apps for product teams in 2-3 weeks. Free consultation.</p>
+                    <a href="/contact/" class="btn btn-primary">Let's Talk →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="brand-text">touseefshaik.com</span>
+                    <span class="brand-badge">Lab</span>
+                    <p>AI tools and workflows for Business Analysts, Product Owners, and product teams.</p>
+                </div>
+                <nav class="footer-nav">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="/apps/">Lab</a></li>
+                        <li><a href="/apps/ba-assistant.html">BA Assistant</a></li>
+                        <li><a href="/resources/">Resources</a></li>
+                        <li><a href="/blog/">Blog</a></li>
+                    </ul>
+                </nav>
+                <nav class="footer-nav">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="https://linkedin.com/in/ts26" target="_blank" rel="noopener">LinkedIn</a></li>
+                        <li><a href="https://huggingface.co/tshaik1990" target="_blank" rel="noopener">Hugging Face</a></li>
+                        <li><a href="https://github.com/Touseef1949" target="_blank" rel="noopener">GitHub</a></li>
+                        <li><a href="/contact/">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="footer-cta">
+                    <h4>Try BA Assistant</h4>
+                    <p>Turn messy requirements into structured specs, user stories, and diagrams in under 60 seconds.</p>
+                    <a href="https://tshaik1990-ba-assistant.hf.space" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Start Free →</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Touseef Shaik. All tools free. Building in public.</p>
+            </div>
+        </div>
+        <div class="visitor-counter">
+        <img src="https://visitor-badge.laobi.icu/badge?page_id=touseefshaik.apps&left_color=555555&right_color=2563eb&left_text=visitors" alt="visitor counter">
+    </div>
+</footer>
+
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>
