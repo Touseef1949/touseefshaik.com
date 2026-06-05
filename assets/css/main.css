@@ -1226,6 +1226,11 @@ section {
    ======================================== */
 @media (max-width: 768px) {
 
+    /* Prevent horizontal scrollbar from off-screen elements */
+    html {
+        overflow-x: hidden;
+    }
+
     /* === NAV === */
     .nav {
         height: 56px;
@@ -1233,6 +1238,14 @@ section {
 
     .nav-toggle {
         display: flex;
+        min-width: 44px;
+        min-height: 44px;
+        padding: 10px;
+    }
+
+    /* Brand link: ensure tappable height on mobile */
+    .nav-brand {
+        min-height: 44px;
     }
 
     .nav-links {
@@ -1251,12 +1264,17 @@ section {
         z-index: 99;
         overflow-y: auto;
         transform: translateX(100%);
-        transition: transform 250ms ease;
+        transition: transform 250ms ease, visibility 0ms 250ms;
         border-top: 1px solid var(--border);
+        visibility: hidden;
+        pointer-events: none;
     }
 
     .nav-open .nav-links {
         transform: translateX(0);
+        visibility: visible;
+        pointer-events: auto;
+        transition: transform 250ms ease, visibility 0ms 0ms;
     }
 
     .nav-links li {
