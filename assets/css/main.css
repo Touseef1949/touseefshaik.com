@@ -993,7 +993,7 @@ section {
 }
 .app-detail-main h2 { margin-top: 0; }
 .app-detail-sidebar { position: sticky; top: 1rem; }
-.app-meta { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0; }
+.app-meta { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0 0 1rem; }
 .app-desc-large { font-size: 1.1rem; line-height: 1.7; color: var(--text-secondary); }
 .large { font-size: 1.1rem; }
 
