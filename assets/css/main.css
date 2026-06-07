@@ -1232,6 +1232,18 @@ section {
     }
 
     /* === NAV === */
+    .site-header {
+        /* Release backdrop-filter so position:fixed nav-links
+           escapes to root stacking context (z-index: 101 works globally) */
+        backdrop-filter: none;
+        background: var(--bg-primary);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+    }
+
     .nav {
         height: 56px;
     }
@@ -1313,6 +1325,9 @@ section {
     }
 
     /* === CONTAINER PADDING === */
+    body {
+        padding-top: 56px; /* Offset for fixed header */
+    }
     .container {
         padding: 0 16px;
     }
