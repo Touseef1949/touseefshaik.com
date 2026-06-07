@@ -1421,6 +1421,14 @@ section {
         padding: 2rem 1rem !important;
     }
 
+    /* === CODE BLOCKS: prevent horizontal overflow === */
+    pre, code {
+        white-space: pre-wrap;
+        word-break: break-word;
+        overflow-x: auto;
+        max-width: 100%;
+    }
+
     /* === CONTACT FORM === */
     .contact-form {
         padding: 0 0.5rem;
