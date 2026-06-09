@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="BA Assistant v2 — 5-agent AI-powered requirement analysis for fintech BAs & Product Owners. Paste raw requirements, get a 14-section BA/PO report with Mermaid diagrams. Free on Hugging Face.">
+    <meta name="description" content="BA Assistant v2 — AI-powered requirement analysis for fintech BAs & Product Owners. Paste raw requirements, get a 14-section BA/PO report with Mermaid diagrams. Free on Hugging Face.">
     <meta property="og:title" content="BA Assistant — AI Requirements Analysis Tool | touseefshaik.com">
     <meta property="og:description" content="Multi-agent AI for requirement analysis · 6 analysis modes · Document upload · Interactive Q&A · PDF export. Turn raw requirements into structured BA/PO reports in under 90 seconds.">
     <title>BA Assistant — AI Requirements Analysis Tool for BAs & Product Owners | touseefshaik.com</title>
@@ -56,12 +56,12 @@
 
                         <h2>What BA Assistant Does (v2)</h2>
                         <p class="app-desc-large">BA Assistant v2 is an AI-powered requirement analysis tool that takes raw requirements — a paragraph, meeting notes, a PRD PDF, or even a whiteboard photo — and generates a comprehensive 14-section BA/PO report. The default modes use a single fast senior agent; Enterprise mode optionally coordinates 5 specialist agents for compliance-heavy projects.</p>
-                        <p>The Comprehensive mode runs in 30-90 seconds using a single high-performance agent. Enterprise mode deploys all 5 agents in parallel for compliance-heavy fintech projects.</p>
+                        <p>Comprehensive mode runs in 30-90 seconds. Enterprise mode deploys all 5 agents in parallel for compliance-heavy fintech projects and finishes in 3-5 minutes.</p>
                         <p>Six analysis types are available: <strong>Comprehensive</strong>, <strong>Interactive Q&amp;A</strong>, <strong>Enterprise</strong>, <strong>Quick Feature Extraction</strong>, <strong>User Stories</strong>, <strong>Tech Architecture</strong>, and <strong>Gap Analysis</strong>. Every report includes Mermaid diagrams and is exportable as Markdown, plain text, or branded PDF.</p>
 
                         <h2>How It Works</h2>
-                        <h3>The 5-Agent Workflow</h3>
-                        <p>Five specialised AI agents work in a pipeline, each powered by DeepSeek V4 Flash. A Team coordinator (DeepSeek V4 Pro) orchestrates them, and Gemini 3.5 Flash handles document and image extraction.</p>
+                        <h3>The Agent Pipeline</h3>
+                        <p>Enterprise mode uses five specialist AI agents in a pipeline, each powered by DeepSeek V4 Flash: requirements extraction → backlog structuring → architecture design → risk assessment → diagram generation. A Team coordinator (DeepSeek V4 Pro) orchestrates them, and Gemini 3.5 Flash handles document and image extraction. Default modes (Comprehensive, User Stories, Tech Architecture, etc.) skip the orchestrator and use the most relevant specialist directly.</p>
                         <ol>
                             <li><strong>BA Requirements Analyst</strong> — Structures raw needs into clear functional &amp; non-functional requirements. Extracts entities, business rules, and constraints.</li>
                             <li><strong>Product Owner Analyst</strong> — Converts requirements into epics, features, and user stories with MoSCoW prioritization and backlog structure.</li>
