@@ -863,7 +863,7 @@ section {
     max-width: 300px;
 }
 
-.footer-nav h4 {
+.footer-nav .footer-heading {
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -889,7 +889,7 @@ section {
     color: var(--accent);
 }
 
-.footer-cta h4 {
+.footer-cta .footer-heading {
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 8px;
@@ -1053,7 +1053,7 @@ section {
     color: inherit;
 }
 .blog-card:hover { border-color: var(--accent); transform: translateY(-2px); }
-.blog-card h3 { margin-top: 0; }
+.blog-card h2 { margin-top: 0; font-size: 1.25rem; }
 .blog-card .blog-card-meta { color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 0.75rem; }
 .blog-card p { color: var(--text-secondary); margin-bottom: 1rem; }
 
@@ -1160,7 +1160,7 @@ section {
     flex-wrap: wrap;
 }
 .download-list .download-info { flex: 1; min-width: 240px; }
-.download-list h4 { margin: 0 0 0.25rem; }
+.download-list h3 { margin: 0 0 0.25rem; font-size: 1rem; }
 .download-list p { margin: 0; color: var(--text-secondary); font-size: 0.9rem; }
 
 /* Visitor counter badge — appears in every page footer */
