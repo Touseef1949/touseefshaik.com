@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://touseefshaik.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://touseefshaik.com/start-here/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://touseefshaik.com/apps/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://touseefshaik.com/apps/ba-assistant/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://touseefshaik.com/apps/stock-research-assistant/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://touseefshaik.com/apps/sarvam-tts/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://touseefshaik.com/apps/cast-relationship-graph/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://touseefshaik.com/apps/india-streaming-finder/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://touseefshaik.com/apps/whiteboard-to-requirements/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://touseefshaik.com/how-it-works/ba-assistant/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://touseefshaik.com/blog/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://touseefshaik.com/blog/best-ai-prompts/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://touseefshaik.com/blog/how-i-use-ai/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://touseefshaik.com/blog/turn-messy-requirements/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://touseefshaik.com/resources/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://touseefshaik.com/about/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://touseefshaik.com/contact/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://touseefshaik.com/patterns/</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://touseefshaik.com/privacy/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://touseefshaik.com/terms/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+</urlset>

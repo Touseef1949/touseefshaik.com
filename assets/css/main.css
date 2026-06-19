@@ -1520,6 +1520,15 @@ section {
         gap: 32px !important;
     }
 
+    /* Footer links: meet 44px tap target minimum (Apple HIG / WCAG 2.5.5) */
+    .footer-grid a,
+    .footer-bottom a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 10px 0;
+    }
+
     .footer-bottom {
         flex-direction: column;
         gap: 8px;
