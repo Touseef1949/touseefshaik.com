@@ -400,17 +400,31 @@ a:hover {
 ========================================== */
 
 section {
-    padding: 80px 0;
+    padding: 64px 0;
+}
+
+main > section:nth-of-type(even) {
+    background: rgba(255, 255, 255, 0.38);
+}
+
+main > section:nth-of-type(odd) {
+    background: transparent;
+}
+
+.hero,
+.page-intro,
+.cta-strip {
+    background: transparent;
 }
 
 .newsletter-section {
-    padding: 52px 0 72px;
+    padding: 40px 0 56px;
 }
 
 .newsletter-section .container {
     max-width: 760px;
-    padding: 36px 28px 34px;
-    background: rgba(255, 255, 255, 0.72);
+    padding: 30px 28px 28px;
+    background: rgba(255, 255, 255, 0.78);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-sm);
@@ -427,7 +441,7 @@ section {
 
 .section-header {
     text-align: center;
-    margin-bottom: 48px;
+    margin-bottom: 36px;
 }
 
 .section-header h2 {
