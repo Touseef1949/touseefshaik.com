@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="What LangChain does for you vs what you now know how to do yourself — Lesson 3 of the Deep Expertise Track on AI Agent Architecture.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://touseefshaik.com/learn/langchain-agents.html">
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+    <meta property="og:title" content="LangChain Agents — Deep Expertise Track | Touseef Shaik">
+    <meta property="og:description" content="What LangChain does for you vs what you now know how to do yourself">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://touseefshaik.com/learn/langchain-agents.html">
+    <meta property="og:image" content="https://touseefshaik.com/assets/images/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>LangChain Agents — Deep Expertise Track | Touseef Shaik</title>
+    <link rel="stylesheet" href="/assets/css/main.css?v=20260627">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+    /* Lesson-specific styles — adapts learning content to site brand */
+    .lesson-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem 4rem;
+        font-family: var(--font-sans);
+    }
+    .lesson-content h1 {
+        font-size: 2.25rem;
+        line-height: 1.2;
+        margin-bottom: 0.5rem;
+        color: var(--text-heading);
+        font-family: var(--font-heading);
+    }
+    .lesson-content .subtitle {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        font-family: var(--font-sans);
+    }
+    .lesson-content h2 {
+        font-size: 1.6rem;
+        margin: 2.5rem 0 1rem;
+        color: var(--text);
+        border-bottom: 2px solid var(--accent);
+        padding-bottom: 6px;
+        font-family: var(--font-heading);
+    }
+    .lesson-content h3 {
+        font-size: 1.25rem;
+        margin: 2rem 0 0.75rem;
+        color: var(--text);
+        font-family: var(--font-heading);
+    }
+    .lesson-content p {
+        font-size: 1.05rem;
+        line-height: 1.8;
+        color: var(--text-secondary);
+        margin-bottom: 1.25rem;
+    }
+    .lesson-content ul, .lesson-content ol {
+        padding-left: 1.5rem;
+        line-height: 1.8;
+        color: var(--text-secondary);
+        margin-bottom: 1.25rem;
+    }
+    .lesson-content li { margin-bottom: 0.4rem; }
+    .lesson-content code {
+        font-family: var(--font-mono);
+        background: var(--surface-alt);
+        padding: 0.15rem 0.45rem;
+        border-radius: 4px;
+        font-size: 0.9em;
+        color: var(--accent);
+    }
+    .lesson-content pre {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.25rem;
+        overflow-x: auto;
+        margin-bottom: 1.5rem;
+        font-family: var(--font-mono);
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+    .lesson-content pre code { background: transparent; padding: 0; color: var(--text); }
+    
+    /* ASCII art boxes — dark background, monospace */
+    .lesson-content .ascii-box {
+        background: #1a1a1a;
+        color: #e0e0e0;
+        font-family: var(--font-mono);
+        font-size: 0.82rem;
+        line-height: 1.5;
+        padding: 1.25rem 1.5rem;
+        border-radius: var(--radius);
+        overflow-x: auto;
+        margin: 1.5rem 0;
+        white-space: pre;
+    }
+    
+    /* Cards */
+    .lesson-content .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.5rem 1.75rem;
+        margin: 1.5rem 0;
+        box-shadow: var(--shadow-sm);
+    }
+    .lesson-content .card-label {
+        font-family: var(--font-sans);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--text-secondary);
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+    }
+    .lesson-content .card p { margin-bottom: 0.5rem; }
+    .lesson-content .card p:last-child { margin-bottom: 0; }
+    
+    /* Tables */
+    .lesson-content table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5rem 0;
+        font-size: 0.92rem;
+        display: block;
+        overflow-x: auto;
+    }
+    .lesson-content th, .lesson-content td {
+        text-align: left;
+        padding: 0.5rem 0.75rem;
+        border-bottom: 1px solid var(--border);
+    }
+    .lesson-content th {
+        font-weight: 600;
+        background: var(--surface-alt);
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+    }
+    
+    /* Source citations */
+    .lesson-content .source-cite {
+        font-size: 0.82rem;
+        color: var(--text-secondary);
+        font-family: var(--font-sans);
+    }
+    .lesson-content .source-cite a { color: var(--accent); }
+    
+    /* Takeaway box */
+    .lesson-content .takeaway-box {
+        background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
+        color: #fff;
+        padding: 1.5rem 1.75rem;
+        border-radius: var(--radius);
+        margin: 2rem 0;
+    }
+    .lesson-content .takeaway-box h3 { color: #fff; margin-top: 0; }
+    .lesson-content .takeaway-box p { color: rgba(255,255,255,0.95); margin-bottom: 0; }
+    
+    /* Quiz boxes */
+    .lesson-content .quiz {
+        background: rgba(24, 99, 220, 0.06);
+        border-left: 4px solid var(--accent);
+        padding: 1rem 1.25rem;
+        margin: 1.5rem 0;
+        border-radius: 0 var(--radius) var(--radius) 0;
+    }
+    .lesson-content .quiz-label {
+        font-weight: 700;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--accent);
+        margin-bottom: 0.75rem;
+    }
+    .lesson-content .quiz q { font-style: italic; display: block; margin-bottom: 0.75rem; }
+    .lesson-content .quiz details summary {
+        cursor: pointer;
+        font-size: 0.88rem;
+        color: var(--text-secondary);
+        margin-top: 0.5rem;
+    }
+    .lesson-content .quiz details p {
+        margin-top: 0.5rem;
+        font-size: 0.92rem;
+        color: var(--text);
+    }
+    
+    /* Lesson nav (prev/next) */
+    .lesson-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem 0;
+        border-top: 1px solid var(--border);
+        margin-top: 3rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    .lesson-nav a {
+        font-family: var(--font-mono);
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--accent);
+    }
+    .lesson-nav .nav-prev::before { content: '90 '; }
+    .lesson-nav .nav-next::after { content: ' 92'; }
+    .lesson-nav-back {
+        text-align: center;
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+    .lesson-nav-back a { font-size: 0.85rem; color: var(--text-secondary); }
+    
+    /* Key-number class from lessons */
+    .lesson-content .key-number {
+        font-family: var(--font-sans);
+        font-weight: 700;
+        color: var(--accent);
+    }
+    
+    @media (max-width: 600px) {
+        .lesson-content { padding: 1.5rem 1rem 3rem; }
+        .lesson-content h1 { font-size: 1.7rem; }
+        .lesson-content .ascii-box { font-size: 0.65rem; }
+        .lesson-content pre { font-size: 0.75rem; }
+    }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav container">
+            <a href="/" class="nav-brand" aria-label="Home">
+                <span class="brand-text">touseefshaik.com</span>
+                <span class="brand-badge">Lab</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/start-here/">Start Here</a></li>
+                <li><a href="/apps/">Lab</a></li>
+                <li><a href="/apps/ba-assistant.html">BA Assistant</a></li>
+                <li><a href="/apps/stock-research-assistant.html">Stock Research</a></li>
+                <li><a href="/apps/ba-jira-agent.html">Jira Agent</a></li>
+                <li><a href="/learn/" class="active">Learn</a></li>
+                <li><a href="/resources/">Resources</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/contact/" class="nav-cta">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+                <span class="hamburger-icon"><span></span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-intro" style="border-bottom: 1px solid var(--border);">
+            <div class="container">
+                <p class="eyebrow">Deep Expertise Track &middot; Lesson 3</p>
+                <h1>LangChain Agents</h1>
+                <p>What LangChain does for you vs what you now know how to do yourself</p>
+            </div>
+        </section>
+
+        <section style="padding: 0; background: transparent;">
+            <div class="container">
+                <div class="lesson-content">
+<h1>LangChain Agents: Framework Abstractions</h1>
+<p class="subtitle">Lesson 3 — what LangChain does for you vs what you now know how to do yourself</p>
+
+<div class="card">
+  <div class="card-label">What you'll learn</div>
+  <ol>
+    <li>What LangChain's <code>@tool</code> decorator actually does under the hood</li>
+    <li>How <code>AgentExecutor</code> maps to the ReAct loop you built in Lesson 2</li>
+    <li>The 3 LangChain components every agent needs (LLM, Tools, Prompt)</li>
+    <li>When to use LangChain vs building from scratch</li>
+  </ol>
+</div>
+
+<h2>From Scratch vs LangChain: Side by Side</h2>
+
+<div class="ascii-box">
+FROM SCRATCH (Lesson 2):              LANGCHAIN (your scaffolded agents):
+
+┌────────────────────┐               ┌────────────────────┐
+│  TOOLS = {         │               │  @tool             │
+│    "get_price": fn, │               │  def get_price():  │
+│    "get_fin": fn,   │               │    """description"""│
+│  }                  │               │  # auto-registered │
+└────────────────────┘               └────────────────────┘
+     ▼                                      ▼
+┌────────────────────┐               ┌────────────────────┐
+│  Manual parsing:   │               │  create_react_agent│
+│  if "Action:" in   │               │  (llm, tools,      │
+│  output: extract   │               │   prompt)          │
+│  tool name + input │               │  # handles parsing  │
+└────────────────────┘               └────────────────────┘
+     ▼                                      ▼
+┌────────────────────┐               ┌────────────────────┐
+│  Manual loop:      │               │  AgentExecutor(    │
+│  for i in range(N): │               │    agent=agent,    │
+│    call LLM         │               │    tools=tools,    │
+│    parse output     │               │    verbose=True,   │
+│    call tool        │               │    max_iter=10,    │
+│    feed back        │               │    handle_parsing  │
+│                    │               │     _errors=True)  │
+└────────────────────┘               └────────────────────┘
+     ▼                                      ▼
+┌────────────────────┐               ┌────────────────────┐
+│  Manual error       │               │  Auto error        │
+│  handling:          │               │  handling:         │
+│  if parse fails,    │               │  built-in retry +  │
+│  send error back    │               │  re-prompt         │
+└────────────────────┘               └────────────────────┘
+
+Same loop. LangChain just wraps it in abstractions.
+</div>
+
+<h2>The 3 LangChain Components</h2>
+
+<table>
+  <tr><th>Component</th><th>What it does</th><th>Your code</th></tr>
+  <tr><td><strong>LLM</strong></td><td>The brain. Wraps the API call.</td><td><code>ChatOpenAI(model="deepseek-chat", ...)</code></td></tr>
+  <tr><td><strong>Tools</strong></td><td>Functions the agent can call. Each tool has a name, description, and schema.</td><td><code>@tool def read_jira(...):</code></td></tr>
+  <tr><td><strong>Prompt</strong></td><td>System instructions telling the LLM how to reason and which tools exist.</td><td><code>ChatPromptTemplate.from_messages([...])</code></td></tr>
+</table>
+
+<h2>What @tool Does Under the Hood</h2>
+
+<p>When you write:</p>
+<pre>@tool
+def get_stock_price(ticker: str) -> str:
+    """Get current stock price for a given ticker.
+    Use this first to understand current valuation."""
+    return f"{ticker} at ₹1,054"</pre>
+
+<p>LangChain automatically:</p>
+<ol>
+  <li>Extracts the function name → <code>"get_stock_price"</code></li>
+  <li>Extracts the docstring → becomes the tool description the LLM sees</li>
+  <li>Inspects the type hints → generates a JSON schema for the parameters</li>
+  <li>Wraps the function in a <code>Tool</code> object that the <code>AgentExecutor</code> can call</li>
+</ol>
+
+<p>The LLM sees something like this in its context:</p>
+<pre>{
+  "name": "get_stock_price",
+  "description": "Get current stock price for a given ticker. Use this first to understand current valuation.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "ticker": {"type": "string"}
+    },
+    "required": ["ticker"]
+  }
+}</pre>
+
+<p>This is why <strong>the docstring matters so much</strong>. It's not just documentation — it's what the LLM reads to decide whether to call your tool. We'll cover this in depth in Lesson 4.</p>
+
+<h2>When to Use LangChain vs From Scratch</h2>
+
+<div class="card">
+  <div class="card-label">Decision Framework</div>
+  <table>
+    <tr><th>Use from scratch</th><th>Use LangChain</th></tr>
+    <tr><td>Learning how agents work</td><td>Production agents that need reliability</td></tr>
+    <tr><td>1-2 simple tools</td><td>5+ tools with complex schemas</td></tr>
+    <tr><td>Want full control of parsing</td><td>Need error handling, async, streaming</td></tr>
+    <tr><td>Teaching/ interviewing</td><td>Shipping to users</td></tr>
+    <tr><td>Solo developer who understands the loop</td><td>Team project where others need to understand the code</td></tr>
+  </table>
+</div>
+
+<p class="source-cite">Source: <a href="https://www.anthropic.com/research/building-effective-agents">Anthropic — "If you do use a framework, ensure you understand the underlying code. Incorrect assumptions about what's under the hood are a common source of customer error."</a></p>
+
+<h2>The LangChain Ecosystem: What's What</h2>
+
+<div class="ascii-box">
+┌─────────────────────────────────────────────────────────┐
+│              LANGCHAIN ECOSYSTEM MAP                    │
+│                                                         │
+│  LangChain     ← core framework (tools, chains, agents)  │
+│     ▼                                                   │
+│  LangGraph     ← stateful multi-agent orchestration      │
+│     ▼              (loops, human-in-loop, persistence)  │
+│  Deep Agents   ← long-running workflow harness          │
+│                                                         │
+│  LangSmith     ← observability + evaluation platform     │
+│                   (tracing, evals, debugging)            │
+│                                                         │
+│  You are here: LangChain (single agent with tools)       │
+│  Next:          LangGraph (multi-agent with state)      │
+└─────────────────────────────────────────────────────────┘
+</div>
+
+<p class="source-cite">Source: <a href="https://www.langchain.com/resources/ai-agent-frameworks">LangChain — Best AI Agent Frameworks 2026</a></p>
+
+<p>Your scaffolded agents use <strong>LangChain</strong> (the core framework). When you build multi-agent systems (Lessons 5-9), you'll use <strong>LangGraph</strong> for stateful orchestration. And <strong>LangSmith</strong> is what you'd use in production for tracing and evaluation (Lesson 10).</p>
+
+<div class="takeaway-box">
+  <h3>The one-sentence summary</h3>
+  <p>LangChain doesn't change what your agent does — it wraps the ReAct loop in abstractions (tool decorator, AgentExecutor, prompt template) that handle parsing errors, schemas, and async for you, so you can focus on tool design and prompts instead of loop mechanics.</p>
+</div>
+
+<h2>Practice Drill</h2>
+<ol>
+  <li>Open your <code>ba-work-agent/main.py</code> and read each line</li>
+  <li>Map each LangChain abstraction to what you built from scratch in Lesson 2:
+    <ul>
+      <li><code>ChatOpenAI</code> → which part of your scratch code?</li>
+      <li><code>@tool</code> → which part?</li>
+      <li><code>create_react_agent</code> → which part?</li>
+      <li><code>AgentExecutor</code> → which part?</li>
+    </ul>
+  </li>
+  <li>Now run your from-scratch agent and your LangChain agent with the same goal. Compare the output quality and the verbose logs.</li>
+</ol>
+
+<div class="quiz">
+  <div class="quiz-label">⚡ Quick Check</div>
+  <q><strong>Q1:</strong> What does <code>handle_parsing_errors=True</code> do in AgentExecutor?</q>
+  <details>
+    <summary>Show answer</summary>
+    <p>When the LLM's output doesn't follow the Thought/Action/Action Input format, instead of crashing, AgentExecutor sends a message back to the LLM saying "please follow the correct format" and retries. This is the same as your manual <code>if "Action:" not in output: ... continue</code> in the from-scratch version.</p>
+  </details>
+  <q><strong>Q2:</strong> Why does the <code>@tool</code> docstring matter more than a regular Python docstring?</q>
+  <details>
+    <summary>Show answer</summary>
+    <p>Because the LLM reads the docstring to decide whether to call the tool. A regular docstring is for human developers. A tool docstring is for the LLM. It needs to describe <em>when</em> to use the tool, not just <em>what</em> it does. "Use this first to get the current price" is better than "Returns stock price."</p>
+  </details>
+</div>
+
+<h2>Where to Go Deeper</h2>
+<ul>
+  <li><a href="https://python.langchain.com/docs/introduction/">LangChain Python Docs</a> — Official API reference for tools, agents, executors.</li>
+  <li><a href="https://www.langchain.com/resources/ai-agent-frameworks">LangChain Framework Comparison 2026</a> — How LangChain compares to CrewAI, OpenAI SDK, etc.</li>
+</ul>
+
+<div class="lesson-nav">
+<a href="/learn/react-loop.html" class="nav-prev">The ReAct Loop</a>
+<a href="/learn/tool-design.html" class="nav-next">Tool Design for Agents</a>
+<div class="lesson-nav-back"><a href="/learn/">&larr; Back to Deep Expertise Track</a></div>
+</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-strip">
+            <div class="container">
+                <h2>Want to see these patterns in action?</h2>
+                <p>Explore the live apps built with these agent architectures.</p>
+                <a href="/apps/" class="btn btn-primary">Explore the Lab &rarr;</a>
+                <p style="margin-top: 1.25rem;">
+                    <a href="/learn/" class="btn btn-outline">&larr; Back to Deep Expertise Track</a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="brand-text">touseefshaik.com</span>
+                    <span class="brand-badge">Lab</span>
+                    <p>AI tools and workflows for Business Analysts, Product Owners, and product teams.</p>
+                </div>
+                <nav class="footer-nav">
+                    <p class="footer-heading">Explore</p>
+                    <ul>
+                        <li><a href="/apps/">Lab</a></li>
+                        <li><a href="/apps/ba-assistant.html">BA Assistant</a></li>
+                        <li><a href="/apps/stock-research-assistant.html">Stock Research</a></li>
+                        <li><a href="/apps/ba-jira-agent.html">Jira Agent</a></li>
+                        <li><a href="/learn/">Learn</a></li>
+                        <li><a href="/resources/">Resources</a></li>
+                        <li><a href="/blog/">Blog</a></li>
+                    </ul>
+                </nav>
+                <nav class="footer-nav">
+                    <p class="footer-heading">Connect</p>
+                    <ul>
+                        <li><a href="https://linkedin.com/in/ts26" target="_blank" rel="noopener">LinkedIn</a></li>
+                        <li><a href="https://huggingface.co/tshaik1990" target="_blank" rel="noopener">Hugging Face</a></li>
+                        <li><a href="https://github.com/Touseef1949" target="_blank" rel="noopener">GitHub</a></li>
+                        <li><a href="/contact/">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="footer-cta">
+                    <p class="footer-heading">Try BA Assistant</p>
+                    <p>Turn messy requirements into structured specs, user stories, and diagrams in under 60 seconds.</p>
+                    <a href="https://tshaik1990-ba-assistant.hf.space" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Start Free &rarr;</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Touseef Shaik. All tools free. Building in public.</p>
+            </div>
+        </div>
+        <div class="visitor-counter">
+            <img width="81" height="20" src="https://visitor-badge.laobi.icu/badge?page_id=touseefshaik.learn&left_color=555555&right_color=2563eb&left_text=visitors" alt="visitor counter">
+        </div>
+    </footer>
+
+    <script src="/assets/js/main.js" defer></script>
+</body>
+</html>

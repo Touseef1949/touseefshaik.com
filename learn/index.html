@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Deep Expertise Track — 12 lessons from single LLM call to multi-agent orchestration. Learn AI agent architecture by building, with runnable Python code and ASCII diagrams.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://touseefshaik.com/learn/">
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+    <meta property="og:title" content="Deep Expertise Track — AI Agent Architecture | Touseef Shaik">
+    <meta property="og:description" content="12 lessons from single LLM call to multi-agent orchestration. Learn agent architecture by building, with runnable Python code and ASCII diagrams.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://touseefshaik.com/learn/">
+    <meta property="og:image" content="https://touseefshaik.com/assets/images/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Deep Expertise Track — AI Agent Architecture | Touseef Shaik</title>
+    <link rel="stylesheet" href="/assets/css/main.css?v=20260627">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav container">
+            <a href="/" class="nav-brand" aria-label="Home">
+                <span class="brand-text">touseefshaik.com</span>
+                <span class="brand-badge">Lab</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/start-here/">Start Here</a></li>
+                <li><a href="/apps/">Lab</a></li>
+                <li><a href="/apps/ba-assistant.html">BA Assistant</a></li>
+                <li><a href="/apps/stock-research-assistant.html">Stock Research</a></li>
+                <li><a href="/apps/ba-jira-agent.html">Jira Agent</a></li>
+                <li><a href="/learn/" class="active">Learn</a></li>
+                <li><a href="/resources/">Resources</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/contact/" class="nav-cta">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+                <span class="hamburger-icon"><span></span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- ============================================================
+             PAGE INTRO
+             ============================================================ -->
+        <section class="page-intro">
+            <div class="container">
+                <p class="eyebrow">AI Agent Architecture Course</p>
+                <h1>Deep Expertise Track</h1>
+                <p>12 lessons. From a single LLM call to multi-agent orchestration. Every lesson includes runnable Python code, ASCII diagrams, and the exact patterns behind my production apps.</p>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             WHY THIS TRACK EXISTS
+             ============================================================ -->
+        <section>
+            <div class="container" style="max-width: 800px;">
+                <div class="blog-post" style="padding-top: 2rem;">
+                    <h2>Why I Built This</h2>
+                    <p>I spent months studying how AI agents actually work — reading the ReAct paper, Anthropic's "Building Effective Agents", Microsoft's orchestration patterns, and building 3 production agent apps. Most tutorials either stay at "what is an LLM" or jump straight to "use this framework." Neither helps you understand what's actually happening under the hood.</p>
+                    <p>This track is what I wish I had: a structured path from "I know how to call an LLM" to "I can architect a multi-agent system and explain every decision." Every concept comes with ASCII diagrams, runnable code, and real examples from apps I shipped to Hugging Face Spaces.</p>
+
+                    <h2>What You'll Be Able To Do</h2>
+                    <ul>
+                        <li>Build a ReAct agent from scratch with zero frameworks (50 lines of Python)</li>
+                        <li>Explain the difference between workflows and agents (the #1 interview question)</li>
+                        <li>Implement all 5 multi-agent orchestration patterns with working code</li>
+                        <li>Design tools that agents can actually use (Agent-Computer Interface)</li>
+                        <li>Evaluate agent quality with LLM-as-judge and trace analysis</li>
+                        <li>Ship agents to production with cost, latency, and security guardrails</li>
+                        <li>Speak confidently about agent architecture in interviews — with real code to show</li>
+                    </ul>
+
+                    <div style="background: var(--surface-alt); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin: 2rem 0;">
+                        <p style="margin: 0; font-size: 0.95rem;"><strong>Prerequisites:</strong> You should know Python, have called an LLM API before, and understand basic prompt engineering. That's it. No ML degree, no framework experience required.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             CURRICULUM — 12 lessons in 4 modules
+             ============================================================ -->
+        <section>
+            <div class="container">
+                <div style="max-width: 800px; margin: 0 auto;">
+
+                <!-- MODULE 1 -->
+                <div style="margin-bottom: 2.5rem;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
+                        <span style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 600; color: var(--accent); background: var(--accent-dim); padding: 4px 12px; border-radius: var(--radius-sm); letter-spacing: 0.08em; text-transform: uppercase;">Module 1</span>
+                        <h2 style="margin: 0; font-size: 1.4rem;">Foundations</h2>
+                    </div>
+
+                    <!-- Lesson 1 -->
+                    <a href="/learn/agent-spectrum.html" style="text-decoration: none; color: inherit; display: block;">
+                        <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 0.75rem; transition: border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='var(--accent)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+                            <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                                <span style="font-family: var(--font-mono); font-size: 1.5rem; font-weight: 700; color: var(--accent); min-width: 2rem;">01</span>
+                                <div>
+                                    <h3 style="margin: 0 0 0.25rem; font-size: 1.1rem;">The Agent Spectrum</h3>
+                                    <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">5 levels of AI systems — from direct model call to multi-agent orchestration. Where do your apps sit?</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Lesson 2 -->
+                    <a href="/learn/react-loop.html" style="text-decoration: none; color: inherit; display: block;">
+                        <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 0.75rem; transition: border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='var(--accent)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+                            <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                                <span style="font-family: var(--font-mono); font-size: 1.5rem; font-weight: 700; color: var(--accent); min-width: 2rem;">02</span>
+                                <div>
+                                    <h3 style="margin: 0 0 0.25rem; font-size: 1.1rem;">The ReAct Loop</h3>
+                                    <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">Build an agent from scratch with zero frameworks. The Think-Act-Observe loop in 50 lines of Python.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Lesson 3 -->
+                    <a href="/learn/langchain-agents.html" style="text-decoration: none; color: inherit; display: block;">
+                        <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 0.75rem; transition: border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='var(--accent)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+                            <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                                <span style="font-family: var(--font-mono); font-size: 1.5rem; font-weight: 700; color: var(--accent); min-width: 2rem;">03</span>
+                                <div>
+                                    <h3 style="margin: 0 0 0.25rem; font-size: 1.1rem;">LangChain Agents</h3>
+                                    <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">What LangChain does for you vs what you now know how to do yourself. The abstraction tax explained.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- MODULE 2 -->
+                <div style="margin-bottom: 2.5rem;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
+                        <span style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 600; color: var(--accent); background: var(--accent-dim); padding: 4px 12px; border-radius: var(--radius-sm); letter-spacing: 0.08em; text-transform: uppercase;">Module 2</span>
+                        <h2 style="margin: 0; font-size: 1.4rem;">Tools &amp; Orchestration</h2>
+                    </div>
+
+                    <!-- Lesson 4 -->
+                    <a href="/learn/tool-design.html" style="text-decoration: none; color: inherit; display: block;">
+                        <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 0.75rem; transition: border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='var(--accent)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+                            <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                                <span style="font-family: var(--font-mono); font-size: 1.5rem; font-weight: 700; color: var(--accent); min-width: 2rem;">04</span>
+                                <div>
+                                    <h3 style="margin: 0 0 0.25rem; font-size: 1.1rem;">Tool Design for Agents</h3>
+                                    <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">Agent-Computer Interface design, poka-yoke, and why tool design matters more than model choice.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Lesson 5 -->
+                    <a href="/learn/sequential-orchestration.html" style="text-decoration: none; color: inherit; display: block;">
+                        <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 0.75rem; transition: border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='var(--accent)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+                            <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                                <span style="font-family: var(--font-mono); font-size: 1.5rem; font-weight: 700; color: var(--accent); min-width: 2rem;">05</span>
+                                <div>
+                                    <h3 style="margin: 0 0 0.25rem; font-size: 1.1rem;">Sequential Orchestration</h3>
+                                    <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">Multi-agent Pattern 1: chaining agents in a fixed pipeline. The pattern behind BA Assistant.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Lesson 6 -->
+                    <a href="/learn/concurrent-orchestration.html" style="text-decoration: none; color: inherit; display: block;">
+                        <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 0.75rem; transition: border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='var(--accent)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+                            <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                                <span style="font-family: var(--font-mono); font-size: 1.5rem; font-weight: 700; color: var(--accent); min-width: 2rem;">06</span>
+                                <div>
+                                    <h3 style="margin: 0 0 0.25rem; font-size: 1.1rem;">Concurrent Orchestration</h3>
+                                    <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">Multi-agent Pattern 2: fan-out/fan-in. Multiple agents work in parallel, results aggregated.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Lesson 7 -->
+                    <a href="/learn/handoff-orchestration.html" style="text-decoration: none; color: inherit; display: block;">
+                        <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 0.75rem; transition: border-color 0.2s, transform  0.2s;" onmouseover="this.style.borderColor='var(--accent)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+                            <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                                <span style="font-family: var(--font-mono); font-size: 1.5rem; font-weight: 700; color: var(--accent); min-width: 2rem;">07</span>
+                                <div>
+                                    <h3 style="margin: 0 0 0.25rem; font-size: 1.1rem;">Handoff Orchestration</h3>
+                                    <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">Multi-agent Pattern 3: agents hand control to each other dynamically. Like a hospital triage.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- MODULE 3 -->
+                <div style="margin-bottom: 2.5rem;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
+                        <span style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 600; color: var(--accent); background: var(--accent-dim); padding: 4px 12px; border-radius: var(--radius-sm); letter-spacing: 0.08em; text-transform: uppercase;">Module 3</span>
+                        <h2 style="margin: 0; font-size: 1.4rem;">Advanced Patterns</h2>
+                    </div>
+
+                    <!-- Lesson 8 -->
+                    <a href="/learn/group-chat.html" style="text-decoration: none; color: inherit; display: block;">
+                        <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 0.75rem; transition: border-color 0.2s, transform: 0.2s;" onmouseover="this.style.borderColor='var(--accent)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+                            <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                                <span style="font-family: var(--font-mono); font-size: 1.5rem; font-weight: 700; color: var(--accent); min-width: 2rem;">08</span>
+                                <div>
+                                    <h3 style="margin: 0 0 0.25rem; font-size: 1.1rem;">Group Chat Orchestration</h3>
+                                    <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">Multi-agent Pattern 4: agents collaborate through shared conversation. Debate and maker-checker.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Lesson 9 -->
+                    <a href="/learn/magentic-orchestration.html" style="text-decoration: none; color: inherit; display: block;">
+                        <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 0.75rem; transition: border-color 0.2s, transform: 0.2s;" onmouseover="this.style.borderColor='var(--accent)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+                            <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                                <span style="font-family: var(--font-mono); font-size: 1.5rem; font-weight: 700; color: var(--accent); min-width: 2rem;">09</span>
+                                <div>
+                                    <h3 style="margin: 0 0 0.25rem; font-size: 1.1rem;">Magentic Orchestration</h3>
+                                    <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">Multi-agent Pattern 5: plan, build, execute. The most advanced pattern, for complex projects.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Lesson 10 -->
+                    <a href="/learn/agent-evaluation.html" style="text-decoration: none; color: inherit; display: block;">
+                        <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 0.75rem; transition: border-color 0.2s, transform: 0.2s;" onmouseover="this.style.borderColor='var(--accent)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+                            <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                                <span style="font-family: var(--font-mono); font-size: 1.5rem; font-weight: 700; color: var(--accent); min-width: 2rem;">10</span>
+                                <div>
+                                    <h3 style="margin: 0 0 0.25rem; font-size: 1.1rem;">Agent Evaluation</h3>
+                                    <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">LLM-as-Judge, trace analysis, failure mode classification. How to measure agent quality.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- MODULE 4 -->
+                <div style="margin-bottom: 2.5rem;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
+                        <span style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 600; color: var(--accent); background: var(--accent-dim); padding: 4px 12px; border-radius: var(--radius-sm); letter-spacing: 0.08em; text-transform: uppercase;">Module 4</span>
+                        <h2 style="margin: 0; font-size: 1.4rem;">Production</h2>
+                    </div>
+
+                    <!-- Lesson 11 -->
+                    <a href="/learn/production.html" style="text-decoration: none; color: inherit; display: block;">
+                        <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 0.75rem; transition: border-color 0.2s, transform: 0.2s;" onmouseover="this.style.borderColor='var(--accent)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+                            <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                                <span style="font-family: var(--font-mono); font-size: 1.5rem; font-weight: 700; color: var(--accent); min-width: 2rem;">11</span>
+                                <div>
+                                    <h3 style="margin: 0 0 0.25rem; font-size: 1.1rem;">Production Considerations</h3>
+                                    <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">Cost, latency, state, security. What changes when you move agents from prototype to production.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Lesson 12 -->
+                    <a href="/learn/capstone.html" style="text-decoration: none; color: inherit; display: block;">
+                        <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 0.75rem; transition: border-color 0.2s, transform: 0.2s;" onmouseover="this.style.borderColor='var(--accent)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+                            <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                                <span style="font-family: var(--font-mono); font-size: 1.5rem; font-weight: 700; color: var(--accent); min-width: 2rem;">12</span>
+                                <div>
+                                    <h3 style="margin: 0 0 0.25rem; font-size: 1.1rem;">Capstone Project</h3>
+                                    <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">Combine everything into one multi-agent BA system. From spec to working code.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SOURCES
+             ============================================================ -->
+        <section>
+            <div class="container">
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <div class="blog-post" style="padding-top: 1rem; padding-bottom: 1rem;">
+                        <h2>Sources &amp; References</h2>
+                        <p style="font-size: 0.95rem; color: var(--text-secondary);">This track synthesizes material from:</p>
+                        <ul>
+                            <li><a href="https://www.anthropic.com/research/building-effective-agents" target="_blank" rel="noopener">Anthropic &mdash; Building Effective Agents</a> (Dec 2024)</li>
+                            <li><a href="https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns" target="_blank" rel="noopener">Microsoft Azure &mdash; AI Agent Orchestration Patterns</a></li>
+                            <li><a href="https://arxiv.org/abs/2210.03629" target="_blank" rel="noopener">Yao et al. &mdash; ReAct: Synergizing Reasoning and Acting in Language Models</a> (2022)</li>
+                            <li>3 production agent apps: <a href="/apps/ba-assistant.html">BA Assistant</a>, <a href="/apps/stock-research-assistant.html">Stock Research Assistant</a>, <a href="/apps/ba-jira-agent.html">BA Jira Agent</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             CTA STRIP
+             ============================================================ -->
+        <section class="cta-strip">
+            <div class="container">
+                <h2>Ready to see these patterns in production?</h2>
+                <p>Explore the live apps built with these exact agent architectures.</p>
+                <a href="/apps/" class="btn btn-primary">Explore the Lab &rarr;</a>
+                <p style="margin-top: 1.25rem;">
+                    <a href="/learn/agent-spectrum.html" class="btn btn-outline">Start with Lesson 1 &rarr;</a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="brand-text">touseefshaik.com</span>
+                    <span class="brand-badge">Lab</span>
+                    <p>AI tools and workflows for Business Analysts, Product Owners, and product teams.</p>
+                </div>
+                <nav class="footer-nav">
+                    <p class="footer-heading">Explore</p>
+                    <ul>
+                        <li><a href="/apps/">Lab</a></li>
+                        <li><a href="/apps/ba-assistant.html">BA Assistant</a></li>
+                        <li><a href="/apps/stock-research-assistant.html">Stock Research</a></li>
+                        <li><a href="/apps/ba-jira-agent.html">Jira Agent</a></li>
+                        <li><a href="/learn/">Learn</a></li>
+                        <li><a href="/resources/">Resources</a></li>
+                        <li><a href="/blog/">Blog</a></li>
+                    </ul>
+                </nav>
+                <nav class="footer-nav">
+                    <p class="footer-heading">Connect</p>
+                    <ul>
+                        <li><a href="https://linkedin.com/in/ts26" target="_blank" rel="noopener">LinkedIn</a></li>
+                        <li><a href="https://huggingface.co/tshaik1990" target="_blank" rel="noopener">Hugging Face</a></li>
+                        <li><a href="https://github.com/Touseef1949" target="_blank" rel="noopener">GitHub</a></li>
+                        <li><a href="/contact/">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="footer-cta">
+                    <p class="footer-heading">Try BA Assistant</p>
+                    <p>Turn messy requirements into structured specs, user stories, and diagrams in under 60 seconds.</p>
+                    <a href="https://tshaik1990-ba-assistant.hf.space" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Start Free &rarr;</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Touseef Shaik. All tools free. Building in public.</p>
+            </div>
+        </div>
+        <div class="visitor-counter">
+            <img width="81" height="20" src="https://visitor-badge.laobi.icu/badge?page_id=touseefshaik.learn&left_color=555555&right_color=2563eb&left_text=visitors" alt="visitor counter">
+        </div>
+    </footer>
+
+    <script src="/assets/js/main.js" defer></script>
+</body>
+</html>
