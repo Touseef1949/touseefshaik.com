@@ -1266,9 +1266,9 @@ main > section:nth-of-type(odd) {
 }
 
 /* ========================================
-   MOBILE BREAKPOINT (max-width: 768px)
+   MOBILE BREAKPOINT (max-width: 1024px)
    ======================================== */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
 
     /* Prevent horizontal scrollbar from off-screen elements */
     html {
