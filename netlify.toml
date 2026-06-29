@@ -30,3 +30,8 @@
   from = "/blog/turn-messy-requirements"
   to = "/blog/turn-messy-requirements.html"
   status = 200
+
+[[redirects]]
+  from = "/evals"
+  to = "/evals/index.html"
+  status = 200
