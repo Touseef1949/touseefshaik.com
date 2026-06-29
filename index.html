@@ -103,7 +103,7 @@
                         </p>
                         <div class="hero-ctas">
                             <a href="https://tshaik1990-ba-assistant.hf.space" class="btn btn-primary" target="_blank" rel="noopener">Try BA Assistant Free →</a>
-                            <a href="#newsletter" class="btn btn-secondary">Join the Newsletter</a>
+                            <a href="/learn/" class="btn btn-secondary">Explore the Learn Track →</a>
                         </div>
                         <div class="hero-stats">
                             <div class="stat">
@@ -120,27 +120,6 @@
                             </div>
                         </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- ============================================================
-             NEWSLETTER
-             ============================================================ -->
-        <section id="newsletter" class="newsletter-section">
-            <div class="container">
-                <header class="section-header">
-                    <p class="hero-label">Join the newsletter</p>
-                    <h2>The AI Product Builder Newsletter</h2>
-                    <p>
-                        Weekly practical ideas for Business Analysts, Product Owners, and product teams using AI
-                        to write better requirements, analyze faster, and build clearer product documentation.
-                    </p>
-                </header>
-                <form id="newsletter-form" onsubmit="return submitNewsletter(event)" style="display:flex; gap:0.75rem; justify-content:center; max-width:480px; margin:0 auto; flex-wrap:wrap;">
-                    <input aria-label="Your email address" type="email" id="newsletter-email" placeholder="Your email address" required style="flex:1; min-width:200px; padding:0.75rem 1.25rem; border:2px solid var(--border); border-radius:100px; font-size:0.9rem; font-family:inherit; outline:none;">
-                    <button type="submit" id="newsletter-btn" class="btn btn-primary">Join Free →</button>
-                </form>
-                <p id="newsletter-msg" style="font-size:0.75rem; color:var(--fg-muted); margin-top:0.75rem; text-align:center;">No spam. One useful email per week. Unsubscribe anytime.</p>
             </div>
         </section>
 
@@ -475,40 +454,5 @@
 </footer>
 
     <script src="/assets/js/main.js" defer></script>
-    <script>
-    async function submitNewsletter(e) {
-        e.preventDefault();
-        var email = document.getElementById('newsletter-email').value.trim();
-        var btn = document.getElementById('newsletter-btn');
-        var msg = document.getElementById('newsletter-msg');
-        if (!email) return false;
-        btn.disabled = true;
-        btn.textContent = 'Joining...';
-        try {
-            var r = await fetch('https://api.buttondown.email/v1/subscribers', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Token 4318bdce-37b8-4331-bfb4-1f835d5a2fe3'
-                },
-                body: JSON.stringify({ email_address: email })
-            });
-            if (r.ok) {
-                document.getElementById('newsletter-form').innerHTML =
-                    '<p style="color:#22c55e;font-weight:600;font-size:1.1rem;text-align:center;">✓ You\'re in! Welcome aboard.</p>';
-                msg.textContent = 'One useful email per week. No spam.';
-            } else {
-                msg.textContent = 'Something went wrong. Please try again.';
-                msg.style.color = '#ef4444';
-            }
-        } catch (err) {
-            msg.textContent = 'Network error. Please try again.';
-            msg.style.color = '#ef4444';
-        }
-        btn.disabled = false;
-        btn.textContent = 'Join Free →';
-        return false;
-    }
-    </script>
 </body>
 </html>

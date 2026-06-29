@@ -59,7 +59,7 @@
             <div class="container">
                 <p class="eyebrow">Free downloads</p>
                 <h1>BA & PO Resources</h1>
-                <p>Practical templates, checklists, and guides to speed up your BA and product workflows. Download what you need — the full toolkit is free with the newsletter.</p>
+                <p>Practical templates, checklists, and guides to speed up your BA and product workflows. Download what you need — all resources are free.</p>
             </div>
         </section>
 
@@ -137,24 +137,6 @@
         </section>
 
         <!-- ============================================================
-             NEWSLETTER CTA (from prod)
-             ============================================================ -->
-        <section>
-            <div class="container">
-                <header class="section-header">
-                    <p class="hero-label">📬 Get the full BA Toolkit</p>
-                    <h2>Join the newsletter and get all templates in one download.</h2>
-                    <p>Plus weekly practical AI tips for BAs and POs. No spam. Unsubscribe anytime.</p>
-                </header>
-                <form id="newsletter-form" onsubmit="return submitNewsletter(event)" style="display:flex; gap:0.75rem; justify-content:center; max-width:480px; margin:0 auto; flex-wrap:wrap;">
-                    <input aria-label="Your email address" type="email" id="newsletter-email" placeholder="Your email address" required style="flex:1; min-width:200px; padding:0.75rem 1.25rem; border:2px solid var(--border); border-radius:100px; font-size:0.9rem; font-family:inherit; outline:none;">
-                    <button type="submit" id="newsletter-btn" class="btn btn-primary">Download Free Toolkit →</button>
-                </form>
-                <p id="newsletter-msg" style="font-size:0.75rem; color:var(--fg-muted); margin-top:0.75rem; text-align:center;">No spam. Unsubscribe anytime.</p>
-            </div>
-        </section>
-
-        <!-- ============================================================
              CTA STRIP
              ============================================================ -->
         <section class="cta-strip">
@@ -217,40 +199,5 @@
 </footer>
 
     <script src="/assets/js/main.js" defer></script>
-    <script>
-    async function submitNewsletter(e) {
-        e.preventDefault();
-        var email = document.getElementById('newsletter-email').value.trim();
-        var btn = document.getElementById('newsletter-btn');
-        var msg = document.getElementById('newsletter-msg');
-        if (!email) return false;
-        btn.disabled = true;
-        btn.textContent = 'Joining...';
-        try {
-            var r = await fetch('https://api.buttondown.email/v1/subscribers', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Token 4318bdce-37b8-4331-bfb4-1f835d5a2fe3'
-                },
-                body: JSON.stringify({ email_address: email })
-            });
-            if (r.ok) {
-                document.getElementById('newsletter-form').innerHTML =
-                    '<p style="color:#22c55e;font-weight:600;font-size:1.1rem;text-align:center;">✓ You\'re in! Welcome aboard.</p>';
-                msg.textContent = 'One useful email per week. No spam.';
-            } else {
-                msg.textContent = 'Something went wrong. Please try again.';
-                msg.style.color = '#ef4444';
-            }
-        } catch (err) {
-            msg.textContent = 'Network error. Please try again.';
-            msg.style.color = '#ef4444';
-        }
-        btn.disabled = false;
-        btn.textContent = 'Download Free Toolkit →';
-        return false;
-    }
-    </script>
 </body>
 </html>
