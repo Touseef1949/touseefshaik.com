@@ -1558,6 +1558,14 @@ main > section:nth-of-type(odd) {
     }
 }
 
+/* === MOBILE ACCESSIBILITY: bump small fonts to ≥14px === */
+.stat-label {
+    font-size: 0.875rem !important; /* 14px (was 12px) */
+}
+.app-link {
+    font-size: 0.875rem !important; /* 14px (was 13px) */
+}
+
 /* === VERY SMALL SCREENS (≤400px) === */
 @media (max-width: 400px) {
     .hero-stats,
