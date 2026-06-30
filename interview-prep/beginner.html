@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Core Scrum and Product Owner fundamentals - roles, user stories, Definition of Done, backlog prioritization, estimation, velocity, and sprint ceremonies.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://touseefshaik.com/interview-prep/beginner.html">
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+    <meta property="og:title" content="Beginner - AI Product Owner Interview Questions | Touseef Shaik">
+    <meta property="og:description" content="Core Scrum and Product Owner fundamentals - roles, user stories, Definition of Done, backlog prioritization, estimation, velocity, and sprint ceremonies.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://touseefshaik.com/interview-prep/beginner.html">
+    <meta property="og:image" content="https://touseefshaik.com/assets/images/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Beginner - AI Product Owner Interview Questions | Touseef Shaik</title>
+    <link rel="stylesheet" href="/assets/css/main.css?v=20260630">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <style>
+    .ip-content { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 4rem; font-family: var(--font-sans); }
+    .ip-content h1 { font-size: 2.25rem; line-height: 1.2; margin-bottom: 0.5rem; color: var(--text-heading); font-family: var(--font-heading); }
+    .ip-content .subtitle { color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 2rem; }
+    .tier-tabs { display: flex; gap: 0.5rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+    .tier-tabs a { padding: 0.5rem 1.25rem; border-radius: 100px; font-size: 0.875rem; font-weight: 600; text-decoration: none; border: 1px solid var(--border); color: var(--text-secondary); transition: all 0.2s; }
+    .tier-tabs a:hover { border-color: var(--accent); color: var(--accent); }
+    .tier-tabs a.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .qa-item { border-bottom: 1px solid var(--border); padding: 1.5rem 0; }
+    .qa-item:first-child { padding-top: 0; }
+    .qa-question { font-size: 1.15rem; font-weight: 600; color: var(--text-heading); cursor: pointer; display: flex; align-items: flex-start; gap: 0.5rem; margin: 0; line-height: 1.5; font-family: var(--font-sans); user-select: none; }
+    .qa-question .q-num { color: var(--accent); font-family: var(--font-mono); font-weight: 700; flex-shrink: 0; }
+    .qa-question .qa-toggle { margin-left: auto; flex-shrink: 0; width: 20px; height: 20px; position: relative; }
+    .qa-question .qa-toggle::before, .qa-question .qa-toggle::after { content: ''; position: absolute; background: var(--text-secondary); border-radius: 2px; transition: all 0.2s; }
+    .qa-question .qa-toggle::before { width: 12px; height: 2px; top: 9px; left: 4px; }
+    .qa-question .qa-toggle::after { width: 2px; height: 12px; top: 4px; left: 9px; }
+    .qa-item.collapsed .qa-toggle::after { transform: scaleY(0); }
+    .qa-item.collapsed .qa-answer { display: none; }
+    .qa-answer { margin-top: 0.75rem; padding-left: 2rem; }
+    .qa-answer p { font-size: 1rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 0.75rem; }
+    .qa-answer ul, .qa-answer ol { padding-left: 1.5rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 0.75rem; }
+    .qa-answer li { margin-bottom: 0.3rem; }
+    .qa-answer strong { color: var(--text); font-weight: 600; }
+    .qa-answer code { font-family: var(--font-mono); background: var(--surface-alt); padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.9em; color: var(--accent); }
+    .ip-controls { display: flex; gap: 1rem; margin-bottom: 1.5rem; align-items: center; }
+    .ip-controls button { background: none; border: 1px solid var(--border); border-radius: 100px; padding: 0.35rem 1rem; font-size: 0.82rem; font-weight: 500; color: var(--text-secondary); cursor: pointer; font-family: var(--font-sans); transition: all 0.2s; }
+    .ip-controls button:hover { border-color: var(--accent); color: var(--accent); }
+    .ip-controls .q-count { margin-left: auto; font-size: 0.82rem; color: var(--text-secondary); font-family: var(--font-mono); }
+    @media (max-width: 600px) { .ip-content { padding: 1.5rem 1rem 3rem; } .ip-content h1 { font-size: 1.7rem; } .qa-question { font-size: 1rem; } .qa-answer { padding-left: 1rem; } .qa-answer p { font-size: 0.95rem; } }
+    </style>
+
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav container">
+            <a href="/" class="nav-brand" aria-label="Home">
+                <span class="brand-text">touseefshaik.com</span>
+                <span class="brand-badge">Lab</span>
+            </a>
+            <ul class="nav-links">
+    <li><a href="/start-here/">Start Here</a></li>
+    <li><a href="/apps/">Lab</a></li>
+    <li><a href="/apps/ba-assistant.html">BA Assistant</a></li>
+    <li><a href="/apps/stock-research-assistant.html">Stock Research</a></li>
+    <li><a href="/apps/ba-jira-agent.html">Jira Agent</a></li>
+    <li><a href="/learn/">Learn</a></li>
+    <li><a href="/evals/">Evals</a></li>
+    <li><a href="/interview-prep/" class="active">Interview Prep</a></li>
+    <li><a href="/resources/">Resources</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/about/">About</a></li>
+    <li><a href="/contact/" class="nav-cta">Contact</a></li>
+</ul>
+            <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+                <span class="hamburger-icon"><span></span></span>
+            </button>
+        </nav>
+    </header>
+    <main>
+        <section class="page-intro" style="border-bottom: 1px solid var(--border);">
+            <div class="container">
+                <p class="eyebrow">Interview Prep &middot; Beginner</p>
+                <h1>AI Product Owner Interview Questions</h1>
+                <p>Core Scrum and Product Owner fundamentals - roles, user stories, Definition of Done, backlog prioritization, estimation, velocity, and sprint ceremonies.</p>
+            </div>
+        </section>
+        <section style="padding: 2rem 0; background: transparent;">
+            <div class="container">
+                <div class="ip-content">
+                    <div class="tier-tabs">
+                        <a href="/interview-prep/beginner.html" class="active">Beginner</a>
+                        <a href="/interview-prep/intermediate.html" class="">Intermediate</a>
+                        <a href="/interview-prep/advanced.html" class="">Advanced</a>
+                    </div>
+                    <div class="ip-controls">
+                        <button onclick="document.querySelectorAll('.qa-item').forEach(el=>el.classList.remove('collapsed'))">Expand All</button>
+                        <button onclick="document.querySelectorAll('.qa-item').forEach(el=>el.classList.add('collapsed'))">Collapse All</button>
+                        <span class="q-count">36 Questions</span>
+                    </div>
+                    <div class="qa-item" id="q1">
+<h3 class="qa-question" onclick="this.parentElement.classList.toggle('collapsed')">
+<span class="q-num">Q1.</span> As a Product Owner, what are the typical activities you perform day-to-day?
+<span class="qa-toggle" aria-hidden="true"></span>
+</h3>
+<div class="qa-answer">
+<p>The core activities are Sprint Planning, Backlog Refinement (Grooming), Sprint Review, and Sprint Retrospective. I also spend significant time with stakeholders gathering requirements, prioritizing the backlog, writing and refining user stories, and defining acceptance criteria.</p>
+<p>I attend the Daily Scrum as an observer — I'm available if the team has questions about user stories or priorities, but I don't run it or speak unless asked. The Daily Scrum is the development team's ceremony.</p>
+<p>Beyond ceremonies, I'm continuously validating assumptions — talking to users, reviewing analytics, checking competitor moves, and ensuring the backlog reflects the current reality of the market.</p>
+</div></div>
+<div class="qa-item" id="q2">
+<h3 class="qa-question" onclick="this.parentElement.classList.toggle('collapsed')">
+<span class="q-num">Q2.</span> What is the role of a Product Owner in Scrum?
+<span class="qa-toggle" aria-hidden="true"></span>
+</h3>
+<div class="qa-answer">
+<p>The Product Owner is the single person responsible for maximizing the value of the product resulting from the work of the Development Team. They own the Product Backlog — deciding what goes in, what priority each item has, and when items are ready for implementation.</p>
+<p>Key responsibilities: creating and maintaining the Product Backlog, ordering items to best achieve goals, optimizing the value of the Development Team's work, and ensuring the Product Backlog is visible and transparent to all.</p>
+<p>The PO is one person, not a committee. They may represent the desires of a committee in the Product Backlog, but those wanting to change a backlog item's priority must address the PO.</p>
+</div></div>
+<div class="qa-item" id="q3">
+<h3 class="qa-question" onclick="this.parentElement.classList.toggle('collapsed')">
+<span class="q-num">Q3.</span> Can the Product Owner and Scrum Master be the same person?
+<span class="qa-toggle" aria-hidden="true"></span>
+</h3>
+<div class="qa-answer">
+<p>No. These are fundamentally different roles with different — sometimes conflicting — priorities. The Product Owner focuses on "what to build" (features, priorities, business value). The Scrum Master focuses on "how we work together" (process, impediments, team health).</p>
+<p>The Scrum Master often mediates between the PO and Development Team when their goals diverge — for example, when the PO wants to add scope mid-sprint. If the same person plays both roles, that mediation disappears and conflict of interest is inevitable.</p>
+<p>Both roles require full commitment. Splitting across both guarantees neither gets done well.</p>
+</div></div>
+<div class="qa-item" id="q4">
+<h3 class="qa-question" onclick="this.parentElement.classList.toggle('collapsed')">
+<span class="q-num">Q4.</span> How do you prioritize Product Backlog items?
+<span class="qa-toggle" aria-hidden="true"></span>
+</h3>
+<div class="qa-answer">
+<p>I start with MoSCoW — Must be, Should be, Could be, Won't be — as a baseline categorization. But within the "Must" and "Should" buckets, I use WSJF (Weighted Shortest Job First) from SAFe, which calculates: Cost of Delay divided by Job Size. Items with high value and small effort float to the top.</p>
+<p>I also factor in dependencies, risk mitigation (sometimes I prioritize a risky item early to learn fast), and market timing. Prioritization isn't static — I re-evaluate every sprint based on new information.</p>
+<p>For AI features specifically, I add a "data readiness" filter — if we don't have the data infrastructure for a feature, it drops in priority regardless of business value.</p>
+</div></div>
+<div class="qa-item" id="q5">
+<h3 class="qa-question" onclick="this.parentElement.classList.toggle('collapsed')">
+<span class="q-num">Q5.</span> What are the characteristics of a good Product Backlog Item?
+<span class="qa-toggle" aria-hidden="true"></span>
+</h3>
+<div class="qa-answer">
+<p>A good Product Backlog Item is DEEP — Detailed appropriately, Estimated, Emergent, and Prioritized.</p>
+<ul>
+<li><strong>Detailed appropriately:</strong> Higher-priority items have more detail than lower-priority ones. The item at the top of the backlog should be sprint-ready; the item at the bottom might be a one-line placeholder.</li>
+<li><strong>Estimated:</strong> The Development Team has provided a rough effort estimate.</li>
+<li><strong>Emergent:</strong> The backlog is living — items are added, removed, and refined continuously.</li>
+<li><strong>Prioritized:</strong> Every item has a clear position based on value.</li>
+</ul>
+<p>Additionally, a good item follows INVEST: Independent, Negotiable, Valuable, Estimable, Small, and Testable.</p>
+</div></div>
+<div class="qa-item" id="q6">
+<h3 class="qa-question" onclick="this.parentElement.classList.toggle('collapsed')">
+<span class="q-num">Q6.</span> What is the Definition of Done (DoD)? Who creates it?
+<span class="qa-toggle" aria-hidden="true"></span>
+</h3>
+<div class="qa-answer">
+<p>The Definition of Done is a shared agreement on what "complete" means for a Product Backlog Item. It ensures transparency — when a developer says a story is "done," everyone understands the same standard.</p>
+<p>The DoD is created by the Development Team (with input from the PO and Scrum Master). It typically includes: code written, unit tests passing, code reviewed, documented, deployed to staging, and acceptance criteria met.</p>
+<p>The DoD evolves over time — the team may add stricter criteria as they mature (e.g., "95% test coverage" or "accessibility audit passed"). A story is not "Done" until every criterion in the DoD is satisfied.</p>
+</div></div>
+<div class="qa-item" id="q7">
+<h3 class="qa-question" onclick="this.parentElement.classList.toggle('collapsed')">
+<span class="q-num">Q7.</span> What is acceptance criteria? Who sets it?
+<span class="qa-toggle" aria-hidden="true"></span>
+</h3>
+<div class="qa-answer">
+<p>Acceptance criteria define the specific conditions a Product Backlog Item must satisfy to be accepted by the Product Owner. They are the boundary of a user story — what's in scope and what's out.</p>
+<p>The Product Owner writes or defines the acceptance criteria, often during backlog refinement. The Development Team may ask clarifying questions or suggest adjustments, but the PO owns the final decision on what "acceptable" means.</p>
+<p>Example: For "As a user, I want to reset my password," acceptance criteria might be: (1) User receives email within 2 minutes, (2) Reset link expires after 30 minutes, (3) User can set a new password meeting complexity rules, (4) System logs the password change for audit.</p>
+</div></div>
+<div class="qa-item" id="q8">
+<h3 class="qa-question" onclick="this.parentElement.classList.toggle('collapsed')">
+<span class="q-num">Q8.</span> Is the Definition of Done the same as the Definition of Ready?
+<span class="qa-toggle" aria-hidden="true"></span>
+</h3>
+<div class="qa-answer">
+<p>No, they serve different purposes.</p>
+<ul>
+<li><strong>Definition of Ready (DoR):</strong> Criteria a Product Backlog Item must meet before the team pulls it into a sprint. Example: has clear acceptance criteria, has been estimated, has no open dependencies, design is approved. It's a pre-condition.</li>
+<li><strong>Definition of Done (DoD):</strong> Criteria that must be met when work is considered complete. It's a post-condition.</li>
+</ul>
+<p>Think of it this way: DoR ensures we don't start work we can't finish. DoD ensures we don't call something finished when it isn't.</p>
+</div></div>
+<div class="qa-item" id="q9">
+<h3 class="qa-question" onclick="this.parentElement.classList.toggle('collapsed')">
+<span class="q-num">Q9.</span> In Product Backlog Refinement, do you focus on items of upcoming sprints or the current sprint?
+<span class="qa-toggle" aria-hidden="true"></span>
+</h3>
+<div class="qa-answer">
+<p>Primarily upcoming sprints. The goal of refinement is to ensure that future sprint items are ready — detailed, estimated, and have clear acceptance criteria. We typically refine items for the next 1-2 sprints.</p>
+<p>During the current sprint, items should already be refined (that was done in a previous refinement session). If a current-sprint item needs clarification, I'll address it ad-hoc with the specific developer, but the formal refinement session focuses ahead.</p>
+<p>We spend about 10% of Development Team capacity on refinement.</p>
+</div></div>
+<div class="qa-item" id="q10">
+<h3 class="qa-question" onclick="this.parentElement.classList.toggle('collapsed')">
+<span class="q-num">Q10.</span> As a Product Owner, do you write user stories and hand them to the development team?
+<span class="qa-toggle" aria-hidden="true"></span>
+</h3>
+<div class="qa-answer">
+<p>No — that's a common anti-pattern. I write the initial user story and acceptance criteria, but I don't "hand off" and walk away. User stories are a starting point for conversation, not a contract.</p>
+<p>During backlog refinement, I walk the team through the story, they ask questions, and together we identify edge cases, technical considerations, and splitting opportunities. The story evolves through this collaboration.</p>
+<p>If I just write stories in isolation and throw them over the wall, the team will either build the wrong thing or spend the sprint waiting for clarifications.</p>
+</div></div>
+<div class="qa-item" id="q11">
+<h3 class="qa-question" onclick="this.parentElement.classList.toggle('collapsed')">
+<span class="q-num">Q11.</span> What are the characteristics of a good user story?
+<span class="qa-toggle" aria-hidden="true"></span>
+</h3>
+<div class="qa-answer">
+<p>A good user story follows the INVEST acronym:</p>
+<ul>
+<li><strong>Independent:</strong> Can be delivered without depending on another story</li>
+<li><strong>Negotiable:</strong> Not a fixed contract — details can be discussed</li>
+<li><strong>Valuable:</strong> Delivers clear value to a user or stakeholder</li>
+<li><strong>Estimable:</strong> The team can give a rough effort estimate</li>
+<li><strong>Small:</strong> Fits within a single sprint (ideally completable in a few days)</li>
+<li><strong>Testable:</strong> Has clear acceptance criteria that can be verified</li>
+</ul>
+<p>The format is: "As a [role], I want [feature], so that [value]." The "so that" clause is critical — it ensures every story connects to a business outcome.</p>
+</div></div>
+<div class="qa-item" id="q12">
+<h3 class="qa-question" onclick="this.parentElement.classList.toggle('collapsed')">
+<span class="q-num">Q12.</span> What is a Product Increment?
+<span class="qa-toggle" aria-hidden="true"></span>
+</h3>
+<div class="qa-answer">
+<p>A Product Increment is the sum of all Product Backlog items completed during a sprint, plus the value of all previous sprints' increments. At the end of each sprint, there must be a usable, potentially shippable increment.</p>
+<p>"At the end of a sprint, the new Increment must be Done." This means it meets the Definition of Done — it's not a half-finished feature. The increment must be in a usable condition regardless of whether the Product Owner decides to release it.</p>
+<p>For AI products, "Done" might also mean: model meets accuracy threshold, bias audit passed, monitoring dashboards are live.</p>
+</div></div>
+<div class="qa-item" id="q13">
+<h3 class="qa-question" onclick="this.parentElement.classList.toggle('collapsed')">
+<span class="q-num">Q13.</span> Who sets the Sprint Goal?
+<span class="qa-toggle" aria-hidden="true"></span>
+</h3>
+<div class="qa-answer">
+<p>The Sprint Goal is set collaboratively during Sprint Planning. The Product Owner proposes the objective (what value to deliver this sprint), and the Development Team determines how much they can achieve and how they'll deliver it.</p>
+<p>The Sprint Goal provides coherence — it gives the team a shared focus beyond just "complete these stories." If work turns out to be different than expected, the team negotiates scope with the PO, but the Sprint Goal remains the anchor.</p>
+</div></div>
+<div class="qa-item" id="q14">
+<h3 class="qa-question" onclick="this.parentElement.classList.toggle('collapsed')">
+<span class="q-num">Q14.</span> How do Burn Down charts help a Product Owner track sprint progress?
+<span class="qa-toggle" aria-hidden="true"></span>
+</h3>
+<div class="qa-answer">
+<p>A Sprint Burn Down chart shows remaining work (in story points or hours) versus time. The line should trend downward toward zero by end of sprint. It gives me a quick visual on whether the team is on track.</p>
+<p>If the burn-down flattens mid-sprint, it signals problems — maybe the team hit a technical blocker, stories were under-estimated, or scope crept in. I can then have a conversation with the team about what to do (descope, re-negotiate, or bring help).</p>
+<p>However, burn-down charts measure effort burned, not value delivered. I complement them with the Sprint Goal — are we actually delivering the outcome, not just burning hours?</p>
+</div></div>
+<div class="qa-item" id="q15">
+<h3 class="qa-question" onclick="this.parentElement.classList.toggle('collapsed')">
+<span class="q-num">Q15.</span> As a Product Owner, can you decide to cancel a Sprint?
+<span class="qa-toggle" aria-hidden="true"></span>
+</h3>
+<div class="qa-answer">
+<p>Only the Product Owner can cancel a Sprint — but it should be rare. A sprint is cancelled when the Sprint Goal becomes obsolete. This might happen if: company strategy changes, market conditions shift dramatically, a critical dependency disappears, or a fundamentally better opportunity emerges.</p>
+<p>When a sprint is cancelled, completed and "Done" Product Backlog items are reviewed for potential release. Incomplete items are re-estimated and put back on the Product Backlog.</p>
+<p>Cancelling a sprint is disruptive — it wastes the team's momentum and can damage morale. I'd only do it when continuing would produce no value.</p>
+</div></div>
+<div class="qa-item" id="q16">
+<h3 class="qa-question" onclick="this.parentElement.classList.toggle('collapsed')">
+<span class="q-num">Q16.</span> What happens to &quot;Done&quot; Product Backlog items when a Sprint is cancelled?
+<span class="qa-toggle" aria-hidden="true"></span>
+</h3>
+<div class="qa-answer">
+<p>Done items are reviewed by the Product Owner. If they still provide value, they may be released. If the sprint was cancelled because the entire direction changed, even done items might be re-evaluated.</p>
+<p>Items that are partially complete (not Done) are put back into the Product Backlog and re-estimated. The team doesn't carry them over automatically — they go through normal prioritization again.</p>
+</div></div>
+<div class="qa-item" id="q17">
+<h3 class="qa-question" onclick="this.parentElement.classList.toggle('collapsed')">
+<span class="q-num">Q17.</span> What happens to sprint backlog items that couldn&#x27;t be completed by end of sprint?
+<span class="qa-toggle" aria-hidden="true"></span>
+</h3>
+<div class="qa-answer">
+<p>Items not meeting the Definition of Done are returned to the Product Backlog. They're re-estimated (since we now know more about them) and re-prioritized. I may bring them into the next sprint or deprioritize them based on current needs.</p>
+<p>The key principle: nothing half-done carries over automatically. It goes back through the normal backlog triage. If the story was 90% done, it'll likely be top priority for the next sprint. If priorities shifted, it might wait.</p>
+</div></div>
+<div class="qa-item" id="q18">
+<h3 class="qa-question" onclick="this.parentElement.classList.toggle('collapsed')">
+<span class="q-num">Q18.</span> Does a Product Owner need to be a technical or techno-functional person?
+<span class="qa-toggle" aria-hidden="true"></span>
+</h3>
+<div class="qa-answer">
+<p>A PO doesn't need to write code, but they need enough technical literacy to have meaningful conversations with the development team. They should understand architecture trade-offs, technical debt implications, and be able to participate in technical discussions without dominating them.</p>
+<p>For an AI Product Owner, this bar is higher. I need to understand: model capabilities and limitations, data pipeline basics, evaluation metrics, deployment patterns (batch vs real-time), and the difference between RAG and fine-tuning at a conceptual level.</p>
+<p>I don't need to build models — but I need to make informed trade-off decisions about them.</p>
+</div></div>
+<div class="qa-item" id="q19">
+<h3 class="qa-question" onclick="this.parentElement.classList.toggle('collapsed')">
+<span class="q-num">Q19.</span> What is a Scrum framework?
+<span class="qa-toggle" aria-hidden="true"></span>
+</h3>
+<div class="qa-answer">
+<p>Scrum is an agile framework for managing complex product development. It's founded on empiricism — transparency, inspection, and adaptation.</p>
+<p>The framework consists of:</p>
+<ul>
+<li><strong>3 Roles:</strong> Product Owner, Scrum Master, Development Team</li>
+<li><strong>3 Artifacts:</strong> Product Backlog, Sprint Backlog, Product Increment</li>
+<li><strong>5 Events:</strong> Sprint, Sprint Planning, Daily Scrum, Sprint Review, Sprint Retrospective</li>
+</ul>
+<p>Scrum is intentionally lightweight — it defines the structure but not the tactics. Teams choose their own engineering practices, estimation techniques, and tools within the framework.</p>
+</div></div>
+<div class="qa-item" id="q20">
+<h3 class="qa-question" onclick="this.parentElement.classList.toggle('collapsed')">
+<span class="q-num">Q20.</span> How are traditional requirements different from User Stories?
+<span class="qa-toggle" aria-hidden="true"></span>
+</h3>
+<div class="qa-answer">
+<p>Traditional requirements (like in Waterfall) are detailed specifications: "The system shall..." They're comprehensive, written upfront, and treated as contracts. Changes require formal change requests.</p>
+<p>User Stories are short, conversational descriptions of a feature from the user's perspective: "As a [user], I want [action] so that [benefit]." They're intentionally incomplete — the detail emerges through conversation between PO and Development Team during refinement.</p>
+<p>Stories embrace change and accept that we can't know everything upfront. They focus on the "what" and "why," leaving the "how" to the development team.</p>
+</div></div>
+<div class="qa-item" id="q21">
+<h3 class="qa-question" onclick="this.parentElement.classList.toggle('collapsed')">
+<span class="q-num">Q21.</span> Where are customer requirements stored?
+<span class="qa-toggle" aria-hidden="true"></span>
+</h3>
+<div class="qa-answer">
+<p>In the Product Backlog. The Product Backlog is the single source of truth for all changes and enhancements to the product. Everything the team works on comes from the backlog.</p>
+<p>Requirements can come from many sources — user feedback, stakeholder requests, market research, competitive analysis, regulatory changes — but they all funnel into the Product Backlog as items. The PO evaluates and prioritizes them.</p>
+<p>For AI products, I also maintain a separate "data requirements" log — what data the team needs access to, quality standards, and labeling needs.</p>
+</div></div>
+<div class="qa-item" id="q22">
+<h3 class="qa-question" onclick="this.parentElement.classList.toggle('collapsed')">
+<span class="q-num">Q22.</span> What is the relationship between vision and product roadmap?
+<span class="qa-toggle" aria-hidden="true"></span>
+</h3>
+<div class="qa-answer">
+<p>The product vision is the "why" — the long-term aspirational goal. What are we building and who is it for? It's stable and rarely changes.</p>
+<p>The product roadmap is the "when and what" — a high-level plan showing how we'll get from here to the vision, broken into themes, epics, or milestones across time. It's adaptive and changes based on learning.</p>
+<p>The vision guides the roadmap. The roadmap guides the backlog. The backlog guides the sprint. It's a cascade: Vision → Roadmap → Backlog → Sprint.</p>
+</div></div>
+<div class="qa-item" id="q23">
+<h3 class="qa-question" onclick="this.parentElement.classList.toggle('collapsed')">
+<span class="q-num">Q23.</span> What are the different estimation levels in Scrum?
+<span class="qa-toggle" aria-hidden="true"></span>
+</h3>
+<div class="qa-answer">
+<ul>
+<li><strong>Product Backlog Item level:</strong> Rough estimates (story points) done during refinement for prioritization purposes.</li>
+<li><strong>Sprint level:</strong> More refined estimates for items the team commits to during Sprint Planning.</li>
+<li><strong>Task level:</strong> During Sprint Planning, stories are broken into tasks with hourly estimates.</li>
+</ul>
+<p>Higher levels are intentionally less precise. An epic estimated at 100 points has high uncertainty. A task estimated at 4 hours is quite precise. This is the "Cone of Uncertainty" — precision increases as we get closer to implementation.</p>
+</div></div>
+<div class="qa-item" id="q24">
+<h3 class="qa-question" onclick="this.parentElement.classList.toggle('collapsed')">
+<span class="q-num">Q24.</span> What is the difference between estimating and committing?
+<span class="qa-toggle" aria-hidden="true"></span>
+</h3>
+<div class="qa-answer">
+<p>Estimating is about understanding relative effort — "this story is about twice as complex as that one." It's not a promise; it's an informed prediction with uncertainty.</p>
+<p>Committing is about the Sprint Goal — "we will deliver this outcome this sprint." In modern Scrum, teams forecast rather than commit (the Scrum Guide 2020 uses "forecast"). The team forecasts what they can deliver, and the Sprint Goal defines the minimum valuable outcome.</p>
+<p>If the team consistently over-commits, it's a process issue — not an estimation issue. The Retrospective is where we address the root cause.</p>
+</div></div>
+<div class="qa-item" id="q25">
+<h3 class="qa-question" onclick="this.parentElement.classList.toggle('collapsed')">
+<span class="q-num">Q25.</span> What is velocity and how do you measure it?
+<span class="qa-toggle" aria-hidden="true"></span>
+</h3>
+<div class="qa-answer">
+<p>Velocity is the amount of Product Backlog work a team completes per sprint, measured in story points. It's calculated by summing the story points of all items that met the Definition of Done during the sprint.</p>
+<p>Velocity is a planning tool, not a performance metric. I use it to forecast: "If our average velocity is 40 points, and this feature is 120 points, it'll likely take 3 sprints." It helps set realistic expectations with stakeholders.</p>
+<p>Velocity is team-specific — comparing one team's velocity to another's is meaningless because story point scales differ. It's also not a target to hit — if the team inflates estimates to "improve" velocity, the metric loses all value.</p>
+</div></div>
+<div class="qa-item" id="q26">
+<h3 class="qa-question" onclick="this.parentElement.classList.toggle('collapsed')">
+<span class="q-num">Q26.</span> What is technical debt and how do you manage it?
+<span class="qa-toggle" aria-hidden="true"></span>
+</h3>
+<div class="qa-answer">
+<p>Technical debt is the implied cost of future rework caused by choosing a quick solution now over a better approach. Like financial debt, it accrues "interest" — making future changes harder and slower.</p>
+<p>As a PO, I manage it by explicitly allocating capacity for technical debt reduction — typically 15-20% of sprint capacity goes to refactoring, bug fixes, and infrastructure improvements. I also make tech debt visible by logging it as Product Backlog items, not leaving it as informal "we should fix this someday" notes.</p>
+<p>For AI products, tech debt includes: model retraining gaps, deprecated libraries, stale training data, and monitoring blind spots. These degrade product quality silently.</p>
+</div></div>
+<div class="qa-item" id="q27">
+<h3 class="qa-question" onclick="this.parentElement.classList.toggle('collapsed')">
+<span class="q-num">Q27.</span> Can the same person be Product Owner for multiple Scrum teams?
+<span class="qa-toggle" aria-hidden="true"></span>
+</h3>
+<div class="qa-answer">
+<p>It's possible but not ideal. A full-time PO typically handles one team effectively. With two teams, the PO becomes a bottleneck — unavailable for questions, slow on backlog refinement, and stretched across competing sprint ceremonies.</p>
+<p>If one PO must serve multiple teams, I'd recommend: strong proxy POs on each team, very disciplined backlog refinement (front-loaded), and clear working agreements about availability.</p>
+<p>The Scrum Guide says the PO is one person. If multiple teams share a PO, they'd better be working on the same product with a unified backlog.</p>
+</div></div>
+<div class="qa-item" id="q28">
+<h3 class="qa-question" onclick="this.parentElement.classList.toggle('collapsed')">
+<span class="q-num">Q28.</span> Can there be more than one Product Owner in a Scrum team?
+<span class="qa-toggle" aria-hidden="true"></span>
+</h3>
+<div class="qa-answer">
+<p>No. The Scrum Guide is clear: the Product Owner is one person. Multiple POs create conflicting priorities, confusion about who owns decisions, and political friction.</p>
+<p>In large organizations, you might see a "Chief Product Owner" who oversees a product portfolio, with "Feature POs" or "Component POs" managing specific areas. But each Development Team has exactly one PO they answer to for prioritization.</p>
+<p>If stakeholders disagree on priorities, they escalate to the single PO, who makes the call.</p>
+</div></div>
+<div class="qa-item" id="q29">
+<h3 class="qa-question" onclick="this.parentElement.classList.toggle('collapsed')">
+<span class="q-num">Q29.</span> What is the difference between PM, PO, and Business Analyst?
+<span class="qa-toggle" aria-hidden="true"></span>
+</h3>
+<div class="qa-answer">
+<ul>
+<li><strong>Product Manager (PM):</strong> Outward-facing — focuses on market research, product strategy, competitive positioning, pricing, and the overall product vision. Often owns the "what and why" at a strategic level.</li>
+<li><strong>Product Owner (PO):</strong> Inward-facing — translates the PM's vision into an actionable backlog. Owns sprint-level priorities, user stories, and acceptance criteria. Works daily with the development team.</li>
+<li><strong>Business Analyst (BA):</strong> Detail-oriented — gathers and documents detailed requirements, performs process analysis, and bridges business stakeholders and the technical team. Often supports the PO by doing deep-dive requirements work.</li>
+</ul>
+<p>In smaller companies, one person may wear all three hats. In enterprise, they're distinct roles.</p>
+</div></div>
+<div class="qa-item" id="q30">
+<h3 class="qa-question" onclick="this.parentElement.classList.toggle('collapsed')">
+<span class="q-num">Q30.</span> Is the Product Owner a member of the Scrum Team?
+<span class="qa-toggle" aria-hidden="true"></span>
+</h3>
+<div class="qa-answer">
+<p>Yes. The Scrum Team consists of the Product Owner, the Scrum Master, and the Development Team. The PO is not an external stakeholder — they're part of the team.</p>
+<p>However, the PO's role within the team is different from the Development Team. The PO doesn't write code or estimate story points. Their contribution is clarity, prioritization, and business context.</p>
+</div></div>
+<div class="qa-item" id="q31">
+<h3 class="qa-question" onclick="this.parentElement.classList.toggle('collapsed')">
+<span class="q-num">Q31.</span> What are the qualities of a good Product Owner?
+<span class="qa-toggle" aria-hidden="true"></span>
+</h3>
+<div class="qa-answer">
+<p>A great PO is: decisive (doesn't waffle on priorities), available (the team can reach them for clarifications), knowledgeable (understands the product, market, and users), collaborative (works with the team, not above them), and courageous (can say "no" to stakeholders and push back on scope creep).</p>
+<p>They're also comfortable with ambiguity — they don't need everything perfectly defined before moving. And they're outcome-driven, measuring success by value delivered, not features shipped.</p>
+<p>For AI POs specifically: comfortable with probabilistic outcomes, understands that AI features degrade over time (model drift), and factors ethical considerations into every decision.</p>
+</div></div>
+<div class="qa-item" id="q32">
+<h3 class="qa-question" onclick="this.parentElement.classList.toggle('collapsed')">
+<span class="q-num">Q32.</span> How is PO and Scrum Master collaboration important?
+<span class="qa-toggle" aria-hidden="true"></span>
+</h3>
+<div class="qa-answer">
+<p>The PO and SM are partners. The PO drives "what" (priorities, vision, value); the SM drives "how" (process, impediments, team health). When they collaborate well, the team performs.</p>
+<p>The SM protects the PO from stakeholder interference — ensuring the team isn't mid-sprint with new demands. The PO respects the SM's process improvements and doesn't override the DoD or sprint commitments unilaterally.</p>
+<p>When the PO and SM are misaligned, the team feels it immediately — conflicting messages, unclear priorities, and eroded trust. I meet with my SM weekly (outside ceremonies) to align on team health, upcoming challenges, and process improvements.</p>
+</div></div>
+<div class="qa-item" id="q33">
+<h3 class="qa-question" onclick="this.parentElement.classList.toggle('collapsed')">
+<span class="q-num">Q33.</span> Should the Product Owner attend the entire Sprint Planning ceremony?
+<span class="qa-toggle" aria-hidden="true"></span>
+</h3>
+<div class="qa-answer">
+<p>Yes, absolutely. The PO is essential for Sprint Planning. They present the prioritized backlog items, explain the business context, answer questions from the Development Team, and negotiate the Sprint Goal.</p>
+<p>The PO doesn't need to stay for the entire task breakdown (that's the Development Team's work), but they must be available for clarifications. In practice, I stay through the entire session and step out only when the team is doing internal task estimation.</p>
+</div></div>
+<div class="qa-item" id="q34">
+<h3 class="qa-question" onclick="this.parentElement.classList.toggle('collapsed')">
+<span class="q-num">Q34.</span> What methods do you use for keeping a healthy Product Backlog?
+<span class="qa-toggle" aria-hidden="true"></span>
+</h3>
+<div class="qa-answer">
+<p>Regular grooming/refinement is key. I dedicate 5-10% of Development Team capacity to refinement every sprint. During refinement, I: review and update existing items, add detail to upcoming stories, remove items that are no longer relevant, re-prioritize based on new information, and break epics into smaller stories.</p>
+<p>I also do a quarterly "backlog audit" — going through the entire backlog and aggressively cutting stale items. A healthy backlog should be like a garden: pruned regularly, not a dumping ground for every idea anyone ever had.</p>
+</div></div>
+<div class="qa-item" id="q35">
+<h3 class="qa-question" onclick="this.parentElement.classList.toggle('collapsed')">
+<span class="q-num">Q35.</span> How is backlog grooming done?
+<span class="qa-toggle" aria-hidden="true"></span>
+</h3>
+<div class="qa-answer">
+<p>Backlog grooming (now called "refinement" in the Scrum Guide) is an ongoing activity, not a single meeting. I typically schedule a 1-2 hour refinement session mid-sprint where the PO, Development Team, and relevant stakeholders review upcoming items.</p>
+<p>During refinement: the PO presents items, the team asks clarifying questions, acceptance criteria are defined or refined, stories are split if too large, and estimates are provided. The output is items that are "Ready" — meeting the Definition of Ready.</p>
+<p>I also groom the backlog solo between sessions — updating priorities, adding new items, and removing stale ones based on stakeholder feedback and market changes.</p>
+</div></div>
+<div class="qa-item" id="q36">
+<h3 class="qa-question" onclick="this.parentElement.classList.toggle('collapsed')">
+<span class="q-num">Q36.</span> Who owns the Product Backlog and its prioritization?
+<span class="qa-toggle" aria-hidden="true"></span>
+</h3>
+<div class="qa-answer">
+<p>The Product Owner. This is non-negotiable in Scrum. The PO is the single person accountable for the Product Backlog — its content, availability, and ordering.</p>
+<p>Stakeholders can request items, and the Development Team can suggest technical items. But the decision about what goes in and in what order is the PO's alone. If multiple people control the backlog, priorities conflict and the team loses focus.</p>
+<p>This is why "proxy PO" arrangements are risky — the proxy may not have the authority or context to make real trade-off decisions.</p>
+</div></div>
+                    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+                        <a href="/interview-prep/" style="font-family: var(--font-mono); font-size: 0.875rem; color: var(--accent);">&larr; All Questions</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="cta-strip">
+            <div class="container">
+                <h2>Preparing for an AI Product Owner interview?</h2>
+                <p>Practice with real AI tools built by a working Product Owner.</p>
+                <a href="/apps/ba-assistant.html" class="btn btn-primary">Explore AI Tools &rarr;</a>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="brand-text">touseefshaik.com</span>
+                    <span class="brand-badge">Lab</span>
+                    <p>AI tools and workflows for Business Analysts, Product Owners, and product teams.</p>
+                </div>
+                <nav class="footer-nav">
+                    <p class="footer-heading">Explore</p>
+                    <ul>
+                        <li><a href="/apps/">Lab</a></li>
+                        <li><a href="/apps/ba-assistant.html">BA Assistant</a></li>
+                        <li><a href="/apps/stock-research-assistant.html">Stock Research</a></li>
+                        <li><a href="/apps/ba-jira-agent.html">Jira Agent</a></li>
+                        <li><a href="/learn/">Learn</a></li>
+                        <li><a href="/evals/">Evals</a></li>
+                        <li><a href="/interview-prep/">Interview Prep</a></li>
+                        <li><a href="/resources/">Resources</a></li>
+                    </ul>
+                </nav>
+                <nav class="footer-nav">
+                    <p class="footer-heading">Connect</p>
+                    <ul>
+                        <li><a href="https://linkedin.com/in/ts26" target="_blank" rel="noopener">LinkedIn</a></li>
+                        <li><a href="https://huggingface.co/tshaik1990" target="_blank" rel="noopener">Hugging Face</a></li>
+                        <li><a href="https://github.com/Touseef1949" target="_blank" rel="noopener">GitHub</a></li>
+                        <li><a href="/contact/">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="footer-cta">
+                    <p class="footer-heading">Try BA Assistant</p>
+                    <p>Turn messy requirements into structured specs in under 60 seconds.</p>
+                    <a href="https://tshaik1990-ba-assistant.hf.space" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Start Free &rarr;</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Touseef Shaik. All tools free. Building in public.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
