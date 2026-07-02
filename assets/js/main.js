@@ -93,37 +93,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ============================================
-// Reveal on scroll (Intersection Observer)
-// ============================================
-const prefersReducedMotion = window.matchMedia('(prefers-reduced motion: reduce)').matches;
-
-if (!prefersReducedMotion) {
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('revealed');
-                revealObserver.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    });
-
-    document.querySelectorAll('.app-card, .pattern-card, .blog-card, .resource-card, .stat').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 600ms ease, transform 600ms ease';
-        revealObserver.observe(el);
-    });
-
-    const style = document.createElement('style');
-    style.textContent = '.revealed { opacity: 1 !important; transform: translateY(0) !important; }';
-    document.head.appendChild(style);
-}
-
-
-// ============================================
 // Mobile nav toggle
 // ============================================
 (function setupMobileNav() {
@@ -170,5 +139,5 @@ if (!prefersReducedMotion) {
 // ============================================
 // Console welcome
 // ============================================
-console.log('%ctouseefshaik.com Lab', 'font-size: 14px; font-weight: bold; color: #1863dc;');
-console.log('%cAI tools and workflows for BAs, POs, and product teams. 5 live apps.', 'font-size: 11px; color: #6b6b7a;');
+console.log('%ctouseefshaik.com Lab', 'font-size: 14px; font-weight: bold; color: #8b5cf6;');
+console.log('%cAI tools and workflows for BAs, POs, and product teams. 7 live apps.', 'font-size: 11px; color: #b3a8d6;');

@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="/assets/css/main.css?v=20260629">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -57,18 +57,13 @@
                 <span class="brand-badge">Lab</span>
             </a>
             <ul class="nav-links">
-                <li><a href="/start-here/">Start Here</a></li>
                 <li><a href="/apps/">Lab</a></li>
-                <li><a href="/apps/ba-assistant.html">BA Assistant</a></li>
-                <li><a href="/apps/stock-research-assistant.html">Stock Research</a></li>
-                <li><a href="/apps/ba-jira-agent.html">Jira Agent</a></li>
                 <li><a href="/learn/">Learn</a></li>
                 <li><a href="/evals/">Evals</a></li>
                 <li><a href="/interview-prep/">Interview Prep</a></li>
-                <li><a href="/resources/">Resources</a></li>
                 <li><a href="/blog/">Blog</a></li>
                 <li><a href="/about/">About</a></li>
-                <li><a href="/contact/" class="nav-cta">Contact</a></li>
+                <li><a href="https://tshaik1990-ba-assistant.hf.space" class="nav-cta" target="_blank" rel="noopener">Try BA Assistant</a></li>
             </ul>
                     <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
                 <span class="hamburger-icon"><span></span></span>
@@ -125,45 +120,6 @@
         </section>
 
         <!-- ============================================================
-             HOW I CAN HELP YOU
-             ============================================================ -->
-        <section>
-            <div class="container">
-                <header class="section-header">
-                    <p class="hero-label">How I can help you</p>
-                    <h2>Practical AI for BA and product workflows.</h2>
-                    <p>Whether you're drowning in messy requirements or want to speed up documentation, here's how I can help.</p>
-                </header>
-                <div class="app-grid">
-                    <article class="app-card">
-                        <div class="app-icon">📋</div>
-                        <h3>Analyze Requirements Faster</h3>
-                        <p class="app-desc">Use BA Assistant to convert raw notes and stakeholder input into structured BA/PO deliverables in under 60 seconds.</p>
-                        <a href="https://tshaik1990-ba-assistant.hf.space" class="app-link" target="_blank" rel="noopener">Try BA Assistant →</a>
-                    </article>
-                    <article class="app-card">
-                        <div class="app-icon">📝</div>
-                        <h3>Write Better User Stories</h3>
-                        <p class="app-desc">Learn how to turn vague feature requests into clear, actionable backlog items with acceptance criteria.</p>
-                        <a href="/resources/" class="app-link">Read Guides →</a>
-                    </article>
-                    <article class="app-card">
-                        <div class="app-icon">🤖</div>
-                        <h3>Use AI in Product Workflows</h3>
-                        <p class="app-desc">Practical AI workflows for BAs, PMs, Product Owners, and delivery teams — not hype, just what works.</p>
-                        <a href="/resources/" class="app-link">Explore Resources →</a>
-                    </article>
-                    <article class="app-card">
-                        <div class="app-icon">📄</div>
-                        <h3>Build Better Product Documentation</h3>
-                        <p class="app-desc">Templates, examples, and tools for specs, PRDs, risk logs, diagrams, and export-ready reports.</p>
-                        <a href="/resources/" class="app-link">Get Templates →</a>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- ============================================================
              FLAGSHIP PRODUCT — BA ASSISTANT
              ============================================================ -->
         <section id="ba-assistant">
@@ -173,6 +129,28 @@
                     <h2>BA Assistant — Your AI copilot for requirement analysis.</h2>
                     <p>Paste messy requirements. Get a complete BA/PO report with functional specs, user stories, architecture, risks, and Mermaid diagrams — in under 60 seconds.</p>
                 </header>
+                <div class="app-grid" style="grid-template-columns:repeat(4,1fr); margin-bottom:2.5rem;">
+                    <article class="app-card">
+                        <div class="app-icon">📋</div>
+                        <h3 style="font-size:1.05rem;">Analyze Requirements Faster</h3>
+                        <p class="app-desc">Convert raw notes and stakeholder input into structured BA/PO deliverables.</p>
+                    </article>
+                    <article class="app-card">
+                        <div class="app-icon">📝</div>
+                        <h3 style="font-size:1.05rem;">Write Better User Stories</h3>
+                        <p class="app-desc">Turn vague feature requests into clear, actionable backlog items.</p>
+                    </article>
+                    <article class="app-card">
+                        <div class="app-icon">🤖</div>
+                        <h3 style="font-size:1.05rem;">Use AI in Workflows</h3>
+                        <p class="app-desc">Practical AI workflows for BAs, PMs, and delivery teams — not hype.</p>
+                    </article>
+                    <article class="app-card">
+                        <div class="app-icon">📄</div>
+                        <h3 style="font-size:1.05rem;">Better Documentation</h3>
+                        <p class="app-desc">Specs, PRDs, risk logs, diagrams, and export-ready reports.</p>
+                    </article>
+                </div>
                 <article class="app-card" style="max-width:800px; margin:0 auto 2rem;">
                     <div class="app-icon">📋</div>
                     <h3>BA Assistant</h3>
@@ -235,35 +213,6 @@
         </section>
 
         <!-- ============================================================
-             FREE RESOURCES
-             ============================================================ -->
-        <section>
-            <div class="container">
-                <header class="section-header">
-                    <p class="hero-label">Free resources</p>
-                    <h2>BA &amp; PO templates — ready to use.</h2>
-                    <p>Download practical templates for requirements, user stories, PRDs, risk checklists, and Mermaid diagrams — built for BA and Product Owner workflows.</p>
-                </header>
-            </div>
-        </section>
-
-        <!-- ============================================================
-             LATEST THINKING / BLOG
-             ============================================================ -->
-        <section>
-            <div class="container">
-                <header class="section-header">
-                    <p class="hero-label">Latest thinking</p>
-                    <h2>From the blog.</h2>
-                    <p>Practical articles on AI for BAs, product workflows, and lessons from 12+ years in fintech product delivery. Start with the latest guides below.</p>
-                </header>
-                <div style="text-align:center;">
-                    <a href="/blog/" class="btn btn-outline">Visit the Blog →</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ============================================================
              DEEP EXPERTISE TRACK
              ============================================================ -->
         <section>
@@ -295,6 +244,36 @@
                 </div>
                 <div class="apps-cta">
                     <a href="/learn/" class="btn btn-outline">See All 12 Lessons &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             LATEST THINKING / BLOG
+             ============================================================ -->
+        <section>
+            <div class="container">
+                <header class="section-header">
+                    <p class="hero-label">Latest thinking</p>
+                    <h2>From the blog.</h2>
+                    <p>Practical articles on AI for BAs, product workflows, and lessons from 12+ years in fintech product delivery.</p>
+                </header>
+                <div class="app-grid" style="grid-template-columns:repeat(3,1fr);">
+                    <a href="/blog/best-ai-prompts.html" class="blog-card">
+                        <h2>The Best AI Prompts for Business Analysts</h2>
+                        <p>Copy-paste AI prompts for requirements analysis, user story generation, acceptance criteria, risk assessment, and Mermaid diagrams.</p>
+                    </a>
+                    <a href="/blog/how-i-use-ai.html" class="blog-card">
+                        <h2>How I Use AI as a Product Owner</h2>
+                        <p>Real daily AI workflows for BAs and Product Owners — from messy stakeholder input to structured deliverables.</p>
+                    </a>
+                    <a href="/blog/turn-messy-requirements.html" class="blog-card">
+                        <h2>Turn Messy Requirements into User Stories</h2>
+                        <p>A practical step-by-step framework for taking vague stakeholder input and turning it into clear user stories.</p>
+                    </a>
+                </div>
+                <div class="apps-cta">
+                    <a href="/blog/" class="btn btn-outline">Visit the Blog &rarr;</a>
                 </div>
             </div>
         </section>
@@ -338,16 +317,16 @@
             <div class="container">
                 <header class="section-header">
                     <p class="hero-label">Labs</p>
-                    <h2>Experiments I'm tinkering with.</h2>
-                    <p>Beyond the flagship products, here are other experiments — some useful, some just fun.</p>
+                    <h2>More AI experiments.</h2>
+                    <p>Beyond BA Assistant, here are other tools I've shipped — some useful, some just fun.</p>
                 </header>
                 <div class="app-grid">
                     <article class="app-card">
-                        <div class="app-icon">📋</div>
-                        <h3>BA Assistant</h3>
-                        <p class="app-desc">5 AI agents turn raw requirements into structured specs, user stories, architecture, risk assessments, and Mermaid diagrams.</p>
+                        <div class="app-icon">🎫</div>
+                        <h3>BA Jira Agent</h3>
+                        <p class="app-desc">AI agent that turns approved user stories into properly formatted Jira tickets, ready to import into your backlog.</p>
                         <div class="app-pattern">Live · Free to try</div>
-                        <a href="https://tshaik1990-ba-assistant.hf.space" target="_blank" rel="noopener" class="app-link">Try Free →</a>
+                        <a href="/apps/ba-jira-agent.html" class="app-link">See Details →</a>
                     </article>
 
                     <article class="app-card">
@@ -419,17 +398,7 @@
                 </div>
                 <nav class="footer-nav">
                     <p class="footer-heading">Explore</p>
-                    <ul>
-                        <li><a href="/apps/">Lab</a></li>
-                        <li><a href="/apps/ba-assistant.html">BA Assistant</a></li>
-                        <li><a href="/apps/stock-research-assistant.html">Stock Research</a></li>
-                        <li><a href="/apps/ba-jira-agent.html">Jira Agent</a></li>
-                        <li><a href="/learn/">Learn</a></li>
-                        <li><a href="/evals/">Evals</a></li>
-                        <li><a href="/interview-prep/">Interview Prep</a></li>
-                        <li><a href="/resources/">Resources</a></li>
-                        <li><a href="/blog/">Blog</a></li>
-                    </ul>
+                    <ul><li><a href="/apps/">Lab</a></li><li><a href="/learn/">Learn</a></li><li><a href="/evals/">Evals</a></li><li><a href="/interview-prep/">Interview Prep</a></li><li><a href="/resources/">Resources</a></li><li><a href="/blog/">Blog</a></li><li><a href="/start-here/">Start Here</a></li></ul>
                 </nav>
                 <nav class="footer-nav">
                     <p class="footer-heading">Connect</p>
