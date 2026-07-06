@@ -350,7 +350,7 @@ em, .accent-word {
 .stat-label {
     font-family: var(--font-mono);
     font-size: 0.875rem;
-    color: var(--fg-faint);
+    color: var(--fg-muted);
     text-transform: uppercase;
     letter-spacing: 0.04em;
 }
