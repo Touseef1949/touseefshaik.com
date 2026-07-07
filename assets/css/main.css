@@ -14,7 +14,7 @@
     --border-strong: #C9C2B0;
     --fg-primary: #1C1A16;
     --fg-muted: #55503F;
-    --fg-faint: #857D66;
+    --fg-faint: #55503F;  /* AA-passing warm-tan for small text on light paper bg (was #857D66 = 3.73:1 FAIL) */
     --text: #1C1A16;
     --text-heading: #1C1A16;
     --text-secondary: #55503F;
@@ -32,7 +32,7 @@
     --dark-muted: #B5AE9C;
     --dark-light: #D8D2C2;
     --live-bg: #E4EFE3;
-    --live-text: #2E7D4F;
+    --live-text: #1F5C36;  /* AA-passing dark green on --live-bg light-green tag (was #2E7D4F = 4.26:1) */
     --warn: #8A6D2D;
     --error: #A4392E;
     --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
@@ -350,7 +350,7 @@ em, .accent-word {
 .stat-label {
     font-family: var(--font-mono);
     font-size: 0.875rem;
-    color: var(--fg-faint);
+    color: var(--fg-muted);
     text-transform: uppercase;
     letter-spacing: 0.04em;
 }
@@ -499,7 +499,7 @@ main > section:last-of-type {
 }
 
 .ba-demo-input .ba-demo-label {
-    color: var(--fg-faint);
+    color: var(--dark-muted);  /* #B5AE9C light tan on --dark-card #26231D, AA 5.40:1 (was --fg-faint = 3.82:1 FAIL) */
 }
 
 .ba-demo-input p {
