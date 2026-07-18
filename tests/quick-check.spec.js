@@ -34,3 +34,33 @@ test('mobile hamburger works', async ({ page }) => {
   await page.locator('.nav-links a').first().click();
   await expect(page.locator('body')).not.toHaveClass(/nav-open/);
 });
+
+test('portfolio surfaces show truthful flagship and runtime status', async ({ page }) => {
+  await page.goto(BASE + '/apps/');
+
+  await expect(page.locator('.app-card.flagship')).toHaveCount(3);
+  await expect(page.getByText('Unavailable · Quota limit')).toHaveCount(2);
+  await expect(page.getByText('Paused · Demo available')).toHaveCount(2);
+
+  const flagshipDestinations = [
+    'https://tshaik1990-ba-assistant.hf.space',
+    'https://tshaik1990-ba-jira-agent.hf.space',
+    'https://tshaik1990-stock-research-assistant.hf.space',
+  ];
+  for (const href of flagshipDestinations) {
+    await expect(page.locator(`a[href="${href}"]`).first()).toBeVisible();
+  }
+
+  const flagshipRepositories = [
+    'https://github.com/Touseef1949/BA_Assistant',
+    'https://github.com/Touseef1949/ba-jira-agent',
+    'https://github.com/Touseef1949/stock-research-assistant',
+  ];
+  for (const href of flagshipRepositories) {
+    await expect(page.locator(`a[href="${href}"]`).first()).toBeVisible();
+  }
+
+  await page.goto(BASE + '/');
+  await expect(page.getByText('Public flagships')).toBeVisible();
+  await expect(page.getByText('Live tools')).toHaveCount(0);
+});

@@ -11,10 +11,10 @@
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:image" content="https://touseefshaik.com/assets/images/og-image.jpg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="7 live AI apps and reusable patterns: BA Assistant, Stock Research Assistant, BA Jira Agent, Whiteboard→Requirements, Sarvam TTS, Cast Graph, and Streaming Finder.">
-    <meta property="og:title" content="Lab — 7 Live AI Apps & Patterns | touseefshaik.com">
-    <meta property="og:description" content="7 Live Apps. Reusable AI patterns for BA/PO workflows, stock research, Jira backlog analysis, voice generation, visual graphs, and search.">
-    <title>Lab — 7 Live AI Apps & Patterns | touseefshaik.com</title>
+    <meta name="description" content="Three public AI flagships plus experiments with clearly labelled runtime status: BA Assistant, Stock Research Assistant, BA Jira Agent, and more.">
+    <meta property="og:title" content="AI Products & Experiments | touseefshaik.com">
+    <meta property="og:description" content="Three public AI flagships plus experiments with clearly labelled runtime status, demos, and source links.">
+    <title>AI Products & Experiments | touseefshaik.com</title>
     <link rel="stylesheet" href="/assets/css/main.css?v=20260706c">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,7 +47,7 @@
             <div class="container">
                 <p class="eyebrow">Touseef Shaik Labs</p>
                 <h1>AI Labs — Products &amp; Experiments</h1>
-                <p>Flagship products, BA/PO workflow tools, and experimental AI utilities. Some are production-ready; others are experiments. All are free to try.</p>
+                <p>Three public flagships plus BA/PO workflow experiments. Each project shows its current runtime status, with demos and source links where the hosted app is unavailable.</p>
             </div>
         </section>
 
@@ -65,8 +65,9 @@
                         <p class="app-desc">Multi-agent AI · 6 modes · Document upload · Interactive Q&A · PDF export · Fintech templates. Default modes use a single fast senior agent; Enterprise mode optionally coordinates 5 specialist agents (requirements extraction → backlog structuring → architecture design → risk assessment → diagram generation). The output is Confluence/Notion-ready documentation with Mermaid.js diagrams. Powered by Streamlit on Hugging Face Spaces.</p>
                         <p class="app-pattern"><strong>Pattern:</strong> Multi-Agent Pipeline → Structured Output</p>
                         <p class="app-future">Future: Compliance Audit Generator, Sprint Retrospective Synthesizer</p>
-                        <a href="https://huggingface.co/spaces/tshaik1990/ba_assistant" target="_blank" rel="noopener" class="btn btn-primary">Try on HF →</a>
+                        <a href="https://tshaik1990-ba-assistant.hf.space" target="_blank" rel="noopener" class="btn btn-primary">Open live app →</a>
                         <a href="/apps/ba-assistant.html" class="app-link">Explore details →</a>
+                        <a href="https://github.com/Touseef1949/BA_Assistant" target="_blank" rel="noopener" class="app-link">GitHub repo →</a>
                     </div>
                     </div>
                     </div>
@@ -86,8 +87,9 @@
                         <p class="app-desc">AI-powered NSE/BSE equity research. Enter a ticker and get a 4-lens snapshot (fundamentals, technicals, sentiment, risk) or run the full deep-research pipeline with 10 specialist modules that produce an institutional-grade PDF report with valuation scenarios, peer comparison, governance checks, and a final verdict. Built with Streamlit on Hugging Face Spaces.</p>
                         <p class="app-pattern"><strong>Pattern:</strong> Multi-Agent Pipeline → Institutional PDF Report</p>
                         <p class="app-future">Future: Options Screener, Portfolio Health Check, Sector Rotation Tracker</p>
-                        <a href="https://huggingface.co/spaces/tshaik1990/stock-research-assistant" target="_blank" rel="noopener" class="btn btn-primary">Try on HF →</a>
+                        <a href="https://tshaik1990-stock-research-assistant.hf.space" target="_blank" rel="noopener" class="btn btn-primary">Open live app →</a>
                         <a href="/apps/stock-research-assistant.html" class="app-link">Explore details →</a>
+                        <a href="https://github.com/Touseef1949/stock-research-assistant" target="_blank" rel="noopener" class="app-link">GitHub repo →</a>
                     </div>
                     </div>
                     </div>
@@ -107,8 +109,9 @@
                         <p class="app-desc">LangChain ReAct agent that analyzes Jira backlogs using natural language. The agent reasons about which tool to call (Think → Act → Observe loop), executes 4 custom tools (load, filter, search, metrics), and produces structured backlog analysis with sprint velocity, workload, and risk assessments. Powered by DeepSeek LLM via LangGraph orchestration. 119 tests, 87% coverage.</p>
                         <p class="app-pattern"><strong>Pattern:</strong> ReAct Agent → Tool Selection → Structured Analysis</p>
                         <p class="app-future">Future: Live Jira API, Sprint Planning Recommendations, Backlog Export</p>
-                        <a href="https://tshaik1990-ba-jira-agent.hf.space" target="_blank" rel="noopener" class="btn btn-primary">Try on HF →</a>
+                        <a href="https://tshaik1990-ba-jira-agent.hf.space" target="_blank" rel="noopener" class="btn btn-primary">Open live app →</a>
                         <a href="/apps/ba-jira-agent.html" class="app-link">Explore details →</a>
+                        <a href="https://github.com/Touseef1949/ba-jira-agent" target="_blank" rel="noopener" class="app-link">GitHub repo →</a>
                     </div>
                     </div>
                     </div>
@@ -123,11 +126,11 @@
                 <div class="app-grid">
                     <div class="app-card">
                         <span class="app-icon">🧩</span>
-                        <h3>Whiteboard to Requirements <span style="font-size:0.7rem;font-weight:600;color:var(--accent);background:var(--bg-card);padding:2px 8px;border-radius:100px;margin-left:6px;">Live &middot; Free</span></h3>
+                        <h3>Whiteboard to Requirements <span style="font-size:0.7rem;font-weight:600;color:var(--accent);background:var(--bg-card);padding:2px 8px;border-radius:100px;margin-left:6px;">Unavailable &middot; Quota limit</span></h3>
                         <p class="app-desc">Upload a whiteboard sketch — AI asks clarifying questions, then generates user stories, functional requirements, and Mermaid diagrams. The pipeline: Vision model extracts text and shapes from the image → LLM structures the findings into requirements → Mermaid.js renders the architecture. Built with Streamlit on Hugging Face Spaces.</p>
                         <p class="app-pattern"><strong>Pattern:</strong> Vision + LLM → Structured Specs</p>
                         <p class="app-future">Future: Chart Analysis → Trade Thesis, Architecture Diagram → Infra Code, UI Mockup → Component Specs</p>
-                        <a href="https://huggingface.co/spaces/tshaik1990/whiteboard-to-requirements" target="_blank" rel="noopener" class="btn btn-primary">Try on HF →</a>
+                        <a href="https://huggingface.co/spaces/tshaik1990/whiteboard-to-requirements" target="_blank" rel="noopener" class="btn btn-primary">View Space status →</a>
                         <a href="/apps/whiteboard-to-requirements.html" class="app-link">Explore details →</a>
                     </div>
                 </div>
@@ -144,33 +147,33 @@
                     <!-- Sarvam Text to Speech -->
                     <div class="app-card">
                         <span class="app-icon">🔊</span>
-                        <h3>Sarvam Text to Speech <span style="font-size:0.7rem;font-weight:600;color:var(--accent);background:var(--bg-card);padding:2px 8px;border-radius:100px;margin-left:6px;">Live &middot; Free</span></h3>
+                        <h3>Sarvam Text to Speech <span style="font-size:0.7rem;font-weight:600;color:var(--accent);background:var(--bg-card);padding:2px 8px;border-radius:100px;margin-left:6px;">Unavailable &middot; Quota limit</span></h3>
                         <p class="app-desc">Generate natural speech in 11 Indian languages with 7 voices. Type text, get streaming audio — simple and fast. Real-time token-by-token streaming: text is sent to the Sarvam AI API, and audio chunks stream back immediately — hear output as it generates, with MP3/WAV download options. Built with Streamlit on Hugging Face Spaces.</p>
                         <p class="app-pattern"><strong>Pattern:</strong> Streaming API Wrapper + i18n</p>
                         <p class="app-future">Future: Real-Time Market Commentary, Multi-Lingual Trade Alerts, Live Earnings Call Narration</p>
-                        <a href="https://huggingface.co/spaces/tshaik1990/sarvam-tts" target="_blank" rel="noopener" class="btn btn-primary">Try on HF →</a>
+                        <a href="https://huggingface.co/spaces/tshaik1990/sarvam-tts" target="_blank" rel="noopener" class="btn btn-primary">View Space status →</a>
                         <a href="/apps/sarvam-tts.html" class="app-link">Explore details →</a>
                     </div>
 
                     <!-- India Streaming Finder -->
                     <div class="app-card">
                         <span class="app-icon">🎬</span>
-                        <h3>India Streaming Finder <span style="font-size:0.7rem;font-weight:600;color:var(--accent);background:var(--bg-card);padding:2px 8px;border-radius:100px;margin-left:6px;">Live &middot; Free</span></h3>
+                        <h3>India Streaming Finder <span style="font-size:0.7rem;font-weight:600;color:var(--accent);background:var(--bg-card);padding:2px 8px;border-radius:100px;margin-left:6px;">Paused &middot; Demo available</span></h3>
                         <p class="app-desc">Find which streaming platform has any movie in India — Netflix, Prime, Hotstar, JioCinema, SonyLIV, Zee5, and more. Enter any movie name and the app queries TMDb to identify the title, then cross-references 7+ Indian streaming platforms for availability with filters for free vs paid, quality (4K/HD), and subscription type. Built with Streamlit on Hugging Face Spaces.</p>
                         <p class="app-pattern"><strong>Pattern:</strong> Multi-API Aggregation + Search</p>
                         <p class="app-future">Future: Broker API Aggregator, Data Vendor Comparison, News + Price Unified Feed</p>
-                        <a href="https://huggingface.co/spaces/tshaik1990/india-streaming-finder" target="_blank" rel="noopener" class="btn btn-primary">Try on HF →</a>
+                        <a href="https://huggingface.co/spaces/tshaik1990/india-streaming-finder" target="_blank" rel="noopener" class="btn btn-primary">View Space status →</a>
                         <a href="/apps/india-streaming-finder.html" class="app-link">Explore details →</a>
                     </div>
 
                     <!-- Cast Relationship Graph -->
                     <div class="app-card">
                         <span class="app-icon">🕸️</span>
-                        <h3>Cast Relationship Graph <span style="font-size:0.7rem;font-weight:600;color:var(--accent);background:var(--bg-card);padding:2px 8px;border-radius:100px;margin-left:6px;">Live &middot; Free</span></h3>
+                        <h3>Cast Relationship Graph <span style="font-size:0.7rem;font-weight:600;color:var(--accent);background:var(--bg-card);padding:2px 8px;border-radius:100px;margin-left:6px;">Paused &middot; Demo available</span></h3>
                         <p class="app-desc">AI-powered Mermaid graphs showing cast connections for any movie or TV show. 5 DeepSeek agents discover, analyze, and visualize relationships. Enter any title and the agents build an interactive graph: character nodes with role/actor details, relationship edges (family, romance, rivalry, alliance, mentorship), and story arc timelines. Built with Streamlit on Hugging Face Spaces.</p>
                         <p class="app-pattern"><strong>Pattern:</strong> Knowledge Graph → Mermaid Viz</p>
                         <p class="app-future">Future: Portfolio Correlation Graph, Sector Relationship Map, Supply Chain Visualization</p>
-                        <a href="https://huggingface.co/spaces/tshaik1990/cast-relationship-graph" target="_blank" rel="noopener" class="btn btn-primary">Try on HF →</a>
+                        <a href="https://huggingface.co/spaces/tshaik1990/cast-relationship-graph" target="_blank" rel="noopener" class="btn btn-primary">View Space status →</a>
                         <a href="/apps/cast-relationship-graph.html" class="app-link">Explore details →</a>
                     </div>
                 </div>
