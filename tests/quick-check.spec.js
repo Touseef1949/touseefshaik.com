@@ -3,7 +3,7 @@ const { test, expect } = require('@playwright/test');
 const BASE = 'http://localhost:8765';
 
 test('desktop - all pages load with nav and footer', async ({ page }) => {
-  const pages = ['/', '/apps/', '/blog/', '/about/', '/contact/', '/resources/', '/privacy/', '/terms/', '/patterns/'];
+  const pages = ['/', '/apps/', '/portfolio/', '/blog/', '/about/', '/contact/', '/resources/', '/privacy/', '/terms/', '/patterns/'];
   for (const path of pages) {
     await page.setViewportSize({ width: 1280, height: 800 });
     const resp = await page.goto(BASE + path);
@@ -14,7 +14,7 @@ test('desktop - all pages load with nav and footer', async ({ page }) => {
 });
 
 test('mobile - all pages load with hamburger', async ({ page }) => {
-  const pages = ['/', '/apps/', '/blog/', '/about/', '/contact/', '/resources/', '/privacy/', '/terms/', '/patterns/'];
+  const pages = ['/', '/apps/', '/portfolio/', '/blog/', '/about/', '/contact/', '/resources/', '/privacy/', '/terms/', '/patterns/'];
   for (const path of pages) {
     await page.setViewportSize({ width: 375, height: 812 });
     const resp = await page.goto(BASE + path);
@@ -63,4 +63,28 @@ test('portfolio surfaces show truthful flagship and runtime status', async ({ pa
   await page.goto(BASE + '/');
   await expect(page.getByText('Public flagships')).toBeVisible();
   await expect(page.getByText('Live tools')).toHaveCount(0);
+});
+
+test('portfolio map classifies all 22 repositories exactly once', async ({ page }) => {
+  await page.goto(BASE + '/portfolio/');
+
+  await expect(page.locator('.apps-table tbody tr')).toHaveCount(22);
+
+  const expectedCounts = {
+    'Flagship': 3,
+    'Portfolio surface': 2,
+    'Flagship candidate': 1,
+    'Private product': 3,
+    'Lab': 7,
+    'Archive': 6,
+  };
+
+  for (const [classification, count] of Object.entries(expectedCounts)) {
+    await expect(
+      page.locator('.apps-table tbody td:first-child').filter({ hasText: new RegExp(`^${classification}$`) })
+    ).toHaveCount(count);
+  }
+
+  await expect(page.getByText('Twenty-two owned repositories')).toBeVisible();
+  await expect(page.getByText('AImpactForge', { exact: true })).toBeVisible();
 });
