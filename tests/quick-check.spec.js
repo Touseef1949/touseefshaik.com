@@ -87,10 +87,10 @@ test('portfolio map classifies all 22 repositories exactly once', async ({ page 
 
   await expect(page.getByText('Twenty-two owned repositories')).toBeVisible();
   await expect(page.getByText('AImpactForge', { exact: true })).toBeVisible();
-  await expect(page.getByRole('link', { name: 'Baseline v0.1.0' })).toHaveCount(3);
+  await expect(page.getByRole('link', { name: /^Baseline v0\.1\.[01]$/ })).toHaveCount(3);
 });
 
-test('each flagship surface links to its canonical v0.1.0 release', async ({ page }) => {
+test('each flagship surface links to its canonical release', async ({ page }) => {
   const releaseUrls = [
     'https://github.com/Touseef1949/BA_Assistant/releases/tag/v0.1.1',
     'https://github.com/Touseef1949/ba-jira-agent/releases/tag/v0.1.0',
