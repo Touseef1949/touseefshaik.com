@@ -137,7 +137,28 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 })();
 
 // ============================================
+// Privacy-safe conversion event contract
+// ============================================
+document.addEventListener('click', function(event) {
+    const link = event.target.closest('[data-event]');
+    if (!link) return;
+
+    const detail = {
+        name: link.dataset.event,
+        path: window.location.pathname,
+    };
+
+    window.dispatchEvent(new CustomEvent('site:conversion', { detail }));
+
+    // If a privacy-friendly analytics provider is configured later, it can
+    // expose this standard function without changing the page markup.
+    if (typeof window.plausible === 'function') {
+        window.plausible(detail.name, { props: { path: detail.path } });
+    }
+});
+
+// ============================================
 // Console welcome
 // ============================================
-console.log('%ctouseefshaik.com Lab', 'font-size: 14px; font-weight: bold; color: #8b5cf6;');
-console.log('%cAI tools and workflows for BAs, POs, and product teams. 7 live apps.', 'font-size: 11px; color: #b3a8d6;');
+console.log('%ctouseefshaik.com Products', 'font-size: 14px; font-weight: bold; color: #2450A4;');
+console.log('%cAI tools and workflows for BAs, POs, and product teams. Three public flagship products.', 'font-size: 11px; color: #55503F;');

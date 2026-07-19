@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="What enterprise LLM evals are, the 4 eval families, and why MMLU is not enough to prove production readiness.">
+    <meta name="description" content="Map model, application, risk, and operational LLM evaluations to the decisions enterprise teams make before and after release.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://touseefshaik.com/evals/eval-map.html">
     <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
-    <meta property="og:title" content="The Enterprise LLM Eval Map — Enterprise LLM Evals | Touseef Shaik">
-    <meta property="og:description" content="What enterprise LLM evals are, the 4 eval families, and why MMLU is not enough to prove production readiness.">
+    <meta property="og:title" content="Enterprise LLM Eval Map | Touseef Shaik">
+    <meta property="og:description" content="Map model, application, risk, and operational LLM evaluations to the decisions enterprise teams make before and after release.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://touseefshaik.com/evals/eval-map.html">
     <meta property="og:image" content="https://touseefshaik.com/assets/images/og-image.jpg">
     <meta name="twitter:card" content="summary_large_image">
-    <title>The Enterprise LLM Eval Map — Enterprise LLM Evals | Touseef Shaik</title>
+    <title>Enterprise LLM Eval Map | Touseef Shaik</title>
     <link rel="stylesheet" href="/assets/css/main.css?v=20260706c">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -234,6 +234,59 @@
     }
     
     </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "TechArticle",
+          "headline": "The Enterprise LLM Eval Map",
+          "description": "Map model, application, risk, and operational LLM evaluations to the decisions enterprise teams make before and after release.",
+          "url": "https://touseefshaik.com/evals/eval-map.html",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://touseefshaik.com/evals/eval-map.html"
+          },
+          "datePublished": "2026-06-29",
+          "dateModified": "2026-07-19",
+          "author": {
+            "@type": "Person",
+            "name": "Touseef Shaik",
+            "url": "https://touseefshaik.com/about/"
+          },
+          "publisher": {
+            "@type": "Person",
+            "name": "Touseef Shaik",
+            "url": "https://touseefshaik.com/"
+          },
+          "image": "https://touseefshaik.com/assets/images/og-image.jpg"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://touseefshaik.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Evals",
+              "item": "https://touseefshaik.com/evals/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "The Enterprise LLM Eval Map",
+              "item": "https://touseefshaik.com/evals/eval-map.html"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
     <header class="site-header">
@@ -242,13 +295,13 @@
                 <span class="brand-text">Touseef Shaik<span class="brand-dot">.</span></span>
             </a>
             <ul class="nav-links">
-                <li><a href="/apps/">Lab</a></li>
+                <li><a href="/apps/">Products</a></li>
                 <li><a href="/learn/">Learn</a></li>
                 <li><a href="/evals/" class="active">Evals</a></li>
                 <li><a href="/interview-prep/">Interview Prep</a></li>
                 <li><a href="/blog/">Blog</a></li>
                 <li><a href="/about/">About</a></li>
-                <li><a href="https://tshaik1990-ba-assistant.hf.space" class="nav-cta" target="_blank" rel="noopener">Try BA Assistant</a></li>
+                <li><a href="https://tshaik1990-ba-assistant.hf.space" data-event="ba_assistant_cta" class="nav-cta" target="_blank" rel="noopener">Try BA Assistant</a></li>
             </ul>
             <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
                 <span class="hamburger-icon"><span></span></span>
@@ -257,6 +310,7 @@
     </header>
 
     <main>
+        <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/evals/">Evals</a></li><li aria-current="page">The Enterprise LLM Eval Map</li></ol></nav>
         <section class="page-intro" style="border-bottom: 1px solid var(--border);">
             <div class="container">
                 <p class="eyebrow">Enterprise LLM Evals &middot; Lesson 1</p>
@@ -269,7 +323,6 @@
             <div class="container">
                 <div class="lesson-content">
 
-<h1>The Enterprise LLM Eval Map</h1>
 <p class="subtitle">Lesson 1 — what enterprise evals are, the 4 families, and why MMLU is not enough</p>
 
 <div class="card">
@@ -416,12 +469,27 @@ Production monitoring:
                 </div>
             </div>
         </section>
+        <section class="author-section" aria-label="About the author">
+            <div class="container">
+                <aside class="author-card">
+                    <img src="/assets/images/profile.webp" alt="" width="72" height="72" loading="lazy">
+                    <div>
+                        <p class="author-kicker">Written by</p>
+                        <h2>Touseef Shaik</h2>
+                        <p>Product Owner and builder of practical AI tools for Business Analysts, Product Owners, and delivery teams.</p>
+                        <p class="author-dates">Published <time datetime="2026-06-29">June 29, 2026</time> · Updated <time datetime="2026-07-19">July 19, 2026</time> · <a href="/about/">About Touseef</a></p>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+
 
         <section class="cta-strip">
             <div class="container">
                 <h2>Want to see these patterns in action?</h2>
-                <p>See these eval patterns applied to real AI apps in the Lab.</p>
-                <a href="/apps/" class="btn btn-primary">Explore the Lab &rarr;</a>
+                <p>See these eval patterns applied to real AI apps in the product collection.</p>
+                <a href="/apps/" class="btn btn-primary">Explore Products &rarr;</a>
                 <p style="margin-top: 1.25rem;">
                     <a href="/learn/" class="btn btn-outline">&larr; Back to Deep Expertise Track</a>
                 </p>
@@ -438,7 +506,7 @@ Production monitoring:
                 </div>
                 <nav class="footer-nav">
                     <p class="footer-heading">Explore</p>
-                    <ul><li><a href="/apps/">Lab</a></li><li><a href="/learn/">Learn</a></li><li><a href="/evals/">Evals</a></li><li><a href="/interview-prep/">Interview Prep</a></li><li><a href="/resources/">Resources</a></li><li><a href="/blog/">Blog</a></li><li><a href="/start-here/">Start Here</a></li></ul>
+                    <ul><li><a href="/apps/">Products</a></li><li><a href="/learn/">Learn</a></li><li><a href="/evals/">Evals</a></li><li><a href="/interview-prep/">Interview Prep</a></li><li><a href="/resources/">Resources</a></li><li><a href="/blog/">Blog</a></li><li><a href="/start-here/">Start Here</a></li></ul>
                 </nav>
                 <nav class="footer-nav">
                     <p class="footer-heading">Connect</p>
@@ -452,11 +520,12 @@ Production monitoring:
                 <div class="footer-cta">
                     <p class="footer-heading">Try BA Assistant</p>
                     <p>Turn messy requirements into structured specs, user stories, and diagrams in under 60 seconds.</p>
-                    <a href="https://tshaik1990-ba-assistant.hf.space" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Start Free &rarr;</a>
+                    <a href="https://tshaik1990-ba-assistant.hf.space" data-event="ba_assistant_cta" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Start Free &rarr;</a>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Touseef Shaik. All tools free. Building in public.</p>
+                <p class="footer-legal"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></p>
             </div>
         </div>
         <div class="visitor-counter">

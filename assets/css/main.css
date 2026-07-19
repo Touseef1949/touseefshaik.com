@@ -104,6 +104,123 @@ em, .accent-word {
     padding: 0 32px;
 }
 
+/* Breadcrumbs and authorship metadata */
+.breadcrumbs {
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-secondary);
+}
+
+.breadcrumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 12px 32px;
+    list-style: none;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--fg-muted);
+}
+
+.breadcrumbs li:not(:last-child)::after {
+    content: '/';
+    margin-left: 8px;
+    color: var(--border-strong);
+}
+
+.breadcrumbs a {
+    color: var(--fg-muted);
+}
+
+.breadcrumbs a:hover {
+    color: var(--accent);
+}
+
+.footer-legal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.footer-legal a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.author-section {
+    padding: 40px 0;
+    background: var(--bg-secondary);
+}
+
+.author-card {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 20px;
+    align-items: start;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+}
+
+.author-card img {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+}
+
+.author-card h2 {
+    margin: 2px 0 6px;
+    font-size: 1.35rem;
+}
+
+.author-card p {
+    margin: 0;
+    color: var(--fg-muted);
+    font-size: 0.9375rem;
+}
+
+.author-card .author-kicker,
+.author-card .author-dates {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+}
+
+.author-card .author-kicker {
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.author-card .author-dates {
+    margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+    .breadcrumbs ol {
+        padding: 10px 20px;
+        font-size: 0.75rem;
+    }
+
+    .author-card {
+        grid-template-columns: 52px 1fr;
+        gap: 14px;
+        padding: 18px;
+    }
+
+    .author-card img {
+        width: 52px;
+        height: 52px;
+    }
+}
+
 /* ========================================
    HEADER / NAV
 ========================================== */
@@ -557,6 +674,324 @@ main > section:last-of-type {
     letter-spacing: 0.08em;
     text-transform: uppercase;
     margin-bottom: 14px;
+}
+
+/* Product proof and visitor paths */
+.proof-section {
+    background: var(--bg-secondary);
+}
+
+.proof-header {
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.proof-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 110px minmax(0, 1.25fr);
+    gap: 24px;
+    align-items: stretch;
+}
+
+.proof-before,
+.proof-report {
+    padding: 28px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+}
+
+.proof-before {
+    background: var(--bg-card);
+}
+
+.proof-before blockquote {
+    margin: 18px 0 0;
+    color: var(--fg-muted);
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    line-height: 1.55;
+}
+
+.proof-report {
+    background: var(--fg-primary);
+    color: var(--bg-primary);
+}
+
+.proof-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.proof-report .proof-label {
+    color: var(--accent-light);
+}
+
+.proof-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.proof-flow::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--accent);
+    transform-origin: left;
+    animation: proof-flow 2.4s ease-in-out infinite;
+}
+
+.proof-flow::after {
+    content: '›';
+    position: absolute;
+    right: -2px;
+    font-size: 2rem;
+}
+
+.proof-flow span {
+    position: relative;
+    z-index: 1;
+    padding: 5px 8px;
+    background: var(--bg-secondary);
+}
+
+@keyframes proof-flow {
+    0%, 20% { transform: scaleX(0); opacity: 0.35; }
+    65%, 100% { transform: scaleX(1); opacity: 1; }
+}
+
+.report-title {
+    margin: 14px 0 20px;
+    color: var(--bg-primary);
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    line-height: 1.25;
+}
+
+.report-summary {
+    display: grid;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.report-summary span {
+    color: var(--dark-light);
+    font-size: 0.875rem;
+}
+
+.report-summary strong {
+    display: inline-block;
+    min-width: 28px;
+    color: var(--accent-light);
+    font-family: var(--font-mono);
+}
+
+.proof-report ul {
+    margin: 0;
+    padding-left: 18px;
+    color: var(--dark-muted);
+    font-size: 0.875rem;
+}
+
+.proof-report li + li {
+    margin-top: 6px;
+}
+
+.proof-outcome {
+    max-width: 860px;
+    margin: 32px auto 0;
+    text-align: center;
+}
+
+.proof-outcome > p {
+    color: var(--fg-muted);
+}
+
+.proof-outcome .proof-caveat {
+    margin-top: 8px;
+    font-size: 0.8125rem;
+}
+
+.proof-outcome .hero-ctas {
+    justify-content: center;
+    margin: 22px 0 0;
+}
+
+.path-section {
+    padding-top: 64px;
+    padding-bottom: 64px;
+}
+
+.path-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.path-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 260px;
+    padding: 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    color: var(--fg-primary);
+}
+
+.path-card:hover {
+    border-color: var(--fg-primary);
+    color: var(--fg-primary);
+}
+
+.path-card-primary {
+    background: var(--fg-primary);
+    color: var(--bg-primary);
+    border-color: var(--fg-primary);
+}
+
+.path-card-primary:hover,
+.path-card-primary h3 {
+    color: var(--bg-primary);
+}
+
+.path-number {
+    margin-bottom: 26px;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+}
+
+.path-card-primary .path-number,
+.path-card-primary .path-link {
+    color: var(--accent-light);
+}
+
+.path-card h3 {
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.path-card p {
+    color: var(--fg-muted);
+    font-size: 0.9rem;
+}
+
+.path-card-primary p {
+    color: var(--dark-muted);
+}
+
+.path-link {
+    margin-top: auto;
+    padding-top: 24px;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+}
+
+.collection-heading {
+    margin-bottom: 18px;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.compact-product-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.archive-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 32px;
+    align-items: center;
+    margin-top: 40px;
+    padding: 28px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+}
+
+.archive-panel h3 {
+    margin: 8px 0;
+    font-size: 1.4rem;
+}
+
+.archive-panel p:last-child {
+    color: var(--fg-muted);
+}
+
+@media (max-width: 900px) {
+    .proof-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .proof-flow {
+        min-height: 70px;
+    }
+
+    .proof-flow::before {
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 2px;
+        height: auto;
+        transform-origin: top;
+        animation-name: proof-flow-mobile;
+    }
+
+    .proof-flow::after {
+        right: auto;
+        bottom: -4px;
+        transform: rotate(90deg);
+    }
+
+    @keyframes proof-flow-mobile {
+        0%, 20% { transform: scaleY(0); opacity: 0.35; }
+        65%, 100% { transform: scaleY(1); opacity: 1; }
+    }
+
+    .path-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .path-grid,
+    .compact-product-grid,
+    .archive-panel {
+        grid-template-columns: 1fr;
+    }
+
+    .path-card {
+        min-height: 220px;
+    }
+
+    .archive-panel .btn {
+        justify-self: start;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .proof-flow::before {
+        animation: none;
+        transform: none;
+    }
 }
 
 .newsletter-section {
