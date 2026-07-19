@@ -131,7 +131,8 @@ test('homepage proves the product, separates archives, and exposes four measurab
   assert.equal((html.match(/class="path-card(?: |")/g) || []).length, 4);
   assert.equal((html.match(/data-event="path_[^"]+"/g) || []).length, 4);
   assert.match(script, /site:conversion/);
-  assert.match(script, /window\.plausible/);
+  assert.match(script, /fetch\('\/api\/events'/);
+  assert.match(script, /keepalive: true/);
 });
 
 test('important internal links resolve to local files', () => {

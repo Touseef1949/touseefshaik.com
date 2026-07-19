@@ -161,11 +161,15 @@ document.addEventListener('click', function(event) {
 
     window.dispatchEvent(new CustomEvent('site:conversion', { detail }));
 
-    // If a privacy-friendly analytics provider is configured later, it can
-    // expose this standard function without changing the page markup.
-    if (typeof window.plausible === 'function') {
-        window.plausible(detail.name, { props: { path: detail.path } });
-    }
+    void fetch('/api/events', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(detail),
+        credentials: 'omit',
+        keepalive: true,
+    }).catch(function() {
+        // Measurement must never interrupt navigation or surface an error.
+    });
 });
 
 // ============================================
