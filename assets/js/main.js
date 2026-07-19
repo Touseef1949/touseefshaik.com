@@ -126,13 +126,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
     
-    // Close menu on resize past mobile breakpoint
-    let lastWidth = window.innerWidth;
-    window.addEventListener('resize', function() {
-        if (lastWidth <= 768 && window.innerWidth > 768) {
-            setOpen(false);
-        }
-        lastWidth = window.innerWidth;
+    // Close menu when the viewport crosses out of the mobile breakpoint.
+    const mobileViewport = window.matchMedia('(max-width: 768px)');
+    mobileViewport.addEventListener('change', function(event) {
+        if (!event.matches) setOpen(false);
     });
 })();
 
