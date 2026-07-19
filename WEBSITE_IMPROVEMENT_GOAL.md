@@ -103,7 +103,7 @@ These character limits are review heuristics, not Google ranking rules. Titles s
   - Learn AI agent patterns
   - Study enterprise LLM evals
   - Prepare for an AI Product Owner interview
-- [ ] Track clicks on the main BA Assistant CTAs and visitor-path choices.
+- [x] Track clicks on the main BA Assistant CTAs and visitor-path choices.
 
 ### Phase 3 acceptance criteria
 
@@ -250,3 +250,13 @@ Add new entries below rather than rewriting prior entries.
 - Verified a clean browser console. Production exposes six `ba_assistant_cta` hooks and one hook for each of the four visitor paths.
 - Confirmed Cloudflare automatically injects its privacy-first Web Analytics/RUM beacon. Cloudflare's current Web Analytics documentation covers page views and performance metrics but does not support custom event integrations with the beacon endpoint, so CTA click collection still requires an authenticated Cloudflare event pipeline or another explicitly selected provider.
 - Search Console query and landing-page reports are still processing after first-time verification. No demand-based content cluster was invented while those reports are empty.
+
+### 2026-07-19 — Privacy-safe conversion measurement deployed
+
+- Authenticated Cloudflare's official Wrangler CLI and confirmed the `touseefshaik.com` zone is proxied through Cloudflare.
+- Created a same-origin Worker at `/api/events` and a D1 database that stores only UTC date, one of five allowlisted event names, page path, aggregate count, and last-update time. It does not store cookies, user identifiers, IP addresses, user agents, referrers, or raw click rows.
+- Added a non-blocking `fetch()` with `keepalive` to the existing `data-event` click contract and refreshed the JavaScript cache key on all 52 pages.
+- Added Worker tests for D1 health, accepted events, and rejected cross-origin or unknown events. The complete suite now passes 10/10 tests, and the Wrangler deployment dry run passes.
+- Deployed Worker version `e8fbb3a7-681b-4340-82c8-fbee52ff0511`, merged website pull request #11, and confirmed the GitHub Pages deployment succeeded.
+- Verified production end to end: health returned HTTP 200 with D1 reachable, a cross-origin event returned HTTP 403, and a real browser click on “Learn AI agent patterns” created the aggregate `date=2026-07-19, event=path_agent_patterns, path=/, count=1`. The separate synthetic deployment row was removed after verification.
+- Rechecked Search Console after deployment. It still reports “Processing data, please check again in a day or so”; Export and the Queries/Pages tabs remain disabled and the report contains no data. Query export and demand-based content clusters remain intentionally incomplete until Google supplies evidence.
