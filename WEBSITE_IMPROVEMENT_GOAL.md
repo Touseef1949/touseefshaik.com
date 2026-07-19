@@ -77,9 +77,9 @@ These character limits are review heuristics, not Google ranking rules. Titles s
 - [x] Review the 24 longest titles for unnecessary repeated suffixes and front-load the primary topic.
 - [x] Rewrite genuinely weak descriptions for clarity and click appeal without keyword stuffing.
 - [x] Validate structured data with Google's Rich Results Test or Schema.org validator.
-- [ ] Verify Google Search Console through HTML or DNS.
-- [ ] Submit `https://touseefshaik.com/sitemap.xml` in Search Console.
-- [ ] Confirm indexing status and real-user Core Web Vitals in Search Console.
+- [x] Verify Google Search Console through HTML or DNS.
+- [x] Submit `https://touseefshaik.com/sitemap.xml` in Search Console.
+- [x] Confirm indexing status and real-user Core Web Vitals in Search Console.
 
 ### Phase 2 acceptance criteria
 
@@ -232,3 +232,12 @@ Add new entries below rather than rewriting prior entries.
 - Added `CONTENT_OPPORTUNITIES.md` to record unanswered visitor questions without misrepresenting them as Search Console demand. Topic selection remains pending until verified query data exists.
 - Confirmed Netlify Analytics is not enabled and the Cloudflare account is not authenticated in the in-app browser. Production click collection therefore still requires an authorized analytics-provider setup.
 - A fresh PageSpeed Insights request was attempted, but the public API quota was exhausted. Post-deployment Lighthouse remains required.
+
+### 2026-07-19 — Production deployment and Search Console setup
+
+- Published the validated website changes through GitHub pull request #6 and confirmed the GitHub Pages deployment completed successfully.
+- Verified the `https://touseefshaik.com/` Search Console property through the deployed HTML tag.
+- Submitted `https://touseefshaik.com/sitemap.xml`; Search Console reports `Success` and 52 discovered pages.
+- Confirmed the Page indexing report is processing newly available data. The Core Web Vitals report is accessible and reports insufficient 90-day usage data for both mobile and desktop rather than an implementation error.
+- Re-crawled production after deployment: all 52 sitemap URLs return HTTP 200 and a fabricated URL returns HTTP 404.
+- A cold production Lighthouse run exposed Google Fonts on the critical rendering path. Changed the font stylesheet to load without blocking first paint and removed a synchronous viewport read from the mobile navigation script. Local Lighthouse now scores 100 in Performance, Accessibility, Best Practices, and SEO on both mobile and desktop; production verification follows deployment of this performance patch.
