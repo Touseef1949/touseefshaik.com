@@ -8,7 +8,7 @@
     <link rel="canonical" href="https://touseefshaik.com/learn/langchain-agents.html">
     <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
     <meta property="og:title" content="LangChain Agents — Deep Expertise Track | Touseef Shaik">
-    <meta property="og:description" content="What LangChain does for you vs what you now know how to do yourself">
+    <meta property="og:description" content="What LangChain does for you vs what you now know how to do yourself — Lesson 3 of the Deep Expertise Track on AI Agent Architecture.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://touseefshaik.com/learn/langchain-agents.html">
     <meta property="og:image" content="https://touseefshaik.com/assets/images/og-image.jpg">
@@ -232,6 +232,59 @@
         .lesson-content pre { font-size: 0.75rem; }
     }
     </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "TechArticle",
+          "headline": "LangChain Agents",
+          "description": "What LangChain does for you vs what you now know how to do yourself — Lesson 3 of the Deep Expertise Track on AI Agent Architecture.",
+          "url": "https://touseefshaik.com/learn/langchain-agents.html",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://touseefshaik.com/learn/langchain-agents.html"
+          },
+          "datePublished": "2026-06-28",
+          "dateModified": "2026-07-19",
+          "author": {
+            "@type": "Person",
+            "name": "Touseef Shaik",
+            "url": "https://touseefshaik.com/about/"
+          },
+          "publisher": {
+            "@type": "Person",
+            "name": "Touseef Shaik",
+            "url": "https://touseefshaik.com/"
+          },
+          "image": "https://touseefshaik.com/assets/images/og-image.jpg"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://touseefshaik.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Learn",
+              "item": "https://touseefshaik.com/learn/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "LangChain Agents",
+              "item": "https://touseefshaik.com/learn/langchain-agents.html"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
     <header class="site-header">
@@ -240,13 +293,13 @@
                 <span class="brand-text">Touseef Shaik<span class="brand-dot">.</span></span>
             </a>
             <ul class="nav-links">
-                <li><a href="/apps/">Lab</a></li>
+                <li><a href="/apps/">Products</a></li>
                 <li><a href="/learn/" class="active">Learn</a></li>
                 <li><a href="/evals/">Evals</a></li>
                 <li><a href="/interview-prep/">Interview Prep</a></li>
                 <li><a href="/blog/">Blog</a></li>
                 <li><a href="/about/">About</a></li>
-                <li><a href="https://tshaik1990-ba-assistant.hf.space" class="nav-cta" target="_blank" rel="noopener">Try BA Assistant</a></li>
+                <li><a href="https://tshaik1990-ba-assistant.hf.space" data-event="ba_assistant_cta" class="nav-cta" target="_blank" rel="noopener">Try BA Assistant</a></li>
             </ul>
             <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
                 <span class="hamburger-icon"><span></span></span>
@@ -255,6 +308,7 @@
     </header>
 
     <main>
+        <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/learn/">Learn</a></li><li aria-current="page">LangChain Agents</li></ol></nav>
         <section class="page-intro" style="border-bottom: 1px solid var(--border);">
             <div class="container">
                 <p class="eyebrow">Deep Expertise Track &middot; Lesson 3</p>
@@ -266,7 +320,6 @@
         <section style="padding: 0; background: transparent;">
             <div class="container">
                 <div class="lesson-content">
-<h1>LangChain Agents: Framework Abstractions</h1>
 <p class="subtitle">Lesson 3 — what LangChain does for you vs what you now know how to do yourself</p>
 
 <div class="card">
@@ -446,12 +499,27 @@ def get_stock_price(ticker: str) -> str:
                 </div>
             </div>
         </section>
+        <section class="author-section" aria-label="About the author">
+            <div class="container">
+                <aside class="author-card">
+                    <img src="/assets/images/profile.webp" alt="" width="72" height="72" loading="lazy">
+                    <div>
+                        <p class="author-kicker">Written by</p>
+                        <h2>Touseef Shaik</h2>
+                        <p>Product Owner and builder of practical AI tools for Business Analysts, Product Owners, and delivery teams.</p>
+                        <p class="author-dates">Published <time datetime="2026-06-28">June 28, 2026</time> · Updated <time datetime="2026-07-19">July 19, 2026</time> · <a href="/about/">About Touseef</a></p>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+
 
         <section class="cta-strip">
             <div class="container">
                 <h2>Want to see these patterns in action?</h2>
                 <p>Explore the live apps built with these agent architectures.</p>
-                <a href="/apps/" class="btn btn-primary">Explore the Lab &rarr;</a>
+                <a href="/apps/" class="btn btn-primary">Explore Products &rarr;</a>
                 <p style="margin-top: 1.25rem;">
                     <a href="/learn/" class="btn btn-outline">&larr; Back to Deep Expertise Track</a>
                 </p>
@@ -468,7 +536,7 @@ def get_stock_price(ticker: str) -> str:
                 </div>
                 <nav class="footer-nav">
                     <p class="footer-heading">Explore</p>
-                    <ul><li><a href="/apps/">Lab</a></li><li><a href="/learn/">Learn</a></li><li><a href="/evals/">Evals</a></li><li><a href="/interview-prep/">Interview Prep</a></li><li><a href="/resources/">Resources</a></li><li><a href="/blog/">Blog</a></li><li><a href="/start-here/">Start Here</a></li></ul>
+                    <ul><li><a href="/apps/">Products</a></li><li><a href="/learn/">Learn</a></li><li><a href="/evals/">Evals</a></li><li><a href="/interview-prep/">Interview Prep</a></li><li><a href="/resources/">Resources</a></li><li><a href="/blog/">Blog</a></li><li><a href="/start-here/">Start Here</a></li></ul>
                 </nav>
                 <nav class="footer-nav">
                     <p class="footer-heading">Connect</p>
@@ -482,11 +550,12 @@ def get_stock_price(ticker: str) -> str:
                 <div class="footer-cta">
                     <p class="footer-heading">Try BA Assistant</p>
                     <p>Turn messy requirements into structured specs, user stories, and diagrams in under 60 seconds.</p>
-                    <a href="https://tshaik1990-ba-assistant.hf.space" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Start Free &rarr;</a>
+                    <a href="https://tshaik1990-ba-assistant.hf.space" data-event="ba_assistant_cta" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Start Free &rarr;</a>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Touseef Shaik. All tools free. Building in public.</p>
+                <p class="footer-legal"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></p>
             </div>
         </div>
         <div class="visitor-counter">

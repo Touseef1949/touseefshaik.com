@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    4|    <meta charset="UTF-8">
+    <meta charset="UTF-8">
         <meta name="robots" content="index, follow">
         <link rel="canonical" href="https://touseefshaik.com/apps/">
         <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Three public AI flagships plus experiments with clearly labelled runtime status: BA Assistant, Stock Research Assistant, BA Jira Agent, and more.">
     <meta property="og:title" content="AI Products & Experiments | touseefshaik.com">
-    <meta property="og:description" content="Three public AI flagships plus experiments with clearly labelled runtime status, demos, and source links.">
+    <meta property="og:description" content="Three public AI flagships plus experiments with clearly labelled runtime status: BA Assistant, Stock Research Assistant, BA Jira Agent, and more.">
     <title>AI Products & Experiments | touseefshaik.com</title>
     <link rel="stylesheet" href="/assets/css/main.css?v=20260706c">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,13 +27,13 @@
                 <span class="brand-text">Touseef Shaik<span class="brand-dot">.</span></span>
             </a>
             <ul class="nav-links">
-                <li><a href="/apps/" class="active">Lab</a></li>
+                <li><a href="/apps/" class="active">Products</a></li>
                 <li><a href="/learn/">Learn</a></li>
                 <li><a href="/evals/">Evals</a></li>
                 <li><a href="/interview-prep/">Interview Prep</a></li>
                 <li><a href="/blog/">Blog</a></li>
                 <li><a href="/about/">About</a></li>
-                <li><a href="https://tshaik1990-ba-assistant.hf.space" class="nav-cta" target="_blank" rel="noopener">Try BA Assistant</a></li>
+                <li><a href="https://tshaik1990-ba-assistant.hf.space" data-event="ba_assistant_cta" class="nav-cta" target="_blank" rel="noopener">Try BA Assistant</a></li>
             </ul>
                     <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
                 <span class="hamburger-icon"><span></span></span>
@@ -45,8 +45,8 @@
         <!-- PAGE INTRO -->
         <section class="page-intro">
             <div class="container">
-                <p class="eyebrow">Touseef Shaik Labs</p>
-                <h1>AI Labs — Products &amp; Experiments</h1>
+                <p class="eyebrow">Touseef Shaik Products</p>
+                <h1>AI Products &amp; Experiments</h1>
                 <p>Three public flagships plus BA/PO workflow experiments. Each project shows its current runtime status, with demos and source links where the hosted app is unavailable. <a href="/portfolio/">See how all 22 repositories are classified →</a></p>
             </div>
         </section>
@@ -65,7 +65,7 @@
                         <p class="app-desc">Multi-agent AI · 6 modes · Document upload · Interactive Q&A · PDF export · Fintech templates. Default modes use a single fast senior agent; Enterprise mode optionally coordinates 5 specialist agents (requirements extraction → backlog structuring → architecture design → risk assessment → diagram generation). The output is Confluence/Notion-ready documentation with Mermaid.js diagrams. Powered by Streamlit on Hugging Face Spaces.</p>
                         <p class="app-pattern"><strong>Pattern:</strong> Multi-Agent Pipeline → Structured Output</p>
                         <p class="app-future">Future: Compliance Audit Generator, Sprint Retrospective Synthesizer</p>
-                        <a href="https://tshaik1990-ba-assistant.hf.space" target="_blank" rel="noopener" class="btn btn-primary">Open live app →</a>
+                        <a href="https://tshaik1990-ba-assistant.hf.space" data-event="ba_assistant_cta" target="_blank" rel="noopener" class="btn btn-primary">Open live app →</a>
                         <a href="/apps/ba-assistant.html" class="app-link">Explore details →</a>
                         <a href="https://github.com/Touseef1949/BA_Assistant" target="_blank" rel="noopener" class="app-link">GitHub repo →</a>
                         <a href="https://github.com/Touseef1949/BA_Assistant/releases/tag/v0.1.2" target="_blank" rel="noopener" class="app-link">Release v0.1.2 →</a>
@@ -124,7 +124,7 @@
         <section>
             <div class="container">
                 <div class="section-header">
-                    <h2>BA/PO Workflow</h2>
+                    <h2 id="experiment-archive">Experiment Archive</h2>
                 </div>
                 <div class="app-grid">
                     <div class="app-card">
@@ -144,7 +144,7 @@
         <section>
             <div class="container">
                 <div class="section-header">
-                    <h2>Labs &middot; Experimental</h2>
+                    <h2>More archived experiments</h2>
                 </div>
                 <div class="app-grid">
                     <!-- Sarvam Text to Speech -->
@@ -205,7 +205,7 @@
                 </div>
                 <nav class="footer-nav">
                     <p class="footer-heading">Explore</p>
-                    <ul><li><a href="/apps/">Lab</a></li><li><a href="/learn/">Learn</a></li><li><a href="/evals/">Evals</a></li><li><a href="/interview-prep/">Interview Prep</a></li><li><a href="/resources/">Resources</a></li><li><a href="/blog/">Blog</a></li><li><a href="/start-here/">Start Here</a></li></ul>
+                    <ul><li><a href="/apps/">Products</a></li><li><a href="/learn/">Learn</a></li><li><a href="/evals/">Evals</a></li><li><a href="/interview-prep/">Interview Prep</a></li><li><a href="/resources/">Resources</a></li><li><a href="/blog/">Blog</a></li><li><a href="/start-here/">Start Here</a></li></ul>
                 </nav>
                 <nav class="footer-nav">
                     <p class="footer-heading">Connect</p>
@@ -219,11 +219,12 @@
                 <div class="footer-cta">
                     <p class="footer-heading">Try BA Assistant</p>
                     <p>Turn messy requirements into structured specs, user stories, and diagrams in under 60 seconds.</p>
-                    <a href="https://tshaik1990-ba-assistant.hf.space" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Start Free →</a>
+                    <a href="https://tshaik1990-ba-assistant.hf.space" data-event="ba_assistant_cta" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Start Free →</a>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Touseef Shaik. All tools free. Building in public.</p>
+                <p class="footer-legal"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></p>
             </div>
         </div>
         <div class="visitor-counter">

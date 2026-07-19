@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    4|    <meta charset="UTF-8">
+    <meta charset="UTF-8">
         <meta name="robots" content="index, follow">
         <link rel="canonical" href="https://touseefshaik.com/apps/ba-assistant.html">
         <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
@@ -19,6 +19,48 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "BA Assistant — AI-powered requirement analysis for fintech BAs & Product Owners",
+          "description": "BA Assistant turns raw requirements into user stories, risks, architecture notes, and Mermaid diagrams using a 5-agent AI workflow.",
+          "url": "https://touseefshaik.com/apps/ba-assistant.html",
+          "applicationCategory": "BusinessApplication",
+          "author": {
+            "@type": "Person",
+            "name": "Touseef Shaik",
+            "url": "https://touseefshaik.com/about/"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://touseefshaik.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Products",
+              "item": "https://touseefshaik.com/apps/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "BA Assistant — AI-powered requirement analysis for fintech BAs & Product Owners",
+              "item": "https://touseefshaik.com/apps/ba-assistant.html"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
     <header class="site-header">
@@ -27,13 +69,13 @@
                 <span class="brand-text">Touseef Shaik<span class="brand-dot">.</span></span>
             </a>
             <ul class="nav-links">
-                <li><a href="/apps/" class="active">Lab</a></li>
+                <li><a href="/apps/" class="active">Products</a></li>
                 <li><a href="/learn/">Learn</a></li>
                 <li><a href="/evals/">Evals</a></li>
                 <li><a href="/interview-prep/">Interview Prep</a></li>
                 <li><a href="/blog/">Blog</a></li>
                 <li><a href="/about/">About</a></li>
-                <li><a href="https://tshaik1990-ba-assistant.hf.space" class="nav-cta" target="_blank" rel="noopener">Try BA Assistant</a></li>
+                <li><a href="https://tshaik1990-ba-assistant.hf.space" data-event="ba_assistant_cta" class="nav-cta" target="_blank" rel="noopener">Try BA Assistant</a></li>
             </ul>
                     <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
                 <span class="hamburger-icon"><span></span></span>
@@ -42,6 +84,7 @@
     </header>
 
     <main>
+        <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/apps/">Products</a></li><li aria-current="page">BA Assistant — AI-powered requirement analysis for fintech BAs &amp; Product Owners</li></ol></nav>
         <!-- PAGE INTRO -->
         <section class="page-intro">
             <div class="container">
@@ -49,7 +92,7 @@
                 <h1>BA Assistant — AI-powered requirement analysis for fintech BAs &amp; Product Owners</h1>
                 <p>Multi-agent AI for BAs &amp; POs &middot; 6 analysis modes &middot; Document upload &middot; Interactive Q&amp;A &middot; PDF export &middot; Live</p>
                 <p style="max-width:640px;margin:1rem auto;color:var(--text-secondary);">Paste raw requirements or upload a PRD, whiteboard photo, or PDF. BA Assistant analyses it, asks clarifying questions, and generates a 14-section BA/PO report with Mermaid diagrams — all tuned for Indian fintech compliance (RBI, SEBI, KYC, NPCI).</p>
-                <a href="https://tshaik1990-ba-assistant.hf.space" target="_blank" rel="noopener" class="btn btn-primary">Try BA Assistant Free &rarr;</a>
+                <a href="https://tshaik1990-ba-assistant.hf.space" data-event="ba_assistant_cta" target="_blank" rel="noopener" class="btn btn-primary">Try BA Assistant Free &rarr;</a>
                 <a href="https://github.com/Touseef1949/BA_Assistant/releases/tag/v0.1.2" target="_blank" rel="noopener" class="btn btn-outline">Release v0.1.2 &rarr;</a>
             </div>
         </section>
@@ -69,7 +112,7 @@
 
                         <h2>How It Works</h2>
                         <h3>The Agent Pipeline</h3>
-                        <p>Enterprise mode uses five specialist AI agents in a pipeline, each powered by DeepSeek V4 Flash: requirements extraction → backlog structuring → architecture design → risk assessment → diagram generation. A Team coordinator (DeepSeek V4 Pro) orchestrates them, and Gemini 3.5 Flash handles document and image extraction. Default modes (Comprehensive, User Stories, Tech Architecture, etc.) skip the orchestrator and use the most relevant specialist directly.</p>
+                        <p>Enterprise mode uses five specialist AI agents in a pipeline, each powered by DeepSeek V4 Flash: requirements extraction → backlog structuring → architecture design → risk assessment → diagram generation. A Team coordinator (DeepSeek V4 Pro) orchestrates them, and Gemini 3.5 Flash handles document and image extraction. Default modes (Comprehensive, User Stories, Tech Architecture, etc.) skip the orchestrator and use the most relevant specialist directly. See the <a href="/how-it-works/ba-assistant.html">step-by-step BA Assistant workflow</a> or compare the underlying <a href="/patterns/">agent architecture patterns</a>.</p>
                         <ol>
                             <li><strong>BA Requirements Analyst</strong> — Structures raw needs into clear functional &amp; non-functional requirements. Extracts entities, business rules, and constraints.</li>
                             <li><strong>Product Owner Analyst</strong> — Converts requirements into epics, features, and user stories with MoSCoW prioritization and backlog structure.</li>
@@ -122,6 +165,7 @@
                             <li>Mermaid diagrams (flowchart, sequence, state)</li>
                             <li>Executive summary and implementation roadmap</li>
                         </ul>
+                        <p>Prefer to structure the first draft yourself? Start with the free <a href="/resources/">BA/PO templates and prompt guides</a>, then use BA Assistant to review gaps and expand the result.</p>
 
                         <h2>Tech Stack &amp; Running Costs</h2>
                         <table>
@@ -185,7 +229,7 @@
                             <span class="meta-tag">Fintech</span>
                         </div>
 
-                        <a href="https://tshaik1990-ba-assistant.hf.space" target="_blank" rel="noopener" class="btn btn-primary btn-block">Try BA Assistant Free &rarr;</a>
+                        <a href="https://tshaik1990-ba-assistant.hf.space" data-event="ba_assistant_cta" target="_blank" rel="noopener" class="btn btn-primary btn-block">Try BA Assistant Free &rarr;</a>
 
                         <h3 style="margin-top:1.5rem;">Who It's For</h3>
                         <ul style="list-style:none;padding:0;">
@@ -240,7 +284,7 @@
             <div class="container">
                 <h2>Ready to accelerate your requirements process?</h2>
                 <p>Free during beta. No login. No sign-up. All 5 agents. Indian fintech compliance built in.</p>
-                <a href="https://tshaik1990-ba-assistant.hf.space" target="_blank" rel="noopener" class="btn btn-primary">Try BA Assistant Free &rarr;</a>
+                <a href="https://tshaik1990-ba-assistant.hf.space" data-event="ba_assistant_cta" target="_blank" rel="noopener" class="btn btn-primary">Try BA Assistant Free &rarr;</a>
             </div>
         </section>
     </main>
@@ -254,7 +298,7 @@
                 </div>
                 <nav class="footer-nav">
                     <p class="footer-heading">Explore</p>
-                    <ul><li><a href="/apps/">Lab</a></li><li><a href="/learn/">Learn</a></li><li><a href="/evals/">Evals</a></li><li><a href="/interview-prep/">Interview Prep</a></li><li><a href="/resources/">Resources</a></li><li><a href="/blog/">Blog</a></li><li><a href="/start-here/">Start Here</a></li></ul>
+                    <ul><li><a href="/apps/">Products</a></li><li><a href="/learn/">Learn</a></li><li><a href="/evals/">Evals</a></li><li><a href="/interview-prep/">Interview Prep</a></li><li><a href="/resources/">Resources</a></li><li><a href="/blog/">Blog</a></li><li><a href="/start-here/">Start Here</a></li></ul>
                 </nav>
                 <nav class="footer-nav">
                     <p class="footer-heading">Connect</p>
@@ -268,11 +312,12 @@
                 <div class="footer-cta">
                     <p class="footer-heading">Try BA Assistant</p>
                     <p>Turn messy requirements into structured specs, user stories, and diagrams in under 60 seconds.</p>
-                    <a href="https://tshaik1990-ba-assistant.hf.space" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Start Free →</a>
+                    <a href="https://tshaik1990-ba-assistant.hf.space" data-event="ba_assistant_cta" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Start Free →</a>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Touseef Shaik. All tools free. Building in public.</p>
+                <p class="footer-legal"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></p>
             </div>
         </div>
         <div class="visitor-counter">
