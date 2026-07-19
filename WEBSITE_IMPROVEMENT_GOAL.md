@@ -241,3 +241,12 @@ Add new entries below rather than rewriting prior entries.
 - Confirmed the Page indexing report is processing newly available data. The Core Web Vitals report is accessible and reports insufficient 90-day usage data for both mobile and desktop rather than an implementation error.
 - Re-crawled production after deployment: all 52 sitemap URLs return HTTP 200 and a fabricated URL returns HTTP 404.
 - A cold production Lighthouse run exposed Google Fonts on the critical rendering path. Changed the font stylesheet to load without blocking first paint and removed a synchronous viewport read from the mobile navigation script. Local Lighthouse now scores 100 in Performance, Accessibility, Best Practices, and SEO on both mobile and desktop; production verification follows deployment of this performance patch.
+
+### 2026-07-19 — Final production performance and measurement audit
+
+- Published the performance follow-ups through pull requests #7, #8, and #9. The homepage now renders its minified final stylesheet in the initial document, while remote typography activates after first paint.
+- Final production Lighthouse: mobile 99 Performance / 100 Accessibility / 100 Best Practices / 100 SEO, with 2.02 s LCP, 12 ms TBT, and 0.004 CLS; desktop 99 / 100 / 100 / 100, with 0.89 s LCP, 0 ms TBT, and 0.009 CLS.
+- Verified the deployed desktop layout and the real mobile Lighthouse capture. The mobile navigation control is visible, the page has no horizontal overflow, and the proof, four visitor paths, and experiment archive retain the intended hierarchy.
+- Verified a clean browser console. Production exposes six `ba_assistant_cta` hooks and one hook for each of the four visitor paths.
+- Confirmed Cloudflare automatically injects its privacy-first Web Analytics/RUM beacon. Cloudflare's current Web Analytics documentation covers page views and performance metrics but does not support custom event integrations with the beacon endpoint, so CTA click collection still requires an authenticated Cloudflare event pipeline or another explicitly selected provider.
+- Search Console query and landing-page reports are still processing after first-time verification. No demand-based content cluster was invented while those reports are empty.
