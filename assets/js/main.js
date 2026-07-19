@@ -9,6 +9,20 @@
 const NEWSLETTER_API_KEY = '4318bdce-37b8-4331-bfb4-1f835d5a2fe3';
 const NEWSLETTER_API_URL = 'https://api.buttondown.email/v1/subscribers';
 
+// Apply remote typography after the first rendered frame so font downloads do
+// not delay meaningful content. The noscript fallback keeps fonts available
+// when JavaScript is disabled.
+const fontStylesheet = document.querySelector('[data-font-stylesheet]');
+if (fontStylesheet) {
+    window.addEventListener('load', function() {
+        window.requestAnimationFrame(function() {
+            window.requestAnimationFrame(function() {
+                fontStylesheet.media = 'all';
+            });
+        });
+    }, { once: true });
+}
+
 async function submitNewsletter(event) {
     event.preventDefault();
     const form = event.target;
