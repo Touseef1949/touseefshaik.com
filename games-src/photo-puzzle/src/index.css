@@ -1,0 +1,380 @@
+:root {
+  --bg: #fef3e2;
+  --bg-deep: #fbe4c4;
+  --ink: #4a3728;
+  --ink-soft: #8a7362;
+  --card: #ffffff;
+  --coral: #ff8d63;
+  --coral-dark: #e96f45;
+  --green: #6fcf97;
+  --green-dark: #4caf7a;
+  --amber: #ffc857;
+  --amber-dark: #e0a838;
+  --purple: #bb8fce;
+  --purple-dark: #9b6fb0;
+  --shadow: 0 10px 24px rgba(74, 55, 40, 0.14);
+  --shadow-lg: 0 18px 40px rgba(74, 55, 40, 0.22);
+  font: 18px/1.45 'IBM Plex Sans', system-ui, 'Segoe UI', Roboto, sans-serif;
+  color-scheme: light;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #241a12;
+    --bg-deep: #2e2116;
+    --ink: #f6ead9;
+    --ink-soft: #cbb59d;
+    --card: #33261a;
+    --shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 18px 40px rgba(0, 0, 0, 0.5);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  overscroll-behavior: none;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0 0 6px;
+}
+
+p {
+  margin: 0 0 20px;
+  color: var(--ink-soft);
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+/* --- shared big button --- */
+.big-button {
+  appearance: none;
+  border: none;
+  border-radius: 20px;
+  padding: 18px 28px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  background: var(--card);
+  color: var(--ink);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  min-height: 64px;
+}
+.big-button:active {
+  transform: scale(0.96);
+}
+.big-button.primary {
+  background: var(--coral);
+  color: #fff;
+}
+.big-button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+/* --- upload screen --- */
+.upload-screen,
+.difficulty-screen {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+}
+
+.upload-card {
+  max-width: 420px;
+  width: 100%;
+}
+
+.upload-emoji {
+  font-size: 4rem;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.upload-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.upload-status {
+  margin-top: 16px;
+  color: var(--ink-soft);
+}
+
+.upload-error {
+  margin-top: 16px;
+  color: var(--coral-dark);
+  font-weight: 600;
+}
+
+/* --- difficulty screen --- */
+.difficulty-cards {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.difficulty-card {
+  width: 132px;
+  height: 132px;
+  border-radius: 24px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: var(--shadow);
+  color: #fff;
+  transition: transform 0.15s ease;
+}
+.difficulty-card:active {
+  transform: scale(0.94);
+}
+.card-easy {
+  background: linear-gradient(160deg, var(--green), var(--green-dark));
+}
+.card-medium {
+  background: linear-gradient(160deg, var(--amber), var(--amber-dark));
+}
+.card-hard {
+  background: linear-gradient(160deg, var(--purple), var(--purple-dark));
+}
+
+.difficulty-dots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+  max-width: 60px;
+}
+.difficulty-dots .dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.difficulty-label {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.difficulty-preview {
+  margin-top: 32px;
+  width: 160px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+}
+
+/* --- play screen --- */
+.play-screen {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: var(--card);
+  box-shadow: 0 2px 8px rgba(74, 55, 40, 0.08);
+  z-index: 10;
+}
+
+.top-bar-spacer {
+  flex: 1;
+}
+
+.icon-button {
+  appearance: none;
+  border: none;
+  background: var(--bg-deep);
+  border-radius: 14px;
+  width: 48px;
+  height: 48px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-button.active {
+  background: var(--coral);
+}
+
+.surface {
+  position: relative;
+  flex: 1;
+  overflow: auto;
+  padding: 0 16px 16px;
+}
+
+.loading-state {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: var(--ink-soft);
+}
+
+.loading-spinner {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 6px solid var(--bg-deep);
+  border-top-color: var(--coral);
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.board {
+  position: absolute;
+  border-radius: 18px;
+  background: var(--card);
+  box-shadow: inset 0 0 0 2px var(--bg-deep), var(--shadow);
+  overflow: hidden;
+}
+
+.ghost-outline {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.22;
+  pointer-events: none;
+  user-select: none;
+}
+
+.grid-lines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.grid-lines line {
+  stroke: var(--ink);
+  stroke-opacity: 0.08;
+  stroke-width: 1;
+}
+
+.puzzle-piece {
+  position: absolute;
+  left: 0;
+  top: 0;
+  touch-action: none;
+  cursor: grab;
+  filter: drop-shadow(0 3px 6px rgba(74, 55, 40, 0.35));
+  transition: filter 0.15s ease;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+.puzzle-piece.dragging {
+  cursor: grabbing;
+  transform-origin: center;
+  filter: drop-shadow(0 10px 18px rgba(74, 55, 40, 0.45));
+  scale: 1.06;
+}
+.puzzle-piece.placed {
+  cursor: default;
+  filter: drop-shadow(0 1px 2px rgba(74, 55, 40, 0.2));
+  animation: pop 0.32s ease-out;
+}
+
+@keyframes pop {
+  0% {
+    scale: 1;
+  }
+  45% {
+    scale: 1.15;
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+/* --- celebration --- */
+.celebration-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(74, 55, 40, 0.35);
+  z-index: 2000;
+}
+
+.confetti-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.celebration-card {
+  position: relative;
+  background: var(--card);
+  border-radius: 24px;
+  padding: 32px 28px;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  max-width: 320px;
+}
+
+.celebration-emoji {
+  font-size: 3rem;
+  margin-bottom: 8px;
+}
+
+.celebration-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+@media (min-width: 640px) {
+  .celebration-actions {
+    flex-direction: row;
+  }
+}
