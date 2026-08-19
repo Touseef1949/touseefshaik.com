@@ -1,0 +1,17 @@
+{
+  "name": "Photo Puzzle",
+  "short_name": "Puzzle",
+  "description": "A calm, pressure-free photo jigsaw puzzle for little hands.",
+  "start_url": "/games/photo-puzzle/",
+  "scope": "/games/photo-puzzle/",
+  "display": "standalone",
+  "background_color": "#fef3e2",
+  "theme_color": "#fef3e2",
+  "orientation": "any",
+  "icons": [
+    { "src": "/games/photo-puzzle/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/games/photo-puzzle/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/games/photo-puzzle/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "/games/photo-puzzle/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

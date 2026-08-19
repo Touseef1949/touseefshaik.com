@@ -3,3 +3,5 @@ test-results/
 .wrangler/
 package-lock.json
 package.json
+!games-src/**/package.json
+!games-src/**/package-lock.json
