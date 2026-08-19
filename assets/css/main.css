@@ -1146,6 +1146,51 @@ main > section:last-of-type {
     gap: 10px;
 }
 
+/* Chess Garden embedded app */
+.chess-game-section {
+    padding: 40px 0 64px;
+}
+
+.chess-embed-header {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 20px;
+}
+
+.chess-embed-header h2 {
+    margin-bottom: 6px;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+.chess-embed-header p {
+    max-width: 680px;
+    color: var(--fg-muted);
+}
+
+.chess-frame-shell {
+    overflow: hidden;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-lg);
+    background: #f8f4e8;
+}
+
+.chess-game-frame {
+    display: block;
+    width: 100%;
+    height: 1180px;
+    border: 0;
+    background: #f8f4e8;
+}
+
+@media (max-width: 800px) {
+    .chess-game-section { padding-top: 24px; }
+    .chess-embed-header { align-items: stretch; flex-direction: column; }
+    .chess-embed-header .btn { align-self: flex-start; }
+    .chess-game-frame { height: 2200px; }
+}
+
 .apps-cta, .patterns-cta, .stack-cta, .next-cta {
     text-align: center;
     margin-top: 32px;

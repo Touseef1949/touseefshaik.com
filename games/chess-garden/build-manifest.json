@@ -1,0 +1,10 @@
+{
+  "basePath": "/games/chess-garden/",
+  "assets": [
+    "_framework-CXnKph_e.js",
+    "_rolldown-runtime-S-ySWqyJ.js",
+    "app/page.tsx",
+    "node_modules/vinext/dist/shims/layout-segment-context.js",
+    "virtual:vinext-app-browser-entry"
+  ]
+}

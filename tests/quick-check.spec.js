@@ -102,3 +102,16 @@ test('each flagship surface links to its canonical release', async ({ page }) =>
     await expect(page.locator(`a[href="${href}"]`).first()).toBeVisible();
   }
 });
+
+test('Chess Garden is playable from the product page', async ({ page }) => {
+  await page.goto(BASE + '/apps/chess-garden.html');
+
+  await expect(page.getByRole('heading', { name: 'Chess Garden' })).toBeVisible();
+  await expect(page.locator('iframe[title="Play Chess Garden"]')).toBeVisible();
+
+  const game = page.frameLocator('#chess-garden-frame');
+  await expect(game.getByRole('button', { name: 'Little lesson' })).toHaveAttribute('aria-pressed', 'true');
+  await expect(game.getByRole('gridcell')).toHaveCount(64);
+  await game.getByRole('gridcell', { name: 'e2: white Pawn', exact: true }).click();
+  await expect(game.getByRole('gridcell', { name: 'e4: empty, legal move', exact: true })).toBeVisible();
+});
