@@ -37,7 +37,7 @@ function graphTypes(documents) {
 
 test('every sitemap URL maps to one canonical, indexable page', () => {
   const entries = sitemapEntries();
-  assert.equal(entries.length, 52);
+  assert.equal(entries.length, 53);
 
   for (const url of entries) {
     const file = localPath(url);
@@ -92,6 +92,7 @@ test('app pages use breadcrumbs and schema only for live software', () => {
     'apps/ba-assistant.html',
     'apps/ba-jira-agent.html',
     'apps/stock-research-assistant.html',
+    'apps/chess-garden.html',
   ]);
 
   for (const url of sitemapEntries().filter((entry) => /\/apps\/[^/]+\.html$/.test(entry))) {
@@ -148,5 +149,23 @@ test('important internal links resolve to local files', () => {
     }
   }
 
+  assert.deepEqual(missing, []);
+});
+
+test('Chess Garden ships as a complete same-domain app package', () => {
+  const productPage = read('apps/chess-garden.html');
+  const gamePage = read('games/chess-garden/index.html');
+
+  assert.match(productPage, /<iframe[^>]+src="\/games\/chess-garden\/"/);
+  assert.match(gamePage, /<meta name="robots" content="noindex, follow">/);
+  assert.match(gamePage, /<link rel="canonical" href="https:\/\/touseefshaik\.com\/apps\/chess-garden\.html">/);
+  assert.match(gamePage, /aria-pressed="true"/);
+  assert.equal((gamePage.match(/role="gridcell"/g) || []).length, 64);
+
+  const missing = [];
+  for (const match of gamePage.matchAll(/(?:href|src)="(\/games\/chess-garden\/[^"#?]+)"/g)) {
+    const target = match[1].slice(1);
+    if (!fs.existsSync(path.join(ROOT, target))) missing.push(target);
+  }
   assert.deepEqual(missing, []);
 });
